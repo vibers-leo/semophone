@@ -12,7 +12,7 @@ export interface Store {
 // 실제 휴대폰성지 세모폰 매장 데이터 (40개)
 export const stores: Store[] = [
   // 경기도 (20개)
-  { id: 1, name: "휴대폰성지 세모폰 광명6호점", address: "경기도 광명시 광명로 824 1층 (광명동)", phone: "031-1234-5678", region: "경기", lat: 37.4787, lng: 126.8644, images: ['/images/매장/광명6동점/다운로드 (1).jpg'] },
+  { id: 1, name: "휴대폰성지 세모폰 광명6동점", address: "경기도 광명시 광명로 824 1층 (광명동)", phone: "031-1234-5678", region: "경기", lat: 37.4787, lng: 126.8644, images: ['/images/매장/광명6동점/다운로드 (1).jpg'] },
   { id: 2, name: "휴대폰성지 세모폰 광주경안점", address: "경기도 광주시 경안로 13 1층", phone: "031-2345-6789", region: "경기", lat: 37.4291, lng: 127.2571, images: ['/images/매장/광주경안점/다운로드 (1).jpg'] },
   { id: 3, name: "휴대폰성지 세모폰 신중동역점", address: "경기도 부천시 원미구 길주로 288 다운타운빌딩 103호", phone: "032-3456-7890", region: "경기", lat: 37.4858, lng: 126.7996, images: ['/images/매장/신중동역점/다운로드 (1).jpg'] },
   { id: 4, name: "휴대폰성지 세모폰 잼존프라자점", address: "경기도 부천시 원미구 부흥로 466 1층", phone: "032-4567-8901", region: "경기", lat: 37.5034, lng: 126.7831, images: ['/images/매장/잼존프라자점/다운로드 (2).jpg'] },
