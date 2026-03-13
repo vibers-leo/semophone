@@ -20,28 +20,16 @@ export default function Footer() {
         <div className="mb-10">
           <div className="text-xs text-gray-500 mb-2 font-medium">고객센터</div>
           <div className="text-2xl font-black text-gray-900 mb-4">1234-5678</div>
-          <div className="flex flex-col gap-2">
-            <Link
-              href="https://pf.kakao.com/_xxxxxxxxxx"
-              target="_blank"
-              className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-[#FEE500] text-[#000000] rounded-lg text-sm font-bold hover:bg-[#FDD835] transition-all shadow-sm hover:shadow-md"
-            >
-              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 3C6.5 3 2 6.6 2 11c0 2.8 1.9 5.3 4.8 6.7-.2.7-.6 2.1-.7 2.5 0 .3.1.5.3.6.2.1.4 0 .6-.1.3-.1 3.2-2.1 3.8-2.5.7.1 1.4.2 2.1.2 5.5 0 10-3.6 10-8S17.5 3 12 3z"/>
-              </svg>
-              카카오톡 1:1 상담
-            </Link>
-            <Link
-              href="https://pf.kakao.com/_xxxxxxxxxx/friend"
-              target="_blank"
-              className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-white border-2 border-[#FEE500] text-[#000000] rounded-lg text-sm font-bold hover:bg-[#FFFEF7] transition-all"
-            >
-              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 3C6.5 3 2 6.6 2 11c0 2.8 1.9 5.3 4.8 6.7-.2.7-.6 2.1-.7 2.5 0 .3.1.5.3.6.2.1.4 0 .6-.1.3-.1 3.2-2.1 3.8-2.5.7.1 1.4.2 2.1.2 5.5 0 10-3.6 10-8S17.5 3 12 3z"/>
-              </svg>
-              친구 추가하고 혜택 받기
-            </Link>
-          </div>
+          <Link
+            href="https://pf.kakao.com/_MvxaTn"
+            target="_blank"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#FEE500] text-[#000000] rounded-full text-sm font-bold hover:bg-[#FDD835] transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 w-full max-w-xs"
+          >
+            <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 3C6.5 3 2 6.6 2 11c0 2.8 1.9 5.3 4.8 6.7-.2.7-.6 2.1-.7 2.5 0 .3.1.5.3.6.2.1.4 0 .6-.1.3-.1 3.2-2.1 3.8-2.5.7.1 1.4.2 2.1.2 5.5 0 10-3.6 10-8S17.5 3 12 3z"/>
+            </svg>
+            카카오톡 1:1 상담
+          </Link>
           <div className="text-xs text-gray-400 mt-3">
             평일 10:00 - 19:00 (주말·공휴일 휴무)
           </div>
