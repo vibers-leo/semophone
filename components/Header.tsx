@@ -7,6 +7,7 @@ import Image from 'next/image';
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [currentLogo, setCurrentLogo] = useState(0);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -57,10 +58,42 @@ export default function Header() {
             성지찾기
           </Link>
         </nav>
-        <button className="hamburger">
+        <button
+          className={`hamburger ${mobileMenuOpen ? 'active' : ''}`}
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label="메뉴"
+        >
           <span></span>
         </button>
       </div>
+
+      {/* 모바일 메뉴 오버레이 */}
+      {mobileMenuOpen && (
+        <div
+          className="fixed inset-0 bg-black/50 z-40 md:hidden"
+          onClick={() => setMobileMenuOpen(false)}
+        />
+      )}
+
+      {/* 모바일 메뉴 */}
+      <nav className={`mobile-menu ${mobileMenuOpen ? 'open' : ''}`}>
+        <div className="flex flex-col gap-6 p-8">
+          <Link
+            href="/#why"
+            className="text-xl font-bold text-gray-900 hover:text-[#F2C811] transition-colors"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            세모폰
+          </Link>
+          <Link
+            href="/stores"
+            className="text-xl font-bold text-gray-900 hover:text-[#F2C811] transition-colors"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            성지찾기
+          </Link>
+        </div>
+      </nav>
     </header>
   );
 }
