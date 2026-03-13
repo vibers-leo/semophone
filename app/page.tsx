@@ -12,6 +12,7 @@ export default function Home() {
   const [counter, setCounter] = useState(0);
   const [trustBarAnimated, setTrustBarAnimated] = useState(false);
   const [galleryParallax, setGalleryParallax] = useState(0);
+  const [currentBanner, setCurrentBanner] = useState(0);
 
   const heroRef = useRef<HTMLElement>(null);
   const trustRef = useRef<HTMLElement>(null);
@@ -133,35 +134,96 @@ export default function Home() {
       {/* Header */}
       <Header />
 
-      {/* Hero Banner - Full Width */}
-      <section ref={heroRef} className="relative w-full h-screen min-h-[600px] overflow-hidden">
-        {/* 배경 이미지 */}
-        <Image
-          src="/landing/semo_banner_bg.png"
-          alt="세모폰 배경"
-          fill
-          className="object-cover object-center"
-          priority
-          sizes="100vw"
-          quality={100}
-        />
-
-        {/* 타이틀 이미지 오버레이 */}
-        <div className="absolute inset-0 flex items-center justify-start px-5 md:px-12 lg:px-20">
-          <div className="relative w-full max-w-md md:max-w-lg lg:max-w-xl">
+      {/* Hero Banner - Slide Banner */}
+      <section ref={heroRef} className="relative w-full h-screen min-h-[600px] overflow-hidden mt-[56px] md:mt-[72px]">
+        {/* 슬라이드 배너 */}
+        <div className="relative w-full h-full">
+          {/* Banner 1 */}
+          <div className={`absolute inset-0 transition-opacity duration-700 ${currentBanner === 0 ? 'opacity-100' : 'opacity-0'}`}>
             <Image
-              src="/landing/semo_banner_title.png"
-              alt="세모폰 - 수도권 40개 매장, 휴대폰 성지"
-              width={900}
-              height={300}
-              className="w-full h-auto"
+              src="/landing/banner1.png"
+              alt="세모폰 배너 1"
+              fill
+              className="object-cover object-center"
               priority
-              sizes="(max-width: 768px) 65vw, (max-width: 1024px) 50vw, 576px"
+              sizes="100vw"
+              quality={90}
+            />
+          </div>
+
+          {/* Banner 2 */}
+          <div className={`absolute inset-0 transition-opacity duration-700 ${currentBanner === 1 ? 'opacity-100' : 'opacity-0'}`}>
+            <Image
+              src="/landing/banner2.png"
+              alt="세모폰 배너 2"
+              fill
+              className="object-cover object-center"
+              sizes="100vw"
+              quality={90}
             />
           </div>
         </div>
 
-        {/* 스크롤 인디케이터 */}
+        {/* 좌측 화살표 */}
+        <button
+          onClick={() => setCurrentBanner(currentBanner === 0 ? 1 : 0)}
+          className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center bg-black/30 hover:bg-black/50 text-white rounded-full transition-all backdrop-blur-sm z-10"
+          aria-label="이전 배너"
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+
+        {/* 우측 화살표 */}
+        <button
+          onClick={() => setCurrentBanner(currentBanner === 1 ? 0 : 1)}
+          className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center bg-black/30 hover:bg-black/50 text-white rounded-full transition-all backdrop-blur-sm z-10"
+          aria-label="다음 배너"
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+
+        {/* 인디케이터 */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+          <button
+            onClick={() => setCurrentBanner(0)}
+            className={`w-2 h-2 rounded-full transition-all ${currentBanner === 0 ? 'bg-white w-8' : 'bg-white/50'}`}
+            aria-label="배너 1"
+          />
+          <button
+            onClick={() => setCurrentBanner(1)}
+            className={`w-2 h-2 rounded-full transition-all ${currentBanner === 1 ? 'bg-white w-8' : 'bg-white/50'}`}
+            aria-label="배너 2"
+          />
+        </div>
+
+        {/* 기존 배너 (숨김) */}
+        {/*
+        <Image
+          src="/landing/hero-banner-main.png"
+          alt="세모폰 - 휴대폰 성지"
+          fill
+          className="object-cover object-center"
+          priority
+          sizes="100vw"
+          quality={90}
+        />
+        <div className="absolute inset-0 flex items-center justify-start px-5 md:px-12 lg:px-20">
+          <div className="relative w-full max-w-[280px] md:max-w-sm lg:max-w-md">
+            <Image
+              src="/landing/semo_banner_title.png"
+              alt="세모폰 - 수도권 40개 매장, 휴대폰 성지"
+              width={600}
+              height={200}
+              className="w-full h-auto"
+              priority
+              sizes="(max-width: 768px) 45vw, (max-width: 1024px) 35vw, 384px"
+            />
+          </div>
+        </div>
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
           <div className="w-6 h-10 border-2 border-white/60 rounded-full flex items-start justify-center p-2">
             <div className="w-1.5 h-1.5 bg-white/80 rounded-full animate-pulse"></div>
@@ -169,6 +231,20 @@ export default function Home() {
           <svg className="w-6 h-6 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
           </svg>
+        </div>
+        */}
+      </section>
+
+      {/* Why 성지 */}
+      <section className="bg-white py-24 px-5 text-center">
+        <div style={{ maxWidth: 'var(--max-w)', margin: '0 auto' }}>
+          <h2 className="section-title fade-in">
+            온라인엔 없는 가격, 성지에서만 가능한 상담
+          </h2>
+          <p className="section-desc fade-in fade-in-d1">
+            직접 찾아오신 분께 드리는 특별한 조건.<br />
+            매월 2,000명이 그 차이를 경험합니다.
+          </p>
         </div>
       </section>
 
@@ -210,19 +286,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Why 성지 */}
-      <section className="bg-white py-24 px-5 text-center">
-        <div style={{ maxWidth: 'var(--max-w)', margin: '0 auto' }}>
-          <h2 className="section-title fade-in">
-            온라인엔 없는 가격, 성지에서만 가능한 상담
-          </h2>
-          <p className="section-desc fade-in fade-in-d1">
-            직접 찾아오신 분께 드리는 특별한 조건.<br />
-            매월 2,000명이 그 차이를 경험합니다.
-          </p>
-        </div>
-      </section>
-
       {/* Benefits */}
       <section className="bg-white px-5 pb-24">
         <div style={{ maxWidth: 'var(--max-w)', margin: '0 auto' }}>
@@ -256,27 +319,13 @@ export default function Home() {
       <section ref={trustRef} className="py-24 px-5 bg-[#FAF7F0] text-center">
         <div style={{ maxWidth: 'var(--max-w)', margin: '0 auto' }}>
           <h2 className="section-title fade-in">
-            마음 놓고 이용하세요, 안심 사후관리
+            마음 편히 물어보세요, 믿고 찾을 수 있어요
           </h2>
           <p className="section-desc fade-in fade-in-d1 mb-12">
             세모폰은 개통 후에도 끝까지 책임집니다.
           </p>
 
-          <div className="mb-9">
-            <div className="flex justify-between items-center mb-3">
-              <div className="px-3 py-1 bg-[#FFF8DC] rounded-lg text-base font-bold">고객만족도</div>
-              <div className="text-[28px] font-black text-[#D4AD00]">96%</div>
-            </div>
-            <div className="h-5 bg-gray-200 rounded-full overflow-hidden">
-              <div
-                className={`h-full bg-gradient-to-r from-[#F2C811] to-[#D4AD00] rounded-full transition-all duration-[1500ms] ${
-                  trustBarAnimated ? 'w-[96%]' : 'w-0'
-                }`}
-              ></div>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-4 mb-12">
             <div className="p-5 bg-white rounded-2xl text-center">
               <div className="text-[28px] font-black">
                 365<span className="text-[#F2C811]">일</span>
@@ -288,6 +337,19 @@ export default function Home() {
                 <span className="text-[#F2C811]">40</span>+
               </div>
               <div className="text-[13px] text-gray-500 font-medium">수리/상담 거점</div>
+            </div>
+          </div>
+
+          {/* 이미지 */}
+          <div className="max-w-2xl mx-auto">
+            <div className="relative w-full aspect-[16/9] rounded-3xl overflow-hidden shadow-xl">
+              <Image
+                src="/landing/trust-support.png"
+                alt="마음 편히 물어보세요, 믿고 찾을 수 있어요"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 672px"
+              />
             </div>
           </div>
         </div>
@@ -340,6 +402,19 @@ export default function Home() {
           >
             가까운 매장 찾기
           </Link>
+
+          {/* 이미지 */}
+          <div className="mt-12 max-w-2xl mx-auto">
+            <div className="relative w-full aspect-[16/9] rounded-3xl overflow-hidden shadow-xl">
+              <Image
+                src="/landing/no-loss-customer.png"
+                alt="단 한 명의 고객도 손해보지 않도록"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 672px"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
