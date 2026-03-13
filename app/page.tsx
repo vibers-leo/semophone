@@ -237,10 +237,10 @@ export default function Home() {
       </section>
 
       {/* Why 성지 + Benefits */}
-      <section className="bg-white py-24 px-5 text-center">
+      <section className="bg-white py-24 px-3 text-center">
         <div style={{ maxWidth: 'var(--max-w)', margin: '0 auto' }}>
           <h2 className="section-title fade-in">
-            온라인엔 없는 가격, 성지에서만 가능한 상담
+            온라인엔 없는 가격,<br className="md:hidden" /> 성지에서만 가능한 상담
           </h2>
           <p className="section-desc fade-in fade-in-d1 mb-12">
             직접 찾아오신 분께 드리는 특별한 조건.<br />
@@ -275,7 +275,7 @@ export default function Home() {
       </section>
 
       {/* Hero Text + Stats Combined Section */}
-      <section className="bg-[#1A1A1A] py-24 md:py-28 px-5 text-center">
+      <section className="bg-[#1A1A1A] py-24 md:py-28 px-3 text-center">
         <div style={{ maxWidth: 'var(--max-w)', margin: '0 auto' }}>
           {/* Hero Text */}
           <div className="mb-16 mt-8">
@@ -313,10 +313,10 @@ export default function Home() {
       </section>
 
       {/* Trust */}
-      <section ref={trustRef} className="py-24 px-5 bg-[#FAF7F0] text-center">
+      <section ref={trustRef} className="py-24 px-3 bg-[#FAF7F0] text-center">
         <div style={{ maxWidth: 'var(--max-w)', margin: '0 auto' }}>
           <h2 className="section-title fade-in">
-            마음 편히 물어보세요, 믿고 찾을 수 있어요
+            마음 편히 물어보세요,<br className="md:hidden" /> 믿고 찾을 수 있어요
           </h2>
           <p className="section-desc fade-in fade-in-d1 mb-12">
             세모폰은 개통 후에도 끝까지 책임집니다.
@@ -353,7 +353,7 @@ export default function Home() {
       </section>
 
       {/* Gallery */}
-      <section ref={galleryRef} className="py-32 px-5 bg-[#1A1A1A] text-center overflow-hidden">
+      <section ref={galleryRef} className="py-32 px-3 bg-[#1A1A1A] text-center overflow-hidden">
         <div style={{ maxWidth: '600px', margin: '0 auto' }}>
           <h2 className="text-[36px] md:text-[42px] font-black text-white leading-tight mb-16">
             수도권 어디서든 세모폰이 가까이
@@ -377,7 +377,7 @@ export default function Home() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-32 px-5 bg-white text-center">
+      <section className="py-32 px-3 bg-white text-center">
         <div style={{ maxWidth: 'var(--max-w)', margin: '0 auto' }}>
           <h2 className="text-[32px] md:text-[40px] font-black leading-snug mb-4">
             단 한 명의 고객도 <span className="text-[#F2C811]">손해보지 않도록</span>
@@ -403,7 +403,7 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section className="py-16 md:py-24 lg:py-32 px-0 bg-[#FAF7F0] text-center">
+      <section className="hidden md:block py-16 md:py-24 lg:py-32 px-0 bg-[#FAF7F0] text-center">
         <div style={{ maxWidth: 'var(--max-w)', margin: '0 auto' }}>
           <h2 className="text-[24px] md:text-[32px] lg:text-[40px] font-black leading-snug mb-2 md:mb-4 px-5">
             궁금한 점이 있으신가요?
