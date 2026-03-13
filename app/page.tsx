@@ -123,11 +123,10 @@ export default function Home() {
           <Image
             src="/landing/logo-full.png"
             alt="세모폰"
-            width={100}
-            height={100}
+            width={180}
+            height={180}
             className="splash-logo"
           />
-          <span className="splash-text">세상모든휴대폰</span>
         </div>
       )}
 
