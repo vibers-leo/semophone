@@ -12,7 +12,6 @@ export default function Home() {
   const [showStickyCta, setShowStickyCta] = useState(false);
   const [counter, setCounter] = useState(0);
   const [trustBarAnimated, setTrustBarAnimated] = useState(false);
-  const [galleryParallax, setGalleryParallax] = useState(0);
   const [currentBanner, setCurrentBanner] = useState(0);
 
   const heroRef = useRef<HTMLElement>(null);
@@ -102,21 +101,6 @@ export default function Home() {
     return () => observer.disconnect();
   }, []);
 
-  // Gallery Parallax
-  useEffect(() => {
-    const handleScroll = () => {
-      if (galleryRef.current) {
-        const rect = galleryRef.current.getBoundingClientRect();
-        const scrollProgress = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
-        const parallaxValue = Math.max(0, Math.min(1, scrollProgress)) * 30;
-        setGalleryParallax(parallaxValue);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   return (
     <>
       {/* Loading Splash */}
@@ -168,7 +152,7 @@ export default function Home() {
         {/* 좌측 화살표 */}
         <button
           onClick={() => setCurrentBanner(currentBanner === 0 ? 1 : 0)}
-          className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center bg-black/30 hover:bg-black/50 text-white rounded-full transition-all backdrop-blur-sm z-10"
+          className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center text-white hover:scale-110 transition-all z-10"
           aria-label="이전 배너"
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -179,7 +163,7 @@ export default function Home() {
         {/* 우측 화살표 */}
         <button
           onClick={() => setCurrentBanner(currentBanner === 1 ? 0 : 1)}
-          className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center bg-black/30 hover:bg-black/50 text-white rounded-full transition-all backdrop-blur-sm z-10"
+          className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center text-white hover:scale-110 transition-all z-10"
           aria-label="다음 배너"
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -188,15 +172,15 @@ export default function Home() {
         </button>
 
         {/* 인디케이터 */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
           <button
             onClick={() => setCurrentBanner(0)}
-            className={`w-2 h-2 rounded-full transition-all ${currentBanner === 0 ? 'bg-white w-8' : 'bg-white/50'}`}
+            className={`w-1.5 h-1.5 rounded-full transition-all ${currentBanner === 0 ? 'bg-white w-6' : 'bg-white/50'}`}
             aria-label="배너 1"
           />
           <button
             onClick={() => setCurrentBanner(1)}
-            className={`w-2 h-2 rounded-full transition-all ${currentBanner === 1 ? 'bg-white w-8' : 'bg-white/50'}`}
+            className={`w-1.5 h-1.5 rounded-full transition-all ${currentBanner === 1 ? 'bg-white w-6' : 'bg-white/50'}`}
             aria-label="배너 2"
           />
         </div>
@@ -359,17 +343,13 @@ export default function Home() {
             수도권 어디서든<br className="md:hidden" /> 세모폰이 가까이
           </h2>
 
-          <div className="relative rounded-3xl overflow-hidden border-2 border-white/10 shadow-2xl">
+          <div className="relative rounded-xl overflow-hidden border border-white/20 shadow-2xl">
             <div className="relative w-full aspect-square">
               <Image
                 src="/landing/stores-collage.png"
                 alt="매장"
                 fill
                 className="object-cover"
-                style={{
-                  transform: `translateY(-${galleryParallax}px)`,
-                  transition: 'transform 0.1s ease-out'
-                }}
               />
             </div>
           </div>
