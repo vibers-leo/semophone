@@ -177,10 +177,10 @@ export default function Home() {
         <div style={{ maxWidth: 'var(--max-w)', margin: '0 auto' }}>
           {/* Hero Text */}
           <div className="mb-16 mt-8">
-            <div className="hero-subtitle fade-in mb-4">수도권 40개 매장, 휴대폰 성지</div>
             <h1 className="hero-title fade-in fade-in-d1 mb-6">
-              직접 오시면 <span className="em">가격이 다릅니다</span>
+              <span className="em">직접 오시면 가격이 다릅니다</span>
             </h1>
+            <div className="hero-subtitle fade-in mb-4">수도권 휴대폰 성지 세모폰입니다</div>
             <Link
               href="/stores"
               className="inline-block px-10 py-4 bg-[#F2C811] text-black rounded-full text-lg font-bold hover:bg-[#D4AD00] transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 fade-in fade-in-d2"
@@ -227,7 +227,7 @@ export default function Home() {
       <section className="bg-white px-5 pb-24">
         <div style={{ maxWidth: 'var(--max-w)', margin: '0 auto' }}>
           <div className="flex items-center justify-center gap-2 mb-9 fade-in">
-            <div className="px-5 py-2 rounded-full bg-[#1A1A1A] text-white text-sm font-bold">성지의 차이</div>
+            <div className="px-5 py-2 rounded-full bg-[#1A1A1A] text-white text-sm font-bold">세모폰에만 있어요!</div>
           </div>
 
           <div className="flex flex-col gap-3">

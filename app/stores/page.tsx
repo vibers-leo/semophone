@@ -225,7 +225,7 @@ export default function StoresPage() {
                         {/* 거리 배지 */}
                         {store.distance !== undefined && (
                           <div className="absolute top-4 right-4 z-10">
-                            <div className="px-4 py-2 bg-black/90 text-brand rounded-full font-bold text-base backdrop-blur-sm">
+                            <div className="px-4 py-2 bg-black/90 text-[#F2C811] rounded-full font-bold text-base backdrop-blur-sm">
                               {store.distance}km
                             </div>
                           </div>
@@ -366,7 +366,7 @@ export default function StoresPage() {
                 stores={filteredStores}
                 userLocation={userLocation}
                 onStoreClick={(store) => {
-                  console.log('매장 클릭:', store);
+                  openStoreDetail(store);
                 }}
               />
             </div>
