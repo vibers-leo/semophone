@@ -36,7 +36,7 @@ export const stores: Store[] = [
 
   // 서울 (9개)
   { id: 21, name: "휴대폰성지 세모폰 까치산역점", address: "서울특별시 강서구 강서로 33 1층 (화곡동)", phone: "02-1234-0123", region: "서울", lat: 37.5271, lng: 126.8497, images: ['/images/매장/까치산역점/다운로드 (1).jpg'] },
-  { id: 22, name: "휴대폰성지 세모폰 서울대입구역점", address: "서울특별시 관악구 관악로 183", phone: "02-2340-1234", region: "서울", lat: 37.4812, lng: 126.9527, images: ['/images/매장/서울대입구점/다운로드.jpg'] },
+  { id: 22, name: "휴대폰성지 세모폰 서울대입구역점", address: "서울특별시 관악구 관악로 183", phone: "02-2340-1234", region: "서울", lat: 37.4812, lng: 126.9527, images: ['/images/매장/서울대입구점/다운로드.jpg'], link: "https://map.naver.com/p/entry/place/1285895671" },
   { id: 23, name: "휴대폰성지 세모폰 신림역점", address: "서울특별시 관악구 남부순환로 1588", phone: "02-3401-2345", region: "서울", lat: 37.4768, lng: 126.9620, images: ['/images/매장/신림역점/다운로드.jpg'] },
   { id: 24, name: "휴대폰성지 세모폰 샤로수길점", address: "서울특별시 관악구 남부순환로218길 1840 1층 1호 (봉천동)", phone: "02-4012-3456", region: "서울", lat: 37.4829, lng: 126.9495, images: ['/images/매장/샤로수길점/다운로드.jpg'] },
   { id: 25, name: "휴대폰성지 세모폰 봉천점", address: "서울특별시 관악구 남부순환로218길 1", phone: "02-0120-1234", region: "서울", lat: 37.4892, lng: 126.9502, images: ['/images/매장/봉천점/다운로드 (1).jpg'] },
