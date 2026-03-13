@@ -1,0 +1,88 @@
+import { NextResponse } from 'next/server';
+import { sendContactNotification, ContactInquiry } from '@/lib/email';
+
+export async function POST(req: Request) {
+  try {
+    const body = await req.json();
+
+    const { name, phone, email, message, storeName } = body;
+
+    // 필수 필드 검증
+    if (!name || !phone || !message) {
+      return NextResponse.json(
+        { success: false, error: '이름, 연락처, 문의내용은 필수입니다.' },
+        { status: 400 }
+      );
+    }
+
+    // 전화번호 형식 검증 (숫자만 10-11자리)
+    const phoneDigits = phone.replace(/\D/g, '');
+    if (phoneDigits.length < 10 || phoneDigits.length > 11) {
+      return NextResponse.json(
+        { success: false, error: '올바른 전화번호 형식이 아닙니다.' },
+        { status: 400 }
+      );
+    }
+
+    // 이메일 형식 검증 (선택사항)
+    if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      return NextResponse.json(
+        { success: false, error: '올바른 이메일 형식이 아닙니다.' },
+        { status: 400 }
+      );
+    }
+
+    const inquiry: ContactInquiry = {
+      name,
+      phone,
+      email,
+      message,
+      storeName,
+    };
+
+    // 환경변수 확인
+    if (!process.env.EMAIL_USER || !process.env.EMAIL_APP_PASSWORD) {
+      console.warn('⚠️ EMAIL_USER or EMAIL_APP_PASSWORD is missing. Email will NOT be sent.');
+
+      // 개발 환경에서는 성공으로 처리
+      if (process.env.NODE_ENV === 'development') {
+        console.log('📧 [DEV MODE] Contact inquiry received:', inquiry);
+        return NextResponse.json({
+          success: true,
+          message: 'Development mode: Email configuration needed',
+          warning: 'Configure EMAIL_USER and EMAIL_APP_PASSWORD to send real emails.'
+        });
+      }
+
+      return NextResponse.json(
+        { success: false, error: '이메일 설정이 완료되지 않았습니다.' },
+        { status: 500 }
+      );
+    }
+
+    // 이메일 발송
+    const result = await sendContactNotification(inquiry);
+
+    if (result.success) {
+      // TODO: 카카오 알림톡 발송 (나중에 구현)
+      // await sendKakaoNotification(inquiry);
+
+      return NextResponse.json({
+        success: true,
+        message: '문의가 성공적으로 접수되었습니다. 빠른 시일 내에 연락드리겠습니다.'
+      });
+    } else {
+      return NextResponse.json(
+        { success: false, error: '이메일 발송에 실패했습니다.' },
+        { status: 500 }
+      );
+    }
+
+  } catch (error) {
+    console.error('❌ Contact API error:', error);
+    return NextResponse.json(
+      { success: false, error: '문의 접수 중 오류가 발생했습니다.' },
+      { status: 500 }
+    );
+  }
+}
