@@ -235,16 +235,41 @@ export default function Home() {
         */}
       </section>
 
-      {/* Why 성지 */}
+      {/* Why 성지 + Benefits */}
       <section className="bg-white py-24 px-5 text-center">
         <div style={{ maxWidth: 'var(--max-w)', margin: '0 auto' }}>
           <h2 className="section-title fade-in">
             온라인엔 없는 가격, 성지에서만 가능한 상담
           </h2>
-          <p className="section-desc fade-in fade-in-d1">
+          <p className="section-desc fade-in fade-in-d1 mb-12">
             직접 찾아오신 분께 드리는 특별한 조건.<br />
             매월 2,000명이 그 차이를 경험합니다.
           </p>
+
+          {/* Benefits */}
+          <div className="flex items-center justify-center gap-2 mb-9 fade-in">
+            <div className="px-5 py-2 rounded-full bg-[#1A1A1A] text-white text-sm font-bold">세모폰에만 있어요!</div>
+          </div>
+
+          <div className="flex flex-col gap-3">
+            {[
+              { icon: '💰', text: '지원금 최대로 받고 싶다면, 성지!' },
+              { icon: '🤝', text: '단통법 폐지! 지원금 제한없는 성지' },
+              { icon: '⚡', text: '30분 내 즉시 개통 완료' },
+              { icon: '🛡️', text: '개통 후에도 365일 사후관리' },
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="flex items-center gap-4 p-4 bg-gray-100 rounded-2xl hover:bg-[#FFFDF0] hover:translate-x-1 transition-all fade-in"
+                style={{ transitionDelay: `${i * 0.1}s` }}
+              >
+                <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center text-xl flex-shrink-0 shadow-sm">
+                  {item.icon}
+                </div>
+                <div className="text-[15px] font-semibold leading-snug">{item.text}</div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -286,35 +311,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Benefits */}
-      <section className="bg-white px-5 pb-24">
-        <div style={{ maxWidth: 'var(--max-w)', margin: '0 auto' }}>
-          <div className="flex items-center justify-center gap-2 mb-9 fade-in">
-            <div className="px-5 py-2 rounded-full bg-[#1A1A1A] text-white text-sm font-bold">세모폰에만 있어요!</div>
-          </div>
-
-          <div className="flex flex-col gap-3">
-            {[
-              { icon: '💰', text: '지원금 최대로 받고 싶다면, 성지!' },
-              { icon: '🤝', text: '단통법 폐지! 지원금 제한없는 성지' },
-              { icon: '⚡', text: '30분 내 즉시 개통 완료' },
-              { icon: '🛡️', text: '개통 후에도 365일 사후관리' },
-            ].map((item, i) => (
-              <div
-                key={i}
-                className="flex items-center gap-4 p-4 bg-gray-100 rounded-2xl hover:bg-[#FFFDF0] hover:translate-x-1 transition-all fade-in"
-                style={{ transitionDelay: `${i * 0.1}s` }}
-              >
-                <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center text-xl flex-shrink-0 shadow-sm">
-                  {item.icon}
-                </div>
-                <div className="text-[15px] font-semibold leading-snug">{item.text}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Trust */}
       <section ref={trustRef} className="py-24 px-5 bg-[#FAF7F0] text-center">
         <div style={{ maxWidth: 'var(--max-w)', margin: '0 auto' }}>
@@ -328,7 +324,7 @@ export default function Home() {
           <div className="grid grid-cols-2 gap-4 mb-12">
             <div className="p-5 bg-white rounded-2xl text-center">
               <div className="text-[28px] font-black">
-                365<span className="text-[#F2C811]">일</span>
+                <span className="text-[#F2C811]">365</span>일
               </div>
               <div className="text-[13px] text-gray-500 font-medium">사후관리</div>
             </div>
@@ -336,7 +332,7 @@ export default function Home() {
               <div className="text-[28px] font-black">
                 <span className="text-[#F2C811]">40</span>+
               </div>
-              <div className="text-[13px] text-gray-500 font-medium">수리/상담 거점</div>
+              <div className="text-[13px] text-gray-500 font-medium">수도권 성지</div>
             </div>
           </div>
 
@@ -382,13 +378,6 @@ export default function Home() {
       {/* Final CTA */}
       <section className="py-32 px-5 bg-white text-center">
         <div style={{ maxWidth: 'var(--max-w)', margin: '0 auto' }}>
-          <Image
-            src="/landing/logo-full.png"
-            alt="세모폰"
-            width={64}
-            height={64}
-            className="mx-auto mb-6"
-          />
           <h2 className="text-[32px] md:text-[40px] font-black leading-snug mb-4">
             단 한 명의 고객도 <span className="text-[#F2C811]">손해보지 않도록</span>
           </h2>
@@ -396,15 +385,9 @@ export default function Home() {
             숨은 비용 없이 투명하게, 정직하게<br />
             세모폰의 약속입니다
           </p>
-          <Link
-            href="/stores"
-            className="inline-block px-12 py-4 bg-[#1A1A1A] text-white rounded-full text-lg font-bold hover:bg-gray-800 transition-colors shadow-lg hover:shadow-xl hover:-translate-y-1"
-          >
-            가까운 매장 찾기
-          </Link>
 
           {/* 이미지 */}
-          <div className="mt-12 max-w-2xl mx-auto">
+          <div className="max-w-2xl mx-auto">
             <div className="relative w-full aspect-[16/9] rounded-3xl overflow-hidden shadow-xl">
               <Image
                 src="/landing/no-loss-customer.png"
