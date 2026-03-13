@@ -202,7 +202,7 @@ export default function StoreDetailModal({ store, isOpen, onClose }: StoreDetail
 
                 {/* 길찾기 */}
                 <a
-                  href={`https://map.naver.com/v5/search/${encodeURIComponent(store.address)}`}
+                  href={`https://map.naver.com/v5/search/${encodeURIComponent(store.name)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 px-4 py-2.5 bg-gray-900 text-white rounded-xl font-bold text-sm hover:bg-gray-800 hover:shadow-lg hover:-translate-y-0.5 transition-all"
