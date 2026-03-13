@@ -31,6 +31,7 @@ export default function RootLayout({
         />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#F2C811" />
+        <meta name="naver-site-verification" content="9ce4ab454f8efae4fff19426adbc9a58b43008e3" />
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, viewport-fit=cover"

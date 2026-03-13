@@ -149,7 +149,7 @@ export default function Home() {
 
         {/* 타이틀 이미지 오버레이 */}
         <div className="absolute inset-0 flex items-center justify-start px-5 md:px-12 lg:px-20">
-          <div className="relative w-full max-w-xl md:max-w-2xl">
+          <div className="relative w-full max-w-md md:max-w-lg lg:max-w-xl">
             <Image
               src="/landing/semo_banner_title.png"
               alt="세모폰 - 수도권 40개 매장, 휴대폰 성지"
@@ -157,7 +157,7 @@ export default function Home() {
               height={300}
               className="w-full h-auto"
               priority
-              sizes="(max-width: 768px) 75vw, (max-width: 1024px) 60vw, 800px"
+              sizes="(max-width: 768px) 65vw, (max-width: 1024px) 50vw, 576px"
             />
           </div>
         </div>
