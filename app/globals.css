@@ -378,6 +378,16 @@
 }
 
 @layer utilities {
+  /* Full-width hero banner (breaks out of container) */
+  .hero-banner {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+  }
+
   .fade-in {
     opacity: 0;
     transform: translateY(24px);

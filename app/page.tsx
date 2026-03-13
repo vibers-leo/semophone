@@ -136,7 +136,7 @@ export default function Home() {
       <Header />
 
       {/* Hero Banner - Slide Banner */}
-      <section ref={heroRef} className="relative w-screen max-w-full mx-0 px-0 aspect-[4/3] sm:aspect-[16/9] lg:h-[815px] lg:aspect-auto overflow-hidden mt-[56px] md:mt-[72px]">
+      <section ref={heroRef} className="hero-banner relative aspect-[4/3] sm:aspect-[16/9] lg:h-[815px] lg:aspect-auto overflow-hidden mt-[56px] md:mt-[72px]">
         {/* 슬라이드 배너 */}
         <div className="relative w-full h-full">
           {/* Banner 1 */}
