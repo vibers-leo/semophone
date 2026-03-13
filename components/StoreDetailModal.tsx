@@ -192,7 +192,7 @@ export default function StoreDetailModal({ store, isOpen, onClose }: StoreDetail
               <div className="grid grid-cols-2 gap-2">
                 {/* 네이버 플레이스 */}
                 <a
-                  href={`https://map.naver.com/v5/search/${encodeURIComponent(store.name)}`}
+                  href={store.link || `https://map.naver.com/v5/search/${encodeURIComponent(store.name)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 px-4 py-2.5 bg-[#03C75A] text-white rounded-xl font-bold text-sm hover:bg-[#02b350] hover:shadow-lg hover:-translate-y-0.5 transition-all"

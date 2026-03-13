@@ -7,6 +7,7 @@ export interface Store {
   lat: number;
   lng: number;
   images?: string[];  // 매장 사진 경로 배열 (선택적)
+  link?: string;  // 외부 링크 (네이버 지도, 블로그 등)
 }
 
 // 실제 휴대폰성지 세모폰 매장 데이터 (40개)
@@ -17,7 +18,7 @@ export const stores: Store[] = [
   { id: 3, name: "휴대폰성지 세모폰 신중동역점", address: "경기도 부천시 원미구 길주로 288 다운타운빌딩 103호", phone: "032-3456-7890", region: "경기", lat: 37.4858, lng: 126.7996, images: ['/images/매장/신중동역점/다운로드 (1).jpg'] },
   { id: 4, name: "휴대폰성지 세모폰 잼존프라자점", address: "경기도 부천시 원미구 부흥로 466 1층", phone: "032-4567-8901", region: "경기", lat: 37.5034, lng: 126.7831, images: ['/images/매장/잼존프라자점/다운로드 (2).jpg'] },
   { id: 5, name: "휴대폰성지 세모폰 부천북부역점", address: "경기도 부천시 원미구 부흥로 13 1층", phone: "032-5678-9012", region: "경기", lat: 37.5067, lng: 126.7773, images: ['/images/매장/부천북부역점/다운로드 (1).jpg'] },
-  { id: 6, name: "휴대폰성지 세모폰 부천대학교점", address: "경기도 부천시 원미구 부흥로 41 1층", phone: "032-6789-0123", region: "경기", lat: 37.5059, lng: 126.7789, images: ['/images/매장/부천대학교점(상승모바일4호점)/다운로드.jpg'] },
+  { id: 6, name: "휴대폰성지 세모폰 부천대학교점", address: "경기도 부천시 원미구 부흥로 41 1층", phone: "032-6789-0123", region: "경기", lat: 37.5059, lng: 126.7789, images: ['/images/매장/부천대학교점(상승모바일4호점)/다운로드.jpg'], link: "https://map.naver.com/v5/search/상승모바일%204호점" },
   { id: 7, name: "휴대폰성지 세모폰 부천도당점", address: "경기도 부천시 원미구 상정로 257 영진빌딩 103호 1층 코너", phone: "032-7890-1234", region: "경기", lat: 37.5106, lng: 126.7625, images: ['/images/매장/부천도당점/다운로드 (2).jpg'] },
   { id: 8, name: "휴대폰성지 세모폰 소사역점", address: "경기도 부천시 소사구 소사로 250 1층", phone: "032-8901-2345", region: "경기", lat: 37.4806, lng: 126.7904, images: ['/images/매장/소사역점/다운로드 (1).jpg'] },
   { id: 9, name: "휴대폰성지 세모폰 부천시청점", address: "경기도 부천시 원미구 소향로 181 센트럴파크푸르지오 124호", phone: "032-9012-3456", region: "경기", lat: 37.5044, lng: 126.7667, images: ['/images/매장/부천시청점/다운로드 (1).jpg'] },
