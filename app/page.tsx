@@ -30,6 +30,14 @@ export default function Home() {
     return () => clearTimeout(timer);
   }, []);
 
+  // Hero Banner Auto-play (5초마다 자동 전환)
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentBanner((prev) => (prev === 0 ? 1 : 0));
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
   // Sticky CTA
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -237,7 +245,7 @@ export default function Home() {
             <div className="px-5 py-2 rounded-full bg-dark text-white text-sm font-bold">세모폰에만 있어요!</div>
           </div>
 
-          <div className="flex flex-col gap-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {[
               { icon: '💰', text: '지원금 최대로 받고 싶다면, 성지!' },
               { icon: '🤝', text: '단통법 폐지! 지원금 제한없는 성지' },
@@ -246,10 +254,10 @@ export default function Home() {
             ].map((item, i) => (
               <div
                 key={i}
-                className="flex items-center gap-4 p-4 bg-gray-100 rounded-2xl hover:bg-[#FFFDF0] hover:translate-x-1 transition-all fade-in"
+                className="flex items-center gap-4 p-5 bg-gray-100 rounded-2xl hover:bg-brand-50 hover:scale-105 transition-all fade-in"
                 style={{ transitionDelay: `${i * 0.1}s` }}
               >
-                <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center text-xl flex-shrink-0 shadow-sm">
+                <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center text-2xl flex-shrink-0 shadow-sm">
                   {item.icon}
                 </div>
                 <div className="text-[15px] font-semibold leading-snug">{item.text}</div>
@@ -307,18 +315,24 @@ export default function Home() {
             세모폰은 개통 후에도 끝까지 책임집니다.
           </p>
 
-          <div className="grid grid-cols-2 gap-4 mb-12">
-            <div className="p-5 bg-white rounded-2xl text-center">
+          <div className="grid grid-cols-3 gap-4 mb-12">
+            <div className="p-5 bg-white rounded-2xl text-center hover:shadow-lg transition-shadow">
               <div className="text-[28px] font-black">
                 <span className="text-brand">365</span>일
               </div>
               <div className="text-[13px] text-gray-500 font-medium">사후관리</div>
             </div>
-            <div className="p-5 bg-white rounded-2xl text-center">
+            <div className="p-5 bg-white rounded-2xl text-center hover:shadow-lg transition-shadow">
               <div className="text-[28px] font-black">
                 <span className="text-brand">40</span>+
               </div>
               <div className="text-[13px] text-gray-500 font-medium">수도권 성지</div>
+            </div>
+            <div className="p-5 bg-white rounded-2xl text-center hover:shadow-lg transition-shadow">
+              <div className="text-[28px] font-black">
+                <span className="text-brand">4.8</span>★
+              </div>
+              <div className="text-[13px] text-gray-500 font-medium">고객 만족도</div>
             </div>
           </div>
 
