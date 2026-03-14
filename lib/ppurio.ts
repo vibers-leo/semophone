@@ -1,8 +1,11 @@
 /**
  * 뿌리오(PPURIO) SMS/알림톡 발송 API 클라이언트
- *
  * API 문서: https://www.ppurio.com/
+ *
+ * ai-recipe 레포지토리의 성공한 구현 방식 사용
  */
+
+const PPURIO_API_URL = 'https://message.ppurio.com';
 
 interface PpurioConfig {
   account: string; // 뿌리오 계정
@@ -22,8 +25,49 @@ interface SMSResponse {
   error?: string;
 }
 
+interface TokenResponse {
+  token: string;
+  type: string;
+  expired: string;
+}
+
 /**
- * 뿌리오 SMS 발송
+ * Access Token 발급 (ai-recipe 방식)
+ */
+async function getToken(config: PpurioConfig): Promise<string> {
+  const basicAuth = Buffer.from(`${config.account}:${config.apiKey}`).toString('base64');
+
+  const response = await fetch(`${PPURIO_API_URL}/v1/token`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Basic ${basicAuth}`,
+    },
+  });
+
+  if (!response.ok) {
+    const error = await response.text();
+    throw new Error(`Failed to get token: ${response.status} ${error}`);
+  }
+
+  const result = (await response.json()) as TokenResponse;
+  return result.token;
+}
+
+/**
+ * RefKey 생성 (32자 랜덤 문자열)
+ */
+function generateRefKey(): string {
+  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  let result = '';
+  for (let i = 0; i < 32; i++) {
+    result += chars.charAt(Math.floor(Math.random() * chars.length));
+  }
+  return result;
+}
+
+/**
+ * 뿌리오 SMS 발송 (ai-recipe 방식)
  */
 export async function sendSMS(params: SMSParams): Promise<SMSResponse> {
   const config: PpurioConfig = {
@@ -38,33 +82,52 @@ export async function sendSMS(params: SMSParams): Promise<SMSResponse> {
   }
 
   try {
-    // 비즈뿌리오 API 엔드포인트
-    const apiUrl = 'https://api.bizppurio.com/v1/message';
+    // 1. 토큰 발급
+    console.log('📱 Getting Ppurio token...');
+    const token = await getToken(config);
+    console.log('✅ Token acquired');
 
-    const response = await fetch(apiUrl, {
+    // 2. SMS 발송
+    const refKey = params.refKey || generateRefKey();
+
+    // 메시지 길이에 따라 SMS(90자) 또는 LMS(2000자) 선택
+    const messageType = params.message.length <= 90 ? 'SMS' : 'LMS';
+
+    const requestBody = {
+      account: config.account,
+      messageType,
+      from: params.from,
+      content: params.message,
+      duplicateFlag: 'Y',
+      targetCount: 1,
+      targets: [
+        {
+          to: params.to,
+          name: 'Customer',
+        },
+      ],
+      refKey,
+    };
+
+    console.log('📱 Sending SMS with body:', JSON.stringify(requestBody, null, 2));
+
+    const response = await fetch(`${PPURIO_API_URL}/v1/message`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${config.apiKey}`,
+        'Authorization': `Bearer ${token}`,
       },
-      body: JSON.stringify({
-        account: config.account,
-        from: params.from,
-        to: params.to,
-        content: params.message,
-        refKey: params.refKey,
-        type: 'SMS', // SMS, LMS, MMS 중 선택
-      }),
+      body: JSON.stringify(requestBody),
     });
 
     const data = await response.json();
 
     if (response.ok) {
       console.log('✅ PPURIO SMS sent successfully:', data);
-      return { success: true, messageId: data.messageId };
+      return { success: true, messageId: data.messageKey };
     } else {
       console.error('❌ PPURIO SMS send failed:', data);
-      return { success: false, error: data.message || 'SMS send failed' };
+      return { success: false, error: data.description || data.message || 'SMS send failed' };
     }
   } catch (error) {
     console.error('❌ PPURIO SMS error:', error);
@@ -150,7 +213,7 @@ export async function sendAlimtalk(params: {
   }
 
   try {
-    const apiUrl = 'https://api.bizppurio.com/v1/alimtalk';
+    const apiUrl = 'https://message.ppurio.com/v1/alimtalk';
 
     const response = await fetch(apiUrl, {
       method: 'POST',
