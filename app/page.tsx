@@ -242,7 +242,7 @@ export default function Home() {
 
           {/* Benefits */}
           <div className="flex items-center justify-center gap-2 mb-9 fade-in">
-            <div className="px-5 py-2 rounded-full bg-dark text-white text-sm font-bold">세모폰에만 있어요!</div>
+            <div className="px-5 py-2 rounded-full bg-[#1A1A1A] text-white text-sm font-bold">세모폰에만 있어요!</div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -268,7 +268,7 @@ export default function Home() {
       </section>
 
       {/* Hero Text + Stats Combined Section */}
-      <section className="bg-dark py-24 md:py-28 px-3 text-center">
+      <section className="bg-[#1A1A1A] py-24 md:py-28 px-3 text-center">
         <div style={{ maxWidth: 'var(--max-w)', margin: '0 auto' }}>
           {/* Hero Text */}
           <div className="mb-16 mt-8">
@@ -306,7 +306,7 @@ export default function Home() {
       </section>
 
       {/* Trust */}
-      <section ref={trustRef} className="py-24 px-3 bg-warm text-center">
+      <section ref={trustRef} className="py-24 px-3 bg-[#FAF7F0] text-center">
         <div style={{ maxWidth: 'var(--max-w)', margin: '0 auto' }}>
           <h2 className="section-title fade-in">
             마음 편히 물어보세요,<br className="md:hidden" /> 믿고 찾을 수 있어요
@@ -353,7 +353,7 @@ export default function Home() {
       </section>
 
       {/* Gallery */}
-      <section ref={galleryRef} className="py-32 px-3 bg-dark text-center overflow-hidden">
+      <section ref={galleryRef} className="py-32 px-3 bg-[#1A1A1A] text-center overflow-hidden">
         <div style={{ maxWidth: '600px', margin: '0 auto' }}>
           <h2 className="text-[36px] md:text-[42px] font-black text-white leading-tight mb-16">
             수도권 어디서든<br className="md:hidden" /> 세모폰이 가까이
@@ -401,7 +401,7 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section className="hidden md:block py-16 md:py-24 lg:py-32 px-0 bg-warm text-center">
+      <section className="hidden md:block py-16 md:py-24 lg:py-32 px-0 bg-[#FAF7F0] text-center">
         <div style={{ maxWidth: 'var(--max-w)', margin: '0 auto' }}>
           <h2 className="text-[24px] md:text-[32px] lg:text-[40px] font-black leading-snug mb-2 md:mb-4 px-5">
             궁금한 점이 있으신가요?
