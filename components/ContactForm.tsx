@@ -48,11 +48,10 @@ export default function ContactForm({ compact = false }: ContactFormProps) {
         setNotifications(data.notifications || '알림 발송됨');
         setFormData({ name: '', phone: '', email: '', message: '' });
 
-        // 5초 후 성공 메시지 초기화
-        setTimeout(() => {
-          setSubmitStatus('idle');
-          setNotifications('');
-        }, 5000);
+        // 알럿으로 즉시 피드백
+        alert(`✅ 문의가 성공적으로 접수되었습니다!\n\n${data.notifications || '알림 발송됨'}\n\n빠른 시일 내에 연락드리겠습니다.`);
+
+        // 성공 메시지는 계속 표시 (사라지지 않음)
       } else {
         setSubmitStatus('error');
         setErrorMessage(data.error || '문의 접수에 실패했습니다.');
@@ -159,6 +158,16 @@ export default function ContactForm({ compact = false }: ContactFormProps) {
               )}
               빠른 시일 내에 연락드리겠습니다.
             </p>
+            <button
+              type="button"
+              onClick={() => {
+                setSubmitStatus('idle');
+                setNotifications('');
+              }}
+              className="mt-3 text-green-700 hover:text-green-900 font-semibold text-xs md:text-sm underline"
+            >
+              확인
+            </button>
           </div>
         )}
 
