@@ -1,8 +1,16 @@
+'use client';
+
+import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import ContactModal from './ContactModal';
 
 export default function Footer() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
+    <>
+      <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     <footer className="py-16 px-5 bg-gray-50 border-t border-gray-200">
       <div style={{ maxWidth: 'var(--max-w)', margin: '0 auto' }}>
         {/* 로고 */}
@@ -46,9 +54,12 @@ export default function Footer() {
           <Link href="/stores" className="text-sm text-gray-600 hover:text-gray-900 transition-colors">
             매장안내
           </Link>
-          <Link href="/contact" className="text-sm text-gray-600 hover:text-gray-900 transition-colors">
+          <button
+            onClick={() => setIsModalOpen(true)}
+            className="text-sm text-gray-600 hover:text-gray-900 transition-colors"
+          >
             문의하기
-          </Link>
+          </button>
         </div>
 
         {/* 회사 정보 */}
@@ -67,5 +78,6 @@ export default function Footer() {
         </div>
       </div>
     </footer>
+    </>
   );
 }
