@@ -41,9 +41,9 @@ export async function POST(req: Request) {
       storeName,
     };
 
-    // 환경변수 확인
-    if (!process.env.EMAIL_USER || !process.env.EMAIL_APP_PASSWORD) {
-      console.warn('⚠️ EMAIL_USER or EMAIL_APP_PASSWORD is missing. Email will NOT be sent.');
+    // 환경변수 확인 (Resend 사용)
+    if (!process.env.RESEND_API_KEY) {
+      console.warn('⚠️ RESEND_API_KEY is missing. Email will NOT be sent.');
 
       // 개발 환경에서는 성공으로 처리
       if (process.env.NODE_ENV === 'development') {
@@ -51,7 +51,7 @@ export async function POST(req: Request) {
         return NextResponse.json({
           success: true,
           message: 'Development mode: Email configuration needed',
-          warning: 'Configure EMAIL_USER and EMAIL_APP_PASSWORD to send real emails.'
+          warning: 'Configure RESEND_API_KEY to send real emails.'
         });
       }
 
