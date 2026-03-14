@@ -2,7 +2,11 @@
 
 import { useState } from 'react';
 
-export default function ContactForm() {
+interface ContactFormProps {
+  compact?: boolean;
+}
+
+export default function ContactForm({ compact = false }: ContactFormProps) {
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -25,36 +29,42 @@ export default function ContactForm() {
     setErrorMessage('');
 
     try {
+      console.log('📤 Sending contact form:', formData);
+
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
 
+      console.log('📥 Response status:', response.status);
+
       const data = await response.json();
+      console.log('📥 Response data:', data);
 
       if (data.success) {
         setSubmitStatus('success');
         setFormData({ name: '', phone: '', email: '', message: '' });
 
-        // 3초 후 성공 메시지 초기화
+        // 5초 후 성공 메시지 초기화
         setTimeout(() => setSubmitStatus('idle'), 5000);
       } else {
         setSubmitStatus('error');
         setErrorMessage(data.error || '문의 접수에 실패했습니다.');
+        console.error('❌ Contact form failed:', data);
       }
     } catch (error) {
       setSubmitStatus('error');
       setErrorMessage('네트워크 오류가 발생했습니다.');
-      console.error('Contact form error:', error);
+      console.error('❌ Contact form error:', error);
     } finally {
       setIsSubmitting(false);
     }
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto px-4">
-      <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
+    <div className={compact ? "w-full" : "w-full max-w-2xl mx-auto px-4"}>
+      <form onSubmit={handleSubmit} className={compact ? "space-y-3" : "space-y-4 md:space-y-6"}>
         {/* 이름 */}
         <div>
           <label htmlFor="name" className="block text-xs md:text-sm font-bold text-gray-900 mb-1.5 md:mb-2">
@@ -116,7 +126,7 @@ export default function ContactForm() {
             value={formData.message}
             onChange={handleChange}
             required
-            rows={5}
+            rows={compact ? 3 : 5}
             placeholder="궁금하신 내용을 자유롭게 작성해주세요."
             className="w-full px-3 py-2.5 md:px-4 md:py-3 border-2 border-gray-200 rounded-xl focus:border-brand focus:outline-none transition-colors resize-none text-gray-900 text-sm md:text-base leading-relaxed"
           />
@@ -148,13 +158,15 @@ export default function ContactForm() {
       </form>
 
       {/* 개인정보 처리방침 안내 */}
-      <div className="mt-4 md:mt-6 p-3 md:p-4 bg-gray-50 rounded-xl">
-        <p className="text-[10px] md:text-xs text-gray-600 leading-relaxed">
-          문의 접수 시 입력하신 개인정보는 문의 응대 목적으로만 사용되며,
-          관련 법령에 따라 안전하게 관리됩니다.
-          문의 처리 완료 후 즉시 파기됩니다.
-        </p>
-      </div>
+      {!compact && (
+        <div className="mt-4 md:mt-6 p-3 md:p-4 bg-gray-50 rounded-xl">
+          <p className="text-[10px] md:text-xs text-gray-600 leading-relaxed">
+            문의 접수 시 입력하신 개인정보는 문의 응대 목적으로만 사용되며,
+            관련 법령에 따라 안전하게 관리됩니다.
+            문의 처리 완료 후 즉시 파기됩니다.
+          </p>
+        </div>
+      )}
     </div>
   );
 }
