@@ -63,6 +63,7 @@ export async function POST(req: Request) {
 
     // 이메일 발송
     const emailResult = await sendContactNotification(inquiry);
+    console.log('📧 Email result:', emailResult);
 
     // 뿌리오 SMS 발송 (병렬 처리)
     const smsResult = await sendContactNotificationSMS({
@@ -70,6 +71,7 @@ export async function POST(req: Request) {
       phone: inquiry.phone,
       storeName: inquiry.storeName,
     });
+    console.log('📱 SMS result:', smsResult);
 
     // 이메일 또는 SMS 중 하나라도 성공하면 OK
     if (emailResult.success || smsResult.success) {

@@ -38,8 +38,8 @@ export async function sendSMS(params: SMSParams): Promise<SMSResponse> {
   }
 
   try {
-    // 뿌리오 API 엔드포인트
-    const apiUrl = 'https://api.ppurio.com/v1/message';
+    // 비즈뿌리오 API 엔드포인트
+    const apiUrl = 'https://api.bizppurio.com/v1/message';
 
     const response = await fetch(apiUrl, {
       method: 'POST',
@@ -144,7 +144,7 @@ export async function sendAlimtalk(params: {
   }
 
   try {
-    const apiUrl = 'https://api.ppurio.com/v1/alimtalk';
+    const apiUrl = 'https://api.bizppurio.com/v1/alimtalk';
 
     const response = await fetch(apiUrl, {
       method: 'POST',
