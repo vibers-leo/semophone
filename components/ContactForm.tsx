@@ -16,6 +16,7 @@ export default function ContactForm({ compact = false }: ContactFormProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
+  const [notifications, setNotifications] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -44,10 +45,14 @@ export default function ContactForm({ compact = false }: ContactFormProps) {
 
       if (data.success) {
         setSubmitStatus('success');
+        setNotifications(data.notifications || '알림 발송됨');
         setFormData({ name: '', phone: '', email: '', message: '' });
 
         // 5초 후 성공 메시지 초기화
-        setTimeout(() => setSubmitStatus('idle'), 5000);
+        setTimeout(() => {
+          setSubmitStatus('idle');
+          setNotifications('');
+        }, 5000);
       } else {
         setSubmitStatus('error');
         setErrorMessage(data.error || '문의 접수에 실패했습니다.');
@@ -145,7 +150,15 @@ export default function ContactForm({ compact = false }: ContactFormProps) {
         {submitStatus === 'success' && (
           <div className="bg-green-50 border-2 border-green-200 rounded-xl p-3 md:p-4 text-center">
             <p className="text-green-800 font-bold text-sm md:text-base">✅ 문의가 성공적으로 접수되었습니다!</p>
-            <p className="text-green-700 text-xs md:text-sm mt-1">빠른 시일 내에 연락드리겠습니다.</p>
+            <p className="text-green-700 text-xs md:text-sm mt-1">
+              {notifications && (
+                <>
+                  <span className="font-semibold">{notifications}</span>
+                  <br />
+                </>
+              )}
+              빠른 시일 내에 연락드리겠습니다.
+            </p>
           </div>
         )}
 
