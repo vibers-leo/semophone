@@ -28,9 +28,9 @@ export function SwipeableCards({ children, className = '' }: SwipeableCardsProps
         window.requestAnimationFrame(() => {
           if (containerRef.current) {
             const width = containerRef.current.offsetWidth;
-            // 모바일: 전체 너비 - padding, 데스크톱: 카드 3개
+            // 모바일: 전체 너비 사용 (부모에 이미 px-3 있음), 데스크톱: 카드 3개
             const isMobile = window.innerWidth < 768;
-            setCardWidth(isMobile ? width - 32 : (width - 48) / 3);
+            setCardWidth(isMobile ? width : (width - 48) / 3);
           }
           ticking = false;
         });
