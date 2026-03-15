@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, useMotionValue, useTransform, PanInfo } from 'framer-motion';
-import { ReactNode, useState, useRef, useEffect } from 'react';
+import { ReactNode, useState, useRef, useEffect, useCallback, memo } from 'react';
 import { haptics } from '@/lib/haptics';
 
 interface SwipeableCardsProps {
@@ -19,23 +19,31 @@ export function SwipeableCards({ children, className = '' }: SwipeableCardsProps
   const containerRef = useRef<HTMLDivElement>(null);
   const [cardWidth, setCardWidth] = useState(0);
 
-  // 카드 너비 계산
+  // 카드 너비 계산 (throttled)
   useEffect(() => {
+    let ticking = false;
+
     const updateWidth = () => {
-      if (containerRef.current) {
-        const width = containerRef.current.offsetWidth;
-        // 모바일: 전체 너비 - padding, 데스크톱: 카드 3개
-        const isMobile = window.innerWidth < 768;
-        setCardWidth(isMobile ? width - 32 : (width - 48) / 3);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          if (containerRef.current) {
+            const width = containerRef.current.offsetWidth;
+            // 모바일: 전체 너비 - padding, 데스크톱: 카드 3개
+            const isMobile = window.innerWidth < 768;
+            setCardWidth(isMobile ? width - 32 : (width - 48) / 3);
+          }
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 
     updateWidth();
-    window.addEventListener('resize', updateWidth);
+    window.addEventListener('resize', updateWidth, { passive: true });
     return () => window.removeEventListener('resize', updateWidth);
   }, []);
 
-  const handleDragEnd = (event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
+  const handleDragEnd = useCallback((event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
     setIsDragging(false);
     const offset = info.offset.x;
     const velocity = info.velocity.x;
@@ -55,7 +63,7 @@ export function SwipeableCards({ children, className = '' }: SwipeableCardsProps
         haptics.light();
       }
     }
-  };
+  }, [currentIndex, children.length]);
 
   // 모바일 여부 확인
   const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
@@ -75,8 +83,8 @@ export function SwipeableCards({ children, className = '' }: SwipeableCardsProps
         }}
         transition={{
           type: 'spring',
-          stiffness: 300,
-          damping: 30
+          stiffness: 400,
+          damping: 35
         }}
         style={{
           cursor: isDragging ? 'grabbing' : 'grab',

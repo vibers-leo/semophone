@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, useMotionValue, useTransform } from 'framer-motion';
-import { useState } from 'react';
+import { useState, memo } from 'react';
 import { haptics } from '@/lib/haptics';
 
 interface SwipeAction {
@@ -28,7 +28,7 @@ const colorMap = {
  * 왼쪽 스와이프: 전화
  * 오른쪽 스와이프: 길찾기
  */
-export function SwipeableStoreCard({
+export const SwipeableStoreCard = memo(function SwipeableStoreCard({
   children,
   onCall,
   onNavigate,
@@ -96,4 +96,4 @@ export function SwipeableStoreCard({
       </motion.div>
     </div>
   );
-}
+});

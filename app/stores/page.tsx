@@ -1,12 +1,16 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo, useCallback } from 'react';
 import dynamic from 'next/dynamic';
+import { motion } from 'framer-motion';
 import { stores, type Store } from '@/data/stores';
 import { calculateDistance, isCapitalArea } from '@/lib/distance';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import StoreDetailModal from '@/components/StoreDetailModal';
+import { SwipeableStoreCard } from '@/components/ui/SwipeableStoreCard';
+import { PullToRefresh } from '@/components/ui/PullToRefresh';
+import { haptics } from '@/lib/haptics';
 
 const NaverMap = dynamic(() => import('@/components/NaverMap'), { ssr: false });
 
@@ -26,19 +30,19 @@ export default function StoresPage() {
   const [selectedStore, setSelectedStore] = useState<Store | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const regions = ['전체', '서울', '경기', '인천'];
+  const regions = useMemo(() => ['전체', '서울', '경기', '인천'], []);
 
-  const openStoreDetail = (store: Store) => {
+  const openStoreDetail = useCallback((store: Store) => {
     setSelectedStore(store);
     setIsModalOpen(true);
-  };
+  }, []);
 
-  const closeStoreDetail = () => {
+  const closeStoreDetail = useCallback(() => {
     setIsModalOpen(false);
     setTimeout(() => setSelectedStore(null), 300);
-  };
+  }, []);
 
-  // 지역 필터링
+  // 지역 필터링 (useMemo로 최적화)
   useEffect(() => {
     if (selectedRegion === '전체') {
       setFilteredStores(allStores);
@@ -47,26 +51,8 @@ export default function StoresPage() {
     }
   }, [selectedRegion, allStores]);
 
-  // Pull-to-Refresh 핸들러
-  const handleRefresh = async () => {
-    // 위치 권한을 받은 상태라면 위치 재갱신
-    if (locationState === 'success') {
-      return new Promise<void>((resolve) => {
-        getMyLocation();
-        setTimeout(resolve, 1000);
-      });
-    }
-    // 그 외의 경우 간단히 새로고침
-    return new Promise<void>((resolve) => {
-      setTimeout(() => {
-        window.location.reload();
-        resolve();
-      }, 800);
-    });
-  };
-
   // 내 위치 가져오기
-  const getMyLocation = () => {
+  const getMyLocation = useCallback(() => {
     if (!navigator.geolocation) {
       setLocationError('브라우저가 위치 서비스를 지원하지 않습니다.');
       setLocationState('error');
@@ -122,13 +108,32 @@ export default function StoresPage() {
         setLocationState('error');
       }
     );
-  };
+  }, []);
+
+  // Pull-to-Refresh 핸들러
+  const handleRefresh = useCallback(async () => {
+    // 위치 권한을 받은 상태라면 위치 재갱신
+    if (locationState === 'success') {
+      return new Promise<void>((resolve) => {
+        getMyLocation();
+        setTimeout(resolve, 1000);
+      });
+    }
+    // 그 외의 경우 간단히 새로고침
+    return new Promise<void>((resolve) => {
+      setTimeout(() => {
+        window.location.reload();
+        resolve();
+      }, 800);
+    });
+  }, [locationState, getMyLocation]);
 
   return (
     <>
       <Header />
       <main className="min-h-screen pt-16 md:pt-20 bg-[#f6f6f6]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+        <PullToRefresh onRefresh={handleRefresh}>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
         {/* 헤더 */}
         <div className="mb-8">
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">성지찾기</h1>
@@ -318,42 +323,74 @@ export default function StoresPage() {
           <div className="flex flex-col gap-4">
             {/* 뷰 모드 전환 */}
             <div className="flex gap-2">
-              <button
-                onClick={() => setViewMode('map')}
-                className={`flex-1 md:flex-none px-6 py-3 rounded-full font-bold transition-all duration-300 whitespace-nowrap ${
-                  viewMode === 'map'
-                    ? 'bg-brand text-black shadow-brand hover:shadow-brand-hover hover:-translate-y-0.5 hover:scale-105'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200 hover:-translate-y-0.5'
+              <motion.button
+                onClick={() => {
+                  haptics.light();
+                  setViewMode('map');
+                }}
+                className={`relative flex-1 md:flex-none px-6 py-3 rounded-full font-bold whitespace-nowrap transition-colors ${
+                  viewMode === 'map' ? 'text-black' : 'text-gray-700'
                 }`}
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
               >
-                🗺️ 지도
-              </button>
-              <button
-                onClick={() => setViewMode('list')}
-                className={`flex-1 md:flex-none px-6 py-3 rounded-full font-bold transition-all duration-300 whitespace-nowrap ${
-                  viewMode === 'list'
-                    ? 'bg-brand text-black shadow-brand hover:shadow-brand-hover hover:-translate-y-0.5 hover:scale-105'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200 hover:-translate-y-0.5'
+                {viewMode === 'map' && (
+                  <motion.div
+                    layoutId="activeViewMode"
+                    className="absolute inset-0 bg-brand rounded-full shadow-brand"
+                    transition={{ type: 'spring', damping: 25, stiffness: 400 }}
+                  />
+                )}
+                <span className="relative z-10">🗺️ 지도</span>
+              </motion.button>
+              <motion.button
+                onClick={() => {
+                  haptics.light();
+                  setViewMode('list');
+                }}
+                className={`relative flex-1 md:flex-none px-6 py-3 rounded-full font-bold whitespace-nowrap transition-colors ${
+                  viewMode === 'list' ? 'text-black' : 'text-gray-700'
                 }`}
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
               >
-                📋 리스트
-              </button>
+                {viewMode === 'list' && (
+                  <motion.div
+                    layoutId="activeViewMode"
+                    className="absolute inset-0 bg-brand rounded-full shadow-brand"
+                    transition={{ type: 'spring', damping: 25, stiffness: 400 }}
+                  />
+                )}
+                <span className="relative z-10">📋 리스트</span>
+              </motion.button>
             </div>
 
             {/* 지역 필터 */}
             <div className="flex flex-wrap gap-2">
               {regions.map((region) => (
-                <button
+                <motion.button
                   key={region}
-                  onClick={() => setSelectedRegion(region)}
-                  className={`px-4 py-2 rounded-full font-medium transition-all duration-300 ${
+                  onClick={() => {
+                    haptics.light();
+                    setSelectedRegion(region);
+                  }}
+                  className={`relative px-4 py-2 rounded-full font-medium transition-colors ${
                     selectedRegion === region
-                      ? 'bg-brand text-black shadow-brand hover:shadow-brand-hover hover:-translate-y-0.5 hover:scale-105'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200 hover:-translate-y-0.5'
+                      ? 'text-black'
+                      : 'text-gray-700 hover:text-gray-900'
                   }`}
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  {region}
-                </button>
+                  {selectedRegion === region && (
+                    <motion.div
+                      layoutId="activeRegionChip"
+                      className="absolute inset-0 bg-brand rounded-full shadow-brand"
+                      transition={{ type: 'spring', damping: 25, stiffness: 400 }}
+                    />
+                  )}
+                  <span className="relative z-10">{region}</span>
+                </motion.button>
               ))}
             </div>
           </div>
@@ -378,9 +415,18 @@ export default function StoresPage() {
         {viewMode === 'list' && (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           {filteredStores.map((store, index) => (
-            <div
+            <SwipeableStoreCard
               key={store.id}
-              className="bg-white rounded-xl shadow-md overflow-hidden border-2 border-gray-100 hover:border-[#F2C811] hover:shadow-brand-card hover:-translate-y-1 hover:scale-[1.01] transition-all duration-300"
+              onCall={() => {
+                haptics.medium();
+                window.location.href = `tel:${store.phone}`;
+              }}
+              onNavigate={() => {
+                haptics.medium();
+                window.open(`https://map.naver.com/v5/search/${encodeURIComponent(store.address)}`, '_blank');
+              }}
+            >
+              <div className="bg-white rounded-xl shadow-md overflow-hidden border-2 border-gray-100 hover:border-[#F2C811] hover:shadow-brand-card transition-all duration-300"
             >
               {/* 카드 헤더 - 로고 배경 */}
               <div className="relative h-32 bg-gradient-to-br from-[#F2C811] to-[#D4AD00] flex items-center justify-center">
@@ -475,7 +521,8 @@ export default function StoresPage() {
                   </span>
                 </div>
               </div>
-            </div>
+              </div>
+            </SwipeableStoreCard>
           ))}
           </div>
         )}
@@ -485,8 +532,9 @@ export default function StoresPage() {
             <p className="text-gray-500 text-lg">해당 지역에 매장이 없습니다.</p>
           </div>
         )}
-      </div>
-    </main>
+          </div>
+        </PullToRefresh>
+      </main>
     <Footer />
 
     {/* 매장 상세 모달 */}
