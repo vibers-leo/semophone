@@ -13,7 +13,7 @@ const CompactHero = forwardRef<HTMLElement>((props, ref) => {
   return (
     <section
       ref={ref}
-      className="relative h-[40vh] min-h-[320px] max-h-[480px] overflow-hidden mt-[56px] md:mt-[72px] z-base"
+      className="relative h-[40vh] min-h-[320px] max-h-[480px] overflow-hidden mt-[56px] md:mt-[72px]"
       style={{
         background: 'linear-gradient(135deg, #F2C811 0%, #D4AD00 50%, #F2C811 100%)',
       }}

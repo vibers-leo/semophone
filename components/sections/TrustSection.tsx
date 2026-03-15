@@ -7,7 +7,7 @@ import { BentoGrid } from '@/components/layouts/BentoGrid';
 
 const TrustSection = forwardRef<HTMLElement>((props, ref) => {
   return (
-    <section ref={ref} className="py-24 px-3 bg-[#FAF7F0] text-center z-base">
+    <section ref={ref} className="py-24 px-3 bg-[#FAF7F0] text-center">
       <div className="max-w-container-sm md:max-w-container-md mx-auto">
         <h2 className="section-title fade-in">
           마음 편히 물어보세요,<br className="md:hidden" /> 믿고 찾을 수 있어요

@@ -145,7 +145,7 @@ export default function Home() {
       <WhySection />
 
       {/* Hero Text + Stats Combined Section */}
-      <section className="bg-[#1A1A1A] py-24 md:py-28 px-3 text-center z-base">
+      <section className="bg-[#1A1A1A] py-24 md:py-28 px-3 text-center">
         <div style={{ maxWidth: 'var(--max-w)', margin: '0 auto' }}>
           {/* Hero Text */}
           <div className="mb-16 mt-8">
@@ -189,7 +189,7 @@ export default function Home() {
       <GallerySection ref={galleryRef} />
 
       {/* Final CTA */}
-      <section className="py-32 px-3 bg-white text-center z-base">
+      <section className="py-32 px-3 bg-white text-center">
         <div style={{ maxWidth: 'var(--max-w)', margin: '0 auto' }}>
           <h2 className="text-[32px] md:text-[40px] font-black leading-snug mb-4">
             단 한 명의 고객도<br className="md:hidden" /> <span className="text-brand">손해보지 않도록</span>
@@ -216,7 +216,7 @@ export default function Home() {
       </section>
 
       {/* Contact Section - Hidden */}
-      <section className="hidden py-16 md:py-24 lg:py-32 px-0 bg-[#FAF7F0] text-center z-base">
+      <section className="hidden py-16 md:py-24 lg:py-32 px-0 bg-[#FAF7F0] text-center">
         <div style={{ maxWidth: 'var(--max-w)', margin: '0 auto' }}>
           <h2 className="text-[24px] md:text-[32px] lg:text-[40px] font-black leading-snug mb-2 md:mb-4 px-5">
             궁금한 점이 있으신가요?
