@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 export default function Loading() {
   return (
-    <div className="fixed inset-0 bg-white z-50 flex items-center justify-center">
+    <div className="fixed inset-0 bg-white z-splash flex items-center justify-center">
       <div className="text-center">
         <div className="relative w-48 h-48 mx-auto mb-8">
           <Image

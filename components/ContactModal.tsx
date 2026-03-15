@@ -1,7 +1,9 @@
 'use client';
 
 import { useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import ContactForm from './ContactForm';
+import { useScrollLock } from '@/hooks/useScrollLock';
 
 interface ContactModalProps {
   isOpen: boolean;
@@ -9,6 +11,9 @@ interface ContactModalProps {
 }
 
 export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
+  // 스크롤 잠금 (useScrollLock 훅 사용)
+  useScrollLock(isOpen);
+
   // ESC 키로 모달 닫기
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
@@ -17,26 +22,39 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
 
     if (isOpen) {
       document.addEventListener('keydown', handleEsc);
-      document.body.style.overflow = 'hidden';
     }
 
     return () => {
       document.removeEventListener('keydown', handleEsc);
-      document.body.style.overflow = 'unset';
     };
   }, [isOpen, onClose]);
 
-  if (!isOpen) return null;
+  // Modal 열림 이벤트 발송 (Header 메뉴 닫기용)
+  useEffect(() => {
+    if (isOpen) {
+      window.dispatchEvent(new CustomEvent('modalOpen'));
+    }
+  }, [isOpen]);
 
   return (
-    <div
-      className="fixed inset-0 z-modal flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm"
-      onClick={onClose}
-    >
-      <div
-        className="relative w-full max-w-lg bg-[#FAF7F0] rounded-2xl shadow-2xl"
-        onClick={(e) => e.stopPropagation()}
-      >
+    <AnimatePresence>
+      {isOpen && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
+          className="fixed inset-0 z-modal-backdrop flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm"
+          onClick={onClose}
+        >
+          <motion.div
+            initial={{ scale: 0.9, opacity: 0, y: 20 }}
+            animate={{ scale: 1, opacity: 1, y: 0 }}
+            exit={{ scale: 0.9, opacity: 0, y: 20 }}
+            transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+            className="relative w-full max-w-lg bg-[#FAF7F0] rounded-2xl shadow-2xl z-modal"
+            onClick={(e) => e.stopPropagation()}
+          >
         {/* 닫기 버튼 */}
         <button
           onClick={onClose}
@@ -59,10 +77,12 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
         </div>
 
         {/* 모달 본문 */}
-        <div className="p-6">
+        <div className="p-6 pb-safe-bottom">
           <ContactForm compact />
         </div>
-      </div>
-    </div>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 }

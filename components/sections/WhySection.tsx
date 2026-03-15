@@ -29,7 +29,7 @@ export default function WhySection() {
 
   return (
     <section className="bg-white py-24 px-3 text-center">
-      <div style={{ maxWidth: 'var(--max-w)', margin: '0 auto' }}>
+      <div className="max-w-container-sm md:max-w-container-md mx-auto">
         <h2 className="section-title fade-in">
           온라인엔 없는 가격,<br className="md:hidden" /> 성지에서만 가능한 상담
         </h2>

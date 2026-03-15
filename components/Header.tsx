@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { haptics } from '@/lib/haptics';
+import { useScrollLock } from '@/hooks/useScrollLock';
 
 // MenuItem 컴포넌트
 interface MenuItemProps {
@@ -44,6 +45,9 @@ export default function Header() {
   const [currentLogo, setCurrentLogo] = useState(0);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  // 스크롤 잠금 (useScrollLock 훅 사용)
+  useScrollLock(mobileMenuOpen);
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
@@ -62,13 +66,23 @@ export default function Header() {
 
     if (mobileMenuOpen) {
       document.addEventListener('keydown', handleEsc);
-      document.body.style.overflow = 'hidden';
     }
 
     return () => {
       document.removeEventListener('keydown', handleEsc);
-      document.body.style.overflow = 'unset';
     };
+  }, [mobileMenuOpen]);
+
+  // Modal 열림 감지하여 메뉴 자동 닫기
+  useEffect(() => {
+    const handleModalOpen = () => {
+      if (mobileMenuOpen) {
+        setMobileMenuOpen(false);
+      }
+    };
+
+    window.addEventListener('modalOpen', handleModalOpen);
+    return () => window.removeEventListener('modalOpen', handleModalOpen);
   }, [mobileMenuOpen]);
 
   useEffect(() => {
@@ -85,9 +99,9 @@ export default function Header() {
 
   return (
     <>
-      <header className={`header ${scrolled ? 'scrolled' : ''}`}>
-        <div className="header-inner" style={{ maxWidth: '1200px' }}>
-          <Link href="/" className="logo relative" style={{ width: '200px', height: '40px', display: 'block' }}>
+      <header className={`header z-header ${scrolled ? 'scrolled' : ''}`}>
+        <div className="header-inner max-w-container-xl">
+          <Link href="/" className="logo relative w-[200px] h-10 block">
             {logos.map((logo, index) => (
               <Image
                 key={index}
@@ -136,7 +150,7 @@ export default function Header() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className="fixed inset-0 bg-black/95 z-[10000]"
+              className="fixed inset-0 bg-black/95 z-menu-overlay"
               onClick={() => {
                 haptics.light();
                 setMobileMenuOpen(false);
@@ -149,7 +163,7 @@ export default function Header() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 30, stiffness: 300 }}
-              className="fixed right-0 top-0 h-full w-[280px] bg-white shadow-2xl overflow-y-auto z-[10001]"
+              className="fixed right-0 top-0 h-full w-[280px] bg-white shadow-2xl overflow-y-auto z-menu-panel"
             >
               {/* 닫기 버튼 */}
               <button

@@ -33,7 +33,7 @@ const GallerySection = forwardRef<HTMLElement>((props, ref) => {
 
   return (
     <section ref={ref} className="py-32 px-3 bg-[#1A1A1A] text-center overflow-hidden">
-      <div style={{ maxWidth: '600px', margin: '0 auto' }}>
+      <div className="max-w-[600px] mx-auto">
         <h2 className="text-[36px] md:text-[42px] font-black text-white leading-tight mb-16">
           수도권 어디서든<br className="md:hidden" /> 세모폰이 가까이
         </h2>

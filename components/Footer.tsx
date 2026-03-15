@@ -12,7 +12,7 @@ export default function Footer() {
     <>
       <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     <footer className="py-16 px-5 bg-gray-50 border-t border-gray-200">
-      <div style={{ maxWidth: 'var(--max-w)', margin: '0 auto' }}>
+      <div className="max-w-container-sm md:max-w-container-md mx-auto">
         {/* 로고 */}
         <div className="mb-8">
           <Image

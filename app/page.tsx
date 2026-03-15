@@ -234,7 +234,7 @@ export default function Home() {
       <Footer />
 
       {/* Sticky CTA */}
-      <div className={`sticky-cta ${showStickyCta ? 'visible' : ''} ${isAppDomain ? 'sticky-cta-with-nav' : ''}`}>
+      <div className={`sticky-cta z-sticky-cta ${showStickyCta ? 'visible' : ''} ${isAppDomain ? 'sticky-cta-with-nav' : ''}`}>
         <Link href="/stores" className="sticky-cta-btn">
           가까운 성지 찾기
         </Link>

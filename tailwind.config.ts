@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import { Z_INDEX } from "./lib/constants/zIndex";
 
 const config: Config = {
   content: [
@@ -94,6 +95,20 @@ const config: Config = {
         "30": "7.5rem", // 120px
         "34": "8.5rem", // 136px
       },
+      // Container 최대 너비 시스템
+      maxWidth: {
+        "container-sm": "480px",
+        "container-md": "720px",
+        "container-lg": "960px",
+        "container-xl": "1200px",
+      },
+      // Safe Area Insets (iOS 노치/홈 인디케이터 대응)
+      padding: {
+        "safe-top": "env(safe-area-inset-top)",
+        "safe-bottom": "env(safe-area-inset-bottom)",
+        "safe-left": "env(safe-area-inset-left)",
+        "safe-right": "env(safe-area-inset-right)",
+      },
       boxShadow: {
         soft: "0 2px 8px rgba(0, 0, 0, 0.08)",
         medium: "0 4px 12px rgba(0, 0, 0, 0.12)",
@@ -112,14 +127,19 @@ const config: Config = {
         "2xl": "24px",
         "3xl": "32px",
       },
-      // Z-Index 계층 (앱 레이어 관리)
+      // Z-Index 계층 (lib/constants/zIndex.ts에서 중앙 관리)
       zIndex: {
-        nav: '40',           // 기본 네비게이션
-        'bottom-nav': '50',  // 하단 네비
-        modal: '100',        // 일반 모달
-        menu: '200',         // 햄버거 메뉴 오버레이
-        'menu-panel': '210', // 햄버거 메뉴 패널
-        critical: '9999'     // 토스트, 알럿
+        base: String(Z_INDEX.BASE),
+        nav: String(Z_INDEX.NAV),
+        'bottom-nav': String(Z_INDEX.BOTTOM_NAV),
+        'sticky-cta': String(Z_INDEX.STICKY_CTA),
+        header: String(Z_INDEX.HEADER),
+        'menu-overlay': String(Z_INDEX.MENU_OVERLAY),
+        'menu-panel': String(Z_INDEX.MENU_PANEL),
+        'modal-backdrop': String(Z_INDEX.MODAL_BACKDROP),
+        modal: String(Z_INDEX.MODAL),
+        splash: String(Z_INDEX.LOADING_SPLASH),
+        critical: String(Z_INDEX.CRITICAL),
       },
       // 애니메이션
       animation: {

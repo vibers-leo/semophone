@@ -2,7 +2,7 @@
 
 import { Store } from '@/data/stores';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useSwipe } from '@/hooks/useSwipe';
 import { haptics } from '@/lib/haptics';
@@ -25,6 +25,13 @@ export default function StoreDetailModal({ store, isOpen, onClose }: StoreDetail
     threshold: 100,
   });
 
+  // Modal 열림 이벤트 발송 (Header 메뉴 닫기용)
+  useEffect(() => {
+    if (isOpen) {
+      window.dispatchEvent(new CustomEvent('modalOpen'));
+    }
+  }, [isOpen]);
+
   if (!isOpen || !store) return null;
 
   // 이미지 배열 (없으면 기본 로고 사용)
@@ -46,14 +53,14 @@ export default function StoreDetailModal({ store, isOpen, onClose }: StoreDetail
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          className="fixed inset-0 z-[9999] flex items-end md:items-center justify-center bg-black/60 backdrop-blur-sm"
+          className="fixed inset-0 z-modal-backdrop flex items-end md:items-center justify-center bg-black/60 backdrop-blur-sm"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={onClose}
         >
           <motion.div
-            className="relative bg-white w-full md:max-w-2xl md:rounded-3xl shadow-2xl max-h-[90vh] overflow-hidden rounded-t-3xl md:rounded-b-3xl"
+            className="relative bg-white w-full md:max-w-2xl md:rounded-3xl shadow-2xl max-h-[90vh] overflow-hidden rounded-t-3xl md:rounded-b-3xl z-modal"
             onClick={(e) => e.stopPropagation()}
             drag="y"
             dragConstraints={{ top: 0, bottom: 0 }}
@@ -203,7 +210,7 @@ export default function StoreDetailModal({ store, isOpen, onClose }: StoreDetail
             </div>
 
             {/* 액션 버튼 */}
-            <div className="space-y-2 pt-4 border-t border-gray-100">
+            <div className="space-y-2 pt-4 pb-safe-bottom border-t border-gray-100">
               {/* 전화하기 */}
               <a
                 href={`tel:${store.phone}`}
