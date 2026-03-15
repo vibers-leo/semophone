@@ -7,7 +7,6 @@ import { calculateDistance, isCapitalArea } from '@/lib/distance';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import StoreDetailModal from '@/components/StoreDetailModal';
-import { PullToRefresh } from '@/components/PullToRefresh';
 
 const NaverMap = dynamic(() => import('@/components/NaverMap'), { ssr: false });
 
@@ -128,8 +127,7 @@ export default function StoresPage() {
   return (
     <>
       <Header />
-      <PullToRefresh onRefresh={handleRefresh}>
-        <main className="min-h-screen pt-16 md:pt-20 bg-[#f6f6f6]">
+      <main className="min-h-screen pt-16 md:pt-20 bg-[#f6f6f6]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
         {/* 헤더 */}
         <div className="mb-8">
@@ -489,7 +487,6 @@ export default function StoresPage() {
         )}
       </div>
     </main>
-      </PullToRefresh>
     <Footer />
 
     {/* 매장 상세 모달 */}
