@@ -17,12 +17,7 @@ interface MenuItemProps {
 
 function MenuItem({ href, icon, label, onClick, secondary = false }: MenuItemProps) {
   return (
-    <motion.div
-      variants={{
-        hidden: { opacity: 0, x: 20 },
-        visible: { opacity: 1, x: 0 }
-      }}
-    >
+    <div>
       <Link
         href={href}
         onClick={() => {
@@ -40,7 +35,7 @@ function MenuItem({ href, icon, label, onClick, secondary = false }: MenuItemPro
         </div>
         <span className="text-base">{label}</span>
       </Link>
-    </motion.div>
+    </div>
   );
 }
 
@@ -129,32 +124,23 @@ export default function Header() {
       </header>
 
       {/* 전체 화면 슬라이드 메뉴 */}
-      <AnimatePresence>
-        {mobileMenuOpen && (
-          <>
-            {/* 오버레이 */}
-            <motion.div
-              className="fixed inset-0 bg-black/95 md:hidden"
-              style={{ zIndex: 10000 }}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              onClick={() => {
-                haptics.light();
-                setMobileMenuOpen(false);
-              }}
-            />
+      {mobileMenuOpen && (
+        <>
+          {/* 오버레이 */}
+          <div
+            className="fixed inset-0 bg-black/95 md:hidden"
+            style={{ zIndex: 10000 }}
+            onClick={() => {
+              haptics.light();
+              setMobileMenuOpen(false);
+            }}
+          />
 
-            {/* 슬라이드 패널 */}
-            <motion.nav
-              className="fixed right-0 top-0 h-full w-[280px] bg-white shadow-2xl overflow-y-auto md:hidden"
-              style={{ zIndex: 10001 }}
-              initial={{ x: '100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '100%' }}
-              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-            >
+          {/* 슬라이드 패널 */}
+          <nav
+            className="fixed right-0 top-0 h-full w-[280px] bg-white shadow-2xl overflow-y-auto md:hidden"
+            style={{ zIndex: 10001 }}
+          >
               {/* 닫기 버튼 */}
               <button
                 onClick={() => {
@@ -172,17 +158,7 @@ export default function Header() {
               {/* 메뉴 콘텐츠 */}
               <div className="flex flex-col p-8 pt-20">
                 {/* 메인 메뉴 */}
-                <motion.div
-                  className="flex flex-col gap-2"
-                  initial="hidden"
-                  animate="visible"
-                  variants={{
-                    hidden: {},
-                    visible: {
-                      transition: { staggerChildren: 0.07 }
-                    }
-                  }}
-                >
+                <div className="flex flex-col gap-2">
                   <MenuItem
                     href="/#why"
                     icon={
@@ -224,23 +200,13 @@ export default function Header() {
                     label="문의하기"
                     onClick={() => setMobileMenuOpen(false)}
                   />
-                </motion.div>
+                </div>
 
                 {/* 구분선 */}
                 <div className="my-6 border-t border-gray-300" />
 
                 {/* 하위 메뉴 */}
-                <motion.div
-                  className="flex flex-col gap-2"
-                  initial="hidden"
-                  animate="visible"
-                  variants={{
-                    hidden: {},
-                    visible: {
-                      transition: { staggerChildren: 0.07, delayChildren: 0.3 }
-                    }
-                  }}
-                >
+                <div className="flex flex-col gap-2">
                   <MenuItem
                     href="/terms"
                     icon={
@@ -274,7 +240,7 @@ export default function Header() {
                     onClick={() => setMobileMenuOpen(false)}
                     secondary
                   />
-                </motion.div>
+                </div>
 
                 {/* 버전 정보 */}
                 <div className="mt-auto pt-8 text-center">
@@ -282,10 +248,9 @@ export default function Header() {
                   <p className="text-xs text-gray-400 mt-1">© 2024 세모폰</p>
                 </div>
               </div>
-            </motion.nav>
+            </nav>
           </>
         )}
-      </AnimatePresence>
     </>
   );
 }
