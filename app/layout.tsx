@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { ClientLayout } from "./client-layout";
 
 export const metadata: Metadata = {
   title: "세모폰 - 세상의 모든 휴대폰",
@@ -30,15 +31,19 @@ export default function RootLayout({
           href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
         />
         <link rel="manifest" href="/manifest.json" />
+        <link rel="apple-touch-icon" href="/icon-192.png" />
         <meta name="theme-color" content="#F2C811" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="세모폰" />
         <meta name="naver-site-verification" content="9ce4ab454f8efae4fff19426adbc9a58b43008e3" />
         <meta
           name="viewport"
-          content="width=device-width, initial-scale=1, viewport-fit=cover"
+          content="width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover"
         />
       </head>
       <body className="antialiased overflow-x-hidden">
-        {children}
+        <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
   );

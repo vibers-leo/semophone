@@ -3,6 +3,9 @@
 import { Store } from '@/data/stores';
 import Image from 'next/image';
 import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useSwipe } from '@/hooks/useSwipe';
+import { haptics } from '@/lib/haptics';
 
 interface StoreDetailModalProps {
   store: Store | null;
@@ -12,6 +15,15 @@ interface StoreDetailModalProps {
 
 export default function StoreDetailModal({ store, isOpen, onClose }: StoreDetailModalProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  // 스와이프로 모달 닫기
+  const swipeHandlers = useSwipe({
+    onSwipeDown: () => {
+      haptics.light();
+      onClose();
+    },
+    threshold: 100,
+  });
 
   if (!isOpen || !store) return null;
 
@@ -31,14 +43,28 @@ export default function StoreDetailModal({ store, isOpen, onClose }: StoreDetail
   };
 
   return (
-    <div
-      className="fixed inset-0 z-[9999] flex items-end md:items-center justify-center bg-black/60 backdrop-blur-sm"
-      onClick={onClose}
-    >
-      <div
-        className="relative bg-white w-full md:max-w-2xl md:rounded-3xl shadow-2xl max-h-[90vh] overflow-hidden"
-        onClick={(e) => e.stopPropagation()}
-      >
+    <AnimatePresence>
+      {isOpen && (
+        <motion.div
+          className="fixed inset-0 z-[9999] flex items-end md:items-center justify-center bg-black/60 backdrop-blur-sm"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onClick={onClose}
+        >
+          <motion.div
+            className="relative bg-white w-full md:max-w-2xl md:rounded-3xl shadow-2xl max-h-[90vh] overflow-hidden rounded-t-3xl md:rounded-b-3xl"
+            onClick={(e) => e.stopPropagation()}
+            drag="y"
+            dragConstraints={{ top: 0, bottom: 0 }}
+            dragElastic={{ top: 0, bottom: 0.5 }}
+            onDragStart={swipeHandlers.handleDragStart}
+            onDragEnd={swipeHandlers.handleDragEnd}
+            initial={{ y: '100%' }}
+            animate={{ y: 0 }}
+            exit={{ y: '100%' }}
+            transition={{ type: 'spring', damping: 30, stiffness: 300 }}
+          >
         {/* 닫기 버튼 */}
         <button
           onClick={onClose}
@@ -213,7 +239,12 @@ export default function StoreDetailModal({ store, isOpen, onClose }: StoreDetail
             </div>
           </div>
         </div>
-      </div>
-    </div>
+
+          {/* 드래그 인디케이터 (모바일만) */}
+          <div className="md:hidden absolute top-2 left-1/2 -translate-x-1/2 w-12 h-1 bg-gray-300 rounded-full z-30" />
+        </motion.div>
+      </motion.div>
+      )}
+    </AnimatePresence>
   );
 }

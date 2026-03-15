@@ -112,6 +112,15 @@ const config: Config = {
         "2xl": "24px",
         "3xl": "32px",
       },
+      // Z-Index 계층 (앱 레이어 관리)
+      zIndex: {
+        nav: '40',           // 기본 네비게이션
+        'bottom-nav': '50',  // 하단 네비
+        modal: '100',        // 일반 모달
+        menu: '200',         // 햄버거 메뉴 오버레이
+        'menu-panel': '210', // 햄버거 메뉴 패널
+        critical: '9999'     // 토스트, 알럿
+      },
       // 애니메이션
       animation: {
         "fade-in": "fadeIn 0.6s ease-in-out",
