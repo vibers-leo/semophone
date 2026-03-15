@@ -135,7 +135,7 @@ export default function Header() {
             {/* 오버레이 */}
             <motion.div
               className="fixed inset-0 bg-black/95 md:hidden"
-              style={{ zIndex: 1000 }}
+              style={{ zIndex: 10000 }}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -149,7 +149,7 @@ export default function Header() {
             {/* 슬라이드 패널 */}
             <motion.nav
               className="fixed right-0 top-0 h-full w-[280px] bg-white shadow-2xl overflow-y-auto md:hidden"
-              style={{ zIndex: 1010 }}
+              style={{ zIndex: 10001 }}
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
