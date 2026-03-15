@@ -7,6 +7,7 @@ import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import HeroBanner from '@/components/sections/HeroBanner';
+import CompactHero from '@/components/sections/CompactHero';
 import WhySection from '@/components/sections/WhySection';
 import TrustSection from '@/components/sections/TrustSection';
 
@@ -133,8 +134,12 @@ export default function Home() {
       {/* Header */}
       <Header />
 
-      {/* Hero Banner */}
-      <HeroBanner ref={heroRef} />
+      {/* Hero Banner - app 도메인에서는 CompactHero */}
+      {isAppDomain ? (
+        <CompactHero ref={heroRef} />
+      ) : (
+        <HeroBanner ref={heroRef} />
+      )}
 
       {/* Why 성지 + Benefits */}
       <WhySection />

@@ -1,6 +1,7 @@
 import Badge from '@/components/ui/Badge';
 import { BentoGrid } from '@/components/layouts/BentoGrid';
 import BenefitCard from '@/components/ui/BenefitCard';
+import { SwipeableCards } from '@/components/ui/SwipeableCards';
 
 export default function WhySection() {
   const benefits = [
@@ -42,17 +43,34 @@ export default function WhySection() {
           <Badge variant="dark">세모폰에만 있어요!</Badge>
         </div>
 
-        <BentoGrid className="grid-cols-1 md:grid-cols-2 lg:grid-cols-4 auto-rows-auto">
-          {benefits.map((item, i) => (
-            <BenefitCard
-              key={i}
-              icon={item.icon}
-              title={item.title}
-              description={item.description}
-              delay={i * 0.1}
-            />
-          ))}
-        </BentoGrid>
+        {/* 모바일: 스와이프 가능한 카드, 데스크톱: 그리드 */}
+        <div className="md:hidden">
+          <SwipeableCards>
+            {benefits.map((item, i) => (
+              <BenefitCard
+                key={i}
+                icon={item.icon}
+                title={item.title}
+                description={item.description}
+                delay={i * 0.1}
+              />
+            ))}
+          </SwipeableCards>
+        </div>
+
+        <div className="hidden md:block">
+          <BentoGrid className="grid-cols-2 lg:grid-cols-4 auto-rows-auto">
+            {benefits.map((item, i) => (
+              <BenefitCard
+                key={i}
+                icon={item.icon}
+                title={item.title}
+                description={item.description}
+                delay={i * 0.1}
+              />
+            ))}
+          </BentoGrid>
+        </div>
       </div>
     </section>
   );

@@ -18,7 +18,7 @@ const HeroBanner = forwardRef<HTMLElement>((props, ref) => {
     <section ref={ref} className="hero-banner relative aspect-[16/9] lg:h-[815px] lg:aspect-auto overflow-hidden mt-[56px] md:mt-[72px]">
       {/* 슬라이드 배너 */}
       <div className="relative w-full h-full">
-        {/* Banner 1 */}
+        {/* Banner 1 - 첫 배너만 priority */}
         <div className={`absolute inset-0 transition-opacity duration-700 ${currentBanner === 0 ? 'opacity-100' : 'opacity-0'}`}>
           <Image
             src="/landing/banner1.png"
@@ -27,19 +27,20 @@ const HeroBanner = forwardRef<HTMLElement>((props, ref) => {
             className="object-cover object-center"
             priority
             sizes="100vw"
-            quality={90}
+            quality={85}
           />
         </div>
 
-        {/* Banner 2 */}
+        {/* Banner 2 - lazy loading */}
         <div className={`absolute inset-0 transition-opacity duration-700 ${currentBanner === 1 ? 'opacity-100' : 'opacity-0'}`}>
           <Image
             src="/landing/banner3.png"
             alt="세모폰 배너 3"
             fill
             className="object-cover object-center"
+            loading="lazy"
             sizes="100vw"
-            quality={90}
+            quality={85}
           />
         </div>
       </div>
