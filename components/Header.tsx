@@ -128,7 +128,7 @@ export default function Header() {
         <>
           {/* 오버레이 */}
           <div
-            className="fixed inset-0 bg-black/95 md:hidden"
+            className="fixed inset-0 bg-black/95"
             style={{ zIndex: 10000 }}
             onClick={() => {
               haptics.light();
@@ -138,7 +138,7 @@ export default function Header() {
 
           {/* 슬라이드 패널 */}
           <nav
-            className="fixed right-0 top-0 h-full w-[280px] bg-white shadow-2xl overflow-y-auto md:hidden"
+            className="fixed right-0 top-0 h-full w-[280px] bg-white shadow-2xl overflow-y-auto"
             style={{ zIndex: 10001 }}
           >
               {/* 닫기 버튼 */}
