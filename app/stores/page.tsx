@@ -132,7 +132,7 @@ export default function StoresPage() {
     <>
       <Header />
       <main className="min-h-screen pt-16 md:pt-20 bg-[#f6f6f6]">
-        <PullToRefresh onRefresh={handleRefresh}>
+        <PullToRefresh onRefresh={handleRefresh} disabled={true}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
         {/* 헤더 */}
         <div className="mb-8">
