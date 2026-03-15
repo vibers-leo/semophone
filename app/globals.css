@@ -81,7 +81,6 @@
   .header {
     position: fixed;
     top: 0; left: 0; right: 0;
-    z-index: 1000;
     background: rgba(255,255,255,0.97);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
@@ -163,7 +162,6 @@
     box-shadow: -4px 0 24px rgba(0,0,0,0.1);
     transform: translateX(100%);
     transition: transform 0.3s ease;
-    z-index: 1010;
     overflow-y: auto;
   }
   .mobile-menu.open {
@@ -386,6 +384,20 @@
     right: 50%;
     margin-left: -50vw;
     margin-right: -50vw;
+  }
+
+  /* Safe Area Insets (iOS notch 대응) */
+  .safe-top {
+    padding-top: env(safe-area-inset-top);
+  }
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  .safe-left {
+    padding-left: env(safe-area-inset-left);
+  }
+  .safe-right {
+    padding-right: env(safe-area-inset-right);
   }
 
   .fade-in {

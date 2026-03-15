@@ -4,7 +4,7 @@
   "description": "사람과 사람이 만나 세상의 모든 휴대폰의 가격을 내리다. 전국 40개 매장 위치 찾기, 최저가 휴대폰 구매",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#000000",
+  "background_color": "#FAF7F0",
   "theme_color": "#F2C811",
   "orientation": "portrait-primary",
   "icons": [
@@ -19,6 +19,22 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "성지 찾기",
+      "short_name": "성지",
+      "description": "가까운 매장 찾기",
+      "url": "/stores",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "문의하기",
+      "short_name": "문의",
+      "description": "상담 문의",
+      "url": "/contact",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
     }
   ],
   "categories": ["shopping", "business"],

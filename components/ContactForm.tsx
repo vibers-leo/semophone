@@ -140,7 +140,7 @@ export default function ContactForm({ compact = false }: ContactFormProps) {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full bg-brand text-black font-bold py-3.5 md:py-4 rounded-xl hover:bg-[#D4AD00] transition-all hover:shadow-lg hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:transform-none text-sm md:text-base"
+          className="w-full bg-brand text-black font-bold py-3.5 md:py-4 rounded-xl hover:bg-brand-600 transition-all hover:shadow-lg hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:transform-none text-sm md:text-base"
         >
           {isSubmitting ? '전송 중...' : '문의하기'}
         </button>
