@@ -78,8 +78,8 @@ export default function MobileNav() {
   };
 
   return (
-    <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-gray-200 z-bottom-nav shadow-lg">
-      <div className="grid grid-cols-4 h-16 safe-bottom">
+    <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-100 z-bottom-nav shadow-[0_-2px_16px_rgba(0,0,0,0.08)]">
+      <div className="grid grid-cols-4 h-16" style={{ paddingBottom: 'var(--safe-bottom)' }}>
         {navItems.map((item, index) => {
           const isActive = pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href));
 
@@ -92,34 +92,37 @@ export default function MobileNav() {
             >
               {/* 탭 애니메이션 */}
               <motion.div
-                className="flex flex-col items-center justify-center"
-                whileTap={{ scale: 0.9 }}
+                className="flex flex-col items-center justify-center gap-0.5"
+                whileTap={{ scale: 0.85 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 17 }}
               >
-                {/* 아이콘 */}
-                <div
-                  className={`mb-1 transition-colors ${
+                {/* 아이콘 - 활성화시 bounce */}
+                <motion.div
+                  className={`transition-all duration-200 ${
                     isActive ? 'text-brand' : 'text-gray-400'
                   }`}
+                  animate={isActive ? { scale: [1, 1.1, 1] } : { scale: 1 }}
+                  transition={{ duration: 0.3 }}
                 >
                   {item.icon}
-                </div>
+                </motion.div>
 
                 {/* 라벨 */}
                 <span
-                  className={`text-xs font-bold transition-colors ${
-                    isActive ? 'text-brand' : 'text-gray-400'
+                  className={`text-[11px] font-semibold transition-all duration-200 ${
+                    isActive ? 'text-brand' : 'text-gray-500'
                   }`}
                 >
                   {item.label}
                 </span>
               </motion.div>
 
-              {/* Active 인디케이터 (하단 점) */}
+              {/* Active 인디케이터 (상단 라인) */}
               {isActive && (
                 <motion.div
-                  className="absolute bottom-1 w-1 h-1 bg-brand rounded-full"
+                  className="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-0.5 bg-brand rounded-full"
                   layoutId="activeIndicator"
+                  initial={false}
                   transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                 />
               )}

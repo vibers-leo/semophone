@@ -15,13 +15,18 @@ export function Skeleton({
   variant = 'default',
   lines = 1,
 }: SkeletonProps) {
+  const shimmerClass = "bg-gradient-to-r from-gray-200 via-gray-100 to-gray-200 bg-[length:200%_100%]";
+  const shimmerStyle = { animation: 'shimmer 1.5s ease-in-out infinite' };
+
   if (variant === 'circle') {
     return (
       <div
         className={cn(
-          "rounded-full bg-gray-200 animate-pulse",
+          "rounded-full",
+          shimmerClass,
           className
         )}
+        style={shimmerStyle}
       />
     );
   }
@@ -33,10 +38,12 @@ export function Skeleton({
           <div
             key={i}
             className={cn(
-              "h-4 bg-gray-200 rounded animate-pulse",
+              "h-4 rounded",
+              shimmerClass,
               i === lines - 1 && "w-4/5", // 마지막 줄은 80% 너비
               className
             )}
+            style={shimmerStyle}
           />
         ))}
       </div>
@@ -46,9 +53,11 @@ export function Skeleton({
   return (
     <div
       className={cn(
-        "bg-gray-200 rounded animate-pulse",
+        "rounded",
+        shimmerClass,
         className
       )}
+      style={shimmerStyle}
     />
   );
 }

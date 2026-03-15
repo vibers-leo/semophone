@@ -38,7 +38,7 @@ export function ClientLayout({ children }: { children: React.ReactNode }) {
 
   return (
     <>
-      {children}
+      <PageTransition>{children}</PageTransition>
       {/* app 도메인에서만 MobileNav 표시 */}
       {isAppDomain && <MobileNav />}
       {/* app 도메인에서만 InstallPrompt 표시 */}

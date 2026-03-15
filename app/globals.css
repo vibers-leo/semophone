@@ -37,6 +37,12 @@
     --gray-100: #F5F5F5;
     --bg-warm: #FAF7F0;
     --max-w: 480px;
+
+    /* Safe Area Insets for iOS */
+    --safe-top: env(safe-area-inset-top);
+    --safe-bottom: env(safe-area-inset-bottom);
+    --safe-left: env(safe-area-inset-left);
+    --safe-right: env(safe-area-inset-right);
   }
 
   a { text-decoration: none; color: inherit; }
@@ -416,6 +422,48 @@
   .fade-in-d1 { transition-delay: 0.1s; }
   .fade-in-d2 { transition-delay: 0.2s; }
   .fade-in-d3 { transition-delay: 0.3s; }
+
+  /* Touch Feedback (모바일 앱 느낌) */
+  .touch-feedback {
+    transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .touch-feedback:active {
+    transform: scale(0.96);
+  }
+
+  /* Button Styles */
+  .btn-primary {
+    background: var(--brand);
+    color: var(--dark);
+    font-weight: 700;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    transition: all 0.2s;
+  }
+  .btn-primary:hover {
+    background: var(--brand-dark);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  }
+  .btn-primary:active {
+    transform: scale(0.95);
+  }
+
+  .btn-secondary {
+    background: white;
+    color: var(--gray-700);
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    border: 1px solid var(--gray-300);
+    transition: all 0.2s;
+  }
+  .btn-secondary:hover {
+    background: var(--gray-100);
+    border-color: var(--gray-400);
+  }
+  .btn-secondary:active {
+    transform: scale(0.95);
+  }
 }
 
 /* ANIMATIONS */
@@ -431,6 +479,10 @@
 @keyframes floatDeco {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
+}
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
 }
 
 /* RESPONSIVE */
