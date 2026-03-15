@@ -120,7 +120,7 @@ export function PullToRefresh({
         dragConstraints={{ top: 0, bottom: 0 }}
         dragElastic={{ top: 0.5, bottom: 0 }}
         onDragEnd={handleDragEnd}
-        style={{ y, touchAction: shouldEnablePull ? 'pan-x' : 'auto' }}
+        style={{ y, touchAction: shouldEnablePull ? 'none' : 'auto' }}
         animate={{
           y: isRefreshing ? threshold : 0,
         }}
