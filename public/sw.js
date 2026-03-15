@@ -42,15 +42,19 @@ self.addEventListener('fetch', (event) => {
   const { request } = event;
   const url = new URL(request.url);
 
-  // API 요청은 Network-first
+  // API 요청은 Network-first (GET만 캐시)
   if (url.pathname.startsWith('/api/')) {
     event.respondWith(
       fetch(request)
         .then((response) => {
-          return caches.open(DYNAMIC_CACHE).then((cache) => {
-            cache.put(request, response.clone());
-            return response;
-          });
+          // GET 요청만 캐시 (POST는 캐시 불가)
+          if (request.method === 'GET') {
+            return caches.open(DYNAMIC_CACHE).then((cache) => {
+              cache.put(request, response.clone());
+              return response;
+            });
+          }
+          return response;
         })
         .catch(() => {
           return caches.match(request);
@@ -68,8 +72,8 @@ self.addEventListener('fetch', (event) => {
 
       return fetch(request)
         .then((response) => {
-          // 성공적인 응답만 캐시
-          if (!response || response.status !== 200 || response.type === 'error') {
+          // 성공적인 GET 응답만 캐시
+          if (!response || response.status !== 200 || response.type === 'error' || request.method !== 'GET') {
             return response;
           }
 

@@ -87,9 +87,10 @@
   .header {
     position: fixed;
     top: 0; left: 0; right: 0;
-    z-index: 100;
+    z-index: 150;
     background: #ffffff;
     transition: box-shadow 0.3s;
+    will-change: transform;
   }
   .header.scrolled {
     box-shadow: 0 1px 16px rgba(0,0,0,0.05);
