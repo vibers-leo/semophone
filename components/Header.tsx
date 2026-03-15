@@ -124,23 +124,24 @@ export default function Header() {
       </header>
 
       {/* 전체 화면 슬라이드 메뉴 */}
-      {mobileMenuOpen && (
-        <>
-          {/* 오버레이 */}
-          <div
-            className="fixed inset-0 bg-black/95"
-            style={{ zIndex: 10000 }}
-            onClick={() => {
-              haptics.light();
-              setMobileMenuOpen(false);
-            }}
-          />
+      <>
+        {/* 오버레이 */}
+        <div
+          className={`fixed inset-0 bg-black/95 transition-opacity duration-300 ${
+            mobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+          }`}
+          style={{ zIndex: 10000 }}
+          onClick={() => {
+            haptics.light();
+            setMobileMenuOpen(false);
+          }}
+        />
 
-          {/* 슬라이드 패널 */}
-          <nav
-            className="fixed right-0 top-0 h-full w-[280px] bg-white shadow-2xl overflow-y-auto"
-            style={{ zIndex: 10001 }}
-          >
+        {/* 슬라이드 패널 */}
+        <nav
+          className={`mobile-menu ${mobileMenuOpen ? 'open' : ''}`}
+          style={{ zIndex: 10001 }}
+        >
               {/* 닫기 버튼 */}
               <button
                 onClick={() => {
@@ -249,8 +250,7 @@ export default function Header() {
                 </div>
               </div>
             </nav>
-          </>
-        )}
+      </>
     </>
   );
 }
