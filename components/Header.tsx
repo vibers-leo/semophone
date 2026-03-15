@@ -89,7 +89,7 @@ export default function Header() {
   ];
 
   return (
-    <header className={`header ${scrolled ? 'scrolled' : ''} z-nav`}>
+    <header className={`header ${scrolled ? 'scrolled' : ''}`}>
       <div className="header-inner" style={{ maxWidth: '1200px' }}>
         <Link href="/" className="logo relative" style={{ width: '200px', height: '40px', display: 'block' }}>
           {logos.map((logo, index) => (
