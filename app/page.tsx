@@ -134,12 +134,14 @@ export default function Home() {
       {/* Header */}
       <Header />
 
-      {/* Hero Banner - app 도메인에서는 CompactHero */}
-      {isAppDomain ? (
-        <CompactHero ref={heroRef} />
-      ) : (
-        <HeroBanner ref={heroRef} />
-      )}
+      {/* 본문 - stacking context 격리 */}
+      <main style={{ isolation: 'isolate', position: 'relative', zIndex: 0 }}>
+        {/* Hero Banner - app 도메인에서는 CompactHero */}
+        {isAppDomain ? (
+          <CompactHero ref={heroRef} />
+        ) : (
+          <HeroBanner ref={heroRef} />
+        )}
 
       {/* Why 성지 + Benefits */}
       <WhySection />
@@ -229,6 +231,8 @@ export default function Home() {
           <ContactForm />
         </div>
       </section>
+
+      </main>
 
       {/* Footer */}
       <Footer />
