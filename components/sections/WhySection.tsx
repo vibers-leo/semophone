@@ -1,10 +1,16 @@
+'use client';
+
 import Badge from '@/components/ui/Badge';
 import { BentoGrid } from '@/components/layouts/BentoGrid';
 import BenefitCard from '@/components/ui/BenefitCard';
 import { SwipeableCards } from '@/components/ui/SwipeableCards';
+import { useBenefits } from '@/hooks/useBenefits';
 
 export default function WhySection() {
-  const benefits = [
+  const { displayBenefits, loading, error } = useBenefits();
+
+  // 로딩 중이거나 데이터가 없으면 기본 데이터 사용
+  const defaultBenefits = [
     {
       icon: '💰',
       title: '지원금 최대로!',
@@ -27,6 +33,8 @@ export default function WhySection() {
     },
   ];
 
+  const displayBenefits = loading || error || displayBenefits.length === 0 ? defaultBenefits : displayBenefits;
+
   return (
     <section className="bg-white py-24 px-3 text-center">
       <div className="max-w-container-sm md:max-w-container-md mx-auto">
@@ -46,7 +54,7 @@ export default function WhySection() {
         {/* 모바일: 스와이프 가능한 카드, 데스크톱: 그리드 */}
         <div className="md:hidden">
           <SwipeableCards>
-            {benefits.map((item, i) => (
+            {displayBenefits.map((item, i) => (
               <BenefitCard
                 key={i}
                 icon={item.icon}
@@ -60,7 +68,7 @@ export default function WhySection() {
 
         <div className="hidden md:block">
           <BentoGrid className="grid-cols-2 lg:grid-cols-4 auto-rows-auto">
-            {benefits.map((item, i) => (
+            {displayBenefits.map((item, i) => (
               <BenefitCard
                 key={i}
                 icon={item.icon}
