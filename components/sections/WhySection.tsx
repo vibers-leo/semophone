@@ -7,7 +7,7 @@ import { SwipeableCards } from '@/components/ui/SwipeableCards';
 import { useBenefits } from '@/hooks/useBenefits';
 
 export default function WhySection() {
-  const { displayBenefits, loading, error } = useBenefits();
+  const { benefits, loading, error } = useBenefits();
 
   // 로딩 중이거나 데이터가 없으면 기본 데이터 사용
   const defaultBenefits = [
@@ -33,7 +33,7 @@ export default function WhySection() {
     },
   ];
 
-  const displayBenefits = loading || error || displayBenefits.length === 0 ? defaultBenefits : displayBenefits;
+  const displayBenefits = loading || error || benefits.length === 0 ? defaultBenefits : benefits;
 
   return (
     <section className="bg-white py-24 px-3 text-center">
