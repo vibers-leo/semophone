@@ -148,45 +148,39 @@ export default function Header() {
       </header>
 
       {/* 전체 화면 슬라이드 메뉴 - Portal로 body에 직접 렌더링 */}
-      {mounted && createPortal(
-        <AnimatePresence>
-          {mobileMenuOpen && (
-            <>
-              {/* 오버레이 */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.3 }}
-                className="fixed inset-0 bg-black/95"
-                style={{
-                  position: 'fixed',
-                  top: 0,
-                  left: 0,
-                  right: 0,
-                  bottom: 0,
-                  width: '100vw',
-                  height: '100vh',
-                  zIndex: 10000,
-                }}
-                onClick={() => {
-                  haptics.light();
-                  setMobileMenuOpen(false);
-                }}
-              />
+      {mounted && mobileMenuOpen && createPortal(
+        <>
+          {/* 오버레이 */}
+          <div
+            className="fixed inset-0 bg-black/95"
+            style={{
+              position: 'fixed',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              width: '100vw',
+              height: '100vh',
+              zIndex: 99999,
+            }}
+            onClick={() => {
+              haptics.light();
+              setMobileMenuOpen(false);
+            }}
+          />
 
-              {/* 슬라이드 패널 */}
-              <motion.nav
-              initial={{ x: '100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '100%' }}
-              transition={{ type: 'spring', damping: 30, stiffness: 300 }}
-              className="fixed right-0 top-0 h-full w-[280px] bg-white shadow-2xl overflow-y-auto"
-              style={{
-                position: 'fixed',
-                zIndex: 10001,
-              }}
-            >
+          {/* 슬라이드 패널 */}
+          <nav
+            className="fixed right-0 top-0 h-full w-[280px] bg-white shadow-2xl overflow-y-auto"
+            style={{
+              position: 'fixed',
+              right: 0,
+              top: 0,
+              height: '100vh',
+              zIndex: 100000,
+              transform: 'translateX(0)',
+            }}
+          >
               {/* 닫기 버튼 */}
               <button
                 onClick={() => {
@@ -300,10 +294,8 @@ export default function Header() {
                   <p className="text-xs text-gray-400 mt-1">© 2024 세모폰</p>
                 </div>
               </div>
-              </motion.nav>
-            </>
-          )}
-        </AnimatePresence>,
+          </nav>
+        </>,
         document.body
       )}
     </>
