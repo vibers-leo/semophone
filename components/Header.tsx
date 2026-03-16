@@ -158,14 +158,16 @@ export default function Header() {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.3 }}
-                className="fixed inset-0 bg-black/95 z-menu-overlay"
+                className="fixed inset-0 bg-black/95"
                 style={{
+                  position: 'fixed',
                   top: 0,
                   left: 0,
                   right: 0,
                   bottom: 0,
                   width: '100vw',
                   height: '100vh',
+                  zIndex: 10000,
                 }}
                 onClick={() => {
                   haptics.light();
@@ -179,7 +181,11 @@ export default function Header() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 30, stiffness: 300 }}
-              className="fixed right-0 top-0 h-full w-[280px] bg-white shadow-2xl overflow-y-auto z-menu-panel"
+              className="fixed right-0 top-0 h-full w-[280px] bg-white shadow-2xl overflow-y-auto"
+              style={{
+                position: 'fixed',
+                zIndex: 10001,
+              }}
             >
               {/* 닫기 버튼 */}
               <button
