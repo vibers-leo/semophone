@@ -159,6 +159,14 @@ export default function Header() {
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.3 }}
                 className="fixed inset-0 bg-black/95 z-menu-overlay"
+                style={{
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  width: '100vw',
+                  height: '100vh',
+                }}
                 onClick={() => {
                   haptics.light();
                   setMobileMenuOpen(false);
