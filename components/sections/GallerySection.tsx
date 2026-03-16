@@ -32,7 +32,7 @@ const GallerySection = forwardRef<HTMLElement>((props, ref) => {
   });
 
   return (
-    <section ref={ref} className="py-32 px-3 bg-[#1A1A1A] text-center overflow-hidden">
+    <section ref={ref} className="py-32 px-3 bg-dark text-center overflow-hidden">
       <div className="max-w-[600px] mx-auto">
         <h2 className="text-[36px] md:text-[42px] font-black text-white leading-tight mb-16">
           수도권 어디서든<br className="md:hidden" /> 세모폰이 가까이
@@ -108,7 +108,7 @@ const GallerySection = forwardRef<HTMLElement>((props, ref) => {
                   }}
                   className={`h-2 rounded-full transition-all ${
                     index === currentIndex
-                      ? 'bg-[#F2C811] w-6'
+                      ? 'bg-brand w-6'
                       : 'bg-white/50 hover:bg-white/75 w-2'
                   }`}
                   aria-label={`이미지 ${index + 1}로 이동`}

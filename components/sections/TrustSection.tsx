@@ -7,7 +7,7 @@ import { BentoGrid } from '@/components/layouts/BentoGrid';
 
 const TrustSection = forwardRef<HTMLElement>((props, ref) => {
   return (
-    <section ref={ref} className="py-24 px-3 bg-[#FAF7F0] text-center">
+    <section ref={ref} className="py-24 px-3 bg-warm text-center">
       <div className="max-w-container-sm md:max-w-container-md mx-auto">
         <h2 className="section-title fade-in">
           마음 편히 물어보세요,<br className="md:hidden" /> 믿고 찾을 수 있어요
@@ -16,7 +16,7 @@ const TrustSection = forwardRef<HTMLElement>((props, ref) => {
           세모폰은 개통 후에도 끝까지 책임집니다.
         </p>
 
-        <BentoGrid className="grid-cols-1 md:grid-cols-3 auto-rows-[180px] mb-12">
+        <BentoGrid className="grid-cols-1 md:grid-cols-3 auto-rows-[180px] mb-12 justify-items-center">
           <StatCard value="365" unit="일" label="사후관리" useBento delay={0} />
           <StatCard value="40" unit="+" label="수도권 성지" useBento delay={0.1} />
           <StatCard value="4.8" unit="★" label="고객 만족도" useBento delay={0.2} />

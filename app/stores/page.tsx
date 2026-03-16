@@ -131,7 +131,7 @@ export default function StoresPage() {
   return (
     <>
       <Header />
-      <main className="min-h-screen pt-16 md:pt-20 bg-[#f6f6f6] relative z-0">
+      <main className="min-h-screen pt-16 md:pt-20 bg-gray-100 relative z-0">
         <PullToRefresh onRefresh={handleRefresh} disabled={viewMode === 'map'}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
         {/* 헤더 */}
@@ -264,7 +264,7 @@ export default function StoresPage() {
                           <div className="grid grid-cols-2 gap-3">
                             <button
                               onClick={() => openStoreDetail(store)}
-                              className="flex items-center justify-center gap-2 px-4 py-3 bg-[#F2C811] text-black rounded-xl font-bold hover:bg-[#D4AD00] hover:shadow-lg hover:-translate-y-0.5 transition-all"
+                              className="flex items-center justify-center gap-2 px-4 py-3 bg-brand text-black rounded-xl font-bold hover:bg-brand-600 hover:shadow-lg hover:-translate-y-0.5 transition-all"
                             >
                               매장안내
                             </button>
@@ -500,7 +500,7 @@ export default function StoresPage() {
                 <div className="flex gap-2">
                   <button
                     onClick={() => openStoreDetail(store)}
-                    className="flex-1 bg-[#F2C811] text-black py-2.5 rounded-lg text-sm font-bold hover:bg-[#D4AD00] transition-colors text-center"
+                    className="flex-1 bg-brand text-black py-2.5 rounded-lg text-sm font-bold hover:bg-brand-600 transition-colors text-center"
                   >
                     매장안내
                   </button>

@@ -132,7 +132,7 @@ export default function Header() {
             </Link>
             <Link
               href="/stores"
-              className="px-6 py-2.5 bg-[#F2C811] text-black rounded-full text-base font-bold hover:bg-[#D4AD00] transition-all hover:shadow-lg hover:-translate-y-0.5"
+              className="px-6 py-2.5 bg-brand text-black rounded-full text-base font-bold hover:bg-brand-600 transition-all hover:shadow-lg hover:-translate-y-0.5"
             >
               성지찾기
             </Link>

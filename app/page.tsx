@@ -145,7 +145,7 @@ export default function Home() {
       <WhySection />
 
       {/* Hero Text + Stats Combined Section */}
-      <section className="bg-[#1A1A1A] py-24 md:py-28 px-3 text-center">
+      <section className="bg-dark py-24 md:py-28 px-3 text-center">
         <div style={{ maxWidth: 'var(--max-w)', margin: '0 auto' }}>
           {/* Hero Text */}
           <div className="mb-16 mt-8">
@@ -155,7 +155,7 @@ export default function Home() {
             <div className="hero-subtitle fade-in mb-4">수도권 휴대폰 성지 세모폰입니다</div>
             <Link
               href="/stores"
-              className="inline-block px-10 py-4 bg-[#F2C811] text-black rounded-full text-lg font-bold hover:bg-brand-600 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 fade-in fade-in-d2"
+              className="inline-block px-10 py-4 bg-brand text-black rounded-full text-lg font-bold hover:bg-brand-600 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 fade-in fade-in-d2"
             >
               가까운 성지 찾기
             </Link>
@@ -216,7 +216,7 @@ export default function Home() {
       </section>
 
       {/* Contact Section - Hidden */}
-      <section className="hidden py-16 md:py-24 lg:py-32 px-0 bg-[#FAF7F0] text-center">
+      <section className="hidden py-16 md:py-24 lg:py-32 px-0 bg-warm text-center">
         <div style={{ maxWidth: 'var(--max-w)', margin: '0 auto' }}>
           <h2 className="text-[24px] md:text-[32px] lg:text-[40px] font-black leading-snug mb-2 md:mb-4 px-5">
             궁금한 점이 있으신가요?

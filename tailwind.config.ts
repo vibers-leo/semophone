@@ -10,15 +10,15 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // 세상모든휴대폰 브랜드 컬러 (확장된 팔레트)
+        // 세상모든휴대폰 브랜드 컬러 (카카오톡 스타일 황색)
         brand: {
-          50: "#FFFDF0",      // 매우 연한 황색 (배경)
-          100: "#FFF8DC",     // 연한 황색
-          200: "#FFE787",     // 중간 황색
-          DEFAULT: "#F2C811", // 메인 브랜드 황색
-          600: "#D4AD00",     // 호버 황색
-          700: "#B89500",     // 진한 황색
-          800: "#9A7A00",     // 매우 진한 황색
+          50: "#FFFEF5",      // 매우 연한 황색 (배경)
+          100: "#FFFBE6",     // 연한 황색
+          200: "#FFF7CC",     // 중간 황색
+          DEFAULT: "#FEE500", // 메인 브랜드 황색 (카카오톡)
+          600: "#FDD835",     // 호버 황색
+          700: "#E5C100",     // 진한 황색
+          800: "#C7A500",     // 매우 진한 황색
         },
         dark: {
           DEFAULT: "#1A1A1A", // 메인 다크
@@ -32,8 +32,8 @@ const config: Config = {
         },
         // 레거시 호환성 (기존 코드 지원)
         primary: {
-          DEFAULT: "#F2C811",
-          hover: "#D4AD00",
+          DEFAULT: "#FEE500",
+          hover: "#FDD835",
           dark: "#1A1A1A",
         },
         gray: {
@@ -113,10 +113,10 @@ const config: Config = {
         soft: "0 2px 8px rgba(0, 0, 0, 0.08)",
         medium: "0 4px 12px rgba(0, 0, 0, 0.12)",
         strong: "0 8px 24px rgba(0, 0, 0, 0.16)",
-        // 브랜드 컬러 그림자
-        brand: "0 6px 24px rgba(242, 200, 17, 0.4)",
-        "brand-hover": "0 16px 40px rgba(242, 200, 17, 0.6)",
-        "brand-card": "0 12px 32px rgba(242, 200, 17, 0.20), 0 8px 24px rgba(0, 0, 0, 0.08)",
+        // 브랜드 컬러 그림자 (카카오톡 스타일)
+        brand: "0 6px 24px rgba(254, 229, 0, 0.4)",
+        "brand-hover": "0 16px 40px rgba(254, 229, 0, 0.6)",
+        "brand-card": "0 12px 32px rgba(254, 229, 0, 0.20), 0 8px 24px rgba(0, 0, 0, 0.08)",
       },
       borderRadius: {
         DEFAULT: "8px",

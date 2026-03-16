@@ -6,7 +6,7 @@ interface BadgeProps {
 
 export default function Badge({ children, variant = 'dark', className = '' }: BadgeProps) {
   const variants = {
-    dark: 'bg-[#1A1A1A] text-white',
+    dark: 'bg-dark text-white',
     brand: 'bg-brand text-black',
     light: 'bg-gray-100 text-gray-900',
   };
