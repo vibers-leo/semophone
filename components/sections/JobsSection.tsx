@@ -94,12 +94,18 @@ export default function JobsSection() {
 
             {/* 지원 버튼 */}
             <div className="flex flex-col sm:flex-row gap-3">
-              <Link
-                href="/careers#application"
+              <button
+                onClick={() => {
+                  // 지원 모달 열기 (ApplicationSection에서 처리)
+                  const event = new CustomEvent('openApplicationForm', {
+                    detail: { jobTitle: permanentJob.title }
+                  });
+                  window.dispatchEvent(event);
+                }}
                 className="flex-1 bg-brand text-dark text-center px-8 py-4 rounded-full text-lg font-bold hover:bg-brand-600 transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5"
               >
                 지원하기
-              </Link>
+              </button>
               <Link
                 href="/contact"
                 className="flex-1 bg-white text-dark text-center px-8 py-4 rounded-full text-lg font-bold border-2 border-dark hover:bg-dark hover:text-white transition-all"
