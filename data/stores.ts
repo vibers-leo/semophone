@@ -452,14 +452,5 @@ export const stores: Store[] = [
     lng: 126.6361,
     images: ["/images/stores/002.jpg"],
     link: "https://map.naver.com/p/entry/place/1285895671",
-  },
-  {
-    id: null,
-    name: "",
-    address: "",
-    phone: "031-1234-5678",
-    region: "경기",
-    lat: 37.5,
-    lng: 127,
   }
 ];

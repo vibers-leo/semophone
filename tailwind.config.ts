@@ -1,5 +1,5 @@
 import type { Config } from "tailwindcss";
-import { Z_INDEX } from "./lib/constants/zIndex";
+import { Z_INDEX } from "@/lib/constants/zIndex";
 
 const config: Config = {
   content: [
