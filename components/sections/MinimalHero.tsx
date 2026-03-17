@@ -49,7 +49,7 @@ export default function MinimalHero() {
 
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center px-8 py-4 bg-white text-dark border-2 border-dark rounded-full text-lg font-bold hover:bg-dark hover:text-white transition-all"
+                className="inline-flex items-center justify-center px-8 py-4 bg-brand text-dark rounded-full text-lg font-bold hover:bg-brand-600 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1"
               >
                 문의하기
               </Link>
@@ -67,7 +67,7 @@ export default function MinimalHero() {
               {/* 메인 아이콘 */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <Image
-                  src="/icons/세모폰 기본.png"
+                  src="/icons/세모폰 기본 매장찾기.png"
                   alt="세모폰"
                   width={400}
                   height={400}

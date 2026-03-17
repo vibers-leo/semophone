@@ -106,12 +106,16 @@ export default function JobsSection() {
               >
                 지원하기
               </button>
-              <Link
-                href="/contact"
+              <button
+                onClick={() => {
+                  // ContactModal 열기 (Footer에 있는 모달 사용)
+                  const event = new CustomEvent('openContactModal');
+                  window.dispatchEvent(event);
+                }}
                 className="flex-1 bg-white text-dark text-center px-8 py-4 rounded-full text-lg font-bold border-2 border-dark hover:bg-dark hover:text-white transition-all"
               >
                 문의하기
-              </Link>
+              </button>
             </div>
           </div>
         </motion.div>

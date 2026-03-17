@@ -1,12 +1,22 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import ContactModal from './ContactModal';
 
 export default function Footer() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  useEffect(() => {
+    // 다른 컴포넌트에서 ContactModal 열기 요청 시 이벤트 리스너
+    const handleOpenModal = () => {
+      setIsModalOpen(true);
+    };
+
+    window.addEventListener('openContactModal', handleOpenModal);
+    return () => window.removeEventListener('openContactModal', handleOpenModal);
+  }, []);
 
   return (
     <>

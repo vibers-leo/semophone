@@ -30,13 +30,20 @@ export default function StatCard({
   // 기존 간단한 카드 스타일 (useBento=false)
   if (!useBento) {
     return (
-      <div className={`p-5 bg-white rounded-2xl text-center hover:shadow-lg transition-shadow ${className}`}>
-        <div className="text-[28px] font-black">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ delay, duration: 0.6 }}
+        whileHover={{ scale: 1.05, y: -5 }}
+        className={`p-8 md:p-10 bg-white rounded-2xl text-center shadow-lg hover:shadow-2xl transition-all border border-gray-100 ${className}`}
+      >
+        <div className="text-4xl md:text-5xl font-black text-dark mb-3 tracking-tight">
           <span className={highlight ? 'text-brand' : ''}>{value}</span>
-          {unit}
+          {unit && <span className="text-brand ml-1">{unit}</span>}
         </div>
-        <div className="text-[13px] text-gray-500 font-medium">{label}</div>
-      </div>
+        <div className="text-sm md:text-base text-gray-600 font-semibold">{label}</div>
+      </motion.div>
     );
   }
 
