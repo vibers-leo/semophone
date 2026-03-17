@@ -94,6 +94,7 @@ export default function StoreDetailModal({ store, isOpen, onClose }: StoreDetail
             fill
             className="object-cover"
             sizes="(max-width: 768px) 100vw, 672px"
+            style={{ imageOrientation: 'from-image' }}
           />
 
           {/* 이미지 네비게이션 (여러 이미지가 있을 때만) */}
@@ -228,7 +229,7 @@ export default function StoreDetailModal({ store, isOpen, onClose }: StoreDetail
                   href={store.link || `https://map.naver.com/v5/search/${encodeURIComponent(store.name)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 px-4 py-2.5 bg-[#03C75A] text-white rounded-xl font-bold text-sm hover:bg-[#02b350] hover:shadow-lg hover:-translate-y-0.5 transition-all"
+                  className="flex items-center justify-center gap-2 px-4 py-2.5 bg-gray-900 text-white rounded-xl font-bold text-sm hover:bg-gray-800 hover:shadow-lg hover:-translate-y-0.5 transition-all"
                 >
                   상세정보
                 </a>
@@ -238,7 +239,7 @@ export default function StoreDetailModal({ store, isOpen, onClose }: StoreDetail
                   href={`https://map.naver.com/v5/directions/-/-/${store.lng},${store.lat},${encodeURIComponent(store.name)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 px-4 py-2.5 bg-gray-900 text-white rounded-xl font-bold text-sm hover:bg-gray-800 hover:shadow-lg hover:-translate-y-0.5 transition-all"
+                  className="flex items-center justify-center gap-2 px-4 py-2.5 bg-[#03C75A] text-white rounded-xl font-bold text-sm hover:bg-[#02b350] hover:shadow-lg hover:-translate-y-0.5 transition-all"
                 >
                   길찾기
                 </a>
