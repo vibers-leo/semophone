@@ -39,7 +39,7 @@ export default function MinimalHero() {
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 href="/stores"
-                className="inline-flex items-center justify-center px-8 py-4 bg-dark text-white rounded-full text-lg font-bold hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1"
+                className="inline-flex items-center justify-center px-8 py-4 bg-brand text-black rounded-full text-lg font-bold hover:bg-brand-600 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1"
               >
                 가까운 성지 찾기
                 <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
