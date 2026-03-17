@@ -1,11 +1,12 @@
 'use client';
 
 import { useState } from 'react';
-import { JobOpening } from '@/types/content';
+import { JobOpening as ContentJobOpening } from '@/types/content';
+import { JobOpening as FirestoreJobOpening } from '@/types/firestore';
 import { BentoCard, BentoCardContent } from './BentoCard';
 
 interface JobCardProps {
-  job: JobOpening;
+  job: ContentJobOpening | FirestoreJobOpening;
 }
 
 export default function JobCard({ job }: JobCardProps) {

@@ -2,10 +2,9 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { BentoGrid } from '@/components/layouts/BentoGrid';
 import BenefitCard from '@/components/ui/BenefitCard';
-import JobCard from '@/components/ui/JobCard';
-import { benefits, jobOpenings, cultureValues } from '@/data/careers';
-import Link from 'next/link';
-import Image from 'next/image';
+import JobsSection from '@/components/sections/JobsSection';
+import ApplicationSection from '@/components/sections/ApplicationSection';
+import { benefits, cultureValues } from '@/data/careers';
 
 export const metadata = {
   title: '채용정보 | 세모폰',
@@ -73,37 +72,11 @@ export default function CareersPage() {
           </div>
         </section>
 
-        {/* 채용공고 */}
-        <section className="bg-warm py-24 px-3">
-          <div className="max-w-container-md mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">채용공고</h2>
+        {/* 채용공고 (Firestore 연동) */}
+        <JobsSection />
 
-            <div className="space-y-4">
-              {jobOpenings.map((job) => (
-                <JobCard key={job.id} job={job} />
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* 지원 방법 */}
-        <section className="bg-dark py-24 px-3 text-center">
-          <div className="max-w-container-sm mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">지원 방법</h2>
-            <p className="text-white/80 mb-8">
-              recruit@semophone.co.kr<br />
-              이력서와 자기소개서를 보내주세요
-            </p>
-
-            <Link
-              href="mailto:recruit@semophone.co.kr"
-              className="inline-flex items-center gap-2 bg-brand text-black px-8 py-4 rounded-full text-lg font-bold hover:bg-brand-600 transition-all hover:shadow-brand-hover"
-            >
-              <Image src="/icons/이메일1.png" alt="" width={24} height={24} className="w-6 h-6 object-contain" />
-              이력서 보내기
-            </Link>
-          </div>
-        </section>
+        {/* 지원 방법 (지원서 제출 폼) */}
+        <ApplicationSection />
       </main>
       <Footer />
     </>
