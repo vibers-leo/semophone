@@ -147,7 +147,10 @@ export default function Header() {
             </Link>
             <Link
               href="/stores"
-              className="px-6 py-2.5 bg-brand text-black rounded-full text-base font-bold hover:bg-brand-600 transition-all hover:shadow-lg hover:-translate-y-0.5"
+              className="px-6 py-2.5 text-black rounded-full text-base font-bold transition-all hover:shadow-lg hover:-translate-y-0.5"
+              style={{ backgroundColor: '#FEE500' }}
+              onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#FDD835'}
+              onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#FEE500'}
             >
               매장찾기
             </Link>

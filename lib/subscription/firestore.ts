@@ -17,7 +17,9 @@ import {
   orderBy,
   Timestamp,
 } from 'firebase/firestore';
-import { db, auth } from '@/lib/firebase/config';
+// ⚠️ AI Recipe Firebase 사용 (세모구독 전용)
+// 세모폰의 Firebase가 아닌 AI Recipe의 Firebase DB를 사용합니다
+import { aiRecipeDb as db, aiRecipeAuth as auth } from './firebase-config';
 
 import type {
   ServicePlan,

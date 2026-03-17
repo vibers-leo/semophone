@@ -39,7 +39,10 @@ export default function MinimalHero() {
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 href="/stores"
-                className="inline-flex items-center justify-center px-8 py-4 bg-brand text-black rounded-full text-lg font-bold hover:bg-brand-600 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1"
+                className="inline-flex items-center justify-center px-8 py-4 text-black rounded-full text-lg font-bold transition-all shadow-lg hover:shadow-xl hover:-translate-y-1"
+                style={{ backgroundColor: '#FEE500' }}
+                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#FDD835'}
+                onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#FEE500'}
               >
                 가까운 성지 찾기
                 <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -49,7 +52,10 @@ export default function MinimalHero() {
 
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center px-8 py-4 bg-brand text-dark rounded-full text-lg font-bold hover:bg-brand-600 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1"
+                className="inline-flex items-center justify-center px-8 py-4 text-dark rounded-full text-lg font-bold transition-all shadow-lg hover:shadow-xl hover:-translate-y-1"
+                style={{ backgroundColor: '#FEE500' }}
+                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#FDD835'}
+                onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#FEE500'}
               >
                 문의하기
               </Link>

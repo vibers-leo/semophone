@@ -25,7 +25,7 @@ export async function parseUserMessage(userMessage: string): Promise<Conversatio
   try {
     // TODO: Groq API 설정 후 주석 해제
     // const groq = new Groq({
-    //   apiKey: process.env.GROQ_API_KEY || '',
+    //   apiKey: process.env.NEXT_PUBLIC_GROQ_API_KEY || '',
     // });
 
     const prompt = `You are a subscription service assistant. The user is telling you about their subscriptions in Korean.
