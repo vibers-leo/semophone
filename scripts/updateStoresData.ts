@@ -27,7 +27,19 @@ async function updateStoresData() {
 
   // 매장 데이터 읽기
   const mappingContent = await fs.readFile('data/storeDataWithImages.json', 'utf-8');
-  const mapping: StoreData[] = JSON.parse(mappingContent);
+  const allMapping: StoreData[] = JSON.parse(mappingContent);
+
+  // ⚠️ 빈 데이터 필터링 (TypeScript 에러 방지)
+  const mapping = allMapping.filter(store =>
+    store.storeNo &&
+    store.newName &&
+    store.address
+  );
+
+  const filteredCount = allMapping.length - mapping.length;
+  if (filteredCount > 0) {
+    console.log(`⚠️  빈 데이터 ${filteredCount}개 필터링됨`);
+  }
 
   // 기존 stores.ts 읽기
   const storesContent = await fs.readFile('data/stores.ts', 'utf-8');
