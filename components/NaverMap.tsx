@@ -89,7 +89,7 @@ export default function NaverMap({ stores, userLocation, onStoreClick }: NaverMa
               display: flex;
               align-items: center;
               gap: 6px;
-              background: linear-gradient(135deg, #F2C811 0%, #D4AD00 100%);
+              background: #FEE500;
               color: black;
               padding: 8px 12px;
               border-radius: 20px;

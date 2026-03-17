@@ -168,7 +168,8 @@ export default function StoresPage() {
               </p>
               <button
                 onClick={getMyLocation}
-                className="relative inline-flex items-center gap-2 bg-gradient-to-r from-[#F2C811] to-[#D4AD00] text-black px-10 md:px-14 py-4 md:py-5 rounded-full text-xl font-black shadow-[0_8px_30px_rgba(242,200,17,0.5)] hover:shadow-[0_12px_40px_rgba(242,200,17,0.7)] hover:-translate-y-1 hover:scale-105 transition-all duration-300 animate-pulse"
+                className="relative inline-flex items-center gap-2 text-black px-10 md:px-14 py-4 md:py-5 rounded-full text-xl font-black shadow-[0_8px_30px_rgba(242,200,17,0.5)] hover:shadow-[0_12px_40px_rgba(242,200,17,0.7)] hover:-translate-y-1 hover:scale-105 transition-all duration-300 animate-pulse"
+                style={{ backgroundColor: '#FEE500' }}
               >
                 <Image src="/icons/지도핀2.png" alt="" width={24} height={24} className="w-6 h-6 object-contain" />
                 내 위치에서 찾기
