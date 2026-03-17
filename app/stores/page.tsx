@@ -406,85 +406,118 @@ export default function StoresPage() {
         </div>
 
         {/* 지도/리스트 뷰 전환 */}
-        <div className="bg-white rounded-2xl shadow-md p-4 md:p-6 mb-6">
-          <div className="flex flex-col gap-4">
-            {/* 뷰 모드 전환 */}
-            <div className="flex gap-2">
-              <motion.button
-                onClick={() => {
-                  haptics.light();
-                  setViewMode('map');
-                }}
-                className={`relative flex-1 md:flex-none px-6 py-3 rounded-full font-bold whitespace-nowrap transition-colors ${
-                  viewMode === 'map' ? 'text-black' : 'text-gray-700'
-                }`}
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                {viewMode === 'map' && (
-                  <motion.div
-                    layoutId="activeViewMode"
-                    className="absolute inset-0 bg-brand rounded-full shadow-brand"
-                    transition={{ type: 'spring', damping: 25, stiffness: 400 }}
-                  />
-                )}
-                <span className="relative z-10 flex items-center gap-2">
-                  <Image src="/icons/빈지도 1.png" alt="" width={20} height={20} className="w-5 h-5 object-contain" />
-                  지도
-                </span>
-              </motion.button>
-              <motion.button
-                onClick={() => {
-                  haptics.light();
-                  setViewMode('list');
-                }}
-                className={`relative flex-1 md:flex-none px-6 py-3 rounded-full font-bold whitespace-nowrap transition-colors ${
-                  viewMode === 'list' ? 'text-black' : 'text-gray-700'
-                }`}
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                {viewMode === 'list' && (
-                  <motion.div
-                    layoutId="activeViewMode"
-                    className="absolute inset-0 bg-brand rounded-full shadow-brand"
-                    transition={{ type: 'spring', damping: 25, stiffness: 400 }}
-                  />
-                )}
-                <span className="relative z-10 flex items-center gap-2">
-                  <Image src="/icons/목록.png" alt="" width={20} height={20} className="w-5 h-5 object-contain" />
-                  리스트
-                </span>
-              </motion.button>
-            </div>
-
-            {/* 지역 필터 */}
-            <div className="flex flex-wrap gap-2">
-              {regions.map((region) => (
+        <div className="bg-gradient-to-br from-white via-brand/5 to-white rounded-3xl shadow-lg border border-gray-100 p-6 md:p-8 mb-6">
+          <div className="flex flex-col gap-6">
+            {/* 뷰 모드 전환 - 더 크고 화려하게 */}
+            <div>
+              <div className="flex items-center gap-2 mb-4">
+                <Image src="/icons/빈지도 1.png" alt="" width={24} height={24} className="w-6 h-6 object-contain" />
+                <h3 className="text-lg font-bold text-gray-900">보기 모드</h3>
+              </div>
+              <div className="flex gap-3 bg-gray-100 p-2 rounded-2xl">
                 <motion.button
-                  key={region}
                   onClick={() => {
                     haptics.light();
-                    setSelectedRegion(region);
+                    setViewMode('map');
                   }}
-                  className={`relative px-4 py-2 rounded-full font-medium transition-colors ${
-                    selectedRegion === region
-                      ? 'text-black'
-                      : 'text-gray-700 hover:text-gray-900'
+                  className={`relative flex-1 px-6 py-4 rounded-xl font-bold whitespace-nowrap transition-all ${
+                    viewMode === 'map'
+                      ? 'text-black shadow-lg'
+                      : 'text-gray-600 hover:text-gray-900'
                   }`}
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                 >
-                  {selectedRegion === region && (
+                  {viewMode === 'map' && (
                     <motion.div
-                      layoutId="activeRegionChip"
-                      className="absolute inset-0 bg-brand rounded-full shadow-brand"
+                      layoutId="activeViewMode"
+                      className="absolute inset-0 bg-brand rounded-xl shadow-brand"
                       transition={{ type: 'spring', damping: 25, stiffness: 400 }}
                     />
                   )}
-                  <span className="relative z-10">{region}</span>
+                  <span className="relative z-10 flex items-center justify-center gap-2">
+                    <Image
+                      src="/icons/빈지도 1.png"
+                      alt=""
+                      width={24}
+                      height={24}
+                      className="w-6 h-6 object-contain"
+                    />
+                    <span className="text-base md:text-lg">지도 보기</span>
+                  </span>
                 </motion.button>
-              ))}
+                <motion.button
+                  onClick={() => {
+                    haptics.light();
+                    setViewMode('list');
+                  }}
+                  className={`relative flex-1 px-6 py-4 rounded-xl font-bold whitespace-nowrap transition-all ${
+                    viewMode === 'list'
+                      ? 'text-black shadow-lg'
+                      : 'text-gray-600 hover:text-gray-900'
+                  }`}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  {viewMode === 'list' && (
+                    <motion.div
+                      layoutId="activeViewMode"
+                      className="absolute inset-0 bg-brand rounded-xl shadow-brand"
+                      transition={{ type: 'spring', damping: 25, stiffness: 400 }}
+                    />
+                  )}
+                  <span className="relative z-10 flex items-center justify-center gap-2">
+                    <Image
+                      src="/icons/목록.png"
+                      alt=""
+                      width={24}
+                      height={24}
+                      className="w-6 h-6 object-contain"
+                    />
+                    <span className="text-base md:text-lg">리스트 보기</span>
+                  </span>
+                </motion.button>
+              </div>
+            </div>
+
+            {/* 지역 필터 - 배경 추가 */}
+            <div>
+              <div className="flex items-center gap-2 mb-4">
+                <Image src="/icons/지도핀.png" alt="" width={24} height={24} className="w-6 h-6 object-contain" />
+                <h3 className="text-lg font-bold text-gray-900">지역 선택</h3>
+              </div>
+              <div className="flex flex-wrap gap-3">
+                {regions.map((region) => (
+                  <motion.button
+                    key={region}
+                    onClick={() => {
+                      haptics.light();
+                      setSelectedRegion(region);
+                    }}
+                    className={`relative px-6 py-3 rounded-xl font-bold transition-all ${
+                      selectedRegion === region
+                        ? 'text-black shadow-lg'
+                        : 'text-gray-600 hover:text-gray-900 bg-white border-2 border-gray-200 hover:border-gray-300'
+                    }`}
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    {selectedRegion === region && (
+                      <motion.div
+                        layoutId="activeRegionChip"
+                        className="absolute inset-0 bg-brand rounded-xl shadow-brand"
+                        transition={{ type: 'spring', damping: 25, stiffness: 400 }}
+                      />
+                    )}
+                    <span className="relative z-10 flex items-center gap-2">
+                      {selectedRegion === region && (
+                        <span className="text-lg">📍</span>
+                      )}
+                      <span className="text-base">{region}</span>
+                    </span>
+                  </motion.button>
+                ))}
+              </div>
             </div>
           </div>
         </div>
