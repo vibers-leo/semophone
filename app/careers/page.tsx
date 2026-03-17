@@ -32,33 +32,31 @@ export default function CareersPage() {
         </section>
 
         {/* 회사 문화 */}
-        <section className="bg-warm py-24 px-3 text-center">
-          <div className="max-w-container-md mx-auto">
+        <section className="bg-gray-50 py-24 px-3 text-center">
+          <div className="max-w-7xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">회사 문화</h2>
             <p className="text-gray-600 mb-12">성장을 응원하는 문화</p>
 
-            <div className="flex justify-center">
-              <BentoGrid className="grid-cols-1 md:grid-cols-3 auto-rows-auto max-w-4xl">
-                {cultureValues.map((culture, i) => (
-                  <BenefitCard
-                    key={i}
-                    icon={culture.icon}
-                    title={culture.title}
-                    description={culture.description}
-                    delay={i * 0.1}
-                  />
-                ))}
-              </BentoGrid>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {cultureValues.map((culture, i) => (
+                <BenefitCard
+                  key={i}
+                  icon={culture.icon}
+                  title={culture.title}
+                  description={culture.description}
+                  delay={i * 0.1}
+                />
+              ))}
             </div>
           </div>
         </section>
 
         {/* 복리후생 */}
         <section className="bg-white py-24 px-3 text-center">
-          <div className="max-w-container-md mx-auto">
+          <div className="max-w-7xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold mb-12">복리후생</h2>
 
-            <BentoGrid className="grid-cols-2 md:grid-cols-3 auto-rows-auto">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
               {benefits.map((benefit, i) => (
                 <BenefitCard
                   key={i}
@@ -68,7 +66,7 @@ export default function CareersPage() {
                   delay={i * 0.1}
                 />
               ))}
-            </BentoGrid>
+            </div>
           </div>
         </section>
 

@@ -1,7 +1,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { BentoCard, BentoCardContent } from './BentoCard';
 import Image from 'next/image';
 
 interface BenefitCardProps {
@@ -13,41 +12,44 @@ interface BenefitCardProps {
 }
 
 /**
- * 혜택 카드 컴포넌트 (벤토 그리드용)
+ * 혜택 카드 컴포넌트 (개선된 디자인)
  */
 export default function BenefitCard({ icon, title, description, className, delay = 0 }: BenefitCardProps) {
   return (
-    <BentoCard className={className} hover>
-      <BentoCardContent className="flex flex-col items-start justify-center h-full p-6">
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay, duration: 0.5 }}
-          className="w-full"
-        >
-          <div className="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-brand/10 flex items-center justify-center text-2xl md:text-3xl mb-3">
-            {icon.startsWith('/') ? (
-              <Image
-                src={icon}
-                alt={title}
-                width={40}
-                height={40}
-                className="w-8 h-8 md:w-10 md:h-10 object-contain"
-              />
-            ) : (
-              icon
-            )}
-          </div>
-          <h3 className="text-base md:text-lg font-bold text-gray-900 leading-snug mb-1">
-            {title}
-          </h3>
-          {description && (
-            <p className="text-sm text-gray-600">
-              {description}
-            </p>
-          )}
-        </motion.div>
-      </BentoCardContent>
-    </BentoCard>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay }}
+      whileHover={{ scale: 1.05, y: -5 }}
+      className={`bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 ${className || ''}`}
+    >
+      {/* 아이콘 */}
+      <div className="mb-6">
+        {icon.startsWith('/') ? (
+          <Image
+            src={icon}
+            alt={title}
+            width={56}
+            height={56}
+            className="w-14 h-14 object-contain"
+          />
+        ) : (
+          <div className="text-5xl">{icon}</div>
+        )}
+      </div>
+
+      {/* 제목 */}
+      <h3 className="text-xl font-bold text-dark mb-3 leading-tight">
+        {title}
+      </h3>
+
+      {/* 설명 */}
+      {description && (
+        <p className="text-sm text-dark/60 leading-relaxed">
+          {description}
+        </p>
+      )}
+    </motion.div>
   );
 }
