@@ -10,6 +10,7 @@ export interface Store {
   landmark?: string;     // 랜드마크 정보: "OO역 O번 출구 300M / CGV 건물"
   images?: string[];
   link?: string;
+  kakaoLink?: string;    // 카카오톡 상담 링크 (매장별 별도 계정)
 }
 
 // 실제 휴대폰성지 세모폰 매장 데이터

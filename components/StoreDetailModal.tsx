@@ -233,16 +233,31 @@ export default function StoreDetailModal({ store, isOpen, onClose }: StoreDetail
 
             {/* 액션 버튼 */}
             <div className="space-y-2 pt-4 pb-safe-bottom border-t border-gray-100">
-              {/* 전화하기 */}
-              <a
-                href={`tel:${store.phone}`}
-                className="flex items-center justify-center gap-2 w-full px-6 py-3 bg-brand text-black rounded-xl font-bold text-base hover:bg-brand-600 hover:shadow-lg hover:-translate-y-0.5 transition-all"
-              >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-              </svg>
-              전화 상담하기
-            </a>
+              <div className="grid grid-cols-2 gap-2">
+                {/* 전화하기 */}
+                <a
+                  href={`tel:${store.phone}`}
+                  className="flex items-center justify-center gap-2 px-4 py-3 bg-brand text-black rounded-xl font-bold text-sm hover:bg-brand-600 hover:shadow-lg hover:-translate-y-0.5 transition-all"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                  전화 상담
+                </a>
+
+                {/* 카톡상담하기 */}
+                <a
+                  href={store.kakaoLink || 'https://pf.kakao.com/_xoxoxoxo'}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 px-4 py-3 bg-[#FEE500] text-black rounded-xl font-bold text-sm hover:bg-[#FDD835] hover:shadow-lg hover:-translate-y-0.5 transition-all"
+                >
+                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 3C6.477 3 2 6.477 2 10.8c0 2.8 1.8 5.2 4.5 6.6-.2.7-.6 2.5-.7 2.8-.1.4 0 .4.2.3.2-.1 2.5-1.7 3.2-2.2.6.1 1.2.2 1.8.2 5.523 0 10-3.477 10-7.8S17.523 3 12 3zm-3.5 10.5c-.4 0-.8-.3-.8-.8v-3.5h-.9c-.4 0-.8-.3-.8-.8s.3-.8.8-.8h3.4c.4 0 .8.3.8.8s-.3.8-.8.8h-.9v3.5c0 .5-.3.8-.8.8zm4.5 0c-.4 0-.8-.3-.8-.8v-4.9c0-.4.3-.8.8-.8s.8.3.8.8v4.9c0 .5-.4.8-.8.8zm4.2 0c-.3 0-.5-.1-.7-.3l-1.8-2.4v2c0 .4-.3.8-.8.8s-.8-.3-.8-.8v-4.9c0-.4.3-.8.8-.8.3 0 .5.1.7.3l1.8 2.4v-2c0-.4.3-.8.8-.8s.8.3.8.8v4.9c0 .5-.4.8-.8.8z"/>
+                  </svg>
+                  카톡상담
+                </a>
+              </div>
 
               <div className="grid grid-cols-2 gap-2">
                 {/* 네이버 플레이스 */}

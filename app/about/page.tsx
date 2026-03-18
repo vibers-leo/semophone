@@ -53,13 +53,22 @@ export default function AboutPage() {
         {/* CI 갤러리 */}
         <section className="bg-gray-50 py-24 px-3">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-6">
                 세모폰 CI
               </h2>
-              <p className="text-gray-600">
-                다양한 환경에서 사용할 수 있는 세모폰 로고를 소개합니다
-              </p>
+              <div className="max-w-3xl mx-auto space-y-4 text-left bg-white rounded-2xl p-8 shadow-lg mb-12">
+                <p className="text-gray-700 leading-relaxed">
+                  <strong className="text-brand">세모폰 로고</strong>는 <strong>"세상의 모든 휴대폰"</strong>이라는 브랜드 철학을 담고 있습니다.
+                </p>
+                <p className="text-gray-700 leading-relaxed">
+                  삼각형(△) 형태의 심볼은 <strong className="text-gray-900">안정성</strong>과 <strong className="text-gray-900">신뢰</strong>를 상징하며,
+                  노란색(#FEE500)은 <strong className="text-gray-900">밝음</strong>과 <strong className="text-gray-900">투명함</strong>을 표현합니다.
+                </p>
+                <p className="text-gray-700 leading-relaxed">
+                  다양한 환경과 매체에 최적화된 로고 파일을 제공하며, 각 로고 이미지를 클릭하시면 원본 파일을 다운로드하실 수 있습니다.
+                </p>
+              </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -77,22 +86,48 @@ export default function AboutPage() {
                 { src: '/images/logo/검정글씨.png', name: '검정 글씨 단독', bgColor: '#FFFFFF' },
                 { src: '/images/logo/검정글씨_노란배경.png', name: '검정 글씨 (노랑 배경)', bgColor: '#FEE500' },
               ].map((logo, idx) => (
-                <div key={idx} className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow">
-                  <div
-                    className="aspect-video flex items-center justify-center mb-4 rounded-xl"
-                    style={{ backgroundColor: logo.bgColor }}
+                <div key={idx} className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow group">
+                  <a
+                    href={logo.src}
+                    download
+                    className="block"
                   >
-                    <Image
-                      src={logo.src}
-                      alt={logo.name}
-                      width={200}
-                      height={80}
-                      className="max-w-full max-h-full object-contain p-4"
-                    />
+                    <div
+                      className="aspect-video flex items-center justify-center mb-4 rounded-xl relative overflow-hidden"
+                      style={{ backgroundColor: logo.bgColor }}
+                    >
+                      <Image
+                        src={logo.src}
+                        alt={logo.name}
+                        width={200}
+                        height={80}
+                        className="max-w-full max-h-full object-contain p-4 group-hover:scale-110 transition-transform"
+                      />
+                      {/* 다운로드 오버레이 */}
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                        <div className="opacity-0 group-hover:opacity-100 transition-opacity bg-white rounded-full p-3 shadow-lg">
+                          <svg className="w-6 h-6 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                    <p className="text-sm font-bold text-gray-700 text-center group-hover:text-brand transition-colors">
+                      {logo.name}
+                    </p>
+                  </a>
+                  <div className="mt-3 text-center">
+                    <a
+                      href={logo.src}
+                      download
+                      className="inline-flex items-center gap-1 text-xs text-gray-500 hover:text-brand transition-colors"
+                    >
+                      <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                      </svg>
+                      다운로드
+                    </a>
                   </div>
-                  <p className="text-sm font-bold text-gray-700 text-center">
-                    {logo.name}
-                  </p>
                 </div>
               ))}
             </div>
