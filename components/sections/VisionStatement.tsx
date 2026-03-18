@@ -15,18 +15,17 @@ export default function VisionStatement() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.1,
+        staggerChildren: 0.1,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: 'easeOut' },
+      transition: { duration: 0.3, ease: 'easeOut' },
     },
   };
 
@@ -40,19 +39,13 @@ export default function VisionStatement() {
       >
         {/* 로고 */}
         <motion.div variants={itemVariants} className="mb-12">
-          <motion.div
-            animate={inView ? { rotate: 360, scale: [1, 1.1, 1] } : {}}
-            transition={{ duration: 1, delay: 0.5 }}
-            className="inline-block"
-          >
-            <Image
-              src="/icons/세모폰 기본 매장찾기.png"
-              alt="세모폰 로고"
-              width={120}
-              height={120}
-              className="mx-auto"
-            />
-          </motion.div>
+          <Image
+            src="/icons/세모폰 기본 매장찾기.png"
+            alt="세모폰 로고"
+            width={120}
+            height={120}
+            className="mx-auto"
+          />
         </motion.div>
 
         {/* 미션 선언 */}

@@ -21,14 +21,14 @@ function ExperienceItem({ title, description, delay, reverse = false }: Experien
       ref={ref}
       initial={{ opacity: 0 }}
       animate={inView ? { opacity: 1 } : {}}
-      transition={{ duration: 0.8, delay }}
+      transition={{ duration: 0.4, delay }}
       className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${reverse ? 'lg:flex-row-reverse' : ''}`}
     >
       {/* 이미지 */}
       <motion.div
         initial={{ opacity: 0, x: reverse ? 50 : -50 }}
         animate={inView ? { opacity: 1, x: 0 } : {}}
-        transition={{ duration: 0.8, delay: delay + 0.2 }}
+        transition={{ duration: 0.4, delay: delay + 0.2 }}
         className={reverse ? 'lg:order-2' : ''}
       >
         <motion.div
@@ -51,7 +51,7 @@ function ExperienceItem({ title, description, delay, reverse = false }: Experien
       <motion.div
         initial={{ opacity: 0, x: reverse ? -50 : 50 }}
         animate={inView ? { opacity: 1, x: 0 } : {}}
-        transition={{ duration: 0.8, delay: delay + 0.2 }}
+        transition={{ duration: 0.4, delay: delay + 0.2 }}
         className={reverse ? 'lg:order-1' : ''}
       >
         <h3 className="text-3xl md:text-4xl font-black text-dark mb-6">
@@ -63,7 +63,7 @@ function ExperienceItem({ title, description, delay, reverse = false }: Experien
               key={index}
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: delay + 0.4 + index * 0.1 }}
+              transition={{ duration: 0.3, delay: delay + 0.4 + index * 0.1 }}
               className="flex items-start gap-3"
             >
               <div className="flex-shrink-0 w-6 h-6 bg-brand rounded-full flex items-center justify-center mt-1">
@@ -102,7 +102,7 @@ export default function CustomerExperience() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.4 }}
           className="text-center mb-20"
         >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-dark mb-6">

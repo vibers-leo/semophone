@@ -19,7 +19,7 @@ export default function MinimalHero() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.3 }}
             className="text-left"
           >
             <div className="inline-block px-4 py-2 bg-brand/10 rounded-full mb-6">
@@ -66,7 +66,7 @@ export default function MinimalHero() {
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.3, delay: 0.2 }}
             className="relative"
           >
             <div className="relative w-full aspect-square max-w-lg mx-auto">
@@ -118,7 +118,7 @@ export default function MinimalHero() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
+          transition={{ duration: 0.3, delay: 0.4 }}
           className="mt-24 grid grid-cols-2 md:grid-cols-4 gap-8"
         >
           {[

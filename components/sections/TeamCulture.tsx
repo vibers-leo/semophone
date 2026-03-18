@@ -1,49 +1,26 @@
 'use client';
 
-import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import Link from 'next/link';
 
 export default function TeamCulture() {
-  const [scrollY, setScrollY] = useState(0);
-  const [mounted, setMounted] = useState(false);
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.3,
   });
 
-  useEffect(() => {
-    setMounted(true);
-
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  if (!mounted) {
-    return null;
-  }
-
   return (
     <section ref={ref} className="relative py-32 px-6 bg-dark text-white overflow-hidden">
       <div className="max-w-6xl mx-auto">
-        {/* Parallax 이미지 */}
+        {/* 이미지 */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={inView ? { opacity: 1, scale: 1 } : {}}
-          transition={{ duration: 1 }}
+          initial={{ opacity: 0 }}
+          animate={inView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.4 }}
           className="relative mb-16"
         >
-          <div
-            className="relative h-96 rounded-2xl overflow-hidden shadow-2xl"
-            style={{
-              transform: `translateY(${(scrollY - 2000) * 0.1}px)`,
-            }}
-          >
+          <div className="relative h-96 rounded-2xl overflow-hidden shadow-2xl">
             {/* 이미지 플레이스홀더 */}
             <div className="absolute inset-0 bg-gradient-to-br from-amber-400 via-yellow-500 to-yellow-600" />
 
@@ -62,18 +39,18 @@ export default function TeamCulture() {
         {/* 콘텐츠 */}
         <div className="text-center">
           <motion.h2
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.3 }}
             className="text-4xl md:text-5xl lg:text-6xl font-black mb-8"
           >
             함께 성장하는 세모폰 팀
           </motion.h2>
 
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            initial={{ opacity: 0 }}
+            animate={inView ? { opacity: 1 } : {}}
+            transition={{ duration: 0.3, delay: 0.1 }}
             className="mb-12"
           >
             <div className="inline-flex items-center gap-4 text-brand text-xl font-bold mb-6">
@@ -87,9 +64,9 @@ export default function TeamCulture() {
 
           {/* 인용구 */}
           <motion.blockquote
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={inView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.8, delay: 0.6 }}
+            initial={{ opacity: 0 }}
+            animate={inView ? { opacity: 1 } : {}}
+            transition={{ duration: 0.3, delay: 0.2 }}
             className="relative"
           >
             <div className="text-6xl text-brand opacity-50 mb-4">"</div>
@@ -103,9 +80,9 @@ export default function TeamCulture() {
 
           {/* 팀 특징 */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.8 }}
+            initial={{ opacity: 0 }}
+            animate={inView ? { opacity: 1 } : {}}
+            transition={{ duration: 0.3, delay: 0.3 }}
             className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 mb-12"
           >
             <div className="p-6 bg-white/10 rounded-xl backdrop-blur-sm">
@@ -135,9 +112,9 @@ export default function TeamCulture() {
 
           {/* CTA */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 1 }}
+            initial={{ opacity: 0 }}
+            animate={inView ? { opacity: 1 } : {}}
+            transition={{ duration: 0.3, delay: 0.4 }}
           >
             <Link href="/careers">
               <motion.button

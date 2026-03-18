@@ -31,7 +31,7 @@ const CompactHero = forwardRef<HTMLElement>((props, ref) => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
+          transition={{ duration: 0.3, ease: 'easeOut' }}
           className="space-y-4"
         >
           {/* 메인 타이틀 */}

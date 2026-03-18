@@ -22,7 +22,7 @@ function NumberCard({ value, suffix, label, delay }: NumberCardProps) {
       ref={ref}
       initial={{ opacity: 0, y: 50 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.6, delay }}
+      transition={{ duration: 0.3, delay }}
       className="text-center"
     >
       <motion.div
@@ -34,7 +34,7 @@ function NumberCard({ value, suffix, label, delay }: NumberCardProps) {
             <CountUp
               start={0}
               end={value}
-              duration={2.5}
+              duration={1.2}
               separator=","
               suffix={suffix}
             />
@@ -58,7 +58,7 @@ export default function NumbersSpeak() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.4 }}
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-dark mb-6">
@@ -80,7 +80,7 @@ export default function NumbersSpeak() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.5 }}
+          transition={{ duration: 0.4, delay: 0.5 }}
           className="text-center mt-16"
         >
           <p className="text-lg text-gray-600 leading-relaxed">

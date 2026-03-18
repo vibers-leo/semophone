@@ -36,7 +36,7 @@ export default function MinimalStats() {
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.3 }}
             className="relative"
           >
             <div className="relative rounded-2xl overflow-hidden h-[400px] md:h-[500px] flex items-start justify-center">
@@ -72,7 +72,7 @@ export default function MinimalStats() {
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.3 }}
           >
             <h2 className="text-4xl md:text-5xl font-black mb-6 leading-tight">
               <span className="text-dark">수도권 </span>

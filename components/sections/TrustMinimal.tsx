@@ -35,7 +35,7 @@ export default function TrustMinimal() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.3 }}
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-black text-dark mb-4">
@@ -77,7 +77,7 @@ export default function TrustMinimal() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.3 }}
           className="relative aspect-[16/9] max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl"
         >
           <Image

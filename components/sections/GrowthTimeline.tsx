@@ -60,7 +60,7 @@ function TimelineItem({ event, index }: { event: TimelineEvent; index: number })
       ref={ref}
       initial={{ opacity: 0, y: 50 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
+      transition={{ duration: 0.3, delay: index * 0.1 }}
       className="relative"
     >
       <motion.div
@@ -100,7 +100,7 @@ export default function GrowthTimeline() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.4 }}
           className="text-center mb-20"
         >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-dark mb-6">
@@ -122,7 +122,7 @@ export default function GrowthTimeline() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.8 }}
+          transition={{ duration: 0.4, delay: 0.8 }}
           className="mt-20 text-center"
         >
           <div className="inline-block bg-brand rounded-2xl px-12 py-8 shadow-xl">

@@ -100,7 +100,7 @@ function ReviewCard({ review, delay }: { review: Review; delay: number }) {
       ref={ref}
       initial={{ opacity: 0, x: -50 }}
       animate={inView ? { opacity: 1, x: 0 } : {}}
-      transition={{ duration: 0.6, delay }}
+      transition={{ duration: 0.3, delay }}
       className="bg-white rounded-2xl p-6 shadow-lg"
     >
       {/* 별점 */}
@@ -133,7 +133,7 @@ export default function TrustSignals() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.4 }}
           className="text-center mb-20"
         >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-dark mb-6">
@@ -155,7 +155,7 @@ export default function TrustSignals() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.5 }}
+          transition={{ duration: 0.4, delay: 0.5 }}
         >
           <h3 className="text-3xl font-bold text-dark text-center mb-12">
             고객 후기
@@ -172,7 +172,7 @@ export default function TrustSignals() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.9 }}
+          transition={{ duration: 0.4, delay: 0.9 }}
           className="mt-16 text-center"
         >
           <div className="inline-flex items-center gap-8 bg-gray-100 rounded-2xl px-12 py-6">

@@ -1,43 +1,19 @@
 'use client';
 
-import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import Link from 'next/link';
 
 export default function FinalCTA() {
-  const [scrollY, setScrollY] = useState(0);
-  const [mounted, setMounted] = useState(false);
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.3,
   });
 
-  useEffect(() => {
-    setMounted(true);
-
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  if (!mounted) {
-    return null;
-  }
-
   return (
     <section ref={ref} className="relative h-screen min-h-[600px] overflow-hidden">
-      {/* Parallax 배경 */}
-      <div
-        className="absolute inset-0 z-0"
-        style={{
-          transform: `scale(${1 + scrollY * 0.0002}) translateY(${scrollY * 0.1}px)`,
-          transition: 'transform 0.1s ease-out',
-        }}
-      >
+      {/* 배경 */}
+      <div className="absolute inset-0 z-0">
         {/* 배경 이미지 플레이스홀더 */}
         <div className="absolute inset-0 bg-gradient-to-br from-yellow-400 via-amber-500 to-yellow-600" />
 
@@ -48,89 +24,36 @@ export default function FinalCTA() {
       {/* 콘텐츠 */}
       <div className="relative z-10 h-full flex flex-col items-center justify-center px-6 text-center">
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={inView ? { opacity: 1, scale: 1 } : {}}
-          transition={{ duration: 0.8 }}
+          initial={{ opacity: 0 }}
+          animate={inView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.4 }}
           className="max-w-4xl"
         >
-          {/* 메인 카피 */}
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6"
-          >
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6">
             지금 가장 가까운
             <br />
             <span className="text-brand">세모폰 매장</span>을
             <br />
             찾아보세요
-          </motion.h2>
+          </h2>
 
-          {/* 서브 카피 */}
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-xl md:text-2xl text-white/90 mb-12"
-          >
+          <p className="text-xl md:text-2xl text-white/90 mb-12">
             온라인에 없는 특별한 가격을 직접 경험하세요
-          </motion.p>
+          </p>
 
-          {/* CTA 버튼 */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
+          <div>
             <Link href="/stores">
               <motion.button
-                animate={{
-                  scale: [1, 1.05, 1],
-                  boxShadow: [
-                    '0 10px 40px rgba(254, 229, 0, 0.3)',
-                    '0 20px 60px rgba(254, 229, 0, 0.5)',
-                    '0 10px 40px rgba(254, 229, 0, 0.3)',
-                  ],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: 'easeInOut',
-                }}
-                whileHover={{ scale: 1.1 }}
+                whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="group relative px-12 py-6 bg-brand text-dark font-black text-2xl rounded-full shadow-2xl hover:shadow-3xl transition-all overflow-hidden"
+                className="px-12 py-6 bg-brand text-dark font-black text-2xl rounded-full shadow-2xl hover:shadow-3xl transition-all"
               >
-                {/* 버튼 배경 애니메이션 */}
-                <motion.div
-                  className="absolute inset-0 bg-white"
-                  initial={{ x: '-100%' }}
-                  whileHover={{ x: 0 }}
-                  transition={{ duration: 0.3 }}
-                />
-
-                {/* 버튼 텍스트 */}
-                <span className="relative z-10 flex items-center gap-3">
-                  매장 찾기
-                  <motion.span
-                    animate={{ x: [0, 5, 0] }}
-                    transition={{ duration: 1, repeat: Infinity }}
-                  >
-                    →
-                  </motion.span>
-                </span>
+                매장 찾기 →
               </motion.button>
             </Link>
-          </motion.div>
+          </div>
 
-          {/* 추가 정보 */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={inView ? { opacity: 1 } : {}}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            className="mt-12 flex flex-col md:flex-row items-center justify-center gap-8 text-white/80"
-          >
+          <div className="mt-12 flex flex-col md:flex-row items-center justify-center gap-8 text-white/80">
             <div className="flex items-center gap-2">
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path

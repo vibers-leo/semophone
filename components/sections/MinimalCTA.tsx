@@ -12,7 +12,7 @@ export default function MinimalCTA() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.3 }}
         >
           {/* 아이콘 */}
           <div className="w-24 h-24 mx-auto mb-8">
