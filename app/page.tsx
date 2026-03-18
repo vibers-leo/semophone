@@ -6,6 +6,7 @@ import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SimplifiedHero from '@/components/sections/SimplifiedHero';
+import WhySection from '@/components/sections/WhySection';
 import MinimalStats from '@/components/sections/MinimalStats';
 import TrustMinimal from '@/components/sections/TrustMinimal';
 import MinimalCTA from '@/components/sections/MinimalCTA';
@@ -76,6 +77,30 @@ export default function Home() {
         <div ref={heroRef}>
           <SimplifiedHero />
         </div>
+
+        {/* Mission 섹션 */}
+        <section className="bg-white py-24 px-3 text-center">
+          <div className="max-w-container-md mx-auto">
+            <Image
+              src="/images/logo/기본로고.png"
+              alt="세모폰"
+              width={120}
+              height={120}
+              className="mx-auto mb-6 opacity-90"
+            />
+            <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-6">
+              세상의 모든<br />
+              휴대폰 가격을 내리다
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              세모폰은 고객이 불필요한 비용을 지불하지 않도록,<br />
+              투명한 가격과 정직한 서비스로 신뢰를 쌓아갑니다.
+            </p>
+          </div>
+        </section>
+
+        {/* 혜택 섹션 */}
+        <WhySection />
 
         {/* 통계 섹션 */}
         <MinimalStats />
