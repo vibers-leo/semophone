@@ -45,11 +45,6 @@ export default function MobileNav() {
       label: '성지찾기',
     },
     {
-      href: '/subscription',
-      icon: <Image src="/icons/카드.png" alt="세모구독" width={24} height={24} className="w-6 h-6" />,
-      label: '세모구독',
-    },
-    {
       href: '/#why',
       icon: (
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -85,7 +80,7 @@ export default function MobileNav() {
 
   return (
     <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-100 z-bottom-nav shadow-[0_-2px_16px_rgba(0,0,0,0.08)]">
-      <div className="grid grid-cols-5 h-16 pb-safe-bottom">
+      <div className="grid grid-cols-4 h-16 pb-safe-bottom">
         {navItems.map((item, index) => {
           const isActive = pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href));
 
