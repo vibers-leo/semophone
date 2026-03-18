@@ -32,6 +32,23 @@ export default function StoreDetailModal({ store, isOpen, onClose }: StoreDetail
     }
   }, [isOpen]);
 
+  // ESC 키로 모달 닫기
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isOpen) {
+        onClose();
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener('keydown', handleEscape);
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleEscape);
+    };
+  }, [isOpen, onClose]);
+
   if (!isOpen || !store) return null;
 
   // 이미지 배열 (없으면 기본 로고 사용)

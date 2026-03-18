@@ -161,9 +161,9 @@ export default function StoresPage() {
             <div className="text-center py-12 relative">
               {/* 배경 장식 */}
               <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-10">
-                <Image src="/icons/선물.png" alt="" width={60} height={60} className="absolute top-4 left-8 w-12 h-12 object-contain animate-bounce" style={{ animationDelay: '0s', animationDuration: '3s' }} />
-                <Image src="/icons/하트.png" alt="" width={50} height={50} className="absolute top-8 right-12 w-10 h-10 object-contain animate-bounce" style={{ animationDelay: '0.5s', animationDuration: '3.5s' }} />
-                <Image src="/icons/ok.png" alt="" width={50} height={50} className="absolute bottom-8 left-16 w-10 h-10 object-contain animate-bounce" style={{ animationDelay: '1s', animationDuration: '4s' }} />
+                <Image src="/icons/선물.png" alt="" width={80} height={80} className="absolute top-4 left-8 w-16 h-16 object-contain animate-bounce" style={{ animationDelay: '0s', animationDuration: '3s' }} />
+                <Image src="/icons/하트.png" alt="" width={70} height={70} className="absolute top-8 right-12 w-14 h-14 object-contain animate-bounce" style={{ animationDelay: '0.5s', animationDuration: '3.5s' }} />
+                <Image src="/icons/ok.png" alt="" width={70} height={70} className="absolute bottom-8 left-16 w-14 h-14 object-contain animate-bounce" style={{ animationDelay: '1s', animationDuration: '4s' }} />
               </div>
 
               {/* 메인 아이콘 */}
@@ -187,7 +187,7 @@ export default function StoresPage() {
               </h2>
 
               <div className="inline-flex items-center gap-2 bg-brand/10 px-4 py-2 rounded-full mb-4">
-                <Image src="/icons/선물.png" alt="" width={20} height={20} className="w-5 h-5 object-contain" />
+                <Image src="/icons/선물.png" alt="" width={28} height={28} className="w-7 h-7 object-contain" />
                 <span className="text-sm font-bold text-gray-800">
                   가장 가까운 <span className="text-brand">매장 3곳</span>을 찾아드립니다
                 </span>
@@ -211,7 +211,7 @@ export default function StoresPage() {
               </button>
 
               <div className="mt-6 flex items-center justify-center gap-2 text-xs text-gray-500">
-                <Image src="/icons/보안.png" alt="" width={16} height={16} className="w-4 h-4 object-contain" />
+                <Image src="/icons/보안.png" alt="" width={20} height={20} className="w-5 h-5 object-contain" />
                 <span>위치 정보는 가까운 매장 찾기에만 사용되며 저장되지 않습니다</span>
               </div>
 
@@ -261,7 +261,7 @@ export default function StoresPage() {
 
                 {/* 장식 배지 */}
                 <div className="inline-flex items-center gap-2 bg-green-50 px-4 py-2 rounded-full mt-2">
-                  <Image src="/icons/지도핀.png" alt="" width={18} height={18} className="w-4.5 h-4.5 object-contain" />
+                  <Image src="/icons/지도핀.png" alt="" width={24} height={24} className="w-6 h-6 object-contain" />
                   <span className="text-sm font-bold text-green-700">위치 기반 추천</span>
                 </div>
               </div>
