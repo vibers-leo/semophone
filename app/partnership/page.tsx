@@ -107,12 +107,12 @@ export default function PartnershipPage() {
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-black text-center mb-16">문의하기</h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-end">
               {/* 왼쪽: 캐릭터 이미지 */}
-              <div className="flex items-center justify-center">
+              <div className="flex items-start justify-center md:sticky md:top-24">
                 <div className="relative w-full max-w-lg">
                   <Image
-                    src="/images/logo/기본로고.png"
+                    src="/icons/세모폰 기본.png"
                     alt="세모폰"
                     width={600}
                     height={600}
@@ -180,19 +180,15 @@ export default function PartnershipPage() {
                   {/* 상담지역 */}
                   <div>
                     <label className="block text-sm font-bold text-gray-900 mb-2">상담지역</label>
-                    <select
+                    <input
+                      type="text"
                       name="region"
+                      placeholder="지역을 입력해주세요 (예: 서울 강남구, 경기 부천시)"
                       value={formData.region}
                       onChange={(e) => setFormData({ ...formData, region: e.target.value })}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-brand text-gray-900"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-brand text-gray-900 placeholder:text-gray-400"
                       required
-                    >
-                      <option value="">선택하세요</option>
-                      <option value="서울">서울</option>
-                      <option value="경기">경기</option>
-                      <option value="인천">인천</option>
-                      <option value="기타">기타 지역</option>
-                    </select>
+                    />
                   </div>
 
                   {/* 제목 */}

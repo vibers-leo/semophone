@@ -103,7 +103,7 @@ export default function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className="pt-6 border-t border-gray-200">
+        <div className="pt-10">
           <p className="text-xs text-gray-400">
             © 2026 세모폰. All rights reserved.
           </p>
