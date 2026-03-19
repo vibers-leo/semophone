@@ -4,11 +4,8 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
-export default function SimplifiedHero() {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
-  // 21:9 배너 이미지 (스케치 스타일)
-  const bannerImages = [
+// 21:9 배너 이미지 (스케치 스타일)
+const bannerImages = [
     '/images/semophone_store_banner/Generated Image March 19, 2026 - 10_45AM.jpg',
     '/images/semophone_store_banner/Generated Image March 19, 2026 - 10_47AM.jpg',
     '/images/semophone_store_banner/Generated Image March 19, 2026 - 10_49AM.jpg',
@@ -39,7 +36,13 @@ export default function SimplifiedHero() {
     '/images/semophone_store_banner/Generated Image March 19, 2026 - 1_58PM.jpg',
     '/images/semophone_store_banner/Generated Image March 19, 2026 - 2_14PM.jpg',
     '/images/semophone_store_banner/Generated Image March 19, 2026 - 2_16PM.jpg',
-  ];
+];
+
+export default function SimplifiedHero() {
+  // 항상 랜덤한 이미지로 시작
+  const [currentImageIndex, setCurrentImageIndex] = useState(() =>
+    Math.floor(Math.random() * bannerImages.length)
+  );
 
   // 자동 이미지 랜덤 전환 (2초마다)
   useEffect(() => {
