@@ -6,7 +6,6 @@ import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SimplifiedHero from '@/components/sections/SimplifiedHero';
-import WhySection from '@/components/sections/WhySection';
 import MinimalStats from '@/components/sections/MinimalStats';
 import MinimalCTA from '@/components/sections/MinimalCTA';
 
@@ -97,9 +96,6 @@ export default function Home() {
             </p>
           </div>
         </section>
-
-        {/* 혜택 섹션 */}
-        <WhySection />
 
         {/* 통계 섹션 */}
         <MinimalStats />

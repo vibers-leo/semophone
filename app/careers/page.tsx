@@ -17,19 +17,19 @@ export default function CareersPage() {
       <Header />
       <main id="main-content" style={{ isolation: 'isolate', position: 'relative', zIndex: 0 }}>
         {/* Hero */}
-        <section className="bg-white pt-[80px] md:pt-[96px] pb-12 px-6">
+        <section className="bg-white pt-[100px] md:pt-[120px] pb-12 px-6">
           <div className="max-w-7xl mx-auto">
             <div className="flex items-start gap-4 mb-3">
               <Image
                 src="/icons/사람들2.png"
                 alt="채용정보"
-                width={40}
-                height={40}
-                className="w-10 h-10 object-contain mt-1"
+                width={64}
+                height={64}
+                className="w-16 h-16 object-contain mt-1"
               />
               <h1 className="text-3xl md:text-4xl font-black text-gray-900">채용정보</h1>
             </div>
-            <p className="text-base md:text-lg text-gray-600 ml-14">
+            <p className="text-base md:text-lg text-gray-600 ml-20">
               함께 성장할 동료를 찾습니다
             </p>
           </div>

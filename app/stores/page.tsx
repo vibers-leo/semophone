@@ -141,16 +141,28 @@ export default function StoresPage() {
   return (
     <>
       <Header />
-      <main className="min-h-screen pt-16 md:pt-20 bg-gray-100 relative z-0">
+      <main id="main-content" style={{ isolation: 'isolate', position: 'relative', zIndex: 0 }} className="min-h-screen bg-gray-100">
+        {/* Hero */}
+        <section className="bg-white pt-[100px] md:pt-[120px] pb-12 px-6">
+          <div className="max-w-7xl mx-auto">
+            <div className="flex items-start gap-4 mb-3">
+              <Image
+                src="/icons/상점1.png"
+                alt="성지찾기"
+                width={64}
+                height={64}
+                className="w-16 h-16 object-contain mt-1"
+              />
+              <h1 className="text-3xl md:text-4xl font-black text-gray-900">성지찾기</h1>
+            </div>
+            <p className="text-base md:text-lg text-gray-600 ml-20">
+              전국 40개 세모폰 매장을 찾아보세요
+            </p>
+          </div>
+        </section>
+
         <PullToRefresh onRefresh={handleRefresh} disabled={viewMode === 'map'}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
-        {/* 헤더 */}
-        <div className="mb-8">
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">성지찾기</h1>
-          <p className="text-base md:text-lg text-gray-600">
-            전국 40개 세모폰 매장을 찾아보세요
-          </p>
-        </div>
 
         {/* 내 위치 기반 검색 */}
         <div className="bg-white rounded-2xl shadow-md p-6 md:p-8 mb-8">

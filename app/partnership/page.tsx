@@ -67,19 +67,19 @@ export default function PartnershipPage() {
       <Header />
       <main style={{ isolation: 'isolate', position: 'relative', zIndex: 0 }}>
         {/* Hero */}
-        <section className="bg-white pt-[80px] md:pt-[96px] pb-12 px-6">
+        <section className="bg-white pt-[100px] md:pt-[120px] pb-12 px-6">
           <div className="max-w-7xl mx-auto">
             <div className="flex items-start gap-4 mb-3">
               <Image
                 src="/icons/악수.png"
                 alt="문의하기"
-                width={40}
-                height={40}
-                className="w-10 h-10 object-contain mt-1"
+                width={64}
+                height={64}
+                className="w-16 h-16 object-contain mt-1"
               />
               <h1 className="text-3xl md:text-4xl font-black text-gray-900">문의하기</h1>
             </div>
-            <p className="text-base md:text-lg text-gray-600 ml-14">
+            <p className="text-base md:text-lg text-gray-600 ml-20">
               세모폰과 함께 성장하세요
             </p>
           </div>
@@ -110,12 +110,12 @@ export default function PartnershipPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
               {/* 왼쪽: 캐릭터 이미지 */}
               <div className="flex items-center justify-center">
-                <div className="relative w-full max-w-md">
+                <div className="relative w-full max-w-lg">
                   <Image
                     src="/images/logo/기본로고.png"
                     alt="세모폰"
-                    width={400}
-                    height={400}
+                    width={600}
+                    height={600}
                     className="w-full h-auto"
                   />
                   <div className="mt-8 text-center">
