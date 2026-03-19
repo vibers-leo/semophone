@@ -69,19 +69,21 @@ export default function PartnershipPage() {
         {/* Hero */}
         <section className="bg-white pt-[100px] md:pt-[120px] pb-12 px-6">
           <div className="max-w-7xl mx-auto">
-            <div className="flex items-start gap-4 mb-3">
+            <div className="flex items-start gap-4">
               <Image
                 src="/icons/악수.png"
                 alt="문의하기"
                 width={64}
                 height={64}
-                className="w-16 h-16 object-contain mt-1"
+                className="w-14 h-14 md:w-16 md:h-16 object-contain flex-shrink-0"
               />
-              <h1 className="text-3xl md:text-4xl font-black text-gray-900">문의하기</h1>
+              <div className="flex-1">
+                <h1 className="text-3xl md:text-4xl font-black text-gray-900 mb-2">문의하기</h1>
+                <p className="text-base md:text-lg text-gray-600">
+                  세모폰과 함께 성장하세요
+                </p>
+              </div>
             </div>
-            <p className="text-base md:text-lg text-gray-600 ml-20">
-              세모폰과 함께 성장하세요
-            </p>
           </div>
         </section>
 

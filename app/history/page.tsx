@@ -19,19 +19,21 @@ export default function HistoryPage() {
         {/* Hero */}
         <section className="bg-white pt-[100px] md:pt-[120px] pb-12 px-6">
           <div className="max-w-7xl mx-auto">
-            <div className="flex items-start gap-4 mb-3">
+            <div className="flex items-start gap-4">
               <Image
                 src="/icons/시계.png"
                 alt="히스토리"
                 width={64}
                 height={64}
-                className="w-16 h-16 object-contain mt-1"
+                className="w-14 h-14 md:w-16 md:h-16 object-contain flex-shrink-0"
               />
-              <h1 className="text-3xl md:text-4xl font-black text-gray-900">히스토리</h1>
+              <div className="flex-1">
+                <h1 className="text-3xl md:text-4xl font-black text-gray-900 mb-2">히스토리</h1>
+                <p className="text-base md:text-lg text-gray-600">
+                  세모폰의 성장 스토리
+                </p>
+              </div>
             </div>
-            <p className="text-base md:text-lg text-gray-600 ml-20">
-              세모폰의 성장 스토리
-            </p>
           </div>
         </section>
 
