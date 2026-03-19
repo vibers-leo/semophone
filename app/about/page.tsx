@@ -50,115 +50,68 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* CI 갤러리 */}
+        {/* 브랜드 아이덴티티 */}
         <section className="bg-gray-50 py-24 px-3">
-          <div className="max-w-7xl mx-auto">
+          <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-6">
-                세모폰 CI
+                브랜드 아이덴티티
               </h2>
-              <div className="max-w-3xl mx-auto space-y-4 text-left bg-white rounded-2xl p-8 shadow-lg mb-8">
-                <p className="text-gray-700 leading-relaxed">
-                  <strong className="text-brand">세모폰 로고</strong>는 <strong>"세상의 모든 휴대폰"</strong>이라는 브랜드 철학을 담고 있습니다.
-                </p>
-                <p className="text-gray-700 leading-relaxed">
-                  삼각형(△) 형태의 심볼은 <strong className="text-gray-900">안정성</strong>과 <strong className="text-gray-900">신뢰</strong>를 상징하며,
-                  노란색(#FEE500)은 <strong className="text-gray-900">밝음</strong>과 <strong className="text-gray-900">투명함</strong>을 표현합니다.
-                </p>
-              </div>
-
-              {/* 다운로드 버튼 */}
-              <div className="flex gap-4 justify-center mb-12">
-                <button
-                  onClick={() => {
-                    // PNG 파일 일괄 다운로드 (zip 파일)
-                    window.open('/downloads/semophone_logos.zip', '_blank');
-                  }}
-                  className="px-8 py-4 bg-brand text-dark font-bold rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all"
-                >
-                  <div className="flex items-center gap-2">
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                    </svg>
-                    PNG 파일 일괄 다운로드
-                  </div>
-                </button>
-                <button
-                  onClick={() => {
-                    // 원본 파일 다운로드 (AI/PSD 등)
-                    window.open('/downloads/semophone_logos_original.zip', '_blank');
-                  }}
-                  className="px-8 py-4 bg-gray-900 text-white font-bold rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all"
-                >
-                  <div className="flex items-center gap-2">
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                    </svg>
-                    원본 파일 다운로드
-                  </div>
-                </button>
-              </div>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-12">
+                세모폰의 브랜드 아이덴티티와 로고 시스템을<br />
+                소개합니다
+              </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[
-                { src: '/images/logo/기본로고.png', name: '기본 로고', bgColor: '#FFFFFF' },
-                { src: '/images/logo/기본로고_흰글씨.png', name: '반전 로고', bgColor: '#1A1A1A' },
-                { src: '/images/logo/로고_가로나열형.png', name: '가로 나열형', bgColor: '#FFFFFF' },
-                { src: '/images/logo/로고_가로단축형.png', name: '가로 단축형', bgColor: '#FFFFFF' },
-                { src: '/images/logo/로고_검정글씨만.png', name: '검정 글씨', bgColor: '#FFFFFF' },
-                { src: '/images/logo/로고_노랑글씨_검정배경.png', name: '노랑 글씨 (검정 배경)', bgColor: '#000000' },
-                { src: '/images/logo/로고_노랑글씨나열.png', name: '노랑 나열', bgColor: '#000000' },
-                { src: '/images/logo/로고_노랑글씨만.png', name: '노랑 글씨', bgColor: '#000000' },
-                { src: '/images/logo/로고단순_가로나열형.png', name: '단순 가로 나열', bgColor: '#FFFFFF' },
-                { src: '/images/logo/로고단순_가로단축형.png', name: '단순 가로 단축', bgColor: '#FFFFFF' },
-                { src: '/images/logo/검정글씨.png', name: '검정 글씨 단독', bgColor: '#FFFFFF' },
-                { src: '/images/logo/검정글씨_노란배경.png', name: '검정 글씨 (노랑 배경)', bgColor: '#FFFFFF' },
-              ].map((logo, idx) => (
-                <div key={idx} className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow group">
-                  <a
-                    href={logo.src}
-                    download
-                    className="block"
-                  >
-                    <div
-                      className="aspect-video flex items-center justify-center mb-4 rounded-xl relative overflow-hidden"
-                      style={{ backgroundColor: logo.bgColor }}
-                    >
-                      <Image
-                        src={logo.src}
-                        alt={logo.name}
-                        width={200}
-                        height={80}
-                        className="max-w-full max-h-full object-contain p-4 group-hover:scale-110 transition-transform"
-                      />
-                      {/* 다운로드 오버레이 */}
-                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
-                        <div className="opacity-0 group-hover:opacity-100 transition-opacity bg-white rounded-full p-3 shadow-lg">
-                          <svg className="w-6 h-6 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                          </svg>
-                        </div>
-                      </div>
-                    </div>
-                    <p className="text-sm font-bold text-gray-700 text-center group-hover:text-brand transition-colors">
-                      {logo.name}
-                    </p>
-                  </a>
-                  <div className="mt-3 text-center">
-                    <a
-                      href={logo.src}
-                      download
-                      className="inline-flex items-center gap-1 text-xs text-gray-500 hover:text-brand transition-colors"
-                    >
-                      <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                      </svg>
-                      다운로드
-                    </a>
+            {/* 로고 소개 */}
+            <div className="bg-white rounded-3xl p-12 shadow-xl mb-12">
+              <div className="flex flex-col md:flex-row items-center gap-12">
+                {/* 로고 이미지 */}
+                <div className="flex-shrink-0">
+                  <div className="w-64 h-64 bg-gray-50 rounded-2xl flex items-center justify-center p-8">
+                    <Image
+                      src="/images/logo/기본로고.png"
+                      alt="세모폰 로고"
+                      width={200}
+                      height={200}
+                      className="w-full h-full object-contain"
+                    />
                   </div>
                 </div>
-              ))}
+
+                {/* 로고 설명 */}
+                <div className="flex-1 space-y-4">
+                  <h3 className="text-2xl font-black text-gray-900 mb-4">
+                    세모폰 로고
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed">
+                    <strong className="text-brand">세모폰 로고</strong>는 <strong>"세상의 모든 휴대폰"</strong>이라는<br />
+                    브랜드 철학을 담고 있습니다.
+                  </p>
+                  <p className="text-gray-700 leading-relaxed">
+                    삼각형(△) 형태의 심볼은 <strong className="text-gray-900">안정성</strong>과 <strong className="text-gray-900">신뢰</strong>를 상징하며,<br />
+                    노란색(#FEE500)은 <strong className="text-gray-900">밝음</strong>과 <strong className="text-gray-900">투명함</strong>을 표현합니다.
+                  </p>
+
+                  {/* 다운로드 버튼 */}
+                  <div className="pt-6">
+                    <button
+                      onClick={() => {
+                        window.open('/downloads/semophone_logos_original.zip', '_blank');
+                      }}
+                      style={{ backgroundColor: '#FEE500' }}
+                      className="px-8 py-4 text-gray-900 font-bold rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all"
+                    >
+                      <div className="flex items-center gap-2">
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                        </svg>
+                        로고 원본 파일 다운로드
+                      </div>
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
