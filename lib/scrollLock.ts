@@ -19,6 +19,7 @@ class ScrollLockManager {
   private lockCount = 0;
   private originalOverflow = '';
   private originalPaddingRight = '';
+  private fixedElements: Array<{ element: HTMLElement; originalPadding: string }> = [];
 
   /**
    * 스크롤을 잠급니다.
@@ -34,8 +35,24 @@ class ScrollLockManager {
 
       // 스크롤바 너비 계산 (레이아웃 shift 방지)
       const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+
       if (scrollbarWidth > 0) {
+        // body에 padding 추가
         document.body.style.paddingRight = `${scrollbarWidth}px`;
+
+        // fixed position 요소들에도 padding 추가
+        const fixedElements = document.querySelectorAll('.header, [style*="position: fixed"], [style*="position:fixed"]');
+        fixedElements.forEach((el) => {
+          const element = el as HTMLElement;
+          const computedStyle = window.getComputedStyle(element);
+          if (computedStyle.position === 'fixed') {
+            this.fixedElements.push({
+              element,
+              originalPadding: element.style.paddingRight
+            });
+            element.style.paddingRight = `${scrollbarWidth}px`;
+          }
+        });
       }
 
       // 스크롤 잠금
@@ -59,6 +76,12 @@ class ScrollLockManager {
     if (this.lockCount === 0) {
       document.body.style.overflow = this.originalOverflow;
       document.body.style.paddingRight = this.originalPaddingRight;
+
+      // fixed 요소들의 padding 복원
+      this.fixedElements.forEach(({ element, originalPadding }) => {
+        element.style.paddingRight = originalPadding;
+      });
+      this.fixedElements = [];
     }
   }
 
@@ -71,6 +94,12 @@ class ScrollLockManager {
     this.lockCount = 0;
     document.body.style.overflow = '';
     document.body.style.paddingRight = '';
+
+    // fixed 요소들의 padding도 제거
+    this.fixedElements.forEach(({ element }) => {
+      element.style.paddingRight = '';
+    });
+    this.fixedElements = [];
   }
 }
 
