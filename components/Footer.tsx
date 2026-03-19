@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import ContactModal from './ContactModal';
@@ -8,20 +8,10 @@ import ContactModal from './ContactModal';
 export default function Footer() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  useEffect(() => {
-    // 다른 컴포넌트에서 ContactModal 열기 요청 시 이벤트 리스너
-    const handleOpenModal = () => {
-      setIsModalOpen(true);
-    };
-
-    window.addEventListener('openContactModal', handleOpenModal);
-    return () => window.removeEventListener('openContactModal', handleOpenModal);
-  }, []);
-
   return (
     <>
       <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
-    <footer className="py-16 px-5 bg-gray-50 border-t border-gray-200">
+      <footer className="py-16 px-5 bg-gray-50 border-t border-gray-200">
       <div className="max-w-7xl mx-auto">
         {/* 2단 레이아웃 */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
@@ -92,15 +82,26 @@ export default function Footer() {
               <Link href="/stores" className="text-sm text-gray-600 hover:text-gray-900 transition-colors">
                 매장안내
               </Link>
+              {/* 모바일 - 모달 버튼 */}
               <button
                 onClick={() => setIsModalOpen(true)}
-                className="text-sm text-gray-600 hover:text-gray-900 transition-colors inline-flex items-center gap-1"
+                className="md:hidden text-sm text-gray-600 hover:text-gray-900 transition-colors inline-flex items-center gap-1"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
                 </svg>
                 문의하기
               </button>
+              {/* PC - 페이지 링크 */}
+              <Link
+                href="/partnership"
+                className="hidden md:inline-flex text-sm text-gray-600 hover:text-gray-900 transition-colors items-center gap-1"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                </svg>
+                문의하기
+              </Link>
             </div>
           </div>
         </div>
