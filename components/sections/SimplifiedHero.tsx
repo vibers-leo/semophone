@@ -64,7 +64,7 @@ export default function SimplifiedHero() {
   return (
     <>
       {/* PC 버전 - 전체 배경 이미지 + 왼쪽 그라데이션 */}
-      <section className="hidden md:block relative w-full h-[75vh] overflow-hidden mt-[72px]">
+      <section className="hidden lg:block relative w-full h-[60vh] overflow-hidden mt-[72px]">
         {/* 배경 이미지 (가로 100%, 약간 오른쪽으로) */}
         <div className="absolute inset-0">
           {bannerImages.map((image, index) => (
@@ -86,8 +86,8 @@ export default function SimplifiedHero() {
             </div>
           ))}
 
-          {/* 왼쪽 그라데이션 오버레이 (65%까지 확장) */}
-          <div className="absolute inset-y-0 left-0 w-[65%] bg-gradient-to-r from-white via-white/95 to-transparent" />
+          {/* 왼쪽 그라데이션 오버레이 (55%까지 확장) */}
+          <div className="absolute inset-y-0 left-0 w-[55%] bg-gradient-to-r from-white via-white/95 to-transparent" />
         </div>
 
         {/* 타이틀 영역 */}
@@ -104,7 +104,67 @@ export default function SimplifiedHero() {
             </p>
 
             <p className="text-lg lg:text-xl text-gray-700 mb-12">
-              전국 40개 직영매장에서 온라인에 없는 가격을 경험하세요
+              전국 40개 직영매장에서<br />
+              온라인에 없는 가격을 경험하세요
+            </p>
+
+            <div className="flex gap-4 items-center">
+              <Link href="/about">
+                <button
+                  style={{ backgroundColor: '#FEE500' }}
+                  className="px-8 py-4 text-gray-900 font-bold text-lg rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all"
+                >
+                  세모폰 소개
+                </button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 태블릿 버전 - 768px~1023px */}
+      <section className="hidden md:block lg:hidden relative w-full h-[70vh] overflow-hidden mt-[72px]">
+        {/* 배경 이미지 (가로 100%, 오른쪽 정렬) */}
+        <div className="absolute inset-0">
+          {bannerImages.map((image, index) => (
+            <div
+              key={index}
+              className="absolute inset-0 transition-opacity duration-1000"
+              style={{
+                opacity: index === currentImageIndex ? 1 : 0,
+              }}
+            >
+              <Image
+                src={image}
+                alt="세모폰 매장"
+                fill
+                className="object-contain"
+                style={{ objectPosition: 'right center' }}
+                priority={index === 0}
+              />
+            </div>
+          ))}
+
+          {/* 왼쪽 그라데이션 오버레이 (60%까지 확장) */}
+          <div className="absolute inset-y-0 left-0 w-[60%] bg-gradient-to-r from-white via-white/95 to-transparent" />
+        </div>
+
+        {/* 타이틀 영역 */}
+        <div className="relative z-10 h-full flex items-center pl-[15%] pr-16">
+          <div className="max-w-2xl">
+            <h1 className="text-5xl font-black text-gray-900 mb-6">
+              세모폰
+            </h1>
+
+            <p className="text-3xl font-bold text-gray-900 mb-4">
+              세상의 모든 휴대폰 가격을
+              <br />
+              <span className="text-brand">혁신합니다</span>
+            </p>
+
+            <p className="text-lg text-gray-700 mb-12">
+              전국 40개 직영매장에서<br />
+              온라인에 없는 가격을 경험하세요
             </p>
 
             <div className="flex gap-4 items-center">
