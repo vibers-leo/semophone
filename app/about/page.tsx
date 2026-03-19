@@ -57,7 +57,7 @@ export default function AboutPage() {
               <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-6">
                 세모폰 CI
               </h2>
-              <div className="max-w-3xl mx-auto space-y-4 text-left bg-white rounded-2xl p-8 shadow-lg mb-12">
+              <div className="max-w-3xl mx-auto space-y-4 text-left bg-white rounded-2xl p-8 shadow-lg mb-8">
                 <p className="text-gray-700 leading-relaxed">
                   <strong className="text-brand">세모폰 로고</strong>는 <strong>"세상의 모든 휴대폰"</strong>이라는 브랜드 철학을 담고 있습니다.
                 </p>
@@ -65,9 +65,38 @@ export default function AboutPage() {
                   삼각형(△) 형태의 심볼은 <strong className="text-gray-900">안정성</strong>과 <strong className="text-gray-900">신뢰</strong>를 상징하며,
                   노란색(#FEE500)은 <strong className="text-gray-900">밝음</strong>과 <strong className="text-gray-900">투명함</strong>을 표현합니다.
                 </p>
-                <p className="text-gray-700 leading-relaxed">
-                  다양한 환경과 매체에 최적화된 로고 파일을 제공하며, 각 로고 이미지를 클릭하시면 원본 파일을 다운로드하실 수 있습니다.
-                </p>
+              </div>
+
+              {/* 다운로드 버튼 */}
+              <div className="flex gap-4 justify-center mb-12">
+                <button
+                  onClick={() => {
+                    // PNG 파일 일괄 다운로드 (zip 파일)
+                    window.open('/downloads/semophone_logos.zip', '_blank');
+                  }}
+                  className="px-8 py-4 bg-brand text-dark font-bold rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all"
+                >
+                  <div className="flex items-center gap-2">
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                    </svg>
+                    PNG 파일 일괄 다운로드
+                  </div>
+                </button>
+                <button
+                  onClick={() => {
+                    // 원본 파일 다운로드 (AI/PSD 등)
+                    window.open('/downloads/semophone_logos_original.zip', '_blank');
+                  }}
+                  className="px-8 py-4 bg-gray-900 text-white font-bold rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all"
+                >
+                  <div className="flex items-center gap-2">
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                    </svg>
+                    원본 파일 다운로드
+                  </div>
+                </button>
               </div>
             </div>
 
@@ -84,7 +113,7 @@ export default function AboutPage() {
                 { src: '/images/logo/로고단순_가로나열형.png', name: '단순 가로 나열', bgColor: '#FFFFFF' },
                 { src: '/images/logo/로고단순_가로단축형.png', name: '단순 가로 단축', bgColor: '#FFFFFF' },
                 { src: '/images/logo/검정글씨.png', name: '검정 글씨 단독', bgColor: '#FFFFFF' },
-                { src: '/images/logo/검정글씨_노란배경.png', name: '검정 글씨 (노랑 배경)', bgColor: '#FEE500' },
+                { src: '/images/logo/검정글씨_노란배경.png', name: '검정 글씨 (노랑 배경)', bgColor: '#FFFFFF' },
               ].map((logo, idx) => (
                 <div key={idx} className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow group">
                   <a

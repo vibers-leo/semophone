@@ -75,14 +75,12 @@ export default function MinimalStats() {
             transition={{ duration: 0.3 }}
           >
             <h2 className="text-4xl md:text-5xl font-black mb-6 leading-tight">
-              <span className="text-dark">수도권 </span>
-              <span className="text-dark">40개 성지</span>
-              <span className="text-dark">에서</span><br />
-              <span className="text-dark">검증된 신뢰</span>
+              <span className="text-dark">수도권 40개 성지에서<br />
+              검증된 신뢰</span>
             </h2>
 
             <p className="text-lg md:text-xl text-dark/80 mb-10 leading-relaxed">
-              15만 명이 선택한 세모폰,<br />
+              15만 명이 선택한 세모폰<br />
               가까운 매장에서 최저가를 경험하세요
             </p>
 

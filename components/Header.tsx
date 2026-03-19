@@ -131,7 +131,7 @@ export default function Header() {
               href="/about"
               className="text-base font-semibold text-gray-700 hover:text-gray-900 transition-colors"
             >
-              소개
+              세모폰
             </Link>
             <Link
               href="/history"
@@ -230,9 +230,9 @@ export default function Header() {
                   <MenuItem
                     href="/about"
                     icon={
-                      <Image src="/icons/건물.png" alt="소개" width={20} height={20} className="w-5 h-5 object-contain" />
+                      <Image src="/icons/건물.png" alt="세모폰" width={20} height={20} className="w-5 h-5 object-contain" />
                     }
-                    label="소개"
+                    label="세모폰"
                     onClick={() => setMobileMenuOpen(false)}
                   />
                   <MenuItem
