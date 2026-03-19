@@ -1,5 +1,6 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import Image from 'next/image';
 import Timeline from '@/components/sections/Timeline';
 import { BentoGrid } from '@/components/layouts/BentoGrid';
 import StatCard from '@/components/ui/StatCard';
@@ -16,15 +17,19 @@ export default function HistoryPage() {
       <Header />
       <main id="main-content" style={{ isolation: 'isolate', position: 'relative', zIndex: 0 }}>
         {/* Hero */}
-        <section
-          className="relative h-[40vh] min-h-[320px] max-h-[480px] overflow-hidden mt-[56px] md:mt-[72px]"
-          style={{
-            background: 'linear-gradient(135deg, #FEE500 0%, #FDD835 50%, #FEE500 100%)',
-          }}
-        >
-          <div className="relative h-full flex flex-col items-center justify-center px-6 text-center">
-            <h1 className="text-4xl md:text-5xl font-black text-dark mb-4">히스토리</h1>
-            <p className="text-lg md:text-xl text-dark/80 font-semibold">
+        <section className="bg-white pt-[80px] md:pt-[96px] pb-12 px-6">
+          <div className="max-w-7xl mx-auto">
+            <div className="flex items-start gap-4 mb-3">
+              <Image
+                src="/icons/시계.png"
+                alt="히스토리"
+                width={40}
+                height={40}
+                className="w-10 h-10 object-contain mt-1"
+              />
+              <h1 className="text-3xl md:text-4xl font-black text-gray-900">히스토리</h1>
+            </div>
+            <p className="text-base md:text-lg text-gray-600 ml-14">
               세모폰의 성장 스토리
             </p>
           </div>

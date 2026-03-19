@@ -8,6 +8,7 @@ import Link from 'next/link';
 
 export default function PartnershipPage() {
   const [formData, setFormData] = useState({
+    inquiryType: '',
     name: '',
     phone: '',
     region: '',
@@ -42,6 +43,7 @@ export default function PartnershipPage() {
       if (result.success) {
         alert('문의가 접수되었습니다. 빠른 시일 내 연락드리겠습니다.');
         setFormData({
+          inquiryType: '',
           name: '',
           phone: '',
           region: '',
@@ -65,69 +67,45 @@ export default function PartnershipPage() {
       <Header />
       <main style={{ isolation: 'isolate', position: 'relative', zIndex: 0 }}>
         {/* Hero */}
-        <section
-          className="relative h-[40vh] min-h-[320px] overflow-hidden mt-[56px] md:mt-[72px]"
-          style={{ background: 'linear-gradient(135deg, #FEE500 0%, #FDD835 50%, #FEE500 100%)' }}
-        >
-          <div className="relative h-full flex flex-col items-center justify-center px-6 text-center">
-            <h1 className="text-4xl md:text-5xl font-black text-dark mb-4">창업문의</h1>
-            <p className="text-lg md:text-xl text-dark/80 font-semibold">
-              파격적인 창업비용면제 / 차별적인 솔루션과 매뉴
+        <section className="bg-white pt-[80px] md:pt-[96px] pb-12 px-6">
+          <div className="max-w-7xl mx-auto">
+            <div className="flex items-start gap-4 mb-3">
+              <Image
+                src="/icons/악수.png"
+                alt="문의하기"
+                width={40}
+                height={40}
+                className="w-10 h-10 object-contain mt-1"
+              />
+              <h1 className="text-3xl md:text-4xl font-black text-gray-900">문의하기</h1>
+            </div>
+            <p className="text-base md:text-lg text-gray-600 ml-14">
+              세모폰과 함께 성장하세요
             </p>
           </div>
         </section>
 
         {/* 협업 소개 */}
-        <section className="bg-white py-16 px-3">
+        <section className="bg-white py-24 px-3">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-6">
+            <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-8">
               함께 만드는 미래
             </h2>
+            <p className="text-lg text-gray-700 leading-relaxed mb-4">
+              세모폰은 다양한 파트너와의 협력을 통해<br />
+              고객에게 더 나은 가치를 제공합니다.
+            </p>
             <p className="text-lg text-gray-700 leading-relaxed">
-              세모폰은 다양한 파트너와의 협력을 통해 고객에게 더 나은 가치를 제공합니다.<br />
-              투명하고 정직한 파트너십으로 함께 성장하고자 합니다.
+              투명하고 정직한 파트너십으로<br />
+              함께 성장하고자 합니다.
             </p>
           </div>
         </section>
 
-        {/* 협업 분야 */}
-        <section className="bg-gray-50 py-16 px-3">
-          <div className="max-w-7xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-black text-center mb-12">협업 분야</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {[
-                {
-                  icon: "/icons/상점1.png",
-                  title: "매장 제휴",
-                  description: "세모폰 매장 입점 및 공동 마케팅"
-                },
-                {
-                  icon: "/icons/마이크+폰.png",
-                  title: "마케팅 제휴",
-                  description: "브랜드 협업 및 공동 프로모션"
-                },
-                {
-                  icon: "/icons/차트2.png",
-                  title: "기술 협력",
-                  description: "시스템 연동 및 기술 파트너십"
-                }
-              ].map((area, i) => (
-                <div key={i} className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow">
-                  <div className="w-14 h-14 mb-6">
-                    <Image src={area.icon} alt={area.title} width={56} height={56} className="w-full h-full object-contain" />
-                  </div>
-                  <h3 className="text-2xl font-black text-gray-900 mb-3">{area.title}</h3>
-                  <p className="text-base text-gray-700">{area.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* 문의 폼 - 좌우 레이아웃 */}
-        <section className="bg-white py-20 px-4">
+        <section className="bg-gray-50 py-24 px-4">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-black text-center mb-16">창업문의</h2>
+            <h2 className="text-3xl md:text-4xl font-black text-center mb-16">문의하기</h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
               {/* 왼쪽: 캐릭터 이미지 */}
@@ -152,8 +130,25 @@ export default function PartnershipPage() {
               </div>
 
               {/* 오른쪽: 폼 */}
-              <div className="bg-white">
+              <div className="bg-white rounded-3xl shadow-xl p-8">
                 <form onSubmit={handleSubmit} className="space-y-5">
+                  {/* 문의 유형 */}
+                  <div>
+                    <label className="block text-sm font-bold text-gray-900 mb-2">문의 유형 *</label>
+                    <select
+                      name="inquiryType"
+                      value={formData.inquiryType}
+                      onChange={(e) => setFormData({ ...formData, inquiryType: e.target.value })}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-brand text-gray-900"
+                      required
+                    >
+                      <option value="">선택해주세요</option>
+                      <option value="창업문의">창업문의</option>
+                      <option value="제휴문의">제휴문의</option>
+                      <option value="협업문의">협업문의</option>
+                    </select>
+                  </div>
+
                   {/* 이름 */}
                   <div>
                     <label className="block text-sm font-bold text-gray-900 mb-2">이름</label>
@@ -267,7 +262,7 @@ export default function PartnershipPage() {
                     style={{ backgroundColor: '#FEE500' }}
                     className="w-full py-4 text-gray-900 rounded-lg font-bold text-lg hover:scale-105 transition-all disabled:opacity-50 shadow-lg hover:shadow-xl"
                   >
-                    {submitting ? '전송 중...' : '창업문의'}
+                    {submitting ? '전송 중...' : '문의 보내기'}
                   </button>
                 </form>
 

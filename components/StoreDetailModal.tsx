@@ -110,6 +110,7 @@ export default function StoreDetailModal({ store, isOpen, onClose }: StoreDetail
             alt={`${store.name} 사진 ${currentImageIndex + 1}`}
             fill
             className="object-contain"
+            style={{ imageOrientation: 'from-image' }}
             sizes="(max-width: 768px) 100vw, 672px"
             unoptimized
           />
@@ -178,32 +179,32 @@ export default function StoreDetailModal({ store, isOpen, onClose }: StoreDetail
             </div>
 
             {/* 정보 섹션 */}
-            <div className="space-y-4 mb-6">
+            <div className="space-y-3 mb-6">
               {/* 주소 */}
-              <div className="flex items-start gap-3">
-                <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-gray-100 flex items-center justify-center">
-                  <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="flex items-start gap-4 bg-gray-50 p-4 rounded-xl">
+                <div className="flex-shrink-0 w-11 h-11 rounded-xl bg-white shadow-sm flex items-center justify-center">
+                  <svg className="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
                 </div>
-                <div className="flex-1 pt-0.5">
-                  <div className="text-xs font-semibold text-gray-500 mb-1">주소</div>
-                  <div className="text-sm font-medium text-gray-900 leading-relaxed">
+                <div className="flex-1 min-w-0 pt-1">
+                  <div className="text-xs font-bold text-gray-500 mb-1.5">주소</div>
+                  <div className="text-sm font-medium text-gray-900 leading-relaxed break-words">
                     {store.address}
                   </div>
                 </div>
               </div>
 
               {/* 전화번호 */}
-              <div className="flex items-start gap-3">
-                <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-gray-100 flex items-center justify-center">
-                  <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="flex items-start gap-4 bg-gray-50 p-4 rounded-xl">
+                <div className="flex-shrink-0 w-11 h-11 rounded-xl bg-white shadow-sm flex items-center justify-center">
+                  <svg className="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                   </svg>
                 </div>
-                <div className="flex-1 pt-0.5">
-                  <div className="text-xs font-semibold text-gray-500 mb-1">전화번호</div>
+                <div className="flex-1 min-w-0 pt-1">
+                  <div className="text-xs font-bold text-gray-500 mb-1.5">전화번호</div>
                   <div className="text-base font-bold text-gray-900">
                     {store.phone}
                   </div>
@@ -211,14 +212,14 @@ export default function StoreDetailModal({ store, isOpen, onClose }: StoreDetail
               </div>
 
               {/* 영업시간 */}
-              <div className="flex items-start gap-3">
-                <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-gray-100 flex items-center justify-center">
-                  <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="flex items-start gap-4 bg-gray-50 p-4 rounded-xl">
+                <div className="flex-shrink-0 w-11 h-11 rounded-xl bg-white shadow-sm flex items-center justify-center">
+                  <svg className="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <div className="flex-1 pt-0.5">
-                  <div className="text-xs font-semibold text-gray-500 mb-1">영업시간</div>
+                <div className="flex-1 min-w-0 pt-1">
+                  <div className="text-xs font-bold text-gray-500 mb-1.5">영업시간</div>
                   <div className="text-sm font-medium text-gray-900">
                     평일 10:00 - 19:00<br />
                     <span className="text-xs text-gray-500">주말·공휴일 휴무</span>
@@ -229,8 +230,8 @@ export default function StoreDetailModal({ store, isOpen, onClose }: StoreDetail
 
             {/* 랜드마크 정보 */}
             {store.landmark && (
-              <div className="flex items-start gap-3 bg-brand/5 p-4 rounded-xl border-l-4 border-brand mb-4">
-                <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-white flex items-center justify-center">
+              <div className="flex items-start gap-4 bg-brand/10 p-4 rounded-xl border-l-4 border-brand mb-4">
+                <div className="flex-shrink-0 w-11 h-11 rounded-xl bg-white shadow-sm flex items-center justify-center">
                   <Image
                     src="/icons/지도핀.png"
                     alt=""
@@ -239,9 +240,9 @@ export default function StoreDetailModal({ store, isOpen, onClose }: StoreDetail
                     className="w-5 h-5 object-contain"
                   />
                 </div>
-                <div className="flex-1 pt-0.5">
-                  <div className="text-xs font-semibold text-brand mb-1">오시는 길</div>
-                  <div className="text-sm font-medium text-gray-900 leading-relaxed">
+                <div className="flex-1 min-w-0 pt-1">
+                  <div className="text-xs font-bold text-brand mb-1.5">오시는 길</div>
+                  <div className="text-sm font-medium text-gray-900 leading-relaxed break-words">
                     {store.landmark}
                   </div>
                 </div>
@@ -249,15 +250,18 @@ export default function StoreDetailModal({ store, isOpen, onClose }: StoreDetail
             )}
 
             {/* 액션 버튼 */}
-            <div className="pt-4 pb-safe-bottom border-t border-gray-100">
-              <div className="grid grid-cols-3 gap-2">
+            <div className="pt-4 pb-safe-bottom border-t border-gray-200">
+              <div className="grid grid-cols-3 gap-3">
                 {/* 상세정보 */}
                 <a
                   href={store.link || `https://map.naver.com/v5/search/${encodeURIComponent(store.name)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-1 px-3 py-3 bg-gray-900 text-white rounded-xl font-bold text-sm hover:bg-gray-800 hover:shadow-lg hover:-translate-y-0.5 transition-all"
+                  className="flex flex-col items-center justify-center gap-1.5 px-3 py-3.5 bg-gray-900 text-white rounded-xl font-bold text-xs hover:bg-gray-800 hover:shadow-lg hover:-translate-y-0.5 transition-all"
                 >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
                   상세정보
                 </a>
 
@@ -266,8 +270,11 @@ export default function StoreDetailModal({ store, isOpen, onClose }: StoreDetail
                   href={`https://map.naver.com/v5/directions/-/-/${store.lng},${store.lat},${encodeURIComponent(store.name)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-1 px-3 py-3 bg-[#03C75A] text-white rounded-xl font-bold text-sm hover:bg-[#02b350] hover:shadow-lg hover:-translate-y-0.5 transition-all"
+                  className="flex flex-col items-center justify-center gap-1.5 px-3 py-3.5 bg-[#03C75A] text-white rounded-xl font-bold text-xs hover:bg-[#02b350] hover:shadow-lg hover:-translate-y-0.5 transition-all"
                 >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+                  </svg>
                   길찾기
                 </a>
 
@@ -276,9 +283,9 @@ export default function StoreDetailModal({ store, isOpen, onClose }: StoreDetail
                   href={store.kakaoLink || 'https://pf.kakao.com/_xoxoxoxo'}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-1 px-3 py-3 bg-[#FEE500] text-black rounded-xl font-bold text-sm hover:bg-[#FDD835] hover:shadow-lg hover:-translate-y-0.5 transition-all"
+                  className="flex flex-col items-center justify-center gap-1.5 px-3 py-3.5 bg-[#FEE500] text-black rounded-xl font-bold text-xs hover:bg-[#FDD835] hover:shadow-lg hover:-translate-y-0.5 transition-all"
                 >
-                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M12 3C6.477 3 2 6.477 2 10.8c0 2.8 1.8 5.2 4.5 6.6-.2.7-.6 2.5-.7 2.8-.1.4 0 .4.2.3.2-.1 2.5-1.7 3.2-2.2.6.1 1.2.2 1.8.2 5.523 0 10-3.477 10-7.8S17.523 3 12 3zm-3.5 10.5c-.4 0-.8-.3-.8-.8v-3.5h-.9c-.4 0-.8-.3-.8-.8s.3-.8.8-.8h3.4c.4 0 .8.3.8.8s-.3.8-.8.8h-.9v3.5c0 .5-.3.8-.8.8zm4.5 0c-.4 0-.8-.3-.8-.8v-4.9c0-.4.3-.8.8-.8s.8.3.8.8v4.9c0 .5-.4.8-.8.8zm4.2 0c-.3 0-.5-.1-.7-.3l-1.8-2.4v2c0 .4-.3.8-.8.8s-.8-.3-.8-.8v-4.9c0-.4.3-.8.8-.8.3 0 .5.1.7.3l1.8 2.4v-2c0-.4.3-.8.8-.8s.8.3.8.8v4.9c0 .5-.4.8-.8.8z"/>
                   </svg>
                   카톡상담

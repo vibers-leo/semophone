@@ -14,31 +14,172 @@ export default function AboutPage() {
       <Header />
       <main id="main-content" style={{ isolation: 'isolate', position: 'relative', zIndex: 0 }}>
         {/* Hero */}
-        <section
-          className="relative h-[40vh] min-h-[320px] max-h-[480px] overflow-hidden mt-[56px] md:mt-[72px]"
-          style={{
-            background: 'linear-gradient(135deg, #FEE500 0%, #FDD835 50%, #FEE500 100%)',
-          }}
-        >
-          <div className="relative h-full flex flex-col items-center justify-center px-6 text-center">
-            <h1 className="text-4xl md:text-5xl font-black text-dark mb-4">회사 소개</h1>
-            <p className="text-lg md:text-xl text-dark/80 font-semibold">
+        <section className="bg-white pt-[80px] md:pt-[96px] pb-12 px-6">
+          <div className="max-w-7xl mx-auto">
+            <div className="flex items-start gap-4 mb-3">
+              <Image
+                src="/icons/건물.png"
+                alt="회사소개"
+                width={40}
+                height={40}
+                className="w-10 h-10 object-contain mt-1"
+              />
+              <h1 className="text-3xl md:text-4xl font-black text-gray-900">회사 소개</h1>
+            </div>
+            <p className="text-base md:text-lg text-gray-600 ml-14">
               투명한 가격, 정직한 서비스
             </p>
           </div>
         </section>
 
+        {/* CEO 인사말 */}
+        <section className="bg-white py-24 px-3">
+          <div className="max-w-6xl mx-auto">
+            <div className="bg-white rounded-3xl p-8 md:p-12">
+              <div className="flex flex-col md:flex-row items-start gap-12">
+                {/* CEO 사진 */}
+                <div className="flex-shrink-0 w-full md:w-80">
+                  <div className="aspect-[3/4] bg-gray-100 rounded-2xl overflow-hidden">
+                    <Image
+                      src="/images/ceo.jpg"
+                      alt="세모폰 대표"
+                      width={320}
+                      height={427}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
 
-        {/* 브랜드 아이덴티티 */}
+                {/* 인사말 */}
+                <div className="flex-1 space-y-6">
+                  <div>
+                    <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-2">
+                      안녕하세요.
+                    </h2>
+                    <h3 className="text-2xl md:text-3xl font-black text-gray-900 mb-8">
+                      주식회사 승승장구 대표 <span className="text-brand">최준철</span>입니다.
+                    </h3>
+                  </div>
+
+                  <div className="space-y-4 text-gray-700 leading-relaxed">
+                    <p>
+                      저희 세모폰은 '세상의 모든 휴대폰'이라는 비전 아래 고객에게 최고의 가치를 제공하고자 합니다.
+                      수년 간의 노력 끝에 전국 40개 매장에서 15만 고객님의 신뢰를 받으며 성장해왔습니다.
+                    </p>
+                    <p>
+                      우리는 투명한 가격과 정직한 서비스를 원칙으로 합니다.
+                      고객 한 분 한 분께 최선을 다하며, 온라인에서는 찾을 수 없는 특별한 가격과 전문 상담을 제공합니다.
+                    </p>
+                    <p>
+                      앞으로도 세모폰은 변함없이 고객과의 약속을 지키며,
+                      모바일 통신 시장의 투명한 기준이 되고자 노력하겠습니다.
+                      고객 여러분의 현명한 선택에 세모폰이 함께하겠습니다.
+                    </p>
+                    <p>
+                      감사합니다.
+                    </p>
+                  </div>
+
+                  <div className="pt-4">
+                    <p className="text-right text-lg font-bold text-gray-900">
+                      CEO 최준철
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* 세모폰의 연혁 */}
         <section className="bg-gray-50 py-24 px-3">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
+                세모폰의 연혁
+              </h2>
+            </div>
+
+            {/* 타임라인 */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12">
+              {/* 왼쪽 컬럼 */}
+              <div className="space-y-12">
+                <div className="flex gap-6">
+                  <div className="flex-shrink-0 w-24 text-right">
+                    <div className="text-2xl font-black text-gray-900">2020년</div>
+                    <div className="text-sm text-gray-600">03월</div>
+                  </div>
+                  <div className="flex-1 pt-1">
+                    <p className="text-gray-700 font-semibold">회사 설립</p>
+                  </div>
+                </div>
+
+                <div className="flex gap-6">
+                  <div className="flex-shrink-0 w-24 text-right">
+                    <div className="text-2xl font-black text-gray-900">2021년</div>
+                    <div className="text-sm text-gray-600">06월</div>
+                  </div>
+                  <div className="flex-1 pt-1">
+                    <p className="text-gray-700 font-semibold">직영 매장 10개 돌파</p>
+                  </div>
+                </div>
+
+                <div className="flex gap-6">
+                  <div className="flex-shrink-0 w-24 text-right">
+                    <div className="text-2xl font-black text-gray-900">2023년</div>
+                    <div className="text-sm text-gray-600">04월</div>
+                  </div>
+                  <div className="flex-1 pt-1">
+                    <p className="text-gray-700 font-semibold">누적 고객 10만명 달성</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* 오른쪽 컬럼 */}
+              <div className="space-y-12">
+                <div className="flex gap-6">
+                  <div className="flex-shrink-0 w-24 text-right">
+                    <div className="text-2xl font-black text-gray-900">2024년</div>
+                    <div className="text-sm text-gray-600">08월</div>
+                  </div>
+                  <div className="flex-1 pt-1">
+                    <p className="text-gray-700 font-semibold">전국 40개 직영 매장 확대</p>
+                  </div>
+                </div>
+
+                <div className="flex gap-6">
+                  <div className="flex-shrink-0 w-24 text-right">
+                    <div className="text-2xl font-black text-gray-900">2025년</div>
+                    <div className="text-sm text-gray-600">12월</div>
+                  </div>
+                  <div className="flex-1 pt-1">
+                    <p className="text-gray-700 font-semibold">누적 고객 15만명 돌파</p>
+                  </div>
+                </div>
+
+                <div className="flex gap-6">
+                  <div className="flex-shrink-0 w-24 text-right">
+                    <div className="text-2xl font-black text-gray-900">2026년</div>
+                    <div className="text-sm text-gray-600">현재</div>
+                  </div>
+                  <div className="flex-1 pt-1">
+                    <p className="text-gray-700 font-semibold">온·오프라인 통합 서비스 강화</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* 세모폰의 CI 소개 */}
+        <section className="bg-white py-24 px-3">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-6">
-                브랜드 아이덴티티
+                세모폰의 CI 소개
               </h2>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-12">
-                세모폰의 브랜드 아이덴티티와 로고 시스템을<br />
-                소개합니다
+                세모폰 CI에는 정직한 믿음과 함께 성장하는 파트너십을 추구하는 의지가 담겨 있습니다.
               </p>
             </div>
 
@@ -93,12 +234,11 @@ export default function AboutPage() {
 
                   {/* 다운로드 버튼 */}
                   <div className="pt-6 flex flex-col sm:flex-row gap-3">
-                    <button
-                      onClick={() => {
-                        window.open('/downloads/semophone_logos_original.zip', '_blank');
-                      }}
+                    <a
+                      href="/downloads/semophone_logos_original.zip"
+                      download="세모폰_로고_PNG파일.zip"
                       style={{ backgroundColor: '#FEE500' }}
-                      className="px-6 py-3.5 text-gray-900 font-bold rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all"
+                      className="px-6 py-3.5 text-gray-900 font-bold rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all inline-flex"
                     >
                       <div className="flex items-center justify-center gap-2">
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -106,13 +246,12 @@ export default function AboutPage() {
                         </svg>
                         <span className="text-sm">로고 PNG 파일 (ZIP)</span>
                       </div>
-                    </button>
-                    <button
-                      onClick={() => {
-                        window.open('/downloads/semophone_logo_original.ai', '_blank');
-                      }}
+                    </a>
+                    <a
+                      href="/downloads/semophone_logo_original.ai"
+                      download="세모폰_로고_AI원본.ai"
                       style={{ backgroundColor: '#FEE500' }}
-                      className="px-6 py-3.5 text-gray-900 font-bold rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all"
+                      className="px-6 py-3.5 text-gray-900 font-bold rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all inline-flex"
                     >
                       <div className="flex items-center justify-center gap-2">
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -120,7 +259,7 @@ export default function AboutPage() {
                         </svg>
                         <span className="text-sm">로고 AI 원본 파일</span>
                       </div>
-                    </button>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -129,12 +268,12 @@ export default function AboutPage() {
         </section>
 
 
-        {/* 매장 위치 */}
-        <section className="bg-white py-24 px-3">
+        {/* 세모폰에 오시는 길 */}
+        <section className="bg-gray-50 py-24 px-3">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
-                찾아오시는 길
+                세모폰에 오시는 길
               </h2>
               <p className="text-gray-600 mb-2">
                 휴대폰성지 세모폰 광명6동점

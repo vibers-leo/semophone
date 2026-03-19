@@ -1,9 +1,9 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import Image from 'next/image';
 import { BentoGrid } from '@/components/layouts/BentoGrid';
 import BenefitCard from '@/components/ui/BenefitCard';
 import JobsSection from '@/components/sections/JobsSection';
-import ApplicationSection from '@/components/sections/ApplicationSection';
 import { benefits, cultureValues, coreValues, hiringProcess } from '@/data/careers';
 
 export const metadata = {
@@ -17,20 +17,20 @@ export default function CareersPage() {
       <Header />
       <main id="main-content" style={{ isolation: 'isolate', position: 'relative', zIndex: 0 }}>
         {/* Hero */}
-        <section
-          className="relative h-[60vh] min-h-[480px] overflow-hidden mt-[56px] md:mt-[72px]"
-          style={{
-            background: 'linear-gradient(135deg, rgba(0,0,0,0.7), rgba(0,0,0,0.5)), linear-gradient(135deg, #FEE500 0%, #FDD835 50%, #FEE500 100%)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center'
-          }}
-        >
-          <div className="relative h-full flex flex-col items-center justify-center px-6 text-center text-white">
-            <h1 className="text-5xl md:text-6xl font-black mb-6">
+        <section className="bg-white pt-[80px] md:pt-[96px] pb-12 px-6">
+          <div className="max-w-7xl mx-auto">
+            <div className="flex items-start gap-4 mb-3">
+              <Image
+                src="/icons/사람들2.png"
+                alt="채용정보"
+                width={40}
+                height={40}
+                className="w-10 h-10 object-contain mt-1"
+              />
+              <h1 className="text-3xl md:text-4xl font-black text-gray-900">채용정보</h1>
+            </div>
+            <p className="text-base md:text-lg text-gray-600 ml-14">
               함께 성장할 동료를 찾습니다
-            </h1>
-            <p className="text-xl md:text-2xl font-semibold text-gray-200">
-              세모폰과 함께 통신 산업의 혁신을 만들어가세요
             </p>
           </div>
         </section>
@@ -123,9 +123,6 @@ export default function CareersPage() {
 
         {/* 채용공고 (Firestore 연동) */}
         <JobsSection />
-
-        {/* 지원 방법 (지원서 제출 폼) */}
-        <ApplicationSection />
       </main>
       <Footer />
     </>
