@@ -514,7 +514,7 @@
 }
 
 /* RESPONSIVE */
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .hamburger { display: none; }
   .nav-desktop { display: flex; }
   .header-inner { height: 72px; }

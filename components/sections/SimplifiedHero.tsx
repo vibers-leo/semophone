@@ -91,19 +91,19 @@ export default function SimplifiedHero() {
         </div>
 
         {/* 타이틀 영역 */}
-        <div className="relative z-10 h-full flex items-center pl-[15%] pr-16">
+        <div className="relative z-10 h-full flex items-center pl-[12%] pr-16">
           <div className="max-w-2xl">
-            <h1 className="text-5xl lg:text-7xl font-black text-gray-900 mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
               세모폰
             </h1>
 
-            <p className="text-3xl lg:text-5xl font-bold text-gray-900 mb-4">
+            <p className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
               세상의 모든 휴대폰 가격을
               <br />
               <span className="text-brand">혁신합니다</span>
             </p>
 
-            <p className="text-lg lg:text-xl text-gray-700 mb-12">
+            <p className="text-base md:text-lg lg:text-xl text-gray-700 mb-12">
               전국 40개 직영매장에서<br />
               온라인에 없는 가격을 경험하세요
             </p>
@@ -150,19 +150,19 @@ export default function SimplifiedHero() {
         </div>
 
         {/* 타이틀 영역 */}
-        <div className="relative z-10 h-full flex items-center pl-[15%] pr-16">
+        <div className="relative z-10 h-full flex items-center pl-[12%] pr-16">
           <div className="max-w-2xl">
-            <h1 className="text-5xl font-black text-gray-900 mb-6">
+            <h1 className="text-4xl font-black text-gray-900 mb-6">
               세모폰
             </h1>
 
-            <p className="text-3xl font-bold text-gray-900 mb-4">
+            <p className="text-2xl font-bold text-gray-900 mb-4">
               세상의 모든 휴대폰 가격을
               <br />
               <span className="text-brand">혁신합니다</span>
             </p>
 
-            <p className="text-lg text-gray-700 mb-12">
+            <p className="text-base text-gray-700 mb-12">
               전국 40개 직영매장에서<br />
               온라인에 없는 가격을 경험하세요
             </p>
@@ -198,7 +198,7 @@ export default function SimplifiedHero() {
                 alt="세모폰 매장"
                 fill
                 className="object-contain"
-                style={{ objectPosition: 'center 50%' }}
+                style={{ objectPosition: 'center 65%' }}
                 priority={index === 0}
               />
             </div>
@@ -214,7 +214,7 @@ export default function SimplifiedHero() {
         {/* 타이틀 영역 */}
         <div className="relative z-10 h-full flex flex-col items-center px-8 py-8 text-center">
           {/* 상단 타이틀 */}
-          <div className="pt-12 flex-shrink-0">
+          <div className="pt-8 flex-shrink-0">
             <h1 className="text-4xl font-black text-gray-900 mb-4">
               세모폰
             </h1>
@@ -234,7 +234,7 @@ export default function SimplifiedHero() {
           <div className="flex-grow" />
 
           {/* 하단 버튼 */}
-          <div className="w-full max-w-sm pb-6 mt-8 flex-shrink-0">
+          <div className="w-full max-w-sm pb-12 mt-6 flex-shrink-0">
             <Link href="/about" className="w-full">
               <button
                 style={{ backgroundColor: '#FEE500' }}
