@@ -120,65 +120,33 @@ export default function AboutPage() {
                 </div>
 
                 {/* 로고 설명 */}
-                <div className="flex-1 space-y-5">
+                <div className="flex-1 space-y-6">
                   <h3 className="text-2xl font-black text-gray-900 mb-6">
                     세모폰 로고
                   </h3>
 
                   <p className="text-gray-700 leading-relaxed text-base">
-                    세모폰의 CI에는 브랜드가 추구하는<br />
-                    가치와 방향성이 담겨 있습니다.
+                    세모폰의 CI에는 브랜드가 추구하는 가치와 방향성이 담겨 있습니다.
+                    세모폰의 CI는 '연결과 균형'을 기반으로 한 단순한 기하학적 형태에서 출발합니다.
                   </p>
 
                   <p className="text-gray-700 leading-relaxed text-base">
-                    세모폰의 CI는 '연결과 균형'을 기반으로 한<br />
-                    단순한 기하학적 형태에서 출발합니다.
+                    세 개의 선이 이어져 만들어지는 삼각형 구조는 서로 다른 요소들이 하나로 모여 안정적인 형태를 이루는 모습을 의미합니다.
+                    이는 다양한 휴대폰과 서비스, 그리고 고객의 선택이 세모폰 안에서 자연스럽게 연결되는 경험을 상징합니다.
                   </p>
 
                   <p className="text-gray-700 leading-relaxed text-base">
-                    세 개의 선이 이어져 만들어지는 삼각형 구조는<br />
-                    서로 다른 요소들이 하나로 모여<br />
-                    안정적인 형태를 이루는 모습을 의미합니다.
+                    삼각형의 세 꼭짓점은 제품, 고객, 서비스라는 핵심 요소를 나타냅니다.
+                    각 요소가 균형 있게 조화를 이루며 하나의 구조를 완성하듯, 세모폰은 다양한 브랜드와 통신 서비스를 고객에게 연결합니다.
                   </p>
 
                   <p className="text-gray-700 leading-relaxed text-base">
-                    이는 다양한 휴대폰과 서비스,<br />
-                    그리고 고객의 선택이 세모폰 안에서<br />
-                    자연스럽게 연결되는 경험을 상징합니다.
+                    단순하고 균형 잡힌 형태는 신뢰와 안정감을 의미합니다.
+                    빠르게 변화하는 모바일 시장 속에서도 고객이 믿고 선택할 수 있는 기준이 되고자 하는 의지를 담고 있습니다.
                   </p>
 
                   <p className="text-gray-700 leading-relaxed text-base">
-                    삼각형의 세 꼭짓점은<br />
-                    제품, 고객, 서비스라는 핵심 요소를 나타냅니다.
-                  </p>
-
-                  <p className="text-gray-700 leading-relaxed text-base">
-                    각 요소가 균형 있게 조화를 이루며<br />
-                    하나의 구조를 완성하듯,<br />
-                    세모폰은 다양한 브랜드와 통신 서비스를<br />
-                    고객에게 연결합니다.
-                  </p>
-
-                  <p className="text-gray-700 leading-relaxed text-base">
-                    단순하고 균형 잡힌 형태는<br />
-                    신뢰와 안정감을 의미합니다.
-                  </p>
-
-                  <p className="text-gray-700 leading-relaxed text-base">
-                    빠르게 변화하는 모바일 시장 속에서도<br />
-                    고객이 믿고 선택할 수 있는 기준이 되고자 하는<br />
-                    의지를 담고 있습니다.
-                  </p>
-
-                  <p className="text-gray-700 leading-relaxed text-base">
-                    또한 '세상 모든 휴대폰'이라는 브랜드 의미를 바탕으로<br />
-                    폭넓은 선택을 제공하고자 합니다.
-                  </p>
-
-                  <p className="text-gray-700 leading-relaxed text-base">
-                    앞으로 세모폰은 이 CI를 중심으로<br />
-                    더 많은 가치와 경험을 전달하는 브랜드로<br />
-                    성장해 나갈 것입니다.
+                    앞으로 세모폰은 이 CI를 중심으로 더 많은 가치와 경험을 전달하는 브랜드로 성장해 나갈 것입니다.
                   </p>
 
                   {/* 다운로드 버튼 */}
@@ -265,6 +233,19 @@ export default function AboutPage() {
                   전체 매장 보기
                 </button>
               </Link>
+            </div>
+
+            {/* 배너 이미지 */}
+            <div className="mt-16">
+              <div className="relative w-full max-w-4xl mx-auto overflow-hidden rounded-3xl shadow-xl">
+                <Image
+                  src="/images/about-banner.png"
+                  alt="세모폰 소개"
+                  width={1200}
+                  height={400}
+                  className="w-full h-auto"
+                />
+              </div>
             </div>
           </div>
         </section>

@@ -77,6 +77,19 @@ export default function MinimalCTA() {
               ))}
             </div>
           </div>
+
+          {/* 배너 이미지 */}
+          <div className="mt-16">
+            <div className="relative w-full max-w-4xl mx-auto overflow-hidden rounded-3xl shadow-xl">
+              <Image
+                src="/images/contact-banner.jpg"
+                alt="세모폰 문의하기"
+                width={1200}
+                height={400}
+                className="w-full h-auto"
+              />
+            </div>
+          </div>
         </motion.div>
       </div>
     </section>

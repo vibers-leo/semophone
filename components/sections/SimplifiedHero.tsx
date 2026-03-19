@@ -91,7 +91,7 @@ export default function SimplifiedHero() {
         </div>
 
         {/* 타이틀 영역 */}
-        <div className="relative z-10 h-full flex items-center px-16 lg:px-24">
+        <div className="relative z-10 h-full flex items-center pl-[15%] pr-16">
           <div className="max-w-2xl">
             <h1 className="text-5xl lg:text-7xl font-black text-gray-900 mb-6">
               세모폰
