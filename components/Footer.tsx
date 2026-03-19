@@ -51,9 +51,9 @@ export default function Footer() {
           </div>
 
           {/* 오른쪽: 고객센터 + 링크 */}
-          <div className="md:text-right">
+          <div className="md:text-right md:pt-8">
             {/* 고객센터 */}
-            <div className="mb-10">
+            <div className="mb-12">
               <div className="text-xs text-gray-500 mb-2 font-medium">고객센터</div>
               <div className="text-2xl md:text-3xl font-black text-gray-900 mb-4">0507-1489-2274</div>
               <Link
@@ -72,7 +72,7 @@ export default function Footer() {
             </div>
 
             {/* 링크 */}
-            <div className="flex flex-wrap gap-x-5 gap-y-2 pt-6 border-t border-gray-200 md:justify-end">
+            <div className="flex flex-wrap gap-x-5 gap-y-2 pt-6 md:justify-end">
               <Link href="/terms" className="text-sm text-gray-600 hover:text-gray-900 transition-colors">
                 이용약관
               </Link>
