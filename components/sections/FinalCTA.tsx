@@ -99,7 +99,7 @@ export default function FinalCTA() {
               </svg>
               <span className="font-semibold">전문 상담 가능</span>
             </div>
-          </motion.div>
+          </div>
         </motion.div>
       </div>
 
