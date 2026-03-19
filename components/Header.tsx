@@ -110,7 +110,7 @@ export default function Header() {
         className={`header ${scrolled ? 'scrolled' : ''}`}
         style={{ zIndex: 9000 }}
       >
-        <div className="header-inner w-[85%]">
+        <div className="header-inner w-full px-4 md:w-[85%] md:px-0">
           <Link href="/" className="logo relative w-[200px] h-10 block">
             {logos.map((logo, index) => (
               <Image
