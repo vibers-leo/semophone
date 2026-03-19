@@ -9,6 +9,7 @@ import { calculateDistance, isCapitalArea } from '@/lib/distance';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import StoreDetailModal from '@/components/StoreDetailModal';
+import StoreActionButtons from '@/components/StoreActionButtons';
 import { SwipeableStoreCard } from '@/components/ui/SwipeableStoreCard';
 import { PullToRefresh } from '@/components/ui/PullToRefresh';
 import { haptics } from '@/lib/haptics';
@@ -363,29 +364,11 @@ export default function StoresPage() {
                           </div>
 
                           {/* 액션 버튼 */}
-                          <div className="grid grid-cols-2 gap-3">
-                            <button
-                              onClick={() => openStoreDetail(store)}
-                              className="group/btn flex items-center justify-center gap-2 px-4 py-3.5 text-black rounded-xl font-bold hover:shadow-lg hover:-translate-y-1 transition-all relative overflow-hidden"
-                              style={{ backgroundColor: '#FEE500' }}
-                              onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#FDD835'}
-                              onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#FEE500'}
-                            >
-                              <div className="absolute inset-0 bg-black/5 opacity-0 group-hover/btn:opacity-100 transition-opacity"></div>
-                              <Image src="/icons/빈페이지.png" alt="" width={18} height={18} className="relative w-4.5 h-4.5 object-contain" />
-                              <span className="relative">매장안내</span>
-                            </button>
-                            <a
-                              href={`https://map.naver.com/v5/search/${encodeURIComponent(store.address)}`}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="group/btn flex items-center justify-center gap-2 px-4 py-3.5 bg-[#03C75A] text-white rounded-xl font-bold hover:bg-[#02b350] hover:shadow-lg hover:-translate-y-1 transition-all relative overflow-hidden"
-                            >
-                              <div className="absolute inset-0 bg-black/10 opacity-0 group-hover/btn:opacity-100 transition-opacity"></div>
-                              <Image src="/icons/나침반.png" alt="" width={18} height={18} className="relative w-4.5 h-4.5 object-contain brightness-0 invert" />
-                              <span className="relative">길찾기</span>
-                            </a>
-                          </div>
+                          <StoreActionButtons
+                            store={store}
+                            variant="default"
+                            onStoreInfoClick={() => openStoreDetail(store)}
+                          />
                         </div>
                       </div>
                     ))}
@@ -715,25 +698,11 @@ export default function StoresPage() {
                 </div>
 
                 {/* 액션 버튼 */}
-                <div className="flex gap-2">
-                  <button
-                    onClick={() => openStoreDetail(store)}
-                    className="flex-1 text-black py-2.5 rounded-lg text-sm font-bold transition-colors text-center"
-                    style={{ backgroundColor: '#FEE500' }}
-                    onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#FDD835'}
-                    onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#FEE500'}
-                  >
-                    매장안내
-                  </button>
-                  <a
-                    href={`https://map.naver.com/v5/search/${encodeURIComponent(store.address)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 bg-[#03C75A] text-white py-2.5 rounded-lg text-sm font-bold hover:bg-[#02b350] transition-colors text-center"
-                  >
-                    길찾기
-                  </a>
-                </div>
+                <StoreActionButtons
+                  store={store}
+                  variant="compact"
+                  onStoreInfoClick={() => openStoreDetail(store)}
+                />
 
                 {/* 지역 태그 */}
                 <div className="mt-3 pt-3 border-t border-gray-100">

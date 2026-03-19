@@ -132,9 +132,11 @@ export default function NaverMap({ stores, userLocation, onStoreClick, focusRegi
       });
 
       // 정보창 생성
+      const kakaoLink = store.kakaoLink || 'https://pf.kakao.com/_MvxaTn';
+
       const infoWindow = new naver.maps.InfoWindow({
         content: `
-          <div style="padding: 15px; min-width: 200px;">
+          <div style="padding: 15px; min-width: 240px;">
             <h3 style="font-size: 16px; font-weight: bold; margin-bottom: 8px; color: #000000;">
               ${store.name}
             </h3>
@@ -144,20 +146,32 @@ export default function NaverMap({ stores, userLocation, onStoreClick, focusRegi
             <p style="font-size: 13px; color: #666; margin-bottom: 10px;">
               📞 ${store.phone}
             </p>
-            <div style="display: flex; gap: 8px;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px;">
               <div onclick="window.openStoreDetailById(${store.id})"
-                   style="flex: 1; background: #F2C811; color: black; padding: 8px;
-                          border-radius: 6px; text-align: center;
-                          font-size: 12px; font-weight: bold; cursor: pointer;
+                   style="background: #FEE500; color: black; padding: 8px;
+                          border-radius: 8px; text-align: center;
+                          font-size: 11px; font-weight: bold; cursor: pointer;
                           transition: all 0.2s ease;">
-                매장정보
+                매장안내
               </div>
-              <a href="https://map.naver.com/v5/search/${encodeURIComponent(store.address)}"
+              <a href="https://map.naver.com/v5/directions/-/-/${store.lng},${store.lat},${encodeURIComponent(store.name)}"
                  target="_blank" rel="noopener noreferrer"
-                 style="flex: 1; background: #000000; color: #F2C811; padding: 8px;
-                        border-radius: 6px; text-align: center; text-decoration: none;
-                        font-size: 12px; font-weight: bold;">
+                 style="background: #03C75A; color: white; padding: 8px;
+                        border-radius: 8px; text-align: center; text-decoration: none;
+                        font-size: 11px; font-weight: bold;
+                        transition: all 0.2s ease;">
                 길찾기
+              </a>
+              <a href="${kakaoLink}"
+                 target="_blank" rel="noopener noreferrer"
+                 style="background: #FEE500; color: black; padding: 8px;
+                        border-radius: 8px; text-align: center; text-decoration: none;
+                        font-size: 11px; font-weight: bold;
+                        display: flex; align-items: center; justify-content: center;
+                        transition: all 0.2s ease;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 3C6.477 3 2 6.477 2 10.8c0 2.8 1.8 5.2 4.5 6.6-.2.7-.6 2.5-.7 2.8-.1.4 0 .4.2.3.2-.1 2.5-1.7 3.2-2.2.6.1 1.2.2 1.8.2 5.523 0 10-3.477 10-7.8S17.523 3 12 3zm-3.5 10.5c-.4 0-.8-.3-.8-.8v-3.5h-.9c-.4 0-.8-.3-.8-.8s.3-.8.8-.8h3.4c.4 0 .8.3.8.8s-.3.8-.8.8h-.9v3.5c0 .5-.3.8-.8.8zm4.5 0c-.4 0-.8-.3-.8-.8v-4.9c0-.4.3-.8.8-.8s.8.3.8.8v4.9c0 .5-.4.8-.8.8zm4.2 0c-.3 0-.5-.1-.7-.3l-1.8-2.4v2c0 .4-.3.8-.8.8s-.8-.3-.8-.8v-4.9c0-.4.3-.8.8-.8.3 0 .5.1.7.3l1.8 2.4v-2c0-.4.3-.8.8-.8s.8.3.8.8v4.9c0 .5-.4.8-.8.8z"/>
+                </svg>
               </a>
             </div>
           </div>

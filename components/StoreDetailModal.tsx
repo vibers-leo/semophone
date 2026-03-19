@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useSwipe } from '@/hooks/useSwipe';
 import { haptics } from '@/lib/haptics';
+import StoreActionButtons from './StoreActionButtons';
 
 interface StoreDetailModalProps {
   store: Store | null;
@@ -251,46 +252,14 @@ export default function StoreDetailModal({ store, isOpen, onClose }: StoreDetail
 
             {/* 액션 버튼 */}
             <div className="pt-4 pb-safe-bottom border-t border-gray-200">
-              <div className="grid grid-cols-3 gap-3">
-                {/* 상세정보 */}
-                <a
-                  href={store.link || `https://map.naver.com/v5/search/${encodeURIComponent(store.name)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex flex-col items-center justify-center gap-1.5 px-3 py-3.5 bg-gray-900 text-white rounded-xl font-bold text-xs hover:bg-gray-800 hover:shadow-lg hover:-translate-y-0.5 transition-all"
-                >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                  상세정보
-                </a>
-
-                {/* 길찾기 */}
-                <a
-                  href={`https://map.naver.com/v5/directions/-/-/${store.lng},${store.lat},${encodeURIComponent(store.name)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex flex-col items-center justify-center gap-1.5 px-3 py-3.5 bg-[#03C75A] text-white rounded-xl font-bold text-xs hover:bg-[#02b350] hover:shadow-lg hover:-translate-y-0.5 transition-all"
-                >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
-                  </svg>
-                  길찾기
-                </a>
-
-                {/* 카톡상담 */}
-                <a
-                  href={store.kakaoLink || 'https://pf.kakao.com/_xoxoxoxo'}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex flex-col items-center justify-center gap-1.5 px-3 py-3.5 bg-[#FEE500] text-black rounded-xl font-bold text-xs hover:bg-[#FDD835] hover:shadow-lg hover:-translate-y-0.5 transition-all"
-                >
-                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 3C6.477 3 2 6.477 2 10.8c0 2.8 1.8 5.2 4.5 6.6-.2.7-.6 2.5-.7 2.8-.1.4 0 .4.2.3.2-.1 2.5-1.7 3.2-2.2.6.1 1.2.2 1.8.2 5.523 0 10-3.477 10-7.8S17.523 3 12 3zm-3.5 10.5c-.4 0-.8-.3-.8-.8v-3.5h-.9c-.4 0-.8-.3-.8-.8s.3-.8.8-.8h3.4c.4 0 .8.3.8.8s-.3.8-.8.8h-.9v3.5c0 .5-.3.8-.8.8zm4.5 0c-.4 0-.8-.3-.8-.8v-4.9c0-.4.3-.8.8-.8s.8.3.8.8v4.9c0 .5-.4.8-.8.8zm4.2 0c-.3 0-.5-.1-.7-.3l-1.8-2.4v2c0 .4-.3.8-.8.8s-.8-.3-.8-.8v-4.9c0-.4.3-.8.8-.8.3 0 .5.1.7.3l1.8 2.4v-2c0-.4.3-.8.8-.8s.8.3.8.8v4.9c0 .5-.4.8-.8.8z"/>
-                  </svg>
-                  카톡상담
-                </a>
-              </div>
+              <StoreActionButtons
+                store={store}
+                variant="modal"
+                onStoreInfoClick={() => {
+                  const link = store.link || `https://map.naver.com/v5/search/${encodeURIComponent(store.name)}`;
+                  window.open(link, '_blank');
+                }}
+              />
             </div>
           </div>
         </div>
