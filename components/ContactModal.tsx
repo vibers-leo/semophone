@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 import ContactForm from './ContactForm';
 import { useScrollLock } from '@/hooks/useScrollLock';
 
@@ -68,6 +69,13 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
 
         {/* 모달 헤더 */}
         <div className="pt-10 pb-6 px-6 text-center border-b border-gray-200">
+          <Image
+            src="/icons/대화.png"
+            alt="문의"
+            width={80}
+            height={80}
+            className="w-16 h-16 md:w-20 md:h-20 object-contain mx-auto mb-4"
+          />
           <h2 className="text-xl md:text-2xl font-black mb-1">
             궁금한 점이 있으신가요?
           </h2>

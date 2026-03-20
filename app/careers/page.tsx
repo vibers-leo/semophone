@@ -23,9 +23,9 @@ export default function CareersPage() {
               <Image
                 src="/icons/사람들2.png"
                 alt="채용정보"
-                width={64}
-                height={64}
-                className="w-14 h-14 md:w-16 md:h-16 object-contain flex-shrink-0"
+                width={96}
+                height={96}
+                className="w-20 h-20 md:w-24 md:h-24 object-contain flex-shrink-0"
               />
               <div className="flex-1">
                 <h1 className="text-3xl md:text-4xl font-black text-gray-900 mb-2">채용정보</h1>

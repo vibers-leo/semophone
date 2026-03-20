@@ -71,11 +71,11 @@ export default function PartnershipPage() {
           <div className="max-w-7xl mx-auto">
             <div className="flex items-start gap-4">
               <Image
-                src="/icons/악수.png"
+                src="/icons/대화.png"
                 alt="문의하기"
-                width={64}
-                height={64}
-                className="w-14 h-14 md:w-16 md:h-16 object-contain flex-shrink-0"
+                width={96}
+                height={96}
+                className="w-20 h-20 md:w-24 md:h-24 object-contain flex-shrink-0"
               />
               <div className="flex-1">
                 <h1 className="text-3xl md:text-4xl font-black text-gray-900 mb-2">문의하기</h1>
@@ -90,6 +90,13 @@ export default function PartnershipPage() {
         {/* 협업 소개 */}
         <section className="bg-white py-24 px-3">
           <div className="max-w-4xl mx-auto text-center">
+            <Image
+              src="/icons/협력.png"
+              alt="협력"
+              width={120}
+              height={120}
+              className="w-24 h-24 md:w-28 md:h-28 object-contain mx-auto mb-6"
+            />
             <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-8">
               함께 만드는 미래
             </h2>
@@ -107,6 +114,13 @@ export default function PartnershipPage() {
         {/* 문의 폼 - 좌우 레이아웃 */}
         <section className="bg-gray-50 py-24 px-4">
           <div className="max-w-6xl mx-auto">
+            <Image
+              src="/icons/접수.png"
+              alt="접수"
+              width={96}
+              height={96}
+              className="w-20 h-20 md:w-24 md:h-24 object-contain mx-auto mb-6"
+            />
             <h2 className="text-3xl md:text-4xl font-black text-center mb-16">문의하기</h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-end">

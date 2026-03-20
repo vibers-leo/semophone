@@ -11,7 +11,7 @@ export default function Footer() {
   return (
     <>
       <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
-      <footer className="py-16 px-5 bg-gray-50 border-t border-gray-200">
+      <footer className="py-16 px-5 pb-24 bg-gray-50 border-t border-gray-200">
       <div className="max-w-7xl mx-auto">
         {/* 2단 레이아웃 */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
