@@ -29,7 +29,7 @@ export default function MinimalStats() {
         background: 'linear-gradient(135deg, #FEE500 0%, #FDD835 50%, #FEE500 100%)',
       }}
     >
-      <div className="max-w-[85%] mx-auto relative z-10">
+      <div className="max-w-[80%] mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-[6fr_4fr] gap-10 lg:gap-12 items-center">
           {/* 왼쪽: 이미지 슬라이드쇼 (100% 표시) */}
           <motion.div
@@ -39,7 +39,7 @@ export default function MinimalStats() {
             transition={{ duration: 0.3 }}
             className="relative"
           >
-            <div className="relative rounded-2xl overflow-hidden h-[350px] md:h-[420px] flex items-start justify-center bg-white shadow-lg">
+            <div className="relative rounded-2xl overflow-hidden h-[420px] md:h-[500px] lg:h-[550px] flex items-start justify-center bg-white shadow-lg">
               {/* 상단 고정 정렬 - 이미지 높이가 달라도 위치 안 변함 */}
               <Image
                 src={storeImages[currentImageIndex]}
