@@ -35,7 +35,7 @@ function MenuItem({ href, icon, label, onClick, secondary = false }: MenuItemPro
         <div className={secondary ? 'text-gray-400' : 'text-brand'}>
           {icon}
         </div>
-        <span className="text-base">{label}</span>
+        <span className="text-lg">{label}</span>
       </Link>
     </div>
   );
@@ -230,7 +230,7 @@ export default function Header() {
                   <MenuItem
                     href="/about"
                     icon={
-                      <Image src="/icons/건물.png" alt="회사소개" width={20} height={20} className="w-5 h-5 object-contain" />
+                      <Image src="/icons/건물.png" alt="회사소개" width={28} height={28} className="w-7 h-7 object-contain" />
                     }
                     label="회사소개"
                     onClick={() => setMobileMenuOpen(false)}
@@ -238,7 +238,7 @@ export default function Header() {
                   <MenuItem
                     href="/history"
                     icon={
-                      <Image src="/icons/시계.png" alt="히스토리" width={20} height={20} className="w-5 h-5 object-contain" />
+                      <Image src="/icons/시계.png" alt="히스토리" width={28} height={28} className="w-7 h-7 object-contain" />
                     }
                     label="히스토리"
                     onClick={() => setMobileMenuOpen(false)}
@@ -246,7 +246,7 @@ export default function Header() {
                   <MenuItem
                     href="/careers"
                     icon={
-                      <Image src="/icons/사람들2.png" alt="채용정보" width={20} height={20} className="w-5 h-5 object-contain" />
+                      <Image src="/icons/사람들2.png" alt="채용정보" width={28} height={28} className="w-7 h-7 object-contain" />
                     }
                     label="채용정보"
                     onClick={() => setMobileMenuOpen(false)}
@@ -254,7 +254,7 @@ export default function Header() {
                   <MenuItem
                     href="/partnership"
                     icon={
-                      <Image src="/icons/악수.png" alt="문의하기" width={20} height={20} className="w-5 h-5 object-contain" />
+                      <Image src="/icons/채팅, 고객센터.png" alt="문의하기" width={28} height={28} className="w-7 h-7 object-contain" />
                     }
                     label="문의하기"
                     onClick={() => setMobileMenuOpen(false)}
@@ -262,7 +262,7 @@ export default function Header() {
                   <MenuItem
                     href="/stores"
                     icon={
-                      <Image src="/icons/지도핀.png" alt="매장찾기" width={20} height={20} className="w-5 h-5 object-contain" />
+                      <Image src="/icons/지도핀.png" alt="매장찾기" width={28} height={28} className="w-7 h-7 object-contain" />
                     }
                     label="매장찾기"
                     onClick={() => setMobileMenuOpen(false)}
