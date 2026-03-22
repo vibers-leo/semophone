@@ -81,6 +81,9 @@ export default function SimplifiedHero() {
                 fill
                 className="object-contain"
                 style={{ objectPosition: 'right center' }}
+                sizes="100vw"
+                quality={75}
+                loading={index === 0 ? 'eager' : 'lazy'}
                 priority={index === 0}
               />
             </div>
@@ -140,6 +143,9 @@ export default function SimplifiedHero() {
                 fill
                 className="object-contain"
                 style={{ objectPosition: 'right center' }}
+                sizes="100vw"
+                quality={75}
+                loading={index === 0 ? 'eager' : 'lazy'}
                 priority={index === 0}
               />
             </div>
@@ -199,6 +205,9 @@ export default function SimplifiedHero() {
                 fill
                 className="object-contain"
                 style={{ objectPosition: 'center 58%' }}
+                sizes="100vw"
+                quality={75}
+                loading={index === 0 ? 'eager' : 'lazy'}
                 priority={index === 0}
               />
             </div>

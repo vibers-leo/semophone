@@ -47,6 +47,8 @@ export default function MinimalStats() {
               className="w-full h-auto rounded-2xl shadow-lg bg-white"
               style={{ imageOrientation: 'from-image' }}
               sizes="(max-width: 768px) 100vw, 60vw"
+              quality={75}
+              loading={currentImageIndex === 0 ? 'eager' : 'lazy'}
               priority={currentImageIndex === 0}
             />
 

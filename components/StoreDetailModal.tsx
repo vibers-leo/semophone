@@ -78,7 +78,7 @@ export default function StoreDetailModal({ store, isOpen, onClose }: StoreDetail
           onClick={onClose}
         >
           <motion.div
-            className="relative bg-white w-full md:max-w-2xl md:rounded-3xl shadow-2xl max-h-[92vh] overflow-hidden rounded-t-3xl md:rounded-b-3xl z-modal"
+            className="relative bg-white w-full md:max-w-xl lg:max-w-2xl md:rounded-3xl shadow-2xl max-h-[92vh] overflow-hidden rounded-t-3xl md:rounded-b-3xl z-modal"
             onClick={(e) => e.stopPropagation()}
             drag="y"
             dragConstraints={{ top: 0, bottom: 0 }}
@@ -112,7 +112,9 @@ export default function StoreDetailModal({ store, isOpen, onClose }: StoreDetail
             fill
             className="object-contain"
             style={{ imageOrientation: 'from-image' }}
-            sizes="(max-width: 768px) 100vw, 672px"
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 576px, 672px"
+            quality={70}
+            loading={currentImageIndex === 0 ? 'eager' : 'lazy'}
             priority={currentImageIndex === 0}
           />
 
