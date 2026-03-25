@@ -1,5 +1,5 @@
 'use client';
-import { cn } from '@/lib/utils';
+import { cn } from '@vibers/ui';
 import React from 'react';
 import { motion } from 'framer-motion';
 

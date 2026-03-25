@@ -1,5 +1,5 @@
 {
-  "name": "semophone",
+  "name": "@vibers/semophone",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,6 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@vibers/ui": "workspace:*",
     "@radix-ui/react-alert-dialog": "^1.1.15",
     "@radix-ui/react-dialog": "^1.1.15",
     "@radix-ui/react-tabs": "^1.1.13",
