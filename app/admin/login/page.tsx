@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/contexts/AuthContext';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function AdminLoginPage() {
   const [email, setEmail] = useState('');
@@ -103,6 +104,15 @@ export default function AdminLoginPage() {
             {loading ? '로그인 중...' : '로그인'}
           </button>
         </form>
+
+        <div className="mt-3 text-center">
+          <Link
+            href="/admin/forgot-password"
+            className="text-sm text-gray-500 hover:text-gray-700 transition-colors"
+          >
+            비밀번호를 잊으셨나요?
+          </Link>
+        </div>
 
         {/* 구분선 */}
         <div className="relative my-6">
