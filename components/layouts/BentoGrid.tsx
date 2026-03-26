@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { cn } from '@vibers/ui';
+import { cn } from '@/lib/utils';
 
 interface BentoGridProps {
   children: ReactNode;

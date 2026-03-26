@@ -1,4 +1,4 @@
-import { cn } from '@vibers/ui';
+import { cn } from '@/lib/utils';
 
 interface SkeletonProps {
   className?: string;
