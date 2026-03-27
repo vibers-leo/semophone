@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 export default function CinematicHero() {
   return (
-    <section className="relative h-screen w-full overflow-hidden mt-[56px] md:mt-[72px]">
+    <section className="relative min-h-[100dvh] w-full overflow-hidden mt-[56px] md:mt-[72px]">
       {/* 배경 */}
       <div className="absolute inset-0 z-0">
         <div className="relative w-full h-full">
