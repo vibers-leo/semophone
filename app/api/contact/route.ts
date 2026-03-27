@@ -1,6 +1,19 @@
 import { NextResponse } from 'next/server';
 import { sendContactNotification, ContactInquiry } from '@/lib/email';
 import { sendContactNotificationSMS } from '@/lib/ppurio';
+import admin from 'firebase-admin';
+
+// Firebase Admin 초기화
+if (!admin.apps.length) {
+  const pk = process.env.FIREBASE_PRIVATE_KEY;
+  const projectId = process.env.FIREBASE_PROJECT_ID;
+  const clientEmail = process.env.FIREBASE_CLIENT_EMAIL;
+  if (pk && projectId && clientEmail) {
+    admin.initializeApp({
+      credential: admin.credential.cert({ projectId, clientEmail, privateKey: pk.replace(/\\n/g, '\n') }),
+    });
+  }
+}
 
 export async function POST(req: Request) {
   try {
@@ -40,6 +53,19 @@ export async function POST(req: Request) {
       message,
       storeName,
     };
+
+    // Firestore에 문의 저장
+    try {
+      if (admin.apps.length) {
+        await admin.firestore().collection('contacts').add({
+          name, phone, email: email || '', message,
+          storeName: storeName || '',
+          status: 'pending',
+          workflowStatus: 'received',
+          createdAt: admin.firestore.FieldValue.serverTimestamp(),
+        });
+      }
+    } catch (e) { console.error('Firestore 저장 실패:', e); }
 
     // 환경변수 확인 (Resend 사용)
     if (!process.env.RESEND_API_KEY) {
