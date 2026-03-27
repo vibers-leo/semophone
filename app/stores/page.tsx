@@ -655,7 +655,7 @@ export default function StoresPage() {
                 <div>
                   <div className="text-xs font-semibold text-gray-500 mb-2 px-1">경기</div>
                   <div className="flex flex-wrap gap-2">
-                    {['전체', '부천', '성남/분당', '기타'].map((sub) => (
+                    {['전체', '부천남부', '부천북부', '성남/분당', '기타'].map((sub) => (
                       <motion.button
                         key={`경기-${sub}`}
                         onClick={() => {
@@ -681,7 +681,7 @@ export default function StoresPage() {
                 <div>
                   <div className="text-xs font-semibold text-gray-500 mb-2 px-1">인천</div>
                   <div className="flex flex-wrap gap-2">
-                    {['전체', '남부', '북부', '송도'].map((sub) => (
+                    {['전체', '남부', '북부', '서부', '송도'].map((sub) => (
                       <motion.button
                         key={`인천-${sub}`}
                         onClick={() => {
