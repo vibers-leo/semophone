@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import "./globals.css";
 import { ClientLayout } from "./client-layout";
 import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
@@ -89,12 +88,6 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased overflow-x-hidden">
-        <Script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7704550771011130"
-          crossOrigin="anonymous"
-          strategy="afterInteractive"
-        />
         <Suspense fallback={null}>
           <GoogleAnalytics />
         </Suspense>
