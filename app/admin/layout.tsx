@@ -3,6 +3,7 @@
 import { AuthProvider } from '@/contexts/AuthContext';
 import AdminSidebar from '@/components/admin/AdminSidebar';
 import AdminHeader from '@/components/admin/AdminHeader';
+import Script from 'next/script';
 import VibersBanner from '@/components/VibersBanner';
 import { usePathname } from 'next/navigation';
 
@@ -12,6 +13,12 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
   return (
     <AuthProvider>
+      <Script
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7704550771011130"
+        crossOrigin="anonymous"
+        strategy="afterInteractive"
+      />
       {isLoginPage ? (
         children
       ) : (
