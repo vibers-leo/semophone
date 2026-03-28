@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import ContactModal from './ContactModal';
+import CoupangBanner from './CoupangBanner';
 
 export default function Footer() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -111,6 +112,7 @@ export default function Footer() {
           <p className="text-xs text-gray-400">
             © 2026 세모폰. All rights reserved.
           </p>
+          <CoupangBanner />
         </div>
       </div>
     </footer>
