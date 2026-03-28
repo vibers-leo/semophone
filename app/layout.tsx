@@ -88,6 +88,24 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased overflow-x-hidden">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "name": "세모폰",
+              "url": "https://semophone.co.kr",
+              "description": "직접 오시면 가격이 다릅니다. 수도권 40개 성지 매장에서 온라인에 없는 가격을 경험하세요.",
+              "creator": {
+                "@type": "Organization",
+                "name": "계발자들 (Vibers)",
+                "url": "https://vibers.co.kr"
+              },
+              "inLanguage": "ko"
+            })
+          }}
+        />
         <Suspense fallback={null}>
           <GoogleAnalytics />
         </Suspense>
