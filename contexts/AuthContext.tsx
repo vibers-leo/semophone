@@ -35,8 +35,19 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       setUser(user);
 
       if (user) {
-        const adminEmails = process.env.NEXT_PUBLIC_ADMIN_EMAILS?.split(',') || [];
-        setIsAdmin(adminEmails.includes(user.email || ''));
+        // [보안] 관리자 확인은 서버사이드 API를 통해 처리
+        // NEXT_PUBLIC_ 환경변수는 브라우저에 노출되므로 admin 이메일을 직접 포함하지 않음
+        try {
+          const res = await fetch('/api/auth/check-admin', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: user.email }),
+          });
+          const data = await res.json();
+          setIsAdmin(data.isAdmin === true);
+        } catch {
+          setIsAdmin(false);
+        }
       } else {
         setIsAdmin(false);
       }
