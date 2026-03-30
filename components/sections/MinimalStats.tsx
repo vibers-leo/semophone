@@ -85,12 +85,12 @@ export default function MinimalStats() {
             viewport={{ once: true }}
             transition={{ duration: 0.3 }}
           >
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-4 leading-tight">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-4 leading-tight text-center">
               <span className="text-dark">수도권 50개 매장에서<br />
               검증된 신뢰</span>
             </h2>
 
-            <p className="text-base md:text-lg text-dark/80 mb-8 leading-relaxed">
+            <p className="text-base md:text-lg text-dark/80 mb-8 leading-relaxed text-center">
               46만명의 고객이 선택한 세모폰<br />
               가까운 매장에서 합리적인 가격 상담을 경험하세요
             </p>
@@ -110,14 +110,14 @@ export default function MinimalStats() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
                   whileHover={{ scale: 1.03, y: -3 }}
-                  className="bg-white/95 backdrop-blur-sm rounded-xl p-5 md:p-6 lg:p-7 shadow-lg hover:shadow-xl transition-all duration-300 border border-dark/5"
+                  className="bg-white/95 backdrop-blur-sm rounded-xl p-5 md:p-6 lg:p-7 shadow-lg hover:shadow-xl transition-all duration-300 border border-dark/5 text-center"
                 >
                   <Image
                     src={stat.icon}
                     alt={stat.label}
-                    width={56}
-                    height={56}
-                    className="w-10 h-10 md:w-11 md:h-11 lg:w-12 lg:h-12 object-contain mx-auto mb-3"
+                    width={72}
+                    height={72}
+                    className="w-14 h-14 md:w-16 md:h-16 lg:w-18 lg:h-18 object-contain mx-auto mb-3"
                   />
                   <div className="text-3xl md:text-[2rem] lg:text-4xl font-black text-dark mb-2 tracking-tight">
                     {stat.number}
