@@ -87,30 +87,6 @@ export default function PartnershipPage() {
           </div>
         </section>
 
-        {/* 협업 소개 */}
-        <section className="bg-white py-24 px-3">
-          <div className="max-w-4xl mx-auto text-center">
-            <Image
-              src="/icons/협력.png"
-              alt="협력"
-              width={120}
-              height={120}
-              className="w-24 h-24 md:w-28 md:h-28 object-contain mx-auto mb-6"
-            />
-            <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-8">
-              함께 만드는 미래
-            </h2>
-            <p className="text-lg text-gray-700 leading-relaxed mb-4">
-              세모폰은 다양한 파트너와의 협력을 통해<br />
-              고객에게 더 나은 가치를 제공합니다.
-            </p>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              투명하고 정직한 파트너십으로<br />
-              함께 성장하고자 합니다.
-            </p>
-          </div>
-        </section>
-
         {/* 문의 폼 - 좌우 레이아웃 */}
         <section className="bg-gray-50 py-24 px-4">
           <div className="max-w-6xl mx-auto">
@@ -121,12 +97,34 @@ export default function PartnershipPage() {
               height={96}
               className="w-20 h-20 md:w-24 md:h-24 object-contain mx-auto mb-6"
             />
-            <h2 className="text-3xl md:text-4xl font-black text-center mb-16">문의하기</h2>
+            <h2 className="text-3xl md:text-4xl font-black text-center mb-16">협업문의</h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-end">
-              {/* 왼쪽: 캐릭터 이미지 */}
+              {/* 왼쪽: 협업 소개 + 캐릭터 이미지 */}
               <div className="flex items-start justify-center md:sticky md:top-24">
                 <div className="relative w-full max-w-lg">
+                  {/* 함께 만드는 미래 - 캐릭터 위 */}
+                  <div className="text-center mb-8">
+                    <Image
+                      src="/icons/협력.png"
+                      alt="협력"
+                      width={80}
+                      height={80}
+                      className="w-16 h-16 md:w-20 md:h-20 object-contain mx-auto mb-4"
+                    />
+                    <h2 className="text-2xl md:text-3xl font-black text-gray-900 mb-4">
+                      함께 만드는 미래
+                    </h2>
+                    <p className="text-base text-gray-700 leading-relaxed mb-2">
+                      세모폰은 다양한 파트너와의 협력을 통해<br />
+                      고객에게 더 나은 가치를 제공합니다.
+                    </p>
+                    <p className="text-base text-gray-700 leading-relaxed">
+                      투명하고 정직한 파트너십으로<br />
+                      함께 성장하고자 합니다.
+                    </p>
+                  </div>
+
                   <Image
                     src="/icons/세모폰 기본.png"
                     alt="세모폰"

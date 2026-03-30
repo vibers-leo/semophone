@@ -149,7 +149,7 @@ export default function Header() {
               href="/partnership"
               className="text-base font-semibold text-gray-700 hover:text-gray-900 transition-colors"
             >
-              문의하기
+              협업문의
             </Link>
             <Link
               href="/stores"
@@ -254,9 +254,9 @@ export default function Header() {
                   <MenuItem
                     href="/partnership"
                     icon={
-                      <Image src="/icons/채팅, 고객센터.png" alt="문의하기" width={28} height={28} className="w-7 h-7 object-contain" />
+                      <Image src="/icons/채팅, 고객센터.png" alt="협업문의" width={28} height={28} className="w-7 h-7 object-contain" />
                     }
-                    label="문의하기"
+                    label="협업문의"
                     onClick={() => setMobileMenuOpen(false)}
                   />
                   <MenuItem
