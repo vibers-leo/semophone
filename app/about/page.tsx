@@ -4,9 +4,6 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Image from 'next/image';
 import Link from 'next/link';
-import dynamic from 'next/dynamic';
-
-const NaverMap = dynamic(() => import('@/components/NaverMap'), { ssr: false });
 
 export default function AboutPage() {
   return (
@@ -34,7 +31,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* CEO 인사말 */}
+        {/* 회사 소개 */}
         <section className="bg-white py-24 px-3">
           <div className="max-w-6xl mx-auto">
             <div className="bg-white rounded-3xl p-8 md:p-12">
@@ -52,31 +49,31 @@ export default function AboutPage() {
                   </div>
                 </div>
 
-                {/* 인사말 */}
+                {/* 소개 본문 */}
                 <div className="flex-1 space-y-6">
                   <div className="space-y-4 text-gray-700 leading-relaxed">
                     <p>
-                      세모폰은 2012년 설립 이후 이동통신 3사 및 알뜰폰 상품을 기반으로
-                      온라인과 오프라인을 아우르는 통합 유통 환경 속에서
+                      세모폰은 2012년 설립 이후 이동통신 3사 및 알뜰폰 상품을 기반으로<br />
+                      온라인과 오프라인을 아우르는 통합 유통 환경 속에서<br />
                       차별화된 경쟁력을 만들어온 모바일 전문 브랜드입니다.
                     </p>
                     <p>
-                      &apos;세상의 모든 휴대폰&apos;이라는 비전 아래
-                      고객에게 최고의 가치와 선택 경험을 제공하는 것을 목표로 하고 있습니다.
-                      현재 전국 50개 이상의 직영 매장을 운영하며,
+                      &apos;세상의 모든 휴대폰&apos;이라는 비전 아래<br />
+                      고객에게 최고의 가치와 선택 경험을 제공하는 것을 목표로 하고 있습니다.<br />
+                      현재 전국 50개 이상의 직영 매장을 운영하며,<br />
                       누적 46만 명 이상의 고객과 신뢰를 쌓아오며 지속적으로 성장해왔습니다.
                     </p>
                     <p>
-                      세모폰은 투명한 가격과 정직한 서비스를 핵심 원칙으로 합니다.
-                      단순한 판매를 넘어, 고객 한 분 한 분께 최적의 선택을 제안하며
+                      세모폰은 투명한 가격과 정직한 서비스를 핵심 원칙으로 합니다.<br />
+                      단순한 판매를 넘어, 고객 한 분 한 분께 최적의 선택을 제안하며<br />
                       일반적인 유통 구조에서는 경험하기 어려운 합리적인 가격과 전문적인 상담을 제공합니다.
                     </p>
                     <p>
-                      또한, 축적된 직영 매장 운영 데이터와 네트워크를 기반으로
+                      또한, 축적된 직영 매장 운영 데이터와 네트워크를 기반으로<br />
                       안정적인 운영 구조와 일관된 고객 경험을 만들어가고 있습니다.
                     </p>
                     <p>
-                      앞으로도 세모폰은 고객과의 신뢰를 최우선 가치로 삼아
+                      앞으로도 세모폰은 고객과의 신뢰를 최우선 가치로 삼아<br />
                       모바일 통신 시장의 투명한 기준이 되는 브랜드로 성장해 나가겠습니다.
                     </p>
                     <p>
@@ -125,22 +122,23 @@ export default function AboutPage() {
                   </h3>
 
                   <p className="text-gray-700 leading-relaxed text-base">
-                    &apos;연결과 균형&apos;을 기반으로 한 단순한 기하학적 형태에서 출발해,
+                    &apos;연결과 균형&apos;을 기반으로 한 단순한 기하학적 형태에서 출발해,<br />
                     다양한 휴대폰과 서비스, 그리고 고객의 선택이 하나로 이어지는 경험을 상징합니다.
                   </p>
 
                   <p className="text-gray-700 leading-relaxed text-base">
-                    삼각형을 이루는 세 요소는 신뢰 · 가치 · 감동을 의미하며,
+                    삼각형을 이루는 세 요소는<br />
+                    신뢰 · 가치 · 감동을 의미하며,<br />
                     고객과 함께 성장하며 가치를 나누는 구조를 표현합니다.
                   </p>
 
                   <p className="text-gray-700 leading-relaxed text-base">
-                    각 요소가 균형 있게 연결되듯,
+                    각 요소가 균형 있게 연결되듯,<br />
                     세모폰은 다양한 브랜드와 통신 서비스를 효과적으로 연결합니다.
                   </p>
 
                   <p className="text-gray-700 leading-relaxed text-base">
-                    앞으로도 세모폰은 이 CI를 중심으로
+                    앞으로도 세모폰은 이 CI를 중심으로<br />
                     더 나은 기준과 경험을 만들어가는 브랜드로 성장해 나가겠습니다.
                   </p>
 
@@ -178,8 +176,6 @@ export default function AboutPage() {
             </div>
           </div>
         </section>
-
-
       </main>
       <Footer />
     </>

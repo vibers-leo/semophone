@@ -29,8 +29,8 @@ export default function SimplifiedHero() {
 
   return (
     <>
-      {/* PC / 태블릿 버전 - 이미지 자연 비율, 높이 제한 없음 */}
-      <section className="hidden md:block relative w-full overflow-hidden mt-[72px]">
+      {/* PC / 태블릿 버전 - 최대 80vh, 이미지 자연 비율 */}
+      <section className="hidden md:block relative w-full overflow-hidden mt-[72px]" style={{ maxHeight: '80vh' }}>
         <div className="relative w-full">
           {/* 이미지 슬라이드쇼 - 첫 이미지가 레이아웃 기준, 나머지 absolute */}
           {bannerImages.map((image, index) => (
