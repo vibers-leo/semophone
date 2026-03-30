@@ -1,36 +1,16 @@
 import { JobOpening, Benefit } from '@/types/content';
 
 export const benefits: Benefit[] = [
-  {
-    icon: "/icons/보안.png",
-    title: "4대 보험 완비",
-    description: "국민연금, 건강보험, 고용보험, 산재보험"
-  },
-  {
-    icon: "/icons/시계.png",
-    title: "유연 근무제",
-    description: "출퇴근 시간 자율 조정 가능"
-  },
-  {
-    icon: "/icons/카드.png",
-    title: "점심 식대 지원",
-    description: "월 15만원 식대 지원"
-  },
-  {
-    icon: "/icons/캘린더.png",
-    title: "연차/휴가",
-    description: "법정 연차 + 리프레시 휴가"
-  },
-  {
-    icon: "/icons/연필, 작성.png",
-    title: "교육비 지원",
-    description: "직무 관련 교육 100% 지원"
-  },
-  {
-    icon: "/icons/태그, 할인.png",
-    title: "성과급",
-    description: "분기별 실적 기반 인센티브"
-  }
+  { icon: "", title: "국민연금", description: "" },
+  { icon: "", title: "고용보험", description: "" },
+  { icon: "", title: "산재보험", description: "" },
+  { icon: "", title: "건강보험", description: "" },
+  { icon: "", title: "각종 경조금", description: "" },
+  { icon: "", title: "인센티브제", description: "" },
+  { icon: "", title: "장기근속자 포상", description: "" },
+  { icon: "", title: "우수사원 표창/포상", description: "" },
+  { icon: "", title: "중식 제공", description: "" },
+  { icon: "", title: "근무복 지급", description: "" },
 ];
 
 export const jobOpenings: JobOpening[] = [
