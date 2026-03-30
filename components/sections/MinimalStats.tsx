@@ -15,70 +15,68 @@ export default function MinimalStats() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % storeImages.length);
-    }, 5000); // 5초마다 서서히 이미지 변경
+    }, 5000);
 
     return () => clearInterval(interval);
   }, []);
 
   return (
     <section
-      className="py-24 px-4 md:px-6 lg:px-8 relative overflow-hidden"
+      className="relative overflow-hidden py-24"
       style={{
         background: 'linear-gradient(135deg, #FEE500 0%, #FDD835 50%, #FEE500 100%)',
       }}
     >
-      <div className="max-w-[80%] mx-auto relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-[6fr_4fr] gap-10 lg:gap-12 items-center">
-          {/* 왼쪽: 이미지 슬라이드쇼 (100% 표시) */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.3 }}
-            className="relative aspect-[3/2] rounded-2xl overflow-hidden shadow-lg"
+      {/* 이미지 - 섹션 왼쪽 절반 꽉참 (absolute) */}
+      <div className="absolute left-0 top-0 bottom-0 w-1/2 lg:w-[55%]">
+        {storeImages.map((src, index) => (
+          <div
+            key={index}
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+              index === currentImageIndex ? 'opacity-100' : 'opacity-0'
+            }`}
           >
-            {storeImages.map((src, index) => (
-              <div
-                key={index}
-                className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-                  index === currentImageIndex ? 'opacity-100' : 'opacity-0'
-                }`}
-              >
-                <Image
-                  src={src}
-                  alt={`세모폰 매장 실내 ${index + 1}`}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 60vw"
-                  quality={85}
-                  priority={index === 0}
-                  loading={index === 0 ? 'eager' : 'lazy'}
-                />
-              </div>
-            ))}
-
-            {/* 오른쪽 노란 그라데이션 페이드 */}
-            <div
-              className="absolute inset-0 z-[1] pointer-events-none"
-              style={{
-                background: 'linear-gradient(to right, transparent 50%, rgba(253, 216, 53, 0.3) 75%, rgba(253, 216, 53, 0.7) 90%, #FDD835 100%)',
-              }}
+            <Image
+              src={src}
+              alt={`세모폰 매장 실내 ${index + 1}`}
+              fill
+              className="object-cover"
+              sizes="55vw"
+              quality={85}
+              priority={index === 0}
+              loading={index === 0 ? 'eager' : 'lazy'}
             />
+          </div>
+        ))}
 
-            {/* 인디케이터 */}
-            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 z-10">
-              {storeImages.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentImageIndex(index)}
-                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                    index === currentImageIndex ? 'bg-dark w-8' : 'bg-dark/50'
-                  }`}
-                  aria-label={`이미지 ${index + 1}`}
-                />
-              ))}
-            </div>
-          </motion.div>
+        {/* 오른쪽 자연스러운 그라데이션 (이미지 → 노란 배경) */}
+        <div
+          className="absolute inset-y-0 right-0 w-[50%] pointer-events-none"
+          style={{
+            background: 'linear-gradient(to right, transparent 0%, rgba(253,228,0,0.5) 50%, rgba(253,216,53,0.85) 80%, #FDD835 100%)',
+          }}
+        />
+
+        {/* 인디케이터 */}
+        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 z-10">
+          {storeImages.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentImageIndex(index)}
+              className={`h-2 rounded-full transition-all duration-300 ${
+                index === currentImageIndex ? 'bg-dark w-8' : 'bg-dark/50 w-2'
+              }`}
+              aria-label={`이미지 ${index + 1}`}
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* 콘텐츠 레이어 */}
+      <div className="relative z-10 max-w-[80%] mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
+          {/* 왼쪽 placeholder (이미지가 배경으로 차지) */}
+          <div className="hidden lg:block" style={{ minHeight: '420px' }} />
 
           {/* 오른쪽: 텍스트 + 통계 */}
           <motion.div

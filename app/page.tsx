@@ -100,8 +100,8 @@ export default function Home() {
       {/* Footer */}
       <Footer />
 
-      {/* Sticky CTA */}
-      <div className={`sticky-cta z-sticky-cta ${showStickyCta ? 'visible' : ''}`}>
+      {/* Sticky CTA - 모바일 전용 */}
+      <div className={`md:hidden sticky-cta z-sticky-cta ${showStickyCta ? 'visible' : ''}`}>
         <Link href="/stores" className="sticky-cta-btn">
           가까운 매장 찾기
         </Link>
