@@ -727,7 +727,7 @@ export default function StoresPage() {
 
         {/* 매장 리스트 */}
         {viewMode === 'list' && (
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 md:gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
           {filteredStores.map((store, index) => (
             <SwipeableStoreCard
               key={store.id}

@@ -375,16 +375,6 @@
     transform: translateY(100%);
     transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
-  /* 모바일에서 MobileNav 위로 띄우기 */
-  @media (max-width: 768px) {
-    .sticky-cta {
-      bottom: 64px; /* MobileNav 높이만큼 띄우기 */
-    }
-  }
-  /* MobileNav가 있을 때 (app 도메인) - 하위 호환성 유지 */
-  .sticky-cta-with-nav {
-    bottom: 64px;
-  }
   .sticky-cta.visible {
     transform: translateY(0);
   }
@@ -407,6 +397,11 @@
 }
 
 @layer utilities {
+  /* 헤딩 고아 단어 방지 (Supanova) */
+  .text-balance {
+    text-wrap: balance;
+  }
+
   /* Full-width hero banner (breaks out of container) */
   .hero-banner {
     width: 100vw;

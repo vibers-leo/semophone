@@ -28,7 +28,7 @@ export default function MinimalStats() {
       }}
     >
       {/* 이미지 - 섹션 왼쪽 절반 꽉참 (absolute) */}
-      <div className="absolute left-0 top-0 bottom-0 w-1/2 lg:w-[55%]">
+      <div className="absolute left-0 top-0 bottom-0 w-1/2 md:w-[55%]">
         {storeImages.map((src, index) => (
           <div
             key={index}
@@ -74,9 +74,9 @@ export default function MinimalStats() {
 
       {/* 콘텐츠 레이어 */}
       <div className="relative z-10 max-w-[80%] mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 items-center">
           {/* 왼쪽 placeholder (이미지가 배경으로 차지) */}
-          <div className="hidden lg:block" style={{ minHeight: '420px' }} />
+          <div className="hidden md:block" style={{ minHeight: '420px' }} />
 
           {/* 오른쪽: 텍스트 + 통계 */}
           <motion.div

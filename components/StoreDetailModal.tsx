@@ -104,13 +104,13 @@ export default function StoreDetailModal({ store, isOpen, onClose }: StoreDetail
         {/* 스크롤 가능한 컨텐츠 영역 */}
         <div className="overflow-y-auto max-h-[92vh] scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent hover:scrollbar-thumb-gray-400">
           {/* 이미지 갤러리 */}
-          <div className="relative w-full aspect-[4/3] bg-gray-900 overflow-hidden flex-shrink-0">
+          <div className="relative w-full aspect-[4/3] bg-gray-100 overflow-hidden flex-shrink-0">
           {/* 메인 이미지 */}
           <Image
             src={images[currentImageIndex]}
             alt={`${store.name} 사진 ${currentImageIndex + 1}`}
             fill
-            className="object-contain"
+            className="object-cover object-center"
             style={{ imageOrientation: 'from-image' }}
             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 576px, 672px"
             quality={70}

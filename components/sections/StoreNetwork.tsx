@@ -134,7 +134,7 @@ export default function StoreNetwork() {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.4, delay: 0.8 }}
-          className="mt-16 grid grid-cols-3 gap-8 text-center"
+          className="mt-16 grid grid-cols-3 gap-4 md:gap-8 text-center"
         >
           <div>
             <div className="text-3xl font-black text-brand mb-2">18개</div>

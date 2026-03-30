@@ -54,7 +54,7 @@ export default function SimplifiedHero() {
 
         {/* 그라데이션 — 0~42vw 흰색, 42~52vw 자연 페이드 (이미지 왼쪽 라인 커버) */}
         <div
-          className="absolute inset-y-0 left-0 w-[52%] pointer-events-none"
+          className="absolute inset-y-0 left-0 w-[54%] pointer-events-none"
           style={{ background: 'linear-gradient(to right, white 0%, white 80%, transparent 100%)' }}
         />
 
@@ -76,7 +76,7 @@ export default function SimplifiedHero() {
               <Link href="/about">
                 <button
                   style={{ backgroundColor: '#FEE500' }}
-                  className="px-6 md:px-8 py-3 md:py-4 text-gray-900 font-bold text-base md:text-lg rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all"
+                  className="px-6 md:px-8 py-3.5 md:py-4 text-gray-900 font-bold text-base md:text-lg rounded-full shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
                 >
                   세모폰 소개
                 </button>
@@ -87,7 +87,7 @@ export default function SimplifiedHero() {
       </section>
 
       {/* 모바일 버전 */}
-      <section className="md:hidden relative w-full h-[85vh] overflow-hidden mt-[56px]">
+      <section className="md:hidden relative w-full overflow-hidden mt-[56px]" style={{ minHeight: '85dvh' }}>
         <div className="absolute inset-0">
           {bannerImages.map((image, index) => (
             <div
@@ -129,7 +129,7 @@ export default function SimplifiedHero() {
             <Link href="/about" className="w-full">
               <button
                 style={{ backgroundColor: '#FEE500' }}
-                className="w-full px-6 py-3 text-gray-900 font-bold text-base rounded-full shadow-lg hover:scale-105 transition-transform"
+                className="w-full px-6 py-3.5 text-gray-900 font-bold text-base rounded-full shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
               >
                 세모폰 소개
               </button>

@@ -29,7 +29,7 @@ export default function MinimalCTA() {
           <div className="flex justify-center">
             <Link
               href="/stores"
-              className="inline-flex items-center justify-center px-8 py-4 md:px-9 md:py-4.5 lg:px-10 lg:py-5 text-black rounded-full text-base md:text-lg lg:text-xl font-bold transition-all shadow-lg hover:shadow-xl hover:-translate-y-1"
+              className="inline-flex items-center justify-center px-8 py-4 md:px-9 md:py-4.5 lg:px-10 lg:py-5 text-black rounded-full text-base md:text-lg lg:text-xl font-bold transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 hover:scale-[1.02] active:scale-[0.98]"
               style={{ backgroundColor: '#FEE500' }}
               onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#FDD835'}
               onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#FEE500'}
