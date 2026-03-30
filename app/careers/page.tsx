@@ -2,6 +2,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Image from 'next/image';
 import { benefits } from '@/data/careers';
+import CareersApplySection from '@/components/sections/CareersApplySection';
 
 export const metadata = {
   title: '채용정보 | 세모폰',
@@ -51,52 +52,42 @@ export default function CareersPage() {
       <main id="main-content" style={{ isolation: 'isolate', position: 'relative', zIndex: 0 }}>
 
         {/* S1: Hero */}
-        <section className="bg-white pt-[100px] md:pt-[120px] pb-16 md:pb-24 px-6">
+        <section className="bg-white pt-[100px] md:pt-[120px] pb-12 px-6">
           <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
-
-              {/* 왼쪽: 타이틀 */}
-              <div>
-                <p className="text-xs font-bold tracking-[0.2em] uppercase text-gray-400 mb-5">
-                  Careers at 세모폰
-                </p>
-                <h1
-                  className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-tight tracking-tight mb-6"
-                  style={{ wordBreak: 'keep-all' }}
-                >
-                  함께 성장할<br />
-                  <span className="text-brand">동료를 찾습니다</span>
-                </h1>
-                <p
-                  className="text-base md:text-lg text-gray-500 leading-relaxed"
-                  style={{ wordBreak: 'keep-all', maxWidth: '42ch' }}
-                >
-                  10년 이상의 업력, 수도권 50개 직영매장.<br />
-                  직원이 성장하여 회사가 성장하는 곳입니다.
+            {/* 아이콘 + 타이틀 (about/history 패턴) */}
+            <div className="flex items-start gap-4 mb-10">
+              <Image
+                src="/icons/사람들2.png"
+                alt="채용정보"
+                width={96}
+                height={96}
+                className="w-20 h-20 md:w-24 md:h-24 object-contain flex-shrink-0"
+              />
+              <div className="flex-1">
+                <p className="text-xs font-bold tracking-[0.2em] uppercase text-gray-400 mb-2">Careers at 세모폰</p>
+                <h1 className="text-3xl md:text-4xl font-black text-gray-900 tracking-tight mb-2" style={{ wordBreak: 'keep-all' }}>채용정보</h1>
+                <p className="text-base md:text-lg text-gray-600" style={{ wordBreak: 'keep-all' }}>
+                  함께 성장할 동료를 찾습니다
                 </p>
               </div>
+            </div>
 
-              {/* 오른쪽: 핵심 수치 카드 3개 */}
-              <div className="grid grid-cols-1 gap-3">
-                {[
-                  { num: '10년+', label: '안정적인 업력', sub: '2017년 창업, 꾸준한 성장' },
-                  { num: '50개', label: '수도권 직영매장', sub: '서울 · 경기 · 인천' },
-                  { num: '70%', label: '7년 이상 장기근속', sub: '매장 직원 100명 기준' },
-                ].map((item) => (
-                  <div
-                    key={item.num}
-                    className="flex items-center gap-5 rounded-2xl px-6 py-5 bg-gray-50 border border-gray-100"
-                  >
-                    <span className="text-3xl font-black flex-shrink-0 text-gray-900">
-                      {item.num}
-                    </span>
-                    <div>
-                      <p className="text-gray-900 font-bold text-sm md:text-base">{item.label}</p>
-                      <p className="text-gray-400 text-xs mt-0.5">{item.sub}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
+            {/* 핵심 수치 3개 */}
+            <div className="grid grid-cols-3 gap-3 md:gap-4">
+              {[
+                { num: '10년+', label: '안정적인 업력', sub: '2017년 창업, 꾸준한 성장' },
+                { num: '50개', label: '수도권 직영매장', sub: '서울 · 경기 · 인천' },
+                { num: '70%', label: '7년 이상 장기근속', sub: '매장 직원 100명 기준' },
+              ].map((item) => (
+                <div
+                  key={item.num}
+                  className="rounded-2xl px-4 md:px-6 py-4 md:py-5 bg-gray-50 border border-gray-100"
+                >
+                  <p className="text-2xl md:text-3xl font-black text-gray-900">{item.num}</p>
+                  <p className="text-gray-900 font-bold text-xs md:text-sm mt-1">{item.label}</p>
+                  <p className="text-gray-400 text-xs mt-0.5 hidden sm:block">{item.sub}</p>
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -292,234 +283,74 @@ export default function CareersPage() {
           </div>
         </section>
 
-        {/* S6: 모집 분야 */}
-        <section className="bg-white py-24 md:py-32 px-6">
-          <div className="max-w-4xl mx-auto">
-            <div className="mb-12">
-              <p className="text-xs font-bold tracking-[0.2em] uppercase text-gray-400 mb-4">Open positions</p>
-              <h2
-                className="text-3xl md:text-4xl font-black text-gray-900 leading-tight tracking-tight"
-                style={{ wordBreak: 'keep-all' }}
-              >
-                모집 분야
-              </h2>
-            </div>
+        {/* S6: 모집 분야 + 접수 (client component — 모달 포함) */}
+        <CareersApplySection />
 
-            {/* PC 테이블 */}
-            <div className="hidden md:block overflow-hidden rounded-2xl border border-gray-200 shadow-sm">
-              <table className="w-full text-sm">
-                <thead>
-                  <tr style={{ backgroundColor: '#FEE500' }}>
-                    <th className="py-4 px-6 text-left font-black text-gray-900 w-24">모집부문</th>
-                    <th className="py-4 px-6 text-left font-black text-gray-900 w-44">업무내용</th>
-                    <th className="py-4 px-6 text-left font-black text-gray-900">자격요건 및 우대사항</th>
-                    <th className="py-4 px-6 text-left font-black text-gray-900 w-24">모집인원</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr className="border-t border-gray-100">
-                    <td className="py-6 px-6 font-bold text-gray-900 align-top">판매사</td>
-                    <td className="py-6 px-6 text-gray-700 align-top leading-relaxed">
-                      고객응대, 판매,<br />매장관리, 고객관리
-                    </td>
-                    <td className="py-6 px-6 text-gray-700 align-top">
-                      <p className="font-bold text-gray-900 mb-2">자격 요건</p>
-                      <ul className="space-y-1 mb-4 text-sm">
-                        <li>- 성별무관, 학력무관, 경력무관</li>
-                        <li>- 서비스와 영업마인드 있으신 분</li>
-                      </ul>
-                      <p className="font-bold text-gray-900 mb-2">우대사항</p>
-                      <ul className="space-y-1 text-sm">
-                        <li>- 유사업무 경험 우대</li>
-                        <li>- 인근 거주 우대</li>
-                        <li>- 밝은 성격을 가지신 분</li>
-                        <li>- 오래 함께 하실 분</li>
-                      </ul>
-                    </td>
-                    <td className="py-6 px-6 font-bold text-gray-900 align-top text-center">00명</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            {/* 모바일 카드 */}
-            <div className="md:hidden overflow-hidden rounded-2xl border border-gray-200 shadow-sm">
-              <div className="px-6 py-4 font-black text-gray-900 text-base" style={{ backgroundColor: '#FEE500' }}>
-                판매사
-              </div>
-              <div className="p-6 space-y-5 text-sm text-gray-700">
-                <div>
-                  <p className="font-bold text-gray-900 mb-1">업무내용</p>
-                  <p>고객응대, 판매, 매장관리, 고객관리</p>
-                </div>
-                <div>
-                  <p className="font-bold text-gray-900 mb-1">자격 요건</p>
-                  <p>성별/학력/경력 무관, 서비스와 영업마인드 있으신 분</p>
-                </div>
-                <div>
-                  <p className="font-bold text-gray-900 mb-1">우대사항</p>
-                  <p>유사업무 경험 / 인근 거주 / 밝은 성격 / 오래 함께할 분</p>
-                </div>
-                <div>
-                  <p className="font-bold text-gray-900 mb-1">모집인원</p>
-                  <p>00명</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* S7: 채용공고 + 전형절차 — 다크 */}
+        {/* S7: 채용 전형절차 */}
         <section className="bg-[#09090b] py-24 md:py-32 px-6">
           <div className="max-w-4xl mx-auto">
-
-            {/* 채용 상시공고 카드 */}
-            <div
-              className="rounded-3xl p-8 md:p-10 mb-16"
-              style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}
+            <p className="text-xs font-bold tracking-[0.2em] uppercase mb-4" style={{ color: '#FEE500' }}>
+              Process
+            </p>
+            <h2
+              className="text-2xl md:text-3xl font-black text-white mb-10 tracking-tight"
+              style={{ wordBreak: 'keep-all' }}
             >
-              <div className="flex items-center gap-3 mb-6">
-                <span
-                  className="inline-block px-3 py-1.5 text-xs font-bold rounded-full text-gray-900"
-                  style={{ backgroundColor: '#FEE500' }}
+              채용 전형절차
+            </h2>
+
+            {/* 지원방법 */}
+            <div className="flex gap-4 mb-10 flex-wrap">
+              {['간편 문자 지원', '전화 지원'].map((method, i) => (
+                <div
+                  key={i}
+                  className="flex items-center gap-2 rounded-full px-5 py-2.5"
+                  style={{ background: 'rgba(254,229,0,0.1)', border: '1px solid rgba(254,229,0,0.2)' }}
                 >
-                  상시 채용
-                </span>
-                <span className="text-sm text-white/40">서울 / 경기 / 인천</span>
-              </div>
+                  <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: '#FEE500' }} />
+                  <span className="text-sm font-bold" style={{ color: '#FEE500' }}>{method}</span>
+                </div>
+              ))}
+            </div>
 
-              <h3
-                className="text-2xl md:text-3xl font-black text-white mb-2 leading-tight tracking-tight"
-                style={{ wordBreak: 'keep-all' }}
-              >
-                매장 직원 (상시 채용)
-              </h3>
-
-              <div className="flex items-center gap-4 mb-6 text-xs text-white/40">
-                <span>매장 운영팀</span>
-                <span>·</span>
-                <span>정규직</span>
-              </div>
-
-              <p
-                className="text-white/60 text-base leading-relaxed mb-8"
-                style={{ wordBreak: 'keep-all' }}
-              >
-                수도권 50개 매장에서 함께 일할 열정적인 분을 찾습니다.
-              </p>
-
-              {/* 요구사항 */}
-              <div className="mb-8">
-                <p className="text-xs font-bold tracking-widest uppercase mb-4" style={{ color: '#FEE500' }}>지원 자격</p>
-                <ul className="space-y-2">
-                  {['고객 응대에 능숙하신 분', '통신 업계에 관심 있으신 분', '성실하고 책임감 있으신 분'].map((req, i) => (
-                    <li key={i} className="flex items-start gap-3 text-white/60 text-sm">
-                      <span className="w-1 h-1 rounded-full mt-2 flex-shrink-0" style={{ backgroundColor: '#FEE500' }} />
-                      <span>{req}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* 복리후생 미니 */}
-              <div className="mb-8">
-                <p className="text-xs font-bold tracking-widest uppercase mb-4" style={{ color: '#FEE500' }}>복리후생</p>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
-                  {['4대 보험 완비', '인센티브 제도', '교육 지원', '중식 제공'].map((b, i) => (
+            {/* 3단계 */}
+            <div className="flex items-center gap-3 flex-wrap">
+              {[
+                {
+                  label: '서류전형',
+                  svg: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: '#FEE500' }}><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" /></svg>
+                },
+                {
+                  label: '1차 면접',
+                  svg: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: '#FEE500' }}><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" /></svg>
+                },
+                {
+                  label: '최종 합격',
+                  svg: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: '#FEE500' }}><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" /></svg>
+                },
+              ].map((step, i) => (
+                <div key={step.label} className="flex items-center gap-3">
+                  <div className="flex flex-col items-center gap-2.5">
                     <div
-                      key={i}
-                      className="rounded-xl px-3 py-2.5 text-center text-xs font-semibold text-white/70"
-                      style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.08)' }}
+                      className="w-14 h-14 rounded-2xl flex items-center justify-center"
+                      style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}
                     >
-                      {b}
+                      {step.svg}
                     </div>
-                  ))}
+                    <span className="text-xs font-bold text-white/60">{step.label}</span>
+                  </div>
+                  {i < 2 && (
+                    <svg className="w-4 h-4 mb-5 flex-shrink-0 text-white/20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  )}
                 </div>
-              </div>
-
-              {/* 접수 버튼 */}
-              <div className="flex flex-col sm:flex-row gap-3">
-                <div
-                  className="flex-1 text-center px-8 py-4 rounded-full text-base font-black cursor-default select-none transition-all"
-                  style={{ backgroundColor: '#FEE500', color: '#09090b' }}
-                >
-                  접수하기
-                </div>
-                <div
-                  className="flex-1 text-center px-8 py-4 rounded-full text-base font-black cursor-default select-none"
-                  style={{ border: '2px solid rgba(255,255,255,0.15)', color: 'rgba(255,255,255,0.7)' }}
-                >
-                  문의하기
-                </div>
-              </div>
+              ))}
             </div>
 
-            {/* 전형절차 */}
-            <div>
-              <p className="text-xs font-bold tracking-[0.2em] uppercase mb-4" style={{ color: '#FEE500' }}>
-                Process
-              </p>
-              <h3
-                className="text-xl md:text-2xl font-black text-white mb-10 tracking-tight"
-                style={{ wordBreak: 'keep-all' }}
-              >
-                채용 전형절차
-              </h3>
-
-              {/* 지원방법 */}
-              <div className="flex gap-4 mb-10 flex-wrap">
-                {['간편 문자 지원', '전화 지원'].map((method, i) => (
-                  <div
-                    key={i}
-                    className="flex items-center gap-2 rounded-full px-5 py-2.5"
-                    style={{ background: 'rgba(254,229,0,0.1)', border: '1px solid rgba(254,229,0,0.2)' }}
-                  >
-                    <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: '#FEE500' }} />
-                    <span className="text-sm font-bold" style={{ color: '#FEE500' }}>{method}</span>
-                  </div>
-                ))}
-              </div>
-
-              {/* 3단계 */}
-              <div className="flex items-center gap-3 flex-wrap">
-                {[
-                  {
-                    label: '서류전형',
-                    svg: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: '#FEE500' }}><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" /></svg>
-                  },
-                  {
-                    label: '1차 면접',
-                    svg: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: '#FEE500' }}><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" /></svg>
-                  },
-                  {
-                    label: '최종 합격',
-                    svg: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: '#FEE500' }}><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" /></svg>
-                  },
-                ].map((step, i) => (
-                  <div key={step.label} className="flex items-center gap-3">
-                    <div className="flex flex-col items-center gap-2.5">
-                      <div
-                        className="w-14 h-14 rounded-2xl flex items-center justify-center"
-                        style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}
-                      >
-                        {step.svg}
-                      </div>
-                      <span className="text-xs font-bold text-white/60">{step.label}</span>
-                    </div>
-                    {i < 2 && (
-                      <svg className="w-4 h-4 mb-5 flex-shrink-0 text-white/20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    )}
-                  </div>
-                ))}
-              </div>
-
-              <p className="mt-8 text-xs text-white/30">
-                지원서는 접수 후 검토하여 개별 연락드립니다.
-              </p>
-            </div>
-
+            <p className="mt-8 text-xs text-white/30">
+              지원서는 접수 후 검토하여 개별 연락드립니다.
+            </p>
           </div>
         </section>
 

@@ -19,7 +19,7 @@ export async function POST(req: Request) {
   try {
     const body = await req.json();
 
-    const { name, phone, email, message, storeName } = body;
+    const { name, phone, email, message, storeName, type } = body;
 
     // 필수 필드 검증
     if (!name || !phone || !message) {
@@ -52,6 +52,7 @@ export async function POST(req: Request) {
       email,
       message,
       storeName,
+      type,
     };
 
     // Firestore에 문의 저장
@@ -60,6 +61,7 @@ export async function POST(req: Request) {
         await admin.firestore().collection('contacts').add({
           name, phone, email: email || '', message,
           storeName: storeName || '',
+          type: type || 'general',
           status: 'pending',
           workflowStatus: 'received',
           createdAt: admin.firestore.FieldValue.serverTimestamp(),

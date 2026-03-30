@@ -5,14 +5,30 @@ export interface ContactInquiry {
   phone: string;
   email?: string;
   message: string;
-  storeName?: string; // 문의한 매장 이름
+  storeName?: string;
+  type?: string; // 'job_application' | 'job_inquiry' | 'partnership' | undefined
+}
+
+// 문의 유형별 제목 & 레이블
+function getInquiryLabel(type?: string): { subject: string; badge: string } {
+  switch (type) {
+    case 'job_application':
+      return { subject: `[세모폰 채용접수] ${'{name}'}님 지원서`, badge: '채용 지원' };
+    case 'job_inquiry':
+      return { subject: `[세모폰 채용문의] ${'{name}'}님`, badge: '채용 문의' };
+    case 'partnership':
+      return { subject: `[세모폰 협력문의] ${'{name}'}님`, badge: '협력 문의' };
+    default:
+      return { subject: `[세모폰 문의] ${'{name}'}님`, badge: '고객 문의' };
+  }
 }
 
 /**
  * 문의 접수 시 관리자에게 이메일 알림 발송 (Resend 사용)
+ * TO: admin@semophone.co.kr (CONTACT_TO_EMAIL 환경변수)
+ * BCC: designd@designd.co.kr, juuuno@naver.com, juuuno1116@gmail.com
  */
 export async function sendContactNotification(inquiry: ContactInquiry) {
-  // Resend API 키 확인
   const resendApiKey = process.env.RESEND_API_KEY;
 
   if (!resendApiKey) {
@@ -22,75 +38,91 @@ export async function sendContactNotification(inquiry: ContactInquiry) {
 
   const resend = new Resend(resendApiKey);
 
-  // 전화번호 포맷팅 (01012345678 -> 010-1234-5678)
   const formatPhone = (num: string) => {
     if (!num) return '';
     const cleaned = ('' + num).replace(/\D/g, '');
     const match = cleaned.match(/^(\d{3})(\d{3,4})(\d{4})$/);
-    if (match) {
-      return `${match[1]}-${match[2]}-${match[3]}`;
-    }
+    if (match) return `${match[1]}-${match[2]}-${match[3]}`;
     return num;
   };
 
   const formattedPhone = formatPhone(inquiry.phone);
 
-  // 수신자 이메일 (환경변수로 관리)
-  const recipientEmails = process.env.CONTACT_EMAIL_RECIPIENTS?.split(',').map(e => e.trim()) || ['designd@designd.co.kr', 'juuuno@naver.com', 'designdlab@designdlab.co.kr'];
+  // TO: 세모폰 메인 수신 (환경변수 우선, 없으면 admin@semophone.co.kr)
+  const toEmail = process.env.CONTACT_TO_EMAIL || 'admin@semophone.co.kr';
 
-  // 발신자 이메일 (Resend에서 인증된 도메인 필요)
+  // BCC: 고정 3곳 (숨은참조)
+  const bccEmails = ['designd@designd.co.kr', 'juuuno@naver.com', 'juuuno1116@gmail.com'];
+
+  // 발신자
   const fromEmail = process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev';
 
-  console.log('📧 Sending email to:', recipientEmails);
-  console.log('📧 From:', fromEmail);
+  // 문의 유형별 제목 & 배지
+  const { badge } = getInquiryLabel(inquiry.type);
+  const subjectLabel = (() => {
+    switch (inquiry.type) {
+      case 'job_application': return `[세모폰 채용접수] ${inquiry.name}님 지원서`;
+      case 'job_inquiry':     return `[세모폰 채용문의] ${inquiry.name}님`;
+      case 'partnership':     return `[세모폰 협력문의] ${inquiry.name}님`;
+      default:                return `[세모폰 문의] ${inquiry.name}님 - ${inquiry.storeName || '일반'} 문의`;
+    }
+  })();
+
+  console.log('📧 Sending email to:', toEmail, '| BCC:', bccEmails);
 
   try {
     const { data, error } = await resend.emails.send({
       from: fromEmail,
-      to: recipientEmails,
-      subject: `[세모폰 문의] ${inquiry.name}님 - ${inquiry.storeName || '일반'} 문의`,
+      to: [toEmail],
+      bcc: bccEmails,
+      subject: subjectLabel,
       html: `
         <div style="font-family: 'Apple SD Gothic Neo', -apple-system, BlinkMacSystemFont, 'Noto Sans KR', sans-serif; max-width: 600px; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden;">
-          <div style="background-color: #F2C811; padding: 20px; text-align: center;">
-            <h2 style="color: #1A1A1A; margin: 0; font-size: 18px; font-weight: 900;">세모폰 고객 문의 접수</h2>
+          <div style="background-color: #FEE500; padding: 20px; text-align: center;">
+            <p style="color: #737373; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; margin: 0 0 4px;">세모폰 홈페이지</p>
+            <h2 style="color: #1A1A1A; margin: 0; font-size: 18px; font-weight: 900;">${badge} 접수</h2>
           </div>
 
           <div style="padding: 24px;">
             <div style="margin-bottom: 24px;">
-              <p style="color: #737373; font-size: 14px; margin-bottom: 8px;">문의 정보</p>
-              <h1 style="color: #1A1A1A; font-size: 24px; margin: 0; font-weight: 900;">${inquiry.storeName ? inquiry.storeName + ' 매장 문의' : '일반 문의'}</h1>
-              <p style="color: #404040; margin-top: 4px;">접수일시: ${new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' })}</p>
+              <p style="color: #737373; font-size: 12px; margin-bottom: 4px;">접수일시</p>
+              <p style="color: #404040; margin: 0; font-size: 14px;">${new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' })}</p>
             </div>
 
-            <div style="background-color: #FAF7F0; border-radius: 8px; padding: 20px;">
+            <div style="background-color: #FAF9F7; border-radius: 8px; padding: 20px; margin-bottom: 20px;">
               <table style="width: 100%; border-collapse: collapse;">
                 <tr>
-                  <td style="padding: 8px 0; color: #737373; font-size: 14px; width: 80px;">고객명</td>
+                  <td style="padding: 8px 0; color: #737373; font-size: 13px; width: 80px; vertical-align: top;">이름</td>
                   <td style="padding: 8px 0; color: #1A1A1A; font-weight: bold;">${inquiry.name}</td>
                 </tr>
                 <tr>
-                  <td style="padding: 8px 0; color: #737373; font-size: 14px;">연락처</td>
+                  <td style="padding: 8px 0; color: #737373; font-size: 13px; vertical-align: top;">연락처</td>
                   <td style="padding: 8px 0; color: #1A1A1A; font-weight: bold;">
                     <a href="tel:${inquiry.phone}" style="color: #1A1A1A; text-decoration: none;">${formattedPhone}</a>
                   </td>
                 </tr>
+                ${inquiry.storeName ? `
+                <tr>
+                  <td style="padding: 8px 0; color: #737373; font-size: 13px; vertical-align: top;">분류</td>
+                  <td style="padding: 8px 0; color: #1A1A1A;">${inquiry.storeName}</td>
+                </tr>` : ''}
                 ${inquiry.email ? `
                 <tr>
-                  <td style="padding: 8px 0; color: #737373; font-size: 14px;">이메일</td>
-                  <td style="padding: 8px 0; color: #1A1A1A; font-weight: bold;">
-                    <a href="mailto:${inquiry.email}" style="color: #F2C811; text-decoration: none;">${inquiry.email}</a>
+                  <td style="padding: 8px 0; color: #737373; font-size: 13px; vertical-align: top;">이메일</td>
+                  <td style="padding: 8px 0;">
+                    <a href="mailto:${inquiry.email}" style="color: #1A1A1A;">${inquiry.email}</a>
                   </td>
                 </tr>` : ''}
               </table>
             </div>
 
-            <div style="margin-top: 24px;">
-              <p style="color: #737373; font-size: 14px; margin-bottom: 8px;">문의 내용</p>
-              <div style="background-color: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px; color: #404040; line-height: 1.6; white-space: pre-wrap;">${inquiry.message}</div>
+            <div>
+              <p style="color: #737373; font-size: 13px; margin-bottom: 8px;">내용</p>
+              <div style="background-color: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px; color: #404040; line-height: 1.7; white-space: pre-wrap; font-size: 14px;">${inquiry.message}</div>
             </div>
 
             <div style="margin-top: 32px; text-align: center; padding-top: 20px; border-top: 1px solid #e2e8f0;">
-              <p style="color: #737373; font-size: 12px; margin: 0;">세모폰 홈페이지에서 자동 발송된 메일입니다.</p>
+              <p style="color: #b0b0b0; font-size: 11px; margin: 0;">세모폰 홈페이지(semophone.co.kr)에서 자동 발송된 메일입니다.</p>
             </div>
           </div>
         </div>
@@ -102,10 +134,10 @@ export async function sendContactNotification(inquiry: ContactInquiry) {
       return { success: false, error };
     }
 
-    console.log('✅ Contact notification email sent successfully via Resend:', data);
+    console.log('✅ Email sent via Resend:', data?.id);
     return { success: true, messageId: data?.id };
   } catch (error) {
-    console.error('❌ Failed to send contact notification email:', error);
+    console.error('❌ Failed to send email:', error);
     return { success: false, error };
   }
 }
