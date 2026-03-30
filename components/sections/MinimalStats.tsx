@@ -5,8 +5,8 @@ import Image from 'next/image';
 import { useState, useEffect } from 'react';
 
 const storeImages = [
-  '/images/semophone_store_banner/banner-real-1.jpg',
-  '/images/semophone_store_banner/banner-real-2.jpg',
+  '/images/interior/interior-1.jpg',
+  '/images/interior/interior-2.jpg',
 ];
 
 export default function MinimalStats() {
@@ -56,6 +56,14 @@ export default function MinimalStats() {
                 />
               </div>
             ))}
+
+            {/* 오른쪽 노란 그라데이션 페이드 */}
+            <div
+              className="absolute inset-0 z-[1] pointer-events-none"
+              style={{
+                background: 'linear-gradient(to right, transparent 50%, rgba(253, 216, 53, 0.3) 75%, rgba(253, 216, 53, 0.7) 90%, #FDD835 100%)',
+              }}
+            />
 
             {/* 인디케이터 */}
             <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 z-10">
