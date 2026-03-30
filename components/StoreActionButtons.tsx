@@ -7,14 +7,12 @@ interface StoreActionButtonsProps {
   store: Store;
   variant?: 'default' | 'compact' | 'modal' | 'infowindow';
   onStoreInfoClick?: () => void;
-  showKakaoLabel?: boolean; // 카톡상담 버튼에 텍스트 표시 여부
 }
 
 export default function StoreActionButtons({
   store,
   variant = 'default',
   onStoreInfoClick,
-  showKakaoLabel = true,
 }: StoreActionButtonsProps) {
   // 매장안내 버튼 클릭 핸들러
   const handleStoreInfo = () => {
@@ -33,7 +31,7 @@ export default function StoreActionButtons({
       case 'compact':
         return 'grid grid-cols-3 gap-2';
       default:
-        return 'grid grid-cols-2 gap-3';
+        return 'grid grid-cols-3 gap-3';
     }
   };
 
@@ -78,10 +76,7 @@ export default function StoreActionButtons({
             <span className="relative">매장안내</span>
           </>
         ) : (
-          <>
-            <Image src="/icons/빈페이지.png" alt="" width={20} height={20} className="relative w-5 h-5 object-contain" />
-            <span className="relative font-bold">매장안내</span>
-          </>
+          <Image src="/icons/빈페이지.png" alt="매장안내" width={20} height={20} className="relative w-5 h-5 object-contain" />
         )}
       </button>
 
@@ -103,10 +98,7 @@ export default function StoreActionButtons({
             <span className="relative">길찾기</span>
           </>
         ) : (
-          <>
-            <Image src="/icons/나침반.png" alt="" width={20} height={20} className="relative w-5 h-5 object-contain brightness-0 invert" />
-            <span className="relative font-bold">길찾기</span>
-          </>
+          <Image src="/icons/나침반.png" alt="길찾기" width={20} height={20} className="relative w-5 h-5 object-contain brightness-0 invert" />
         )}
       </a>
 
@@ -115,7 +107,7 @@ export default function StoreActionButtons({
         href={kakaoLink}
         target="_blank"
         rel="noopener noreferrer"
-        className={`${getButtonClass('kakao')} text-black relative overflow-hidden ${variant === 'default' ? 'col-span-2' : ''}`}
+        className={`${getButtonClass('kakao')} text-black relative overflow-hidden`}
         style={{ backgroundColor: '#FEE500' }}
         onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#FDD835'}
         onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#FEE500'}
@@ -129,13 +121,6 @@ export default function StoreActionButtons({
               <path d="M12 2C6.5 2 2 6.1 2 11c0 3.2 2.1 6 5.2 7.5-.2.8-.7 2.7-.8 3 0 .3.1.5.3.6.2.1.4 0 .6-.1.3-.1 3.5-2.3 4.1-2.8.8.1 1.5.2 2.3.2 5.5 0 10-4.1 10-9S17.5 2 12 2z"/>
             </svg>
             <span className="relative">카톡상담</span>
-          </>
-        ) : showKakaoLabel ? (
-          <>
-            <svg className="relative w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2C6.5 2 2 6.1 2 11c0 3.2 2.1 6 5.2 7.5-.2.8-.7 2.7-.8 3 0 .3.1.5.3.6.2.1.4 0 .6-.1.3-.1 3.5-2.3 4.1-2.8.8.1 1.5.2 2.3.2 5.5 0 10-4.1 10-9S17.5 2 12 2z"/>
-            </svg>
-            <span className="relative font-bold">카톡상담</span>
           </>
         ) : (
           // 로고만 표시 (지도마커용) - 간단한 말풍선

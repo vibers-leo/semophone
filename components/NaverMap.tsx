@@ -15,18 +15,18 @@ interface NaverMapProps {
 // 지역별 최적 뷰포트 설정
 const REGION_VIEWPORTS: Record<string, { lat: number; lng: number; zoom: number }> = {
   // 인천
-  '인천-서부': { lat: 37.5391, lng: 126.675, zoom: 14 },
-  '인천-북부': { lat: 37.505, lng: 126.72, zoom: 13 },
-  '인천-남부': { lat: 37.464, lng: 126.69, zoom: 13 },
-  '인천-송도': { lat: 37.385, lng: 126.65, zoom: 13 },
+  '인천-서부': { lat: 37.5391, lng: 126.675, zoom: 15 },
+  '인천-북부': { lat: 37.505, lng: 126.72, zoom: 15 },
+  '인천-남부': { lat: 37.464, lng: 126.69, zoom: 15 },
+  '인천-송도': { lat: 37.385, lng: 126.65, zoom: 15 },
   // 부천
-  '경기-부천북부': { lat: 37.507, lng: 126.76, zoom: 13 },
-  '경기-부천남부': { lat: 37.495, lng: 126.78, zoom: 13 },
+  '경기-부천북부': { lat: 37.507, lng: 126.76, zoom: 15 },
+  '경기-부천남부': { lat: 37.495, lng: 126.78, zoom: 15 },
   // 서울
-  '서울-동부': { lat: 37.481, lng: 126.955, zoom: 13 },
-  '서울-서부': { lat: 37.526, lng: 126.865, zoom: 13 },
+  '서울-동부': { lat: 37.481, lng: 126.955, zoom: 15 },
+  '서울-서부': { lat: 37.526, lng: 126.865, zoom: 15 },
   // 성남/분당
-  '경기-성남/분당': { lat: 37.390, lng: 127.12, zoom: 12 },
+  '경기-성남/분당': { lat: 37.390, lng: 127.12, zoom: 14 },
 };
 
 export default function NaverMap({
