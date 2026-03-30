@@ -164,13 +164,13 @@ export default function StoresPage() {
             <div className="flex items-start gap-4">
               <Image
                 src="/icons/상점1.png"
-                alt="성지찾기"
+                alt="매장 찾기"
                 width={96}
                 height={96}
                 className="w-20 h-20 md:w-24 md:h-24 object-contain flex-shrink-0"
               />
               <div className="flex-1">
-                <h1 className="text-3xl md:text-4xl font-black text-gray-900 mb-2">성지찾기</h1>
+                <h1 className="text-3xl md:text-4xl font-black text-gray-900 mb-2">매장 찾기</h1>
                 <p className="text-base md:text-lg text-gray-600">
                   전국 40개 세모폰 매장을 찾아보세요
                 </p>

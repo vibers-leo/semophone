@@ -42,7 +42,7 @@ export default function MobileNav() {
           />
         </svg>
       ),
-      label: '성지찾기',
+      label: '매장 찾기',
     },
     {
       href: '/#why',

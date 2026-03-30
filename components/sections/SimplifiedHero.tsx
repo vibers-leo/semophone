@@ -25,10 +25,10 @@ export default function SimplifiedHero() {
 
   return (
     <>
-      {/* PC / 태블릿 버전 — 70vh, 이미지 오른쪽 60% + 왼쪽 텍스트 */}
+      {/* PC / 태블릿 버전 — 75vh, 이미지 오른쪽 60% + 왼쪽 텍스트 */}
       <section
         className="hidden md:block relative w-full overflow-hidden mt-[72px]"
-        style={{ height: '70vh' }}
+        style={{ height: '75vh' }}
       >
         {/* 이미지 — 오른쪽 60% 영역에 꽉참, 세로 잘림 없음 */}
         <div className="absolute right-0 top-0 bottom-0 w-[60%]">
@@ -52,8 +52,11 @@ export default function SimplifiedHero() {
           ))}
         </div>
 
-        {/* 왼쪽 그라데이션 오버레이 — 40%까지 */}
-        <div className="absolute inset-y-0 left-0 w-[50%] bg-gradient-to-r from-white via-white/95 to-transparent pointer-events-none" />
+        {/* 그라데이션 — 0~40% 흰색, 40~60% 자연스러운 페이드 */}
+        <div
+          className="absolute inset-y-0 left-0 w-[60%] pointer-events-none"
+          style={{ background: 'linear-gradient(to right, white 0%, white 67%, transparent 100%)' }}
+        />
 
         {/* 타이틀 영역 — 세로 가운데 정렬 */}
         <div className="relative z-10 h-full flex items-center pl-[8%] lg:pl-[12%] pr-8 lg:pr-16">
