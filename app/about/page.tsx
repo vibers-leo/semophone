@@ -22,8 +22,9 @@ export default function AboutPage() {
                 className="w-20 h-20 md:w-24 md:h-24 object-contain flex-shrink-0"
               />
               <div className="flex-1">
-                <h1 className="text-3xl md:text-4xl font-black text-gray-900 mb-2">회사 소개</h1>
-                <p className="text-base md:text-lg text-gray-600">
+                <p className="text-xs font-bold tracking-[0.2em] uppercase text-gray-400 mb-2">About us</p>
+                <h1 className="text-3xl md:text-4xl font-black text-gray-900 tracking-tight mb-2" style={{ wordBreak: 'keep-all' }}>회사 소개</h1>
+                <p className="text-base md:text-lg text-gray-600" style={{ wordBreak: 'keep-all' }}>
                   투명한 가격, 정직한 서비스
                 </p>
               </div>
@@ -51,7 +52,7 @@ export default function AboutPage() {
 
                 {/* 소개 본문 */}
                 <div className="flex-1 space-y-6">
-                  <div className="space-y-4 text-gray-700 leading-relaxed">
+                  <div className="space-y-4 text-gray-700 leading-relaxed" style={{ wordBreak: 'keep-all' }}>
                     <p>
                       세모폰은 2012년 설립 이후 이동통신 3사 및 알뜰폰 상품을 기반으로<br />
                       온라인과 오프라인을 아우르는 통합 유통 환경 속에서<br />
@@ -91,10 +92,11 @@ export default function AboutPage() {
         <section className="bg-white py-24 px-3">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-6">
+              <p className="text-xs font-bold tracking-[0.2em] uppercase text-gray-400 mb-4">Brand Identity</p>
+              <h2 className="text-3xl md:text-4xl font-black text-gray-900 tracking-tight mb-6" style={{ wordBreak: 'keep-all' }}>
                 세모폰의 CI 소개
               </h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-12">
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-12" style={{ wordBreak: 'keep-all' }}>
                 세모폰의 CI에는 브랜드가 추구하는 가치와 방향성이 담겨 있습니다.
               </p>
             </div>
@@ -117,27 +119,27 @@ export default function AboutPage() {
 
                 {/* 로고 설명 */}
                 <div className="flex-1 space-y-6">
-                  <h3 className="text-2xl font-black text-gray-900 mb-6">
+                  <h3 className="text-2xl font-black text-gray-900 tracking-tight mb-6" style={{ wordBreak: 'keep-all' }}>
                     세모폰 로고
                   </h3>
 
-                  <p className="text-gray-700 leading-relaxed text-base">
+                  <p className="text-gray-700 leading-relaxed text-base" style={{ wordBreak: 'keep-all' }}>
                     &apos;연결과 균형&apos;을 기반으로 한 단순한 기하학적 형태에서 출발해,<br />
                     다양한 휴대폰과 서비스, 그리고 고객의 선택이 하나로 이어지는 경험을 상징합니다.
                   </p>
 
-                  <p className="text-gray-700 leading-relaxed text-base">
+                  <p className="text-gray-700 leading-relaxed text-base" style={{ wordBreak: 'keep-all' }}>
                     삼각형을 이루는 세 요소는<br />
                     신뢰 · 가치 · 감동을 의미하며,<br />
                     고객과 함께 성장하며 가치를 나누는 구조를 표현합니다.
                   </p>
 
-                  <p className="text-gray-700 leading-relaxed text-base">
+                  <p className="text-gray-700 leading-relaxed text-base" style={{ wordBreak: 'keep-all' }}>
                     각 요소가 균형 있게 연결되듯,<br />
                     세모폰은 다양한 브랜드와 통신 서비스를 효과적으로 연결합니다.
                   </p>
 
-                  <p className="text-gray-700 leading-relaxed text-base">
+                  <p className="text-gray-700 leading-relaxed text-base" style={{ wordBreak: 'keep-all' }}>
                     앞으로도 세모폰은 이 CI를 중심으로<br />
                     더 나은 기준과 경험을 만들어가는 브랜드로 성장해 나가겠습니다.
                   </p>

@@ -61,7 +61,7 @@ export default function SimplifiedHero() {
         {/* 타이틀 영역 — 세로 가운데 정렬 */}
         <div className="relative z-10 h-full flex items-center pl-[8%] lg:pl-[12%] pr-8 lg:pr-16">
           <div className="max-w-xl">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 lg:mb-5">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 tracking-tight leading-tight mb-3 lg:mb-5" style={{ wordBreak: 'keep-all' }}>
               세상의 모든 휴대폰 가격을
               <br />
               <span className="text-brand">혁신합니다</span>

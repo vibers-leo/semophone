@@ -78,8 +78,9 @@ export default function PartnershipPage() {
                 className="w-20 h-20 md:w-24 md:h-24 object-contain flex-shrink-0"
               />
               <div className="flex-1">
-                <h1 className="text-3xl md:text-4xl font-black text-gray-900 mb-2">문의하기</h1>
-                <p className="text-base md:text-lg text-gray-600">
+                <p className="text-xs font-bold tracking-[0.2em] uppercase text-gray-400 mb-2">Partnership</p>
+                <h1 className="text-3xl md:text-4xl font-black text-gray-900 tracking-tight mb-2" style={{ wordBreak: 'keep-all' }}>문의하기</h1>
+                <p className="text-base md:text-lg text-gray-600" style={{ wordBreak: 'keep-all' }}>
                   세모폰과 함께 성장하세요
                 </p>
               </div>
@@ -97,7 +98,7 @@ export default function PartnershipPage() {
               height={96}
               className="w-20 h-20 md:w-24 md:h-24 object-contain mx-auto mb-6"
             />
-            <h2 className="text-3xl md:text-4xl font-black text-center mb-16">협업문의</h2>
+            <h2 className="text-3xl md:text-4xl font-black text-center mb-16 tracking-tight" style={{ wordBreak: 'keep-all' }}>협업문의</h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-end">
               {/* 왼쪽: 협업 소개 + 캐릭터 이미지 */}
@@ -112,14 +113,14 @@ export default function PartnershipPage() {
                       height={80}
                       className="w-16 h-16 md:w-20 md:h-20 object-contain mx-auto mb-4"
                     />
-                    <h2 className="text-2xl md:text-3xl font-black text-gray-900 mb-4">
+                    <h2 className="text-2xl md:text-3xl font-black text-gray-900 tracking-tight mb-4" style={{ wordBreak: 'keep-all' }}>
                       함께 만드는 미래
                     </h2>
-                    <p className="text-base text-gray-700 leading-relaxed mb-2">
+                    <p className="text-base text-gray-700 leading-relaxed mb-2" style={{ wordBreak: 'keep-all' }}>
                       세모폰은 다양한 파트너와의 협력을 통해<br />
                       고객에게 더 나은 가치를 제공합니다.
                     </p>
-                    <p className="text-base text-gray-700 leading-relaxed">
+                    <p className="text-base text-gray-700 leading-relaxed" style={{ wordBreak: 'keep-all' }}>
                       투명하고 정직한 파트너십으로<br />
                       함께 성장하고자 합니다.
                     </p>
@@ -234,7 +235,7 @@ export default function PartnershipPage() {
                     type="submit"
                     disabled={submitting}
                     style={{ backgroundColor: '#FEE500' }}
-                    className="w-full py-4 text-gray-900 rounded-lg font-bold text-lg hover:scale-105 transition-all disabled:opacity-50 shadow-lg hover:shadow-xl"
+                    className="w-full py-4 text-gray-900 rounded-full font-bold text-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 disabled:opacity-50 shadow-lg hover:shadow-xl"
                   >
                     {submitting ? '전송 중...' : '문의 보내기'}
                   </button>
@@ -244,8 +245,8 @@ export default function PartnershipPage() {
                 <div className="mt-8 text-center pt-8 border-t border-gray-200">
                   <p className="text-sm text-gray-600 mb-3">또는 직접 연락주세요</p>
                   <div className="space-y-2">
-                    <a href="tel:0507-1489-2274" className="block text-lg font-bold text-gray-900 hover:text-brand">
-                      📞 0507-1489-2274
+                    <a href="tel:0507-1489-2274" className="block text-lg font-bold text-gray-900 hover:text-brand transition-colors">
+                      0507-1489-2274
                     </a>
                   </div>
                 </div>

@@ -15,13 +15,13 @@ export default function MinimalCTA() {
           transition={{ duration: 0.3 }}
         >
           {/* 제목 */}
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-dark mb-6 leading-tight">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-dark mb-6 leading-tight tracking-tight" style={{ wordBreak: 'keep-all' }}>
             단 한 명의 고객도<br />
             <span className="text-brand">손해보지 않도록</span>
           </h2>
 
           {/* 부제목 */}
-          <p className="text-xl md:text-xl lg:text-2xl text-gray-600 mb-12 leading-relaxed">
+          <p className="text-xl md:text-xl lg:text-2xl text-gray-600 mb-12 leading-relaxed" style={{ wordBreak: 'keep-all' }}>
             전문적인 고객맞춤 컨설팅을 제공합니다
           </p>
 

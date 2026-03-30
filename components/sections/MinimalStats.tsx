@@ -85,12 +85,12 @@ export default function MinimalStats() {
             viewport={{ once: true }}
             transition={{ duration: 0.3 }}
           >
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-4 leading-tight text-center">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-4 leading-tight tracking-tight text-center" style={{ wordBreak: 'keep-all' }}>
               <span className="text-dark">수도권 50개 매장에서<br />
               검증된 신뢰</span>
             </h2>
 
-            <p className="text-base md:text-lg text-dark/80 mb-8 leading-relaxed text-center">
+            <p className="text-base md:text-lg text-dark/80 mb-8 leading-relaxed text-center" style={{ wordBreak: 'keep-all' }}>
               46만명의 고객이 선택한 세모폰<br />
               가까운 매장에서 합리적인 가격 상담을 경험하세요
             </p>

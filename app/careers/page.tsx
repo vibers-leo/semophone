@@ -50,25 +50,25 @@ export default function CareersPage() {
       <Header />
       <main id="main-content" style={{ isolation: 'isolate', position: 'relative', zIndex: 0 }}>
 
-        {/* S1: Hero — 다크 풀블리드, 비대칭 레이아웃 */}
-        <section className="bg-[#09090b] pt-[100px] md:pt-[120px] pb-16 md:pb-24 px-6">
+        {/* S1: Hero */}
+        <section className="bg-white pt-[100px] md:pt-[120px] pb-16 md:pb-24 px-6">
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
 
               {/* 왼쪽: 타이틀 */}
               <div>
-                <p className="text-xs font-bold tracking-[0.2em] uppercase mb-5" style={{ color: '#FEE500' }}>
+                <p className="text-xs font-bold tracking-[0.2em] uppercase text-gray-400 mb-5">
                   Careers at 세모폰
                 </p>
                 <h1
-                  className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight tracking-tight mb-6"
+                  className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-tight tracking-tight mb-6"
                   style={{ wordBreak: 'keep-all' }}
                 >
                   함께 성장할<br />
-                  <span style={{ color: '#FEE500' }}>동료를 찾습니다</span>
+                  <span className="text-brand">동료를 찾습니다</span>
                 </h1>
                 <p
-                  className="text-base md:text-lg text-white/60 leading-relaxed"
+                  className="text-base md:text-lg text-gray-500 leading-relaxed"
                   style={{ wordBreak: 'keep-all', maxWidth: '42ch' }}
                 >
                   10년 이상의 업력, 수도권 50개 직영매장.<br />
@@ -85,15 +85,14 @@ export default function CareersPage() {
                 ].map((item) => (
                   <div
                     key={item.num}
-                    className="flex items-center gap-5 rounded-2xl px-6 py-5"
-                    style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)' }}
+                    className="flex items-center gap-5 rounded-2xl px-6 py-5 bg-gray-50 border border-gray-100"
                   >
-                    <span className="text-3xl font-black flex-shrink-0" style={{ color: '#FEE500' }}>
+                    <span className="text-3xl font-black flex-shrink-0 text-gray-900">
                       {item.num}
                     </span>
                     <div>
-                      <p className="text-white font-bold text-sm md:text-base">{item.label}</p>
-                      <p className="text-white/40 text-xs mt-0.5">{item.sub}</p>
+                      <p className="text-gray-900 font-bold text-sm md:text-base">{item.label}</p>
+                      <p className="text-gray-400 text-xs mt-0.5">{item.sub}</p>
                     </div>
                   </div>
                 ))}
@@ -221,11 +220,8 @@ export default function CareersPage() {
           </div>
         </section>
 
-        {/* S4: 복리후생 — 다크 배경에 노란 pills */}
-        <section
-          className="py-24 md:py-32 px-6"
-          style={{ background: 'linear-gradient(135deg, #1a1500 0%, #0d0d0d 60%, #09090b 100%)' }}
-        >
+        {/* S4: 복리후생 */}
+        <section className="bg-white py-24 md:py-32 px-6">
           <div className="max-w-4xl mx-auto text-center">
             <Image
               src="/icons/선물.png"
@@ -234,16 +230,16 @@ export default function CareersPage() {
               height={64}
               className="w-14 h-14 object-contain mx-auto mb-5"
             />
-            <p className="text-xs font-bold tracking-[0.2em] uppercase mb-3" style={{ color: '#FEE500' }}>
+            <p className="text-xs font-bold tracking-[0.2em] uppercase text-gray-400 mb-3">
               Benefits
             </p>
             <h2
-              className="text-3xl md:text-4xl font-black text-white mb-4 leading-tight tracking-tight"
+              className="text-3xl md:text-4xl font-black text-gray-900 mb-4 leading-tight tracking-tight"
               style={{ wordBreak: 'keep-all' }}
             >
               최고의 환경과 복지
             </h2>
-            <p className="text-white/40 text-sm mb-12">업계 최고 수준의 근무 환경을 제공합니다</p>
+            <p className="text-gray-500 text-sm mb-12">업계 최고 수준의 근무 환경을 제공합니다</p>
 
             <div className="flex flex-wrap gap-3 justify-center">
               {benefits.map((b, i) => (
