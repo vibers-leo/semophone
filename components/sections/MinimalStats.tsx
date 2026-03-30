@@ -5,10 +5,8 @@ import Image from 'next/image';
 import { useState, useEffect } from 'react';
 
 const storeImages = [
-  '/images/지점별 사진/지점별 (1).png',
-  '/images/지점별 사진/지점별 (2).png',
-  '/images/지점별 사진/지점별 (3).png',
-  '/images/지점별 사진/지점별 (4).png',
+  '/images/semophone_store_banner/banner-real-1.jpg',
+  '/images/semophone_store_banner/banner-real-2.jpg',
 ];
 
 export default function MinimalStats() {
@@ -17,7 +15,7 @@ export default function MinimalStats() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % storeImages.length);
-    }, 4000); // 4초마다 이미지 변경
+    }, 5000); // 5초마다 서서히 이미지 변경
 
     return () => clearInterval(interval);
   }, []);
@@ -37,20 +35,27 @@ export default function MinimalStats() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.3 }}
-            className="relative"
+            className="relative aspect-[3/2] rounded-2xl overflow-hidden shadow-lg"
           >
-            <Image
-              src={storeImages[currentImageIndex]}
-              alt={`세모폰 매장 ${currentImageIndex + 1}`}
-              width={1200}
-              height={800}
-              className="w-full h-auto rounded-2xl shadow-lg bg-white"
-              style={{ imageOrientation: 'from-image' }}
-              sizes="(max-width: 768px) 100vw, 60vw"
-              quality={75}
-              loading={currentImageIndex === 0 ? 'eager' : 'lazy'}
-              priority={currentImageIndex === 0}
-            />
+            {storeImages.map((src, index) => (
+              <div
+                key={index}
+                className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                  index === currentImageIndex ? 'opacity-100' : 'opacity-0'
+                }`}
+              >
+                <Image
+                  src={src}
+                  alt={`세모폰 매장 실내 ${index + 1}`}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 60vw"
+                  quality={85}
+                  priority={index === 0}
+                  loading={index === 0 ? 'eager' : 'lazy'}
+                />
+              </div>
+            ))}
 
             {/* 인디케이터 */}
             <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 z-10">
@@ -75,22 +80,22 @@ export default function MinimalStats() {
             transition={{ duration: 0.3 }}
           >
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-4 leading-tight">
-              <span className="text-dark">수도권 40개 성지에서<br />
+              <span className="text-dark">수도권 50개 매장에서<br />
               검증된 신뢰</span>
             </h2>
 
             <p className="text-base md:text-lg text-dark/80 mb-8 leading-relaxed">
-              15만 명이 선택한 세모폰<br />
-              가까운 매장에서 최저가를 경험하세요
+              46만명의 고객이 선택한 세모폰<br />
+              가까운 매장에서 합리적인 가격 상담을 경험하세요
             </p>
 
             {/* 통계 그리드 */}
             <div className="grid grid-cols-2 gap-3 md:gap-3.5 lg:gap-4">
               {[
-                { number: '150,000+', label: '누적 개통', icon: '/icons/차트.png' },
-                { number: '40+', label: '직영 매장', icon: '/icons/건물.png' },
-                { number: '4.8★', label: '만족도', icon: '/icons/ok.png' },
-                { number: '365일', label: '사후관리', icon: '/icons/시계.png' },
+                { number: '380,000+', label: '모바일서비스 누적개통', icon: '/icons/차트.png' },
+                { number: '80,000+', label: '인터넷서비스 누적개통', icon: '/icons/건물.png' },
+                { number: '월 600+', label: '가전렌탈서비스 월평균', icon: '/icons/ok.png' },
+                { number: '4.8/5.0', label: '고객만족도 리뷰 평점', icon: '/icons/시계.png' },
               ].map((stat, i) => (
                 <motion.div
                   key={i}
