@@ -28,10 +28,10 @@ export default function SimplifiedHero() {
       {/* PC / 태블릿 버전 — 75vh, 이미지 오른쪽 60% + 왼쪽 텍스트 */}
       <section
         className="hidden md:block relative w-full overflow-hidden mt-[72px]"
-        style={{ height: '75vh' }}
+        style={{ height: '80vh' }}
       >
         {/* 이미지 — 오른쪽 60% 영역에 꽉참, 세로 잘림 없음 */}
-        <div className="absolute right-0 top-0 bottom-0 w-[60%]">
+        <div className="absolute right-0 top-0 bottom-0 w-[65%]">
           {bannerImages.map((image, index) => (
             <div
               key={index}
@@ -55,7 +55,7 @@ export default function SimplifiedHero() {
         {/* 그라데이션 — 0~40% 흰색, 40~60% 자연스러운 페이드 */}
         <div
           className="absolute inset-y-0 left-0 w-[60%] pointer-events-none"
-          style={{ background: 'linear-gradient(to right, white 0%, white 67%, transparent 100%)' }}
+          style={{ background: 'linear-gradient(to right, white 0%, white 54%, transparent 100%)' }}
         />
 
         {/* 타이틀 영역 — 세로 가운데 정렬 */}
