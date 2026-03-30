@@ -132,14 +132,6 @@ export default function PartnershipPage() {
                     height={600}
                     className="w-full h-auto"
                   />
-                  <div className="mt-8 text-center">
-                    <p className="text-2xl font-black text-gray-900 mb-2">
-                      세모폰과 함께<br />성장하세요
-                    </p>
-                    <p className="text-gray-600">
-                      투명하고 정직한 파트너십
-                    </p>
-                  </div>
                 </div>
               </div>
 
@@ -268,9 +260,6 @@ export default function PartnershipPage() {
                   <div className="space-y-2">
                     <a href="tel:0507-1489-2274" className="block text-lg font-bold text-gray-900 hover:text-brand">
                       📞 0507-1489-2274
-                    </a>
-                    <a href="mailto:partnership@semophone.co.kr" className="block text-sm text-gray-600 hover:text-brand">
-                      📧 partnership@semophone.co.kr
                     </a>
                   </div>
                 </div>
