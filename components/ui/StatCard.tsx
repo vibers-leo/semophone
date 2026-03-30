@@ -42,9 +42,9 @@ export default function StatCard({
         className={`p-8 md:p-10 bg-white rounded-2xl text-center shadow-lg hover:shadow-2xl transition-all border border-gray-100 ${className}`}
       >
         {icon && (
-          <Image src={icon} alt="" width={56} height={56} className="w-12 h-12 object-contain mx-auto mb-3" />
+          <Image src={icon} alt="" width={80} height={80} className="w-16 h-16 md:w-20 md:h-20 object-contain mx-auto mb-4" />
         )}
-        <div className="text-4xl md:text-5xl font-black text-dark mb-3 tracking-tight">
+        <div className="text-2xl md:text-3xl font-black text-dark mb-3 tracking-tight">
           <span className={highlight ? 'text-brand' : ''}>{value}</span>
           {unit && <span className="text-brand ml-1">{unit}</span>}
         </div>
