@@ -98,7 +98,7 @@ export default function StoreActionButtons({
             <span className="relative">길찾기</span>
           </>
         ) : (
-          <Image src="/icons/나침반.png" alt="길찾기" width={20} height={20} className="relative w-5 h-5 object-contain brightness-0 invert" />
+          <Image src="/icons/지도핀1.png" alt="길찾기" width={20} height={20} className="relative w-5 h-5 object-contain brightness-0 invert" />
         )}
       </a>
 
