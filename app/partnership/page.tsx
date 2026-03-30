@@ -197,20 +197,6 @@ export default function PartnershipPage() {
                     />
                   </div>
 
-                  {/* 제목 */}
-                  <div>
-                    <label className="block text-sm font-bold text-gray-900 mb-2">제목</label>
-                    <input
-                      type="text"
-                      name="subject"
-                      placeholder="제목"
-                      value={formData.subject}
-                      onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-brand text-gray-900 placeholder:text-gray-400"
-                      required
-                    />
-                  </div>
-
                   {/* 내용 */}
                   <div>
                     <label className="block text-sm font-bold text-gray-900 mb-2">내용</label>
