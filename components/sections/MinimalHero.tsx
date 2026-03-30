@@ -44,7 +44,7 @@ export default function MinimalHero() {
                 onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#FDD835'}
                 onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#FEE500'}
               >
-                가까운 성지 찾기
+                가까운 매장 찾기
                 <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>

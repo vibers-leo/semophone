@@ -9,7 +9,7 @@ const defaultBenefits = [
     id: '1',
     icon: '/icons/태그, 할인.png',
     title: '지원금 최대로',
-    description: '성지에서만 가능한 최대 지원금으로 더 저렴하게',
+    description: '매장에서만 가능한 최대 지원금으로 더 저렴하게',
   },
   {
     id: '2',

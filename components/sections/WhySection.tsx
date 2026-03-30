@@ -14,7 +14,7 @@ export default function WhySection() {
     {
       icon: '💰',
       title: '지원금 최대로!',
-      description: '성지에서만 가능한 최대 지원금'
+      description: '매장에서만 가능한 최대 지원금'
     },
     {
       icon: '🤝',
@@ -39,7 +39,7 @@ export default function WhySection() {
     <section className="bg-white py-24 px-3 text-center">
       <div className="max-w-container-sm md:max-w-container-md mx-auto">
         <h2 className="section-title fade-in">
-          온라인엔 없는 가격,<br className="md:hidden" /> 성지에서만 가능한 상담
+          온라인엔 없는 가격,<br className="md:hidden" /> 매장에서만 가능한 상담
         </h2>
         <p className="section-desc fade-in fade-in-d1 mb-12">
           직접 찾아오신 분께 드리는 특별한 조건.<br />

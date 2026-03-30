@@ -4,38 +4,10 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
-// 21:9 배너 이미지 (스케치 스타일)
+// 실제 매장 사진 2장
 const bannerImages = [
-    '/images/semophone_store_banner/Generated Image March 19, 2026 - 10_45AM.jpg',
-    '/images/semophone_store_banner/Generated Image March 19, 2026 - 10_47AM.jpg',
-    '/images/semophone_store_banner/Generated Image March 19, 2026 - 10_49AM.jpg',
-    '/images/semophone_store_banner/Generated Image March 19, 2026 - 10_53AM (1).jpg',
-    '/images/semophone_store_banner/Generated Image March 19, 2026 - 10_53AM.jpg',
-    '/images/semophone_store_banner/Generated Image March 19, 2026 - 10_55AM.jpg',
-    '/images/semophone_store_banner/Generated Image March 19, 2026 - 11_19AM.jpg',
-    '/images/semophone_store_banner/Generated Image March 19, 2026 - 11_27AM.jpg',
-    '/images/semophone_store_banner/Generated Image March 19, 2026 - 12_10PM.jpg',
-    '/images/semophone_store_banner/Generated Image March 19, 2026 - 12_23PM.jpg',
-    '/images/semophone_store_banner/Generated Image March 19, 2026 - 12_24PM.jpg',
-    '/images/semophone_store_banner/Generated Image March 19, 2026 - 12_25PM.jpg',
-    '/images/semophone_store_banner/Generated Image March 19, 2026 - 12_29PM.jpg',
-    '/images/semophone_store_banner/Generated Image March 19, 2026 - 12_32PM.jpg',
-    '/images/semophone_store_banner/Generated Image March 19, 2026 - 12_33PM.jpg',
-    '/images/semophone_store_banner/Generated Image March 19, 2026 - 12_54PM.jpg',
-    '/images/semophone_store_banner/Generated Image March 19, 2026 - 1_16PM.jpg',
-    '/images/semophone_store_banner/Generated Image March 19, 2026 - 1_26PM.jpg',
-    '/images/semophone_store_banner/Generated Image March 19, 2026 - 1_29PM.jpg',
-    '/images/semophone_store_banner/Generated Image March 19, 2026 - 1_31PM.jpg',
-    '/images/semophone_store_banner/Generated Image March 19, 2026 - 1_32PM.jpg',
-    '/images/semophone_store_banner/Generated Image March 19, 2026 - 1_35PM.jpg',
-    '/images/semophone_store_banner/Generated Image March 19, 2026 - 1_37PM.jpg',
-    '/images/semophone_store_banner/Generated Image March 19, 2026 - 1_42PM.jpg',
-    '/images/semophone_store_banner/Generated Image March 19, 2026 - 1_44PM.jpg',
-    '/images/semophone_store_banner/Generated Image March 19, 2026 - 1_55PM.jpg',
-    '/images/semophone_store_banner/Generated Image March 19, 2026 - 1_57PM.jpg',
-    '/images/semophone_store_banner/Generated Image March 19, 2026 - 1_58PM.jpg',
-    '/images/semophone_store_banner/Generated Image March 19, 2026 - 2_14PM.jpg',
-    '/images/semophone_store_banner/Generated Image March 19, 2026 - 2_16PM.jpg',
+    '/images/semophone_store_banner/banner-real-1.jpg',
+    '/images/semophone_store_banner/banner-real-2.jpg',
 ];
 
 export default function SimplifiedHero() {
@@ -44,19 +16,13 @@ export default function SimplifiedHero() {
     Math.floor(Math.random() * bannerImages.length)
   );
 
-  // 자동 이미지 랜덤 전환 (2초마다)
+  // 자동 이미지 전환 (5초마다 서서히)
   useEffect(() => {
     if (bannerImages.length === 0) return;
 
     const interval = setInterval(() => {
-      setCurrentImageIndex((prev) => {
-        let newIndex;
-        do {
-          newIndex = Math.floor(Math.random() * bannerImages.length);
-        } while (newIndex === prev && bannerImages.length > 1);
-        return newIndex;
-      });
-    }, 2000);
+      setCurrentImageIndex((prev) => (prev + 1) % bannerImages.length);
+    }, 5000);
 
     return () => clearInterval(interval);
   }, [bannerImages.length]);
@@ -79,7 +45,7 @@ export default function SimplifiedHero() {
                 src={image}
                 alt="세모폰 매장"
                 fill
-                className="object-contain"
+                className="object-cover"
                 style={{ objectPosition: 'right center' }}
                 sizes="100vw"
                 quality={75}
@@ -107,7 +73,7 @@ export default function SimplifiedHero() {
             </p>
 
             <p className="text-base md:text-lg lg:text-xl text-gray-700 mb-12">
-              전국 40개 직영매장에서<br />
+              전국 50개 직영매장에서<br />
               온라인에 없는 가격을 경험하세요
             </p>
 
@@ -141,7 +107,7 @@ export default function SimplifiedHero() {
                 src={image}
                 alt="세모폰 매장"
                 fill
-                className="object-contain"
+                className="object-cover"
                 style={{ objectPosition: 'right center' }}
                 sizes="100vw"
                 quality={75}
@@ -169,7 +135,7 @@ export default function SimplifiedHero() {
             </p>
 
             <p className="text-base text-gray-700 mb-12">
-              전국 40개 직영매장에서<br />
+              전국 50개 직영매장에서<br />
               온라인에 없는 가격을 경험하세요
             </p>
 
@@ -203,7 +169,7 @@ export default function SimplifiedHero() {
                 src={image}
                 alt="세모폰 매장"
                 fill
-                className="object-contain"
+                className="object-cover"
                 style={{ objectPosition: 'center 58%' }}
                 sizes="100vw"
                 quality={75}
@@ -235,7 +201,7 @@ export default function SimplifiedHero() {
             </p>
 
             <p className="text-sm text-gray-600">
-              전국 40개 직영매장에서 온라인에 없는 가격을 경험하세요
+              전국 50개 직영매장에서 온라인에 없는 가격을 경험하세요
             </p>
           </div>
 

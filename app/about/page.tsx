@@ -54,38 +54,35 @@ export default function AboutPage() {
 
                 {/* 인사말 */}
                 <div className="flex-1 space-y-6">
-                  <div>
-                    <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-2">
-                      안녕하세요.
-                    </h2>
-                    <h3 className="text-2xl md:text-3xl font-black text-gray-900 mb-8">
-                      주식회사 승승장구 대표 최준철입니다.
-                    </h3>
-                  </div>
-
                   <div className="space-y-4 text-gray-700 leading-relaxed">
                     <p>
-                      저희 세모폰은 '세상의 모든 휴대폰'이라는 비전 아래 고객에게 최고의 가치를 제공하고자 합니다.
-                      수년 간의 노력 끝에 전국 40개 매장에서 15만 고객님의 신뢰를 받으며 성장해왔습니다.
+                      세모폰은 2012년 설립 이후 이동통신 3사 및 알뜰폰 상품을 기반으로
+                      온라인과 오프라인을 아우르는 통합 유통 환경 속에서
+                      차별화된 경쟁력을 만들어온 모바일 전문 브랜드입니다.
                     </p>
                     <p>
-                      우리는 투명한 가격과 정직한 서비스를 원칙으로 합니다.
-                      고객 한 분 한 분께 최선을 다하며, 온라인에서는 찾을 수 없는 특별한 가격과 전문 상담을 제공합니다.
+                      &apos;세상의 모든 휴대폰&apos;이라는 비전 아래
+                      고객에게 최고의 가치와 선택 경험을 제공하는 것을 목표로 하고 있습니다.
+                      현재 전국 50개 이상의 직영 매장을 운영하며,
+                      누적 46만 명 이상의 고객과 신뢰를 쌓아오며 지속적으로 성장해왔습니다.
                     </p>
                     <p>
-                      앞으로도 세모폰은 변함없이 고객과의 약속을 지키며,
-                      모바일 통신 시장의 투명한 기준이 되고자 노력하겠습니다.
+                      세모폰은 투명한 가격과 정직한 서비스를 핵심 원칙으로 합니다.
+                      단순한 판매를 넘어, 고객 한 분 한 분께 최적의 선택을 제안하며
+                      일반적인 유통 구조에서는 경험하기 어려운 합리적인 가격과 전문적인 상담을 제공합니다.
+                    </p>
+                    <p>
+                      또한, 축적된 직영 매장 운영 데이터와 네트워크를 기반으로
+                      안정적인 운영 구조와 일관된 고객 경험을 만들어가고 있습니다.
+                    </p>
+                    <p>
+                      앞으로도 세모폰은 고객과의 신뢰를 최우선 가치로 삼아
+                      모바일 통신 시장의 투명한 기준이 되는 브랜드로 성장해 나가겠습니다.
+                    </p>
+                    <p>
                       고객 여러분의 현명한 선택에 세모폰이 함께하겠습니다.
                     </p>
-                    <p>
-                      감사합니다.
-                    </p>
-                  </div>
-
-                  <div className="pt-4">
-                    <p className="text-right text-lg font-bold text-gray-900">
-                      CEO 최준철
-                    </p>
+                    <p>감사합니다.</p>
                   </div>
                 </div>
               </div>
@@ -101,7 +98,7 @@ export default function AboutPage() {
                 세모폰의 CI 소개
               </h2>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-12">
-                세모폰 CI에는 정직한 믿음과 함께 성장하는 파트너십을 추구하는 의지가 담겨 있습니다.
+                세모폰의 CI에는 브랜드가 추구하는 가치와 방향성이 담겨 있습니다.
               </p>
             </div>
 
@@ -128,27 +125,23 @@ export default function AboutPage() {
                   </h3>
 
                   <p className="text-gray-700 leading-relaxed text-base">
-                    세모폰의 CI에는 브랜드가 추구하는 가치와 방향성이 담겨 있습니다.
-                    세모폰의 CI는 '연결과 균형'을 기반으로 한 단순한 기하학적 형태에서 출발합니다.
+                    &apos;연결과 균형&apos;을 기반으로 한 단순한 기하학적 형태에서 출발해,
+                    다양한 휴대폰과 서비스, 그리고 고객의 선택이 하나로 이어지는 경험을 상징합니다.
                   </p>
 
                   <p className="text-gray-700 leading-relaxed text-base">
-                    세 개의 선이 이어져 만들어지는 삼각형 구조는 서로 다른 요소들이 하나로 모여 안정적인 형태를 이루는 모습을 의미합니다.
-                    이는 다양한 휴대폰과 서비스, 그리고 고객의 선택이 세모폰 안에서 자연스럽게 연결되는 경험을 상징합니다.
+                    삼각형을 이루는 세 요소는 신뢰 · 가치 · 감동을 의미하며,
+                    고객과 함께 성장하며 가치를 나누는 구조를 표현합니다.
                   </p>
 
                   <p className="text-gray-700 leading-relaxed text-base">
-                    삼각형의 세 꼭짓점은 제품, 고객, 서비스라는 핵심 요소를 나타냅니다.
-                    각 요소가 균형 있게 조화를 이루며 하나의 구조를 완성하듯, 세모폰은 다양한 브랜드와 통신 서비스를 고객에게 연결합니다.
+                    각 요소가 균형 있게 연결되듯,
+                    세모폰은 다양한 브랜드와 통신 서비스를 효과적으로 연결합니다.
                   </p>
 
                   <p className="text-gray-700 leading-relaxed text-base">
-                    단순하고 균형 잡힌 형태는 신뢰와 안정감을 의미합니다.
-                    빠르게 변화하는 모바일 시장 속에서도 고객이 믿고 선택할 수 있는 기준이 되고자 하는 의지를 담고 있습니다.
-                  </p>
-
-                  <p className="text-gray-700 leading-relaxed text-base">
-                    앞으로 세모폰은 이 CI를 중심으로 더 많은 가치와 경험을 전달하는 브랜드로 성장해 나갈 것입니다.
+                    앞으로도 세모폰은 이 CI를 중심으로
+                    더 나은 기준과 경험을 만들어가는 브랜드로 성장해 나가겠습니다.
                   </p>
 
                   {/* 다운로드 버튼 */}
@@ -187,70 +180,6 @@ export default function AboutPage() {
         </section>
 
 
-        {/* 세모폰에 오시는 길 */}
-        <section className="bg-gray-50 py-24 px-3">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
-                세모폰에 오시는 길
-              </h2>
-              <p className="text-gray-600 mb-2">
-                휴대폰성지 세모폰 광명6동점
-              </p>
-              <div className="text-base text-gray-800 font-semibold mt-6">
-                <p>경기도 광명시 광명로 824 1층 (광명동)</p>
-                <p className="text-gray-600 text-sm mt-2">
-                  📞 031-1234-5678
-                </p>
-              </div>
-            </div>
-
-            {/* 지도 */}
-            <div className="h-[500px] rounded-2xl overflow-hidden shadow-xl mb-12">
-              <NaverMap
-                stores={[{
-                  id: 1,
-                  name: '휴대폰성지 세모폰 광명6동점',
-                  address: '경기도 광명시 광명로 824 1층 (광명동)',
-                  phone: '031-1234-5678',
-                  region: '경기',
-                  subRegion: '기타',
-                  lat: 37.4787,
-                  lng: 126.8644,
-                }]}
-                userLocation={null}
-              />
-            </div>
-
-            {/* 안내 메시지 */}
-            <div className="text-center bg-gray-50 rounded-2xl p-8">
-              <p className="text-lg text-gray-700">
-                전국 40개 직영매장에서 세모폰을 만나보세요
-              </p>
-              <Link href="/stores" className="inline-block mt-4">
-                <button
-                  style={{ backgroundColor: '#FEE500' }}
-                  className="px-8 py-3 text-gray-900 font-bold rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all"
-                >
-                  전체 매장 보기
-                </button>
-              </Link>
-            </div>
-
-            {/* 배너 이미지 */}
-            <div className="mt-16">
-              <div className="relative w-full max-w-4xl mx-auto overflow-hidden rounded-3xl shadow-xl">
-                <Image
-                  src="/images/about-banner.png"
-                  alt="세모폰 소개"
-                  width={1200}
-                  height={400}
-                  className="w-full h-auto"
-                />
-              </div>
-            </div>
-          </div>
-        </section>
       </main>
       <Footer />
     </>

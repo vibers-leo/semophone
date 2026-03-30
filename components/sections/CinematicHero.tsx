@@ -43,7 +43,7 @@ export default function CinematicHero() {
                 whileTap={{ scale: 0.95 }}
                 className="px-8 py-4 bg-white text-dark font-bold text-lg rounded-full shadow-2xl hover:shadow-3xl transition-all"
               >
-                가까운 성지 찾기 →
+                가까운 매장 찾기 →
               </motion.button>
             </Link>
 

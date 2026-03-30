@@ -40,7 +40,7 @@ async function createDefaultBenefits() {
     {
       icon: '💰',
       title: '지원금 최대로!',
-      description: '성지에서만 가능한 최대 지원금',
+      description: '매장에서만 가능한 최대 지원금',
       order: 1,
       isActive: true
     },

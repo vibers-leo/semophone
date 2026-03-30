@@ -168,7 +168,7 @@ function BenefitModal({ benefit, onClose, onSubmit }: BenefitModalProps) {
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               className="w-full px-4 py-2 border rounded-lg"
-              placeholder="성지에서만 가능한 최대 지원금"
+              placeholder="매장에서만 가능한 최대 지원금"
               rows={3}
               required
               disabled={submitting}

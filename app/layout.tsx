@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     default: "세모폰 - 세상의 모든 휴대폰",
     template: "%s | 세모폰",
   },
-  description: "직접 오시면 가격이 다릅니다. 수도권 40개 성지 매장에서 온라인에 없는 가격을 경험하세요.",
+  description: "직접 오시면 가격이 다릅니다. 수도권 50개 매장에서 온라인에 없는 가격을 경험하세요.",
   keywords: "휴대폰, 스마트폰, 핸드폰 매장, 세모폰, 휴대폰 성지, 휴대폰 가격, 서울 휴대폰, 경기 휴대폰, 인천 휴대폰",
   authors: [{ name: "세모폰" }],
   creator: "세모폰",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     url: "https://semophone.co.kr",
     siteName: "세모폰",
     title: "세모폰 - 세상의 모든 휴대폰",
-    description: "직접 오시면 가격이 다릅니다. 수도권 40개 성지 매장에서 온라인에 없는 가격을 경험하세요.",
+    description: "직접 오시면 가격이 다릅니다. 수도권 50개 매장에서 온라인에 없는 가격을 경험하세요.",
     images: [
       {
         url: "/images/logo/기본로고.png",
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "세모폰 - 세상의 모든 휴대폰",
-    description: "직접 오시면 가격이 다릅니다. 수도권 40개 성지 매장.",
+    description: "직접 오시면 가격이 다릅니다. 수도권 50개 매장.",
     images: ["/images/logo/기본로고.png"],
   },
   robots: {
@@ -96,7 +96,7 @@ export default function RootLayout({
               "@type": "WebSite",
               "name": "세모폰",
               "url": "https://semophone.co.kr",
-              "description": "직접 오시면 가격이 다릅니다. 수도권 40개 성지 매장에서 온라인에 없는 가격을 경험하세요.",
+              "description": "직접 오시면 가격이 다릅니다. 수도권 50개 매장에서 온라인에 없는 가격을 경험하세요.",
               "creator": {
                 "@type": "Organization",
                 "name": "계발자들 (Vibers)",

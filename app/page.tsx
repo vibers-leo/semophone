@@ -103,7 +103,7 @@ export default function Home() {
       {/* Sticky CTA */}
       <div className={`sticky-cta z-sticky-cta ${showStickyCta ? 'visible' : ''}`}>
         <Link href="/stores" className="sticky-cta-btn">
-          가까운 성지 찾기
+          가까운 매장 찾기
         </Link>
       </div>
     </>

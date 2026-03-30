@@ -211,7 +211,7 @@ export default function StoresPage() {
               </div>
 
               <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4 leading-tight">
-                내 주변 가까운 성지 찾기
+                내 주변 가까운 매장 찾기
               </h2>
 
               <div className="inline-flex items-center gap-2 bg-brand/10 px-4 py-2 rounded-full mb-4">
