@@ -101,7 +101,7 @@ export default function MinimalStats() {
                 { number: '380,000+', label: '모바일서비스 누적개통', icon: '/icons/차트.png' },
                 { number: '80,000+', label: '인터넷서비스 누적개통', icon: '/icons/건물.png' },
                 { number: '월 600+', label: '가전렌탈서비스 월평균', icon: '/icons/ok.png' },
-                { number: '4.8/5.0', label: '고객만족도 리뷰 평점', icon: '/icons/시계.png' },
+                { number: '4.8/5.0', label: '고객만족도 리뷰 평점', icon: '/icons/하트.png' },
               ].map((stat, i) => (
                 <motion.div
                   key={i}
