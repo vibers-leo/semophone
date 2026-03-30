@@ -103,7 +103,7 @@ export const cultureValues = [
     description: "직급에 관계없이 자유로운 의견 공유"
   },
   {
-    icon: "/icons/ok.png",
+    icon: "/icons/시계.png",
     title: "워라밸 보장",
     description: "정시 퇴근 문화, 주말/공휴일 휴무"
   },
@@ -126,12 +126,12 @@ export const coreValues = [
     description: "모든 구성원의 의견을 경청하고 존중합니다"
   },
   {
-    icon: "/icons/ok.png",
+    icon: "/icons/보안.png",
     title: "투명성 Transparency",
     description: "모든 프로세스를 투명하게 공개합니다"
   },
   {
-    icon: "/icons/차트.png",
+    icon: "/icons/선물.png",
     title: "성장 Growth",
     description: "개인과 조직의 지속적인 성장을 추구합니다"
   }

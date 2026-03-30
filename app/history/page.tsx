@@ -44,10 +44,10 @@ export default function HistoryPage() {
             <p className="text-gray-600 mb-12 text-lg">함께 성장한 시간들</p>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              <StatCard value="50,000" unit="명+" label="누적 고객" useBento={false} delay={0} />
-              <StatCard value="40" unit="개+" label="전국 매장" useBento={false} delay={0.1} />
-              <StatCard value="4.8" unit="★" label="고객 만족도" useBento={false} delay={0.2} />
-              <StatCard value="365" unit="일" label="사후관리" useBento={false} delay={0.3} />
+              <StatCard value="460,000" unit="명+" label="누적 고객" icon="/icons/차트.png" useBento={false} delay={0} />
+              <StatCard value="50" unit="개+" label="전국 매장" icon="/icons/건물.png" useBento={false} delay={0.1} />
+              <StatCard value="4.8/5.0" label="고객 만족도" icon="/icons/시계.png" useBento={false} delay={0.2} />
+              <StatCard value="365" unit="일" label="사후관리" icon="/icons/ok.png" useBento={false} delay={0.3} />
             </div>
           </div>
         </section>

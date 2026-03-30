@@ -49,7 +49,7 @@ export const historyEvents: HistoryEvent[] = [
     year: "0000",
     quarter: "현재",
     icon: "👑",
-    title: "수도권 최대 성지 네트워크",
+    title: "수도권 최대 매장 네트워크",
     description: "00개 매장, 누적 00만명의 고객과 함께 성장 중",
     stats: [
       { label: "누적 고객", value: "000,000명+" },

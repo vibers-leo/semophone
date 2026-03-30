@@ -1,12 +1,14 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { BentoCard, BentoCardContent } from './BentoCard';
 
 interface StatCardProps {
   value: string | number;
   label: string;
   unit?: string;
+  icon?: string;
   highlight?: boolean; // 하이라이트 색상 적용 (기존 호환성)
   className?: string;
   delay?: number;
@@ -22,6 +24,7 @@ export default function StatCard({
   value,
   label,
   unit,
+  icon,
   highlight = false,
   className = '',
   delay = 0,
@@ -38,6 +41,9 @@ export default function StatCard({
         whileHover={{ scale: 1.05, y: -5 }}
         className={`p-8 md:p-10 bg-white rounded-2xl text-center shadow-lg hover:shadow-2xl transition-all border border-gray-100 ${className}`}
       >
+        {icon && (
+          <Image src={icon} alt="" width={56} height={56} className="w-12 h-12 object-contain mx-auto mb-3" />
+        )}
         <div className="text-4xl md:text-5xl font-black text-dark mb-3 tracking-tight">
           <span className={highlight ? 'text-brand' : ''}>{value}</span>
           {unit && <span className="text-brand ml-1">{unit}</span>}
