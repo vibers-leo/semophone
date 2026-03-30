@@ -18,29 +18,29 @@ const HeroBanner = forwardRef<HTMLElement>((props, ref) => {
     <section ref={ref} className="hero-banner relative aspect-[16/9] lg:h-[815px] lg:aspect-auto overflow-hidden mt-[56px] md:mt-[72px]">
       {/* 슬라이드 배너 */}
       <div className="relative w-full h-full">
-        {/* Banner 1 - 첫 배너만 priority */}
-        <div className={`absolute inset-0 transition-opacity duration-700 ${currentBanner === 0 ? 'opacity-100' : 'opacity-0'}`}>
+        {/* Banner 1 - 실제 매장 사진 */}
+        <div className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${currentBanner === 0 ? 'opacity-100' : 'opacity-0'}`}>
           <Image
-            src="/landing/banner1.png"
-            alt="세모폰 배너 1"
+            src="/images/semophone_store_banner/banner-real-1.jpg"
+            alt="세모폰 매장 1"
             fill
             className="object-cover object-center"
             priority
             sizes="100vw"
-            quality={85}
+            quality={90}
           />
         </div>
 
-        {/* Banner 2 - lazy loading */}
-        <div className={`absolute inset-0 transition-opacity duration-700 ${currentBanner === 1 ? 'opacity-100' : 'opacity-0'}`}>
+        {/* Banner 2 - 실제 매장 사진 */}
+        <div className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${currentBanner === 1 ? 'opacity-100' : 'opacity-0'}`}>
           <Image
-            src="/landing/banner3.png"
-            alt="세모폰 배너 3"
+            src="/images/semophone_store_banner/banner-real-2.jpg"
+            alt="세모폰 매장 2"
             fill
             className="object-cover object-center"
             loading="lazy"
             sizes="100vw"
-            quality={85}
+            quality={90}
           />
         </div>
       </div>
