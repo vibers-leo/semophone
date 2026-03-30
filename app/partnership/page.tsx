@@ -251,20 +251,6 @@ export default function PartnershipPage() {
                     </label>
                   </div>
 
-                  {/* SMS 수신동의 */}
-                  <div className="flex items-start gap-2">
-                    <input
-                      type="checkbox"
-                      id="smsAgreed"
-                      checked={formData.smsAgreed}
-                      onChange={(e) => setFormData({ ...formData, smsAgreed: e.target.checked })}
-                      className="mt-1 w-4 h-4"
-                    />
-                    <label htmlFor="smsAgreed" className="text-sm text-gray-700">
-                      SMS 수신동의
-                    </label>
-                  </div>
-
                   {/* 제출 버튼 */}
                   <button
                     type="submit"
