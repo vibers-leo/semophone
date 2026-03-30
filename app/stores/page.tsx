@@ -742,21 +742,13 @@ export default function StoresPage() {
             >
               <div className="bg-white rounded-xl shadow-md overflow-hidden border-2 border-gray-100 hover:border-[#F2C811] hover:shadow-brand-card transition-all duration-300"
             >
-              {/* 카드 헤더 - 매장 이미지 or 로고 배경 */}
-              <div className="relative h-32 bg-gradient-to-br from-[#F2C811] to-[#D4AD00] flex items-center justify-center overflow-hidden">
-                {store.images && store.images[0] ? (
-                  <img
-                    src={store.images[0]}
-                    alt={store.name}
-                    className="w-full h-full object-cover"
-                  />
-                ) : (
-                  <img
-                    src="/images/logo/기본로고.png"
-                    alt="세모폰"
-                    className="h-16 w-16 object-contain opacity-90"
-                  />
-                )}
+              {/* 카드 헤더 - 로고 배경 */}
+              <div className="relative h-32 bg-gradient-to-br from-[#F2C811] to-[#D4AD00] flex items-center justify-center">
+                <img
+                  src="/images/logo/기본로고.png"
+                  alt="세모폰"
+                  className="h-16 w-16 object-contain opacity-90"
+                />
                 {/* 거리 배지 */}
                 {store.distance !== undefined && (
                   <div className="absolute top-3 right-3 bg-black/80 text-[#F2C811] px-3 py-1 rounded-full text-sm font-bold backdrop-blur-sm">
