@@ -54,8 +54,8 @@ export default function SimplifiedHero() {
 
         {/* 그라데이션 — 0~40% 흰색, 40~60% 자연스러운 페이드 */}
         <div
-          className="absolute inset-y-0 left-0 w-[50%] pointer-events-none"
-          style={{ background: 'linear-gradient(to right, white 0%, white 80%, transparent 100%)' }}
+          className="absolute inset-y-0 left-0 w-[55%] pointer-events-none"
+          style={{ background: 'linear-gradient(to right, white 0%, white 87%, transparent 100%)' }}
         />
 
         {/* 타이틀 영역 — 세로 가운데 정렬 */}
