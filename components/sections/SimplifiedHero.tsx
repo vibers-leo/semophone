@@ -30,8 +30,8 @@ export default function SimplifiedHero() {
         className="hidden md:block relative w-full overflow-hidden mt-[72px]"
         style={{ height: '80vh' }}
       >
-        {/* 이미지 — 오른쪽 55% (45vw~100vw), 세로 잘림 허용 */}
-        <div className="absolute right-0 top-0 bottom-0 w-[55%]">
+        {/* 이미지 — 오른쪽 58% (42vw~100vw), 세로 잘림 허용 */}
+        <div className="absolute right-0 top-0 bottom-0 w-[58%]">
           {bannerImages.map((image, index) => (
             <div
               key={index}
@@ -52,9 +52,9 @@ export default function SimplifiedHero() {
           ))}
         </div>
 
-        {/* 그라데이션 — 0~44vw 흰색, 44~55vw 자연 페이드 */}
+        {/* 그라데이션 — 0~42vw 흰색, 42~52vw 자연 페이드 (이미지 왼쪽 라인 커버) */}
         <div
-          className="absolute inset-y-0 left-0 w-[55%] pointer-events-none"
+          className="absolute inset-y-0 left-0 w-[52%] pointer-events-none"
           style={{ background: 'linear-gradient(to right, white 0%, white 80%, transparent 100%)' }}
         />
 
