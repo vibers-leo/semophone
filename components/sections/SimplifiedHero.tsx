@@ -30,8 +30,8 @@ export default function SimplifiedHero() {
         className="hidden md:block relative w-full overflow-hidden mt-[72px]"
         style={{ height: '80vh' }}
       >
-        {/* 이미지 — 오른쪽 60% 영역에 꽉참, 세로 잘림 없음 */}
-        <div className="absolute right-0 top-0 bottom-0 w-[65%]">
+        {/* 이미지 — 오른쪽 55% (45vw~100vw), 세로 잘림 허용 */}
+        <div className="absolute right-0 top-0 bottom-0 w-[55%]">
           {bannerImages.map((image, index) => (
             <div
               key={index}
@@ -42,8 +42,8 @@ export default function SimplifiedHero() {
                 src={image}
                 alt="세모폰 매장"
                 fill
-                className="object-contain object-right"
-                sizes="60vw"
+                className="object-cover object-center"
+                sizes="55vw"
                 quality={90}
                 loading={index === 0 ? 'eager' : 'lazy'}
                 priority={index === 0}
@@ -52,24 +52,20 @@ export default function SimplifiedHero() {
           ))}
         </div>
 
-        {/* 그라데이션 — 0~40% 흰색, 40~60% 자연스러운 페이드 */}
+        {/* 그라데이션 — 0~44vw 흰색, 44~55vw 자연 페이드 */}
         <div
           className="absolute inset-y-0 left-0 w-[55%] pointer-events-none"
-          style={{ background: 'linear-gradient(to right, white 0%, white 87%, transparent 100%)' }}
+          style={{ background: 'linear-gradient(to right, white 0%, white 80%, transparent 100%)' }}
         />
 
         {/* 타이틀 영역 — 세로 가운데 정렬 */}
         <div className="relative z-10 h-full flex items-center pl-[8%] lg:pl-[12%] pr-8 lg:pr-16">
           <div className="max-w-xl">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-4 lg:mb-6">
-              세모폰
-            </h1>
-
-            <p className="text-xl md:text-2xl lg:text-4xl font-bold text-gray-900 mb-3 lg:mb-4">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 lg:mb-5">
               세상의 모든 휴대폰 가격을
               <br />
               <span className="text-brand">혁신합니다</span>
-            </p>
+            </h1>
 
             <p className="text-sm md:text-base lg:text-xl text-gray-700 mb-8 lg:mb-12">
               전국 50개 직영매장에서<br />
