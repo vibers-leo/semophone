@@ -22,8 +22,7 @@ export default function MinimalCTA() {
 
           {/* 부제목 */}
           <p className="text-xl md:text-xl lg:text-2xl text-gray-600 mb-12 leading-relaxed">
-            숨은 비용 없이 투명하게, 정직하게<br className="hidden sm:block" />
-            세모폰의 약속입니다
+            전문적인 고객맞춤 컨설팅을 제공합니다
           </p>
 
           {/* CTA 버튼 */}
@@ -35,7 +34,7 @@ export default function MinimalCTA() {
               onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#FDD835'}
               onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#FEE500'}
             >
-              가까운 성지 찾기
+              가까운 매장 찾기
               <svg className="ml-2 w-5 h-5 md:w-5.5 md:h-5.5 lg:w-6 lg:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
@@ -46,39 +45,27 @@ export default function MinimalCTA() {
           <div className="mt-16 pt-16 border-t border-gray-200">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-7 lg:gap-8">
               {[
-                { icon: '/icons/보안.png', text: '정품 보증' },
-                { icon: '/icons/ok.png', text: '투명한 가격' },
-                { icon: '/icons/채팅, 고객센터.png', text: '전문 상담' },
-                { icon: '/icons/하트.png', text: '365일 케어' },
+                { icon: '/icons/채팅, 고객센터.png', text: '고객 맞춤 상담' },
+                { icon: '/icons/보안.png', text: '안심보험 1억원 가입' },
+                { icon: '/icons/ok.png', text: '전매장 개인정보\n교육 이수완료' },
+                { icon: '/icons/시계.png', text: '365일 연중무휴' },
               ].map((badge, i) => (
                 <div key={i} className="flex flex-col items-center gap-3">
-                  <div className="w-10 h-10 md:w-11 md:h-11 lg:w-12 lg:h-12 relative">
+                  <div className="w-14 h-14 md:w-16 md:h-16 lg:w-18 lg:h-18 relative">
                     <Image
                       src={badge.icon}
                       alt={badge.text}
-                      width={48}
-                      height={48}
+                      width={72}
+                      height={72}
                       className="object-contain"
                     />
                   </div>
-                  <span className="text-xs md:text-sm lg:text-sm font-semibold text-gray-700">{badge.text}</span>
+                  <span className="text-sm md:text-base lg:text-base font-bold text-gray-800 whitespace-pre-line text-center leading-snug">{badge.text}</span>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* 배너 이미지 */}
-          <div className="mt-16">
-            <div className="relative w-full max-w-4xl mx-auto overflow-hidden rounded-3xl shadow-xl">
-              <Image
-                src="/images/contact-banner.jpg"
-                alt="세모폰 문의하기"
-                width={1200}
-                height={400}
-                className="w-full h-auto"
-              />
-            </div>
-          </div>
         </motion.div>
       </div>
     </section>
