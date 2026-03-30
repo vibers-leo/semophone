@@ -77,11 +77,11 @@ export default function NaverMap({
     const naver = window.naver;
     const center = userLocation
       ? new naver.maps.LatLng(userLocation.lat, userLocation.lng)
-      : new naver.maps.LatLng(37.5665, 126.9780); // 서울 시청 기본 좌표
+      : new naver.maps.LatLng(37.480, 126.840); // 수도권 전체 커버리지 중심
 
     const mapOptions = {
       center: center,
-      zoom: userLocation ? 13 : 11,
+      zoom: userLocation ? 13 : 10,
       zoomControl: true,
       zoomControlOptions: {
         position: naver.maps.Position.TOP_RIGHT,
