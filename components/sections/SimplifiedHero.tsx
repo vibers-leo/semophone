@@ -25,13 +25,13 @@ export default function SimplifiedHero() {
 
   return (
     <>
-      {/* PC / 태블릿 버전 — 70vh, 텍스트 없음 */}
+      {/* PC / 태블릿 버전 — 70vh, 이미지 오른쪽 60% + 왼쪽 텍스트 */}
       <section
         className="hidden md:block relative w-full overflow-hidden mt-[72px]"
         style={{ height: '70vh' }}
       >
-        {/* 배경 이미지 슬라이드쇼 */}
-        <div className="absolute inset-0">
+        {/* 이미지 — 오른쪽 60% 영역에 꽉참, 세로 잘림 없음 */}
+        <div className="absolute right-0 top-0 bottom-0 w-[60%]">
           {bannerImages.map((image, index) => (
             <div
               key={index}
@@ -42,14 +42,48 @@ export default function SimplifiedHero() {
                 src={image}
                 alt="세모폰 매장"
                 fill
-                className="object-cover object-center"
-                sizes="100vw"
+                className="object-contain object-right"
+                sizes="60vw"
                 quality={90}
                 loading={index === 0 ? 'eager' : 'lazy'}
                 priority={index === 0}
               />
             </div>
           ))}
+        </div>
+
+        {/* 왼쪽 그라데이션 오버레이 — 40%까지 */}
+        <div className="absolute inset-y-0 left-0 w-[50%] bg-gradient-to-r from-white via-white/95 to-transparent pointer-events-none" />
+
+        {/* 타이틀 영역 — 세로 가운데 정렬 */}
+        <div className="relative z-10 h-full flex items-center pl-[8%] lg:pl-[12%] pr-8 lg:pr-16">
+          <div className="max-w-xl">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-4 lg:mb-6">
+              세모폰
+            </h1>
+
+            <p className="text-xl md:text-2xl lg:text-4xl font-bold text-gray-900 mb-3 lg:mb-4">
+              세상의 모든 휴대폰 가격을
+              <br />
+              <span className="text-brand">혁신합니다</span>
+            </p>
+
+            <p className="text-sm md:text-base lg:text-xl text-gray-700 mb-8 lg:mb-12">
+              전국 50개 직영매장에서<br />
+              온라인에 없는 가격을 경험하세요
+            </p>
+
+            <div className="flex gap-4 items-center">
+              <Link href="/about">
+                <button
+                  style={{ backgroundColor: '#FEE500' }}
+                  className="px-6 md:px-8 py-3 md:py-4 text-gray-900 font-bold text-base md:text-lg rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all"
+                >
+                  세모폰 소개
+                </button>
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
