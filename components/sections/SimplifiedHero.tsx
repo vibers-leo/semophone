@@ -88,6 +88,7 @@ export default function SimplifiedHero() {
 
       {/* 모바일 버전 */}
       <section className="md:hidden relative w-full overflow-hidden mt-[56px]" style={{ minHeight: '85dvh' }}>
+        {/* 배경 이미지 — 전체 꽉참 */}
         <div className="absolute inset-0">
           {bannerImages.map((image, index) => (
             <div
@@ -100,36 +101,40 @@ export default function SimplifiedHero() {
                 alt="세모폰 매장"
                 fill
                 className="object-cover"
-                style={{ objectPosition: 'center 58%' }}
+                style={{ objectPosition: 'center center' }}
                 sizes="100vw"
-                quality={75}
+                quality={80}
                 loading={index === 0 ? 'eager' : 'lazy'}
                 priority={index === 0}
               />
             </div>
           ))}
-          <div className="absolute inset-x-0 top-0 h-[50%] bg-gradient-to-b from-white via-white/95 to-transparent" />
-          <div className="absolute inset-x-0 bottom-0 h-[35%] bg-gradient-to-t from-white via-white/95 to-transparent" />
+          {/* 상단 텍스트 가독성용 그라데이션만 (얇게) */}
+          <div className="absolute inset-x-0 top-0 h-[30%] bg-gradient-to-b from-black/50 to-transparent" />
+          {/* 하단 CTA 가독성용 */}
+          <div className="absolute inset-x-0 bottom-0 h-[28%] bg-gradient-to-t from-black/60 to-transparent" />
         </div>
 
-        <div className="relative z-10 h-full flex flex-col items-center px-8 py-8 text-center">
-          <div className="pt-4 flex-shrink-0">
-            <h1 className="text-4xl font-black text-gray-900 mb-3">세모폰</h1>
-            <p className="text-2xl font-bold text-gray-900 mb-2">
+        <div className="relative z-10 min-h-[85dvh] flex flex-col px-6 py-6 text-center">
+          {/* 상단 텍스트 */}
+          <div className="pt-2">
+            <h1 className="text-3xl font-black text-white drop-shadow-lg mb-2">세모폰</h1>
+            <p className="text-lg font-bold text-white drop-shadow-md" style={{ wordBreak: 'keep-all' }}>
               세상의 모든 휴대폰 가격을
               <br />
               <span className="text-brand">혁신합니다</span>
             </p>
-            <p className="text-sm text-gray-600">
-              전국 50개 직영매장에서 온라인에 없는 가격을 경험하세요
-            </p>
           </div>
           <div className="flex-grow" />
-          <div className="w-full max-w-sm pb-12 mt-6 flex-shrink-0">
+          {/* 하단 CTA */}
+          <div className="w-full max-w-sm mx-auto pb-10">
+            <p className="text-sm text-white/90 drop-shadow mb-4">
+              전국 50개 직영매장에서 온라인에 없는 가격을 경험하세요
+            </p>
             <Link href="/about" className="w-full">
               <button
                 style={{ backgroundColor: '#FEE500' }}
-                className="w-full px-6 py-3.5 text-gray-900 font-bold text-base rounded-full shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
+                className="w-full px-6 py-4 text-gray-900 font-black text-base rounded-full shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
               >
                 세모폰 소개
               </button>
