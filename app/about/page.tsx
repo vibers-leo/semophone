@@ -76,11 +76,11 @@ export default function AboutPage() {
                       </div>
 
                       <div className="flex flex-col select-none mt-auto">
-                        <div className="flex flex-col font-black tracking-tighter" style={{ fontFamily: "'Pretendard', sans-serif" }}>
+                        <div className="flex flex-col font-black tracking-tighter text-left" style={{ fontFamily: "'Pretendard', sans-serif" }}>
                           <span className="text-gray-900 text-4xl sm:text-[2.5rem] leading-none mb-2">SMART</span>
-                          <span className="text-gray-400 text-3xl sm:text-[2rem] leading-none mb-2 translate-x-4">EVERYDAY</span>
+                          <span className="text-gray-400 text-3xl sm:text-[2rem] leading-none mb-2">EVERYDAY</span>
                           <span className="text-gray-900 text-4xl sm:text-[2.2rem] leading-none mb-2">MOBILESHOP</span>
-                          <span className="text-gray-400 text-3xl sm:text-[2rem] leading-none translate-x-4">ONE.</span>
+                          <span className="text-gray-400 text-3xl sm:text-[2rem] leading-none">ONE.</span>
                         </div>
                         <div className="mt-8 flex items-center justify-between">
                           <div className="flex items-center gap-3">
