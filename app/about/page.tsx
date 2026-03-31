@@ -36,32 +36,66 @@ export default function AboutPage() {
           <div className="max-w-6xl mx-auto">
             <div className="bg-white rounded-3xl p-8 md:p-12">
               <div className="flex flex-col md:flex-row items-start gap-12">
-                {/* CEO 사진 */}
-                <div className="flex-shrink-0 w-full md:w-80">
-                  <div className="aspect-[3/4] bg-[#FEE500] rounded-2xl overflow-hidden flex flex-col items-center justify-center gap-1 select-none" style={{ border: '3px solid #111' }}>
-                    {/* 세모폰 삼각 로고 — 1/3 크기 */}
-                    <Image
-                      src="/images/logo/기본로고.png"
-                      alt="세모폰"
-                      width={90}
-                      height={90}
-                      className="object-contain mb-2"
+                {/* 브랜드 모티프/슬로건 */}
+                <div className="flex-shrink-0 w-full md:w-80 group">
+                  <div 
+                    className="aspect-[3/4] bg-white rounded-3xl overflow-hidden flex flex-col relative border border-gray-200 shadow-sm transition-shadow duration-500 hover:shadow-xl"
+                  >
+                    {/* 격자 배경 (절대위치) */}
+                    <div 
+                      className="absolute inset-0 opacity-40 mix-blend-multiply"
+                      style={{
+                        backgroundImage: `
+                          linear-gradient(to right, #9CA3AF 1px, transparent 1px),
+                          linear-gradient(to bottom, #9CA3AF 1px, transparent 1px)
+                        `,
+                        backgroundSize: '24px 24px',
+                        backgroundPosition: 'center center'
+                      }}
                     />
-                    {/* Smart Everyday Mobileshop One 세로 배열 */}
-                    <div className="flex flex-col items-center leading-none" style={{ fontFamily: "'Pretendard', sans-serif" }}>
-                      {['Smart', 'Everyday', 'Mobileshop', 'One'].map((word) => (
-                        <span
-                          key={word}
-                          className="text-[#111] font-black uppercase tracking-wider"
-                          style={{
-                            fontSize: word === 'Mobileshop' ? '0.9rem' : '1.05rem',
-                            WebkitTextStroke: '0.5px #111',
-                            lineHeight: 1.3,
-                          }}
-                        >
-                          {word}
-                        </span>
-                      ))}
+
+                    {/* 은은한 그라데이션 오버레이 */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/80 via-white/40 to-transparent z-0" />
+
+                    {/* 컨텐츠 래퍼 */}
+                    <div className="p-8 md:p-10 flex flex-col h-full z-10 relative">
+                      <div className="mb-auto flex justify-between items-start">
+                        <div className="bg-white/80 backdrop-blur-sm p-3.5 rounded-2xl shadow-sm border border-gray-100/50 transition-transform duration-500 group-hover:scale-110">
+                          <Image
+                            src="/images/logo/기본로고.png"
+                            alt="세모폰"
+                            width={42}
+                            height={42}
+                            className="object-contain"
+                          />
+                        </div>
+                        <div className="flex flex-col items-end">
+                          <span className="text-[10px] font-mono text-gray-400 tracking-widest uppercase">Brand</span>
+                          <span className="text-[10px] font-mono text-gray-400 tracking-widest uppercase">Identity</span>
+                        </div>
+                      </div>
+
+                      <div className="flex flex-col select-none mt-auto">
+                        <div className="flex flex-col font-black tracking-tighter" style={{ fontFamily: "'Pretendard', sans-serif" }}>
+                          <span className="text-gray-900 text-4xl sm:text-[2.5rem] leading-none mb-2">SMART</span>
+                          <span className="text-gray-400 text-3xl sm:text-[2rem] leading-none mb-2 translate-x-4">EVERYDAY</span>
+                          <span className="text-gray-900 text-4xl sm:text-[2.2rem] leading-none mb-2">MOBILESHOP</span>
+                          <span className="text-gray-400 text-3xl sm:text-[2rem] leading-none translate-x-4">ONE.</span>
+                        </div>
+                        <div className="mt-8 flex items-center justify-between">
+                          <div className="flex items-center gap-3">
+                            <div className="w-12 h-[3px] bg-gray-900 rounded-full"></div>
+                            <span className="text-xs font-bold text-gray-900 tracking-widest uppercase">Since 2012</span>
+                          </div>
+                          
+                          {/* 장식용 화살표 */}
+                          <div className="w-8 h-8 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 transition-colors duration-300 group-hover:bg-gray-900 group-hover:text-white group-hover:border-gray-900">
+                            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

@@ -1,6 +1,9 @@
 ## 전략 문서 (개발 전 반드시 숙지)
 - **전략 진단 리포트**: `data/STRATEGY_ANALYSIS.md`
 - **PM 공통 지침**: 맥미니 루트 `pm.md`
+- **gstack 빌더 철학**: 맥미니 루트 `gstack.md` — Boil the Lake, Search Before Building, 스프린트 프로세스
+- **개발 프로세스**: Think → Plan → Build → Review → Test → Ship → Reflect
+- **핵심 규칙**: 테스트 동시 작성, 새 패턴 도입 전 검색, 압축률 기반 추정
 
 ### 전략 핵심 요약
 - 리스크: 🔴 가장 높음 — 사업 모델 검증 전무 (기술만 완성)
@@ -267,3 +270,28 @@ const banner = await generateAIImage(
 ## 상위 브랜드
 - 회사: 계발자들 (Vibers)
 - 모노레포: /Users/juuuno/Desktop/macminim4/dev/nextjs
+
+
+## 세션로그 기록 (필수)
+- 모든 개발 대화의 주요 내용을 `session-logs/` 폴더에 기록할 것
+- 파일명: `YYYY-MM-DD_한글제목.md` / 내용: 한글
+- 세션 종료 시, 마일스톤 달성 시, **컨텍스트 압축 전**에 반드시 저장
+- 상세 포맷은 상위 CLAUDE.md 참조
+
+---
+
+## 파일 스토리지 — NCP Object Storage ⚠️
+
+> **`lib/ncp-storage.ts` 직접 수정 금지. 레거시 파일임.**
+> **환경변수 변경**: `NCP_STORAGE_ACCESS_KEY` → `NCP_ACCESS_KEY` / `NCP_STORAGE_SECRET_KEY` → `NCP_SECRET_KEY` / `NCP_STORAGE_BUCKET` → `NCP_BUCKET_NAME=wero-bucket`
+
+- 버킷: `wero-bucket`
+- 전체 가이드: `packages/storage/NCP_STORAGE_GUIDE.md`
+
+```ts
+// 이력서 업로드 (기존 코드 그대로 사용 가능):
+import { uploadResumeToNCP } from '../lib/ncp-storage';
+
+// 새 기능에서는 @vibers/storage 직접 사용:
+import { uploadBuffer } from '@vibers/storage/server';
+```

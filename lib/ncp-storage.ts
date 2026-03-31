@@ -1,57 +1,24 @@
 /**
- * NCP Object Storage 업로드 유틸
- * S3 호환 API 사용 — @aws-sdk/client-s3
+ * ⚠️ 이 파일은 @vibers/storage 패키지로 통합되었습니다 (2026-03-31)
  *
- * 필요 환경변수:
- *   NCP_STORAGE_ACCESS_KEY   — NCP 콘솔 > 인증키 관리
- *   NCP_STORAGE_SECRET_KEY
- *   NCP_STORAGE_BUCKET       — 버킷 이름 (예: semophone-resumes)
- *   NCP_STORAGE_ENDPOINT     — 기본값: https://kr.object.ncloudstorage.com
+ * 직접 수정하지 마세요. packages/storage/src/server.ts 를 수정하세요.
+ * 환경변수 변경: NCP_STORAGE_ACCESS_KEY → NCP_ACCESS_KEY
+ *               NCP_STORAGE_SECRET_KEY → NCP_SECRET_KEY
+ *               NCP_STORAGE_BUCKET    → NCP_BUCKET_NAME=wero-bucket
  */
 
-import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3';
-
-function getClient() {
-  const endpoint = process.env.NCP_STORAGE_ENDPOINT || 'https://kr.object.ncloudstorage.com';
-  return new S3Client({
-    region: 'kr-standard',
-    endpoint,
-    credentials: {
-      accessKeyId: process.env.NCP_STORAGE_ACCESS_KEY!,
-      secretAccessKey: process.env.NCP_STORAGE_SECRET_KEY!,
-    },
-    forcePathStyle: true, // NCP 필수
-  });
-}
+import { uploadBuffer, deleteFile } from '@vibers/storage/server';
+import { v4 as uuidv4 } from 'uuid';
 
 /**
  * 이력서 파일을 NCP Object Storage에 업로드
- * @param fileBuffer  파일 바이트
- * @param fileName    저장할 파일명 (e.g. "1234567890_홍길동.pdf")
- * @param mimeType    MIME 타입
- * @returns 퍼블릭 다운로드 URL
+ * (기존 인터페이스 유지)
  */
 export async function uploadResumeToNCP(
   fileBuffer: Buffer,
   fileName: string,
-  mimeType: string,
+  mimeType: string
 ): Promise<string> {
-  const bucket = process.env.NCP_STORAGE_BUCKET;
-  if (!bucket || !process.env.NCP_STORAGE_ACCESS_KEY || !process.env.NCP_STORAGE_SECRET_KEY) {
-    throw new Error('NCP 스토리지 환경변수가 설정되지 않았습니다.');
-  }
-
-  const key = `resumes/${fileName}`;
-  const client = getClient();
-
-  await client.send(new PutObjectCommand({
-    Bucket: bucket,
-    Key: key,
-    Body: fileBuffer,
-    ContentType: mimeType,
-    ACL: 'public-read', // 이메일 링크에서 바로 다운로드 가능하게
-  }));
-
-  const endpoint = process.env.NCP_STORAGE_ENDPOINT || 'https://kr.object.ncloudstorage.com';
-  return `${endpoint}/${bucket}/${key}`;
+  const key = `semophone/resumes/${fileName}`;
+  return uploadBuffer(fileBuffer, key, mimeType);
 }
