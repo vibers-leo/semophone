@@ -55,7 +55,7 @@ export async function POST(req: Request) {
       type,
       resumeUrl: resumeUrl || '',
       resumeFileName: resumeFileName || '',
-      ncpResumeUrl,
+      ncpResumeUrl: '',
     };
 
     // Firestore에 문의 저장
