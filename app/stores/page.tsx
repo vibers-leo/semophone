@@ -172,7 +172,7 @@ export default function StoresPage() {
               <div className="flex-1">
                 <h1 className="text-3xl md:text-4xl font-black text-gray-900 mb-2">매장 찾기</h1>
                 <p className="text-base md:text-lg text-gray-600">
-                  전국 40개 세모폰 매장을 찾아보세요
+                  전국 50개 이상의 세모폰 매장을 찾아보세요
                 </p>
               </div>
             </div>
