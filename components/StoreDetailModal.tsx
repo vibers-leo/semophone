@@ -90,10 +90,10 @@ export default function StoreDetailModal({ store, isOpen, onClose }: StoreDetail
             exit={{ y: '100%' }}
             transition={{ type: 'spring', damping: 30, stiffness: 300 }}
           >
-        {/* 닫기 버튼 */}
+        {/* 닫기 버튼 — 이미지 영역 위에 고정 (lg: 왼쪽 55% 안) */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-full bg-black/50 hover:bg-black/70 transition-colors z-20 backdrop-blur-sm"
+          className="absolute top-4 right-4 lg:right-[46%] w-10 h-10 flex items-center justify-center rounded-full bg-black/50 hover:bg-black/70 transition-colors z-20 backdrop-blur-sm"
           aria-label="닫기"
         >
           <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">

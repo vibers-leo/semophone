@@ -740,7 +740,7 @@ export default function StoresPage() {
                 window.open(`https://map.naver.com/v5/search/${encodeURIComponent(store.address)}`, '_blank');
               }}
             >
-              <div className="bg-white rounded-xl shadow-md overflow-hidden border-2 border-gray-100 hover:border-[#F2C811] hover:shadow-brand-card transition-all duration-300"
+              <div className="bg-white rounded-xl shadow-md overflow-hidden border-2 border-gray-100 hover:border-[#F2C811] hover:shadow-brand-card transition-all duration-300 flex flex-col"
             >
               {/* 카드 헤더 - 로고 배경 */}
               <div className="relative h-32 bg-gradient-to-br from-[#F2C811] to-[#D4AD00] flex items-center justify-center">
@@ -764,9 +764,9 @@ export default function StoresPage() {
               </div>
 
               {/* 카드 내용 */}
-              <div className="p-6">
+              <div className="p-4 md:p-6 flex flex-col flex-1">
                 {/* 매장명 */}
-                <div className="flex items-center gap-2 mb-4">
+                <div className="flex items-center gap-2 mb-3">
                   <div className="flex-shrink-0 w-8 h-8 bg-brand/10 rounded-lg flex items-center justify-center">
                     <Image
                       src="/icons/건물.png"
@@ -776,35 +776,37 @@ export default function StoresPage() {
                       className="w-5 h-5 object-contain"
                     />
                   </div>
-                  <h3 className="text-lg md:text-xl font-black text-gray-900 line-clamp-2 group-hover:text-brand transition-colors">
+                  <h3 className="text-base md:text-lg font-black text-gray-900 line-clamp-2 group-hover:text-brand transition-colors">
                     {store.name}
                   </h3>
                 </div>
 
                 {/* 주소 */}
-                <div className="mb-3 bg-gray-50 p-3 rounded-xl">
+                <div className="mb-2 bg-gray-50 p-3 rounded-xl">
                   <p className="text-xs text-gray-500 mb-1 font-semibold">주소</p>
                   <p className="text-sm text-gray-900 leading-relaxed line-clamp-2">{store.address}</p>
                 </div>
 
                 {/* 전화번호 */}
-                <div className="mb-5 bg-gray-50 p-3 rounded-xl">
+                <div className="mb-3 bg-gray-50 p-3 rounded-xl">
                   <p className="text-xs text-gray-500 mb-1 font-semibold">연락처</p>
                   <p className="text-sm text-gray-900 font-bold">{store.phone}</p>
                 </div>
 
-                {/* 액션 버튼 */}
-                <StoreActionButtons
-                  store={store}
-                  variant="compact"
-                  onStoreInfoClick={() => openStoreDetail(store)}
-                />
-
                 {/* 지역 태그 */}
-                <div className="mt-4 pt-4 border-t border-gray-200">
+                <div className="mb-3">
                   <span className="inline-block bg-gradient-to-r from-brand/10 to-brand/5 px-3 py-1.5 rounded-full text-xs font-bold text-gray-800">
                     {store.region}
                   </span>
+                </div>
+
+                {/* 액션 버튼 — 하단 고정 */}
+                <div className="mt-auto pt-3 border-t border-gray-200">
+                  <StoreActionButtons
+                    store={store}
+                    variant="compact"
+                    onStoreInfoClick={() => openStoreDetail(store)}
+                  />
                 </div>
               </div>
               </div>
