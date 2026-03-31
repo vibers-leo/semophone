@@ -52,10 +52,10 @@ export default function CareersPage() {
       <main id="main-content" style={{ isolation: 'isolate', position: 'relative', zIndex: 0 }}>
 
         {/* S1: Hero */}
-        <section className="bg-white pt-[100px] md:pt-[120px] pb-12 px-6">
+        <section className="bg-white pt-[100px] md:pt-[120px] pb-16 px-6">
           <div className="max-w-6xl mx-auto">
             {/* 아이콘 + 타이틀 (about/history 패턴) */}
-            <div className="flex items-start gap-4 mb-10">
+            <div className="flex items-start gap-4">
               <Image
                 src="/icons/사람들2.png"
                 alt="채용정보"
@@ -70,24 +70,6 @@ export default function CareersPage() {
                   함께 성장할 동료를 찾습니다
                 </p>
               </div>
-            </div>
-
-            {/* 핵심 수치 3개 */}
-            <div className="grid grid-cols-3 gap-3 md:gap-4">
-              {[
-                { num: '10년+', label: '안정적인 업력', sub: '2017년 창업, 꾸준한 성장' },
-                { num: '50개', label: '수도권 직영매장', sub: '서울 · 경기 · 인천' },
-                { num: '70%', label: '7년 이상 장기근속', sub: '매장 직원 100명 기준' },
-              ].map((item) => (
-                <div
-                  key={item.num}
-                  className="rounded-2xl px-4 md:px-6 py-4 md:py-5 bg-gray-50 border border-gray-100"
-                >
-                  <p className="text-2xl md:text-3xl font-black text-gray-900">{item.num}</p>
-                  <p className="text-gray-900 font-bold text-xs md:text-sm mt-1">{item.label}</p>
-                  <p className="text-gray-400 text-xs mt-0.5 hidden sm:block">{item.sub}</p>
-                </div>
-              ))}
             </div>
           </div>
         </section>
@@ -158,6 +140,28 @@ export default function CareersPage() {
           </div>
         </section>
 
+        {/* S2.5: 핵심 수치 3개 */}
+        <section className="bg-white py-14 md:py-20 px-6">
+          <div className="max-w-4xl mx-auto">
+            <div className="grid grid-cols-3 gap-4 md:gap-6">
+              {[
+                { num: '10년+', label: '안정적인 업력', sub: '2017년 창업, 꾸준한 성장' },
+                { num: '50개', label: '수도권 직영매장', sub: '서울 · 경기 · 인천' },
+                { num: '70%', label: '7년 이상 장기근속', sub: '매장 직원 100명 기준' },
+              ].map((item) => (
+                <div
+                  key={item.num}
+                  className="rounded-2xl px-5 md:px-8 py-5 md:py-7 bg-gray-50 border border-gray-100"
+                >
+                  <p className="text-3xl md:text-4xl font-black text-gray-900">{item.num}</p>
+                  <p className="text-gray-900 font-bold text-sm md:text-base mt-1.5">{item.label}</p>
+                  <p className="text-gray-400 text-xs md:text-sm mt-1">{item.sub}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* S3: 핵심가치 — 다크, 글래스 카드 */}
         <section className="bg-[#09090b] py-24 md:py-32 px-6">
           <div className="max-w-4xl mx-auto">
@@ -179,27 +183,27 @@ export default function CareersPage() {
                     border: '1px solid rgba(255,255,255,0.08)',
                   }}
                 >
-                  <div className="flex items-center gap-3 md:flex-col md:items-start md:gap-3">
+                  <div className="flex items-center gap-4 md:flex-col md:items-start md:gap-4">
                     <Image
                       src={v.icon}
                       alt={v.en}
-                      width={36}
-                      height={36}
-                      className="w-8 h-8 object-contain flex-shrink-0"
+                      width={56}
+                      height={56}
+                      className="w-12 h-12 md:w-14 md:h-14 object-contain flex-shrink-0"
                     />
-                    <p className="text-xs font-bold tracking-widest uppercase" style={{ color: '#FEE500' }}>
+                    <p className="text-sm font-bold tracking-widest uppercase" style={{ color: '#FEE500' }}>
                       {v.en}
                     </p>
                   </div>
                   <div>
                     <h3
-                      className="text-lg md:text-xl font-black text-white mb-2 tracking-tight"
+                      className="text-xl md:text-2xl font-black text-white mb-3 tracking-tight"
                       style={{ wordBreak: 'keep-all' }}
                     >
                       {v.title}
                     </h3>
                     <p
-                      className="text-white/50 leading-relaxed text-sm md:text-base"
+                      className="text-white/60 leading-relaxed text-base md:text-lg"
                       style={{ wordBreak: 'keep-all' }}
                     >
                       {v.description}
@@ -289,58 +293,58 @@ export default function CareersPage() {
         {/* S7: 채용 전형절차 */}
         <section className="bg-[#09090b] py-24 md:py-32 px-6">
           <div className="max-w-4xl mx-auto">
-            <p className="text-xs font-bold tracking-[0.2em] uppercase mb-4" style={{ color: '#FEE500' }}>
+            <p className="text-sm font-bold tracking-[0.2em] uppercase mb-4" style={{ color: '#FEE500' }}>
               Process
             </p>
             <h2
-              className="text-2xl md:text-3xl font-black text-white mb-10 tracking-tight"
+              className="text-3xl md:text-4xl font-black text-white mb-12 tracking-tight"
               style={{ wordBreak: 'keep-all' }}
             >
               채용 전형절차
             </h2>
 
             {/* 지원방법 */}
-            <div className="flex gap-4 mb-10 flex-wrap">
+            <div className="flex gap-4 mb-14 flex-wrap">
               {['간편 문자 지원', '전화 지원'].map((method, i) => (
                 <div
                   key={i}
-                  className="flex items-center gap-2 rounded-full px-5 py-2.5"
+                  className="flex items-center gap-2.5 rounded-full px-6 py-3"
                   style={{ background: 'rgba(254,229,0,0.1)', border: '1px solid rgba(254,229,0,0.2)' }}
                 >
-                  <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: '#FEE500' }} />
-                  <span className="text-sm font-bold" style={{ color: '#FEE500' }}>{method}</span>
+                  <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: '#FEE500' }} />
+                  <span className="text-base font-bold" style={{ color: '#FEE500' }}>{method}</span>
                 </div>
               ))}
             </div>
 
             {/* 3단계 */}
-            <div className="flex items-center gap-3 flex-wrap">
+            <div className="flex items-center gap-5 md:gap-8 flex-wrap">
               {[
                 {
                   label: '서류전형',
-                  svg: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: '#FEE500' }}><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" /></svg>
+                  svg: <svg className="w-9 h-9" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: '#FEE500' }}><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" /></svg>
                 },
                 {
                   label: '1차 면접',
-                  svg: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: '#FEE500' }}><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" /></svg>
+                  svg: <svg className="w-9 h-9" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: '#FEE500' }}><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" /></svg>
                 },
                 {
                   label: '최종 합격',
-                  svg: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: '#FEE500' }}><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" /></svg>
+                  svg: <svg className="w-9 h-9" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: '#FEE500' }}><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" /></svg>
                 },
               ].map((step, i) => (
-                <div key={step.label} className="flex items-center gap-3">
-                  <div className="flex flex-col items-center gap-2.5">
+                <div key={step.label} className="flex items-center gap-5 md:gap-8">
+                  <div className="flex flex-col items-center gap-3.5">
                     <div
-                      className="w-14 h-14 rounded-2xl flex items-center justify-center"
+                      className="w-20 h-20 rounded-2xl flex items-center justify-center"
                       style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}
                     >
                       {step.svg}
                     </div>
-                    <span className="text-xs font-bold text-white/60">{step.label}</span>
+                    <span className="text-sm md:text-base font-bold text-white/70">{step.label}</span>
                   </div>
                   {i < 2 && (
-                    <svg className="w-4 h-4 mb-5 flex-shrink-0 text-white/20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-5 h-5 mb-7 flex-shrink-0 text-white/20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
                   )}
@@ -348,7 +352,7 @@ export default function CareersPage() {
               ))}
             </div>
 
-            <p className="mt-8 text-xs text-white/30">
+            <p className="mt-10 text-sm text-white/30">
               지원서는 접수 후 검토하여 개별 연락드립니다.
             </p>
           </div>
