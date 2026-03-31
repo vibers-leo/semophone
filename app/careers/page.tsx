@@ -89,7 +89,7 @@ export default function CareersPage() {
             {/* 강조 배지 — 중앙 */}
             <div className="text-center mb-12">
               <span
-                className="inline-block px-5 py-2.5 rounded-full text-sm font-bold text-gray-900"
+                className="inline-block px-6 py-3 rounded-full text-base md:text-lg font-black text-gray-900"
                 style={{ backgroundColor: '#FEE500' }}
               >
                 매장 직원 100명 중 70명이 7년 이상 근무하는 이유

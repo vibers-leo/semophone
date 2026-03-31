@@ -1,7 +1,6 @@
 import { NextResponse } from 'next/server';
 import { sendContactNotification, ContactInquiry } from '@/lib/email';
 import { sendContactNotificationSMS } from '@/lib/ppurio';
-import { uploadResumeToNCP } from '@/lib/ncp-storage';
 import admin from 'firebase-admin';
 
 // Firebase Admin 초기화
@@ -45,26 +44,6 @@ export async function POST(req: Request) {
         { success: false, error: '올바른 이메일 형식이 아닙니다.' },
         { status: 400 }
       );
-    }
-
-    // NCP Object Storage 백업 업로드 (이력서가 있는 경우)
-    let ncpResumeUrl = '';
-    if (resumeUrl && resumeFileName) {
-      try {
-        const fileRes = await fetch(resumeUrl);
-        if (fileRes.ok) {
-          const arrayBuffer = await fileRes.arrayBuffer();
-          const buffer = Buffer.from(arrayBuffer);
-          const mimeType = fileRes.headers.get('content-type') || 'application/octet-stream';
-          const timestamp = Date.now();
-          const safeName = (name || 'applicant').replace(/[^a-zA-Z0-9가-힣]/g, '_');
-          const ext = resumeFileName.split('.').pop() || 'pdf';
-          ncpResumeUrl = await uploadResumeToNCP(buffer, `${timestamp}_${safeName}.${ext}`, mimeType);
-          console.log('✅ NCP 이력서 업로드 완료:', ncpResumeUrl);
-        }
-      } catch (e) {
-        console.error('⚠️ NCP 업로드 실패 (Firebase URL은 유지):', e);
-      }
     }
 
     const inquiry: ContactInquiry = {
