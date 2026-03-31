@@ -78,7 +78,7 @@ export default function StoreDetailModal({ store, isOpen, onClose }: StoreDetail
           onClick={onClose}
         >
           <motion.div
-            className="relative bg-white w-full md:max-w-xl lg:max-w-4xl md:rounded-3xl shadow-2xl max-h-[92vh] overflow-hidden rounded-t-3xl md:rounded-b-3xl z-modal"
+            className="relative bg-white w-full md:max-w-2xl lg:max-w-5xl xl:max-w-6xl md:rounded-3xl shadow-2xl max-h-[92vh] overflow-hidden rounded-t-3xl md:rounded-b-3xl z-modal"
             onClick={(e) => e.stopPropagation()}
             drag="y"
             dragConstraints={{ top: 0, bottom: 0 }}
@@ -108,7 +108,7 @@ export default function StoreDetailModal({ store, isOpen, onClose }: StoreDetail
         <div className="flex flex-col lg:flex-row lg:max-h-[85vh]">
 
           {/* 왼쪽 / 위: 이미지 갤러리 */}
-          <div className="relative w-full aspect-[4/3] lg:aspect-auto lg:w-[48%] lg:flex-shrink-0 bg-gray-100 overflow-hidden lg:rounded-tl-3xl lg:rounded-bl-3xl">
+          <div className="relative w-full aspect-[4/3] lg:aspect-auto lg:w-[55%] lg:flex-shrink-0 bg-gray-100 overflow-hidden lg:rounded-tl-3xl lg:rounded-bl-3xl">
             {/* 메인 이미지 */}
             <Image
               src={images[currentImageIndex]}
