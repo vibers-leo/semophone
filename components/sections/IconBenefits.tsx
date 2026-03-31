@@ -52,7 +52,7 @@ export default function IconBenefits() {
             왜 <span className="text-brand">세모폰</span>인가요?
           </h2>
           <p className="text-lg md:text-xl text-gray-600">
-            40개 직영 매장에서 제공하는 특별한 혜택
+            50개 이상의 직영 매장에서 제공하는 특별한 혜택
           </p>
         </motion.div>
 

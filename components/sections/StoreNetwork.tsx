@@ -45,7 +45,7 @@ export default function StoreNetwork() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 tracking-tight leading-tight" style={{ wordBreak: 'keep-all' }}>
-            전국 40개 직영 매장
+            전국 50개 이상의 직영 매장
           </h2>
           <p className="text-lg md:text-xl text-white/80">
             서울·경기·인천을 연결하는 세모폰 네트워크

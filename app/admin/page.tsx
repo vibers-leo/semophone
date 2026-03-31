@@ -28,7 +28,7 @@ export default function AdminDashboardPage() {
               </div>
               <div>
                 <p className="text-sm text-gray-600">매장 관리</p>
-                <p className="text-2xl font-bold">40개</p>
+                <p className="text-2xl font-bold">50개+</p>
               </div>
             </div>
           </div>

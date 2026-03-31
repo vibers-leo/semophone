@@ -33,7 +33,7 @@ export default function CinematicHero() {
           </p>
 
           <p className="text-lg md:text-xl text-white/90 mb-12">
-            전국 40개 직영매장에서 온라인에 없는 가격을 경험하세요
+            전국 50개 이상의 직영매장에서 온라인에 없는 가격을 경험하세요
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">

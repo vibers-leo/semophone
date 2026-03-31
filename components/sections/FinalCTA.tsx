@@ -16,7 +16,7 @@ export default function FinalCTA() {
               가까운 세모폰 매장을 찾아보세요
             </h3>
             <p className="text-sm text-gray-600 mt-1">
-              전국 40개 직영매장에서 온라인에 없는 가격 경험
+              전국 50개 이상의 직영매장에서 온라인에 없는 가격 경험
             </p>
           </div>
 

@@ -37,7 +37,7 @@ const timelineData: TimelineEvent[] = [
   },
   {
     year: '2024',
-    title: '40개 직영매장',
+    title: '50개 이상의 직영매장',
     description: '수도권 최대 규모 달성',
     icon: '👑',
   },

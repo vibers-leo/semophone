@@ -10,7 +10,7 @@ const permanentJob = {
   department: '매장 운영팀',
   location: '서울/경기/인천',
   type: '정규직',
-  description: '수도권 40개 매장에서 함께 일할 열정적인 분을 찾습니다.',
+  description: '수도권 50개 이상의 매장에서 함께 일할 열정적인 분을 찾습니다.',
   requirements: [
     '고객 응대에 능숙하신 분',
     '휴대폰 및 통신 업계에 관심 있으신 분',

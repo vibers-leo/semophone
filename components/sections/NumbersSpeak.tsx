@@ -86,7 +86,7 @@ export default function NumbersSpeak() {
           <p className="text-lg text-gray-600 leading-relaxed">
             2020년부터 현재까지, 15만 명 이상의 고객이 세모폰을 선택했습니다.
             <br className="hidden md:block" />
-            전국 40개 직영매장에서 일관된 서비스 품질과 합리적인 가격을 보장합니다.
+            전국 50개 이상의 직영매장에서 일관된 서비스 품질과 합리적인 가격을 보장합니다.
           </p>
         </motion.div>
       </div>

@@ -23,7 +23,7 @@ export default function MinimalHero() {
             className="text-left"
           >
             <div className="inline-block px-4 py-2 bg-brand/10 rounded-full mb-6">
-              <span className="text-sm font-bold text-dark">수도권 40개 매장</span>
+              <span className="text-sm font-bold text-dark">수도권 50개 이상의 매장</span>
             </div>
 
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-black leading-tight mb-6">
