@@ -3,7 +3,6 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Image from 'next/image';
-import Link from 'next/link';
 
 export default function AboutPage() {
   return (
@@ -39,14 +38,31 @@ export default function AboutPage() {
               <div className="flex flex-col md:flex-row items-start gap-12">
                 {/* CEO 사진 */}
                 <div className="flex-shrink-0 w-full md:w-80">
-                  <div className="aspect-[3/4] bg-gray-100 rounded-2xl overflow-hidden">
+                  <div className="aspect-[3/4] bg-[#FEE500] rounded-2xl overflow-hidden flex flex-col items-center justify-center gap-1 select-none" style={{ border: '3px solid #111' }}>
+                    {/* 세모폰 삼각 로고 — 1/3 크기 */}
                     <Image
-                      src="/images/ceo.jpg"
-                      alt="세모폰 대표"
-                      width={320}
-                      height={427}
-                      className="w-full h-full object-cover"
+                      src="/images/logo/기본로고.png"
+                      alt="세모폰"
+                      width={90}
+                      height={90}
+                      className="object-contain mb-2"
                     />
+                    {/* Smart Everyday Mobileshop One 세로 배열 */}
+                    <div className="flex flex-col items-center leading-none" style={{ fontFamily: "'Pretendard', sans-serif" }}>
+                      {['Smart', 'Everyday', 'Mobileshop', 'One'].map((word) => (
+                        <span
+                          key={word}
+                          className="text-[#111] font-black uppercase tracking-wider"
+                          style={{
+                            fontSize: word === 'Mobileshop' ? '0.9rem' : '1.05rem',
+                            WebkitTextStroke: '0.5px #111',
+                            lineHeight: 1.3,
+                          }}
+                        >
+                          {word}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
 
