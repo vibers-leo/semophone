@@ -67,7 +67,7 @@ export async function POST(req: Request) {
           type: type || 'general',
           resumeUrl: resumeUrl || '',
           resumeFileName: resumeFileName || '',
-          ncpResumeUrl: ncpResumeUrl || '',
+          ncpResumeUrl: '',
           status: 'pending',
           workflowStatus: 'received',
           createdAt: admin.firestore.FieldValue.serverTimestamp(),
