@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
+import { uploadResumeFile } from '@/lib/firebase/storage';
 
 type ModalType = 'apply' | 'inquiry' | null;
 
@@ -18,16 +19,39 @@ export default function CareersApplySection() {
   const [form, setForm] = useState<FormState>(INITIAL_FORM);
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [resumeFile, setResumeFile] = useState<File | null>(null);
+  const [resumeError, setResumeError] = useState('');
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const openModal = (type: ModalType) => {
     setModal(type);
     setForm(INITIAL_FORM);
     setSubmitted(false);
+    setResumeFile(null);
+    setResumeError('');
   };
 
   const closeModal = () => {
     setModal(null);
     setSubmitted(false);
+    setResumeFile(null);
+    setResumeError('');
+  };
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setResumeError('');
+    const file = e.target.files?.[0];
+    if (!file) return;
+    const allowed = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+    if (!allowed.includes(file.type)) {
+      setResumeError('PDF 또는 Word 파일만 첨부 가능합니다.');
+      return;
+    }
+    if (file.size > 10 * 1024 * 1024) {
+      setResumeError('파일 크기는 10MB 이하여야 합니다.');
+      return;
+    }
+    setResumeFile(file);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -38,6 +62,14 @@ export default function CareersApplySection() {
     e.preventDefault();
     setSubmitting(true);
     try {
+      // 이력서 업로드 (채용지원 + 파일 첨부된 경우)
+      let resumeUrl = '';
+      let resumeFileName = '';
+      if (modal === 'apply' && resumeFile) {
+        resumeUrl = await uploadResumeFile(form.name, resumeFile);
+        resumeFileName = resumeFile.name;
+      }
+
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -49,6 +81,8 @@ export default function CareersApplySection() {
             : form.message,
           type: modal === 'apply' ? 'job_application' : 'job_inquiry',
           storeName: modal === 'apply' ? '채용접수' : '채용문의',
+          resumeUrl,
+          resumeFileName,
         }),
       });
       const data = await res.json();
@@ -270,6 +304,51 @@ export default function CareersApplySection() {
                   </div>
                 )}
 
+                {/* 이력서 첨부 (채용지원만) */}
+                {modal === 'apply' && (
+                  <div>
+                    <label className="block text-sm font-bold text-gray-900 mb-2">
+                      이력서 첨부 <span className="text-gray-400 font-normal">(선택 · PDF / Word · 10MB 이하)</span>
+                    </label>
+                    <input
+                      ref={fileInputRef}
+                      type="file"
+                      accept=".pdf,.doc,.docx"
+                      onChange={handleFileChange}
+                      className="hidden"
+                    />
+                    {resumeFile ? (
+                      <div className="flex items-center gap-3 px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl">
+                        <svg className="w-5 h-5 text-gray-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                        <span className="text-sm text-gray-700 flex-1 truncate">{resumeFile.name}</span>
+                        <button
+                          type="button"
+                          onClick={() => { setResumeFile(null); if (fileInputRef.current) fileInputRef.current.value = ''; }}
+                          className="text-gray-400 hover:text-gray-600 flex-shrink-0"
+                        >
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                          </svg>
+                        </button>
+                      </div>
+                    ) : (
+                      <button
+                        type="button"
+                        onClick={() => fileInputRef.current?.click()}
+                        className="w-full flex items-center justify-center gap-2 px-4 py-3 border-2 border-dashed border-gray-200 rounded-xl text-sm text-gray-500 hover:border-gray-300 hover:bg-gray-50 transition-colors"
+                      >
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+                        </svg>
+                        파일 선택하기
+                      </button>
+                    )}
+                    {resumeError && <p className="text-red-500 text-xs mt-1.5">{resumeError}</p>}
+                  </div>
+                )}
+
                 {/* 메시지 */}
                 <div>
                   <label className="block text-sm font-bold text-gray-900 mb-2">
@@ -296,7 +375,10 @@ export default function CareersApplySection() {
                   className="w-full py-4 rounded-full font-black text-gray-900 text-base transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 shadow-sm hover:shadow-md"
                   style={{ backgroundColor: '#FEE500' }}
                 >
-                  {submitting ? '제출 중...' : (modal === 'apply' ? '지원서 제출하기' : '문의 보내기')}
+                  {submitting
+                    ? (modal === 'apply' && resumeFile ? '이력서 업로드 중...' : '제출 중...')
+                    : (modal === 'apply' ? '지원서 제출하기' : '문의 보내기')
+                  }
                 </button>
               </form>
             )}

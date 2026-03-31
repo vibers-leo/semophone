@@ -7,6 +7,8 @@ export interface ContactInquiry {
   message: string;
   storeName?: string;
   type?: string; // 'job_application' | 'job_inquiry' | 'partnership' | undefined
+  resumeUrl?: string;
+  resumeFileName?: string;
 }
 
 // 문의 유형별 제목 & 레이블
@@ -120,6 +122,15 @@ export async function sendContactNotification(inquiry: ContactInquiry) {
               <p style="color: #737373; font-size: 13px; margin-bottom: 8px;">내용</p>
               <div style="background-color: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px; color: #404040; line-height: 1.7; white-space: pre-wrap; font-size: 14px;">${inquiry.message}</div>
             </div>
+
+            ${inquiry.resumeUrl ? `
+            <div style="margin-top: 20px; padding: 16px; background-color: #FFFBEB; border: 1px solid #FDE68A; border-radius: 8px; display: flex; align-items: center; gap: 12px;">
+              <div>
+                <p style="color: #92400E; font-size: 12px; font-weight: bold; margin: 0 0 4px;">📎 이력서 첨부됨</p>
+                <p style="color: #78350F; font-size: 13px; margin: 0 0 8px;">${inquiry.resumeFileName || '이력서'}</p>
+                <a href="${inquiry.resumeUrl}" target="_blank" style="display: inline-block; background-color: #FEE500; color: #1A1A1A; font-weight: bold; font-size: 13px; padding: 8px 16px; border-radius: 6px; text-decoration: none;">이력서 다운로드 →</a>
+              </div>
+            </div>` : ''}
 
             <div style="margin-top: 32px; text-align: center; padding-top: 20px; border-top: 1px solid #e2e8f0;">
               <p style="color: #b0b0b0; font-size: 11px; margin: 0;">세모폰 홈페이지(semophone.co.kr)에서 자동 발송된 메일입니다.</p>

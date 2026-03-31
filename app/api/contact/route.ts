@@ -19,7 +19,7 @@ export async function POST(req: Request) {
   try {
     const body = await req.json();
 
-    const { name, phone, email, message, storeName, type } = body;
+    const { name, phone, email, message, storeName, type, resumeUrl, resumeFileName } = body;
 
     // 필수 필드 검증
     if (!name || !phone || !message) {
@@ -53,6 +53,8 @@ export async function POST(req: Request) {
       message,
       storeName,
       type,
+      resumeUrl: resumeUrl || '',
+      resumeFileName: resumeFileName || '',
     };
 
     // Firestore에 문의 저장
@@ -62,6 +64,8 @@ export async function POST(req: Request) {
           name, phone, email: email || '', message,
           storeName: storeName || '',
           type: type || 'general',
+          resumeUrl: resumeUrl || '',
+          resumeFileName: resumeFileName || '',
           status: 'pending',
           workflowStatus: 'received',
           createdAt: admin.firestore.FieldValue.serverTimestamp(),
