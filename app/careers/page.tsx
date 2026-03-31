@@ -49,21 +49,25 @@ export default function CareersPage() {
       <Header />
       <main id="main-content" style={{ isolation: 'isolate', position: 'relative', zIndex: 0 }}>
 
-        {/* S1: Hero — 중앙 정렬 */}
+        {/* S1: Hero — 왼쪽 정렬 (다른 페이지 패턴) */}
         <section className="bg-white pt-[100px] md:pt-[120px] pb-16 px-6">
-          <div className="max-w-4xl mx-auto text-center">
-            <Image
-              src="/icons/사람들2.png"
-              alt="채용정보"
-              width={96}
-              height={96}
-              className="w-20 h-20 md:w-24 md:h-24 object-contain mx-auto mb-5"
-            />
-            <p className="text-xs font-bold tracking-[0.2em] uppercase text-gray-400 mb-3">Careers at 세모폰</p>
-            <h1 className="text-3xl md:text-5xl font-black text-gray-900 tracking-tight mb-3" style={{ wordBreak: 'keep-all' }}>채용정보</h1>
-            <p className="text-base md:text-lg text-gray-500" style={{ wordBreak: 'keep-all' }}>
-              함께 성장할 동료를 찾습니다
-            </p>
+          <div className="max-w-4xl mx-auto">
+            <div className="flex items-start gap-4">
+              <Image
+                src="/icons/사람들2.png"
+                alt="채용정보"
+                width={96}
+                height={96}
+                className="w-20 h-20 md:w-24 md:h-24 object-contain flex-shrink-0"
+              />
+              <div className="flex-1">
+                <p className="text-xs font-bold tracking-[0.2em] uppercase text-gray-400 mb-2">Careers at 세모폰</p>
+                <h1 className="text-3xl md:text-4xl font-black text-gray-900 tracking-tight mb-2" style={{ wordBreak: 'keep-all' }}>채용정보</h1>
+                <p className="text-base md:text-lg text-gray-500" style={{ wordBreak: 'keep-all' }}>
+                  함께 성장할 동료를 찾습니다
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -158,7 +162,7 @@ export default function CareersPage() {
                     border: '1px solid rgba(255,255,255,0.08)',
                   }}
                 >
-                  <div className="flex items-center gap-4 md:flex-col md:items-start md:gap-4">
+                  <div className="flex items-center gap-4 md:flex-col md:items-center md:gap-4 md:text-center">
                     <Image
                       src={v.icon}
                       alt={v.en}
