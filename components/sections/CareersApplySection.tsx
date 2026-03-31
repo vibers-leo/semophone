@@ -3,27 +3,6 @@
 import { useState, useRef } from 'react';
 import { uploadResumeFile } from '@/lib/firebase/storage';
 
-async function uploadToNCP(file: File, applicantName: string): Promise<string> {
-  // 1. 서버에서 Presigned URL 발급 (키 노출 없음)
-  const res = await fetch('/api/get-resume-upload-url', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ fileName: file.name, fileType: file.type, applicantName }),
-  });
-  if (!res.ok) throw new Error('NCP URL 발급 실패');
-  const { uploadUrl, publicUrl } = await res.json();
-
-  // 2. 클라이언트가 NCP에 직접 PUT (인증키 불필요)
-  const putRes = await fetch(uploadUrl, {
-    method: 'PUT',
-    headers: { 'Content-Type': file.type },
-    body: file,
-  });
-  if (!putRes.ok) throw new Error('NCP 업로드 실패');
-
-  return publicUrl;
-}
-
 type ModalType = 'apply' | 'inquiry' | null;
 
 interface FormState {
@@ -83,18 +62,13 @@ export default function CareersApplySection() {
     e.preventDefault();
     setSubmitting(true);
     try {
-      // 이력서 업로드: Firebase + NCP 병렬 (채용지원 + 파일 있는 경우)
+      // 이력서 업로드 (채용지원 + 파일 있는 경우)
       let resumeUrl = '';
       let resumeFileName = '';
-      let ncpResumeUrl = '';
+      const ncpResumeUrl = '';
       if (modal === 'apply' && resumeFile) {
         resumeFileName = resumeFile.name;
-        const [fbUrl, ncpUrl] = await Promise.allSettled([
-          uploadResumeFile(form.name, resumeFile),
-          uploadToNCP(resumeFile, form.name),
-        ]);
-        if (fbUrl.status === 'fulfilled') resumeUrl = fbUrl.value;
-        if (ncpUrl.status === 'fulfilled') ncpResumeUrl = ncpUrl.value;
+        resumeUrl = await uploadResumeFile(form.name, resumeFile);
       }
 
       const res = await fetch('/api/contact', {
