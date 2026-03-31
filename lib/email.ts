@@ -9,6 +9,7 @@ export interface ContactInquiry {
   type?: string; // 'job_application' | 'job_inquiry' | 'partnership' | undefined
   resumeUrl?: string;
   resumeFileName?: string;
+  ncpResumeUrl?: string;
 }
 
 // 문의 유형별 제목 & 레이블
@@ -124,11 +125,12 @@ export async function sendContactNotification(inquiry: ContactInquiry) {
             </div>
 
             ${inquiry.resumeUrl ? `
-            <div style="margin-top: 20px; padding: 16px; background-color: #FFFBEB; border: 1px solid #FDE68A; border-radius: 8px; display: flex; align-items: center; gap: 12px;">
-              <div>
-                <p style="color: #92400E; font-size: 12px; font-weight: bold; margin: 0 0 4px;">📎 이력서 첨부됨</p>
-                <p style="color: #78350F; font-size: 13px; margin: 0 0 8px;">${inquiry.resumeFileName || '이력서'}</p>
-                <a href="${inquiry.resumeUrl}" target="_blank" style="display: inline-block; background-color: #FEE500; color: #1A1A1A; font-weight: bold; font-size: 13px; padding: 8px 16px; border-radius: 6px; text-decoration: none;">이력서 다운로드 →</a>
+            <div style="margin-top: 20px; padding: 16px; background-color: #FFFBEB; border: 1px solid #FDE68A; border-radius: 8px;">
+              <p style="color: #92400E; font-size: 12px; font-weight: bold; margin: 0 0 4px;">📎 이력서 첨부됨</p>
+              <p style="color: #78350F; font-size: 13px; margin: 0 0 10px;">${inquiry.resumeFileName || '이력서'}</p>
+              <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                <a href="${inquiry.resumeUrl}" target="_blank" style="display: inline-block; background-color: #FEE500; color: #1A1A1A; font-weight: bold; font-size: 13px; padding: 8px 16px; border-radius: 6px; text-decoration: none;">Firebase 다운로드 →</a>
+                ${inquiry.ncpResumeUrl ? `<a href="${inquiry.ncpResumeUrl}" target="_blank" style="display: inline-block; background-color: #1A1A1A; color: #FEE500; font-weight: bold; font-size: 13px; padding: 8px 16px; border-radius: 6px; text-decoration: none;">NCP 다운로드 →</a>` : ''}
               </div>
             </div>` : ''}
 
