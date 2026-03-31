@@ -90,10 +90,10 @@ export default function StoreDetailModal({ store, isOpen, onClose }: StoreDetail
             exit={{ y: '100%' }}
             transition={{ type: 'spring', damping: 30, stiffness: 300 }}
           >
-        {/* 닫기 버튼 — 이미지 영역 위에 고정 (lg: 왼쪽 55% 안) */}
+        {/* 닫기 버튼 */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 lg:right-[46%] w-10 h-10 flex items-center justify-center rounded-full bg-black/50 hover:bg-black/70 transition-colors z-20 backdrop-blur-sm"
+          className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-full bg-black/50 hover:bg-black/70 transition-colors z-20 backdrop-blur-sm"
           aria-label="닫기"
         >
           <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -165,14 +165,19 @@ export default function StoreDetailModal({ store, isOpen, onClose }: StoreDetail
           {/* 오른쪽 / 아래: 매장 정보 (PC에서 독립 스크롤) */}
           <div className="flex-1 overflow-y-auto max-h-[50vh] lg:max-h-[85vh] p-4 md:p-5 lg:p-6 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent">
             {/* 헤더 */}
-            <div className="mb-4">
-              <div className="flex items-center gap-3 mb-2">
-                <h2 className="text-xl md:text-2xl font-black text-gray-900 flex-1">
-                  {store.name}
-                </h2>
-                <div className="px-3 py-1 bg-brand/10 rounded-full flex-shrink-0">
-                  <span className="text-sm font-bold text-gray-700">{store.region}</span>
-                </div>
+            <div className="mb-4 pr-10 lg:pr-0">
+              <h2 className="text-xl md:text-2xl font-black text-gray-900 mb-2">
+                {store.name}
+              </h2>
+              <div className="flex flex-wrap gap-1.5">
+                <span className="px-2.5 py-1 bg-brand/20 text-gray-800 text-xs font-bold rounded-full">
+                  {store.region}
+                </span>
+                {store.subRegion && store.subRegion !== '기타' && (
+                  <span className="px-2.5 py-1 bg-gray-100 text-gray-600 text-xs font-semibold rounded-full">
+                    {store.subRegion}
+                  </span>
+                )}
               </div>
             </div>
 
