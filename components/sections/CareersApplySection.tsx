@@ -197,19 +197,19 @@ export default function CareersApplySection() {
 
       {/* 모달 */}
       {modal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
           {/* 배경 */}
           <div
-            className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+            className="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity"
             onClick={closeModal}
           />
 
           {/* 모달 패널 */}
-          <div className="relative bg-white rounded-3xl shadow-2xl w-full max-w-md p-8 z-10 max-h-[90dvh] overflow-y-auto">
+          <div className="relative bg-white rounded-3xl shadow-2xl w-full max-w-md p-6 md:p-8 z-10 my-auto">
             {/* 닫기 */}
             <button
               onClick={closeModal}
-              className="absolute top-5 right-5 w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 hover:bg-gray-200 transition-colors"
+              className="absolute top-4 right-4 w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 hover:bg-gray-200 transition-colors z-20"
               aria-label="닫기"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -219,19 +219,19 @@ export default function CareersApplySection() {
 
             {submitted ? (
               /* 완료 상태 */
-              <div className="text-center py-6">
+              <div className="text-center py-4">
                 <div
-                  className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-5"
+                  className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4"
                   style={{ backgroundColor: '#FEE500' }}
                 >
-                  <svg className="w-8 h-8 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-7 h-7 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
                 <h3 className="text-xl font-black text-gray-900 mb-2">
                   {modal === 'apply' ? '지원서가 접수되었습니다' : '문의가 접수되었습니다'}
                 </h3>
-                <p className="text-gray-500 text-sm mb-8" style={{ wordBreak: 'keep-all' }}>
+                <p className="text-gray-500 text-sm mb-6" style={{ wordBreak: 'keep-all' }}>
                   빠른 시일 내에 연락드리겠습니다.
                 </p>
                 <button
@@ -244,11 +244,11 @@ export default function CareersApplySection() {
               </div>
             ) : (
               /* 폼 */
-              <form onSubmit={handleSubmit} className="space-y-5">
+              <form onSubmit={handleSubmit} className="space-y-4">
                 {/* 헤더 */}
-                <div className="mb-6">
+                <div className="mb-4">
                   <div
-                    className="inline-block px-3 py-1 rounded-full text-xs font-bold text-gray-900 mb-3"
+                    className="inline-block px-3 py-1 rounded-full text-[10px] font-bold text-gray-900 mb-2"
                     style={{ backgroundColor: '#FEE500' }}
                   >
                     {modal === 'apply' ? '채용 지원' : '채용 문의'}
@@ -256,129 +256,131 @@ export default function CareersApplySection() {
                   <h3 className="text-xl font-black text-gray-900 tracking-tight" style={{ wordBreak: 'keep-all' }}>
                     {modal === 'apply' ? '지원서 접수하기' : '채용 관련 문의'}
                   </h3>
-                  <p className="text-sm text-gray-500 mt-1" style={{ wordBreak: 'keep-all' }}>
+                  <p className="text-sm text-gray-500 mt-0.5" style={{ wordBreak: 'keep-all' }}>
                     {modal === 'apply'
                       ? '간단한 정보를 입력해주시면 담당자가 연락드립니다.'
                       : '궁금한 점을 남겨주시면 빠르게 답변드립니다.'}
                   </p>
                 </div>
 
-                {/* 이름 */}
-                <div>
-                  <label className="block text-sm font-bold text-gray-900 mb-2">이름 *</label>
-                  <input
-                    type="text"
-                    name="name"
-                    value={form.name}
-                    onChange={handleChange}
-                    placeholder="성명을 입력해주세요"
-                    required
-                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-gray-400 text-gray-900 placeholder:text-gray-400 bg-gray-50"
-                  />
-                </div>
-
-                {/* 연락처 */}
-                <div>
-                  <label className="block text-sm font-bold text-gray-900 mb-2">연락처 *</label>
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={form.phone}
-                    onChange={handleChange}
-                    placeholder="010-0000-0000"
-                    required
-                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-gray-400 text-gray-900 placeholder:text-gray-400 bg-gray-50"
-                  />
-                </div>
-
-                {/* 희망 근무 지역 (접수만) */}
-                {modal === 'apply' && (
+                <div className="space-y-3.5">
+                  {/* 이름 */}
                   <div>
-                    <label className="block text-sm font-bold text-gray-900 mb-2">희망 근무 지역</label>
+                    <label className="block text-xs font-bold text-gray-400 mb-1.5 ml-1">이름 *</label>
                     <input
                       type="text"
-                      name="region"
-                      value={form.region}
+                      name="name"
+                      value={form.name}
                       onChange={handleChange}
-                      placeholder="예: 경기 부천, 서울 강남 등"
-                      className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-gray-400 text-gray-900 placeholder:text-gray-400 bg-gray-50"
+                      placeholder="성명을 입력해주세요"
+                      required
+                      className="w-full px-4 py-2.5 border border-gray-200 rounded-xl focus:outline-none focus:border-gray-400 text-gray-900 placeholder:text-gray-400 bg-gray-50 text-sm"
                     />
                   </div>
-                )}
 
-                {/* 이력서 첨부 (채용지원만) */}
-                {modal === 'apply' && (
+                  {/* 연락처 */}
                   <div>
-                    <label className="block text-sm font-bold text-gray-900 mb-2">
-                      이력서 첨부 <span className="text-gray-400 font-normal">(선택 · PDF / Word · 10MB 이하)</span>
-                    </label>
+                    <label className="block text-xs font-bold text-gray-400 mb-1.5 ml-1">연락처 *</label>
                     <input
-                      ref={fileInputRef}
-                      type="file"
-                      accept=".pdf,.doc,.docx"
-                      onChange={handleFileChange}
-                      className="hidden"
+                      type="tel"
+                      name="phone"
+                      value={form.phone}
+                      onChange={handleChange}
+                      placeholder="010-0000-0000"
+                      required
+                      className="w-full px-4 py-2.5 border border-gray-200 rounded-xl focus:outline-none focus:border-gray-400 text-gray-900 placeholder:text-gray-400 bg-gray-50 text-sm"
                     />
-                    {resumeFile ? (
-                      <div className="flex items-center gap-3 px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl">
-                        <svg className="w-5 h-5 text-gray-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                        </svg>
-                        <span className="text-sm text-gray-700 flex-1 truncate">{resumeFile.name}</span>
+                  </div>
+
+                  {/* 희망 근무 지역 (접수만) */}
+                  {modal === 'apply' && (
+                    <div>
+                      <label className="block text-xs font-bold text-gray-400 mb-1.5 ml-1">희망 근무 지역</label>
+                      <input
+                        type="text"
+                        name="region"
+                        value={form.region}
+                        onChange={handleChange}
+                        placeholder="예: 경기 부천, 서울 강남 등"
+                        className="w-full px-4 py-2.5 border border-gray-200 rounded-xl focus:outline-none focus:border-gray-400 text-gray-900 placeholder:text-gray-400 bg-gray-50 text-sm"
+                      />
+                    </div>
+                  )}
+
+                  {/* 이력서 첨부 (채용지원만) */}
+                  {modal === 'apply' && (
+                    <div>
+                      <label className="block text-xs font-bold text-gray-400 mb-1.5 ml-1">
+                        이력서 첨부 <span className="text-gray-300 font-normal">(PDF / Word · 10MB 이하)</span>
+                      </label>
+                      <input
+                        ref={fileInputRef}
+                        type="file"
+                        accept=".pdf,.doc,.docx"
+                        onChange={handleFileChange}
+                        className="hidden"
+                      />
+                      {resumeFile ? (
+                        <div className="flex items-center gap-3 px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl">
+                          <svg className="w-4 h-4 text-gray-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                          </svg>
+                          <span className="text-xs text-gray-700 flex-1 truncate">{resumeFile.name}</span>
+                          <button
+                            type="button"
+                            onClick={() => { setResumeFile(null); if (fileInputRef.current) fileInputRef.current.value = ''; }}
+                            className="text-gray-300 hover:text-gray-500 flex-shrink-0"
+                          >
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                          </button>
+                        </div>
+                      ) : (
                         <button
                           type="button"
-                          onClick={() => { setResumeFile(null); if (fileInputRef.current) fileInputRef.current.value = ''; }}
-                          className="text-gray-400 hover:text-gray-600 flex-shrink-0"
+                          onClick={() => fileInputRef.current?.click()}
+                          className="w-full flex items-center justify-center gap-2 px-4 py-2.5 border-2 border-dashed border-gray-100 rounded-xl text-xs text-gray-400 hover:border-gray-200 hover:bg-gray-50 transition-colors"
                         >
                           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
                           </svg>
+                          파일 선택하기
                         </button>
-                      </div>
-                    ) : (
-                      <button
-                        type="button"
-                        onClick={() => fileInputRef.current?.click()}
-                        className="w-full flex items-center justify-center gap-2 px-4 py-3 border-2 border-dashed border-gray-200 rounded-xl text-sm text-gray-500 hover:border-gray-300 hover:bg-gray-50 transition-colors"
-                      >
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
-                        </svg>
-                        파일 선택하기
-                      </button>
-                    )}
-                    {resumeError && <p className="text-red-500 text-xs mt-1.5">{resumeError}</p>}
-                  </div>
-                )}
+                      )}
+                      {resumeError && <p className="text-red-500 text-xs mt-1">{resumeError}</p>}
+                    </div>
+                  )}
 
-                {/* 메시지 */}
-                <div>
-                  <label className="block text-sm font-bold text-gray-900 mb-2">
-                    {modal === 'apply' ? '추가 메시지' : '문의 내용 *'}
-                  </label>
-                  <textarea
-                    name="message"
-                    value={form.message}
-                    onChange={handleChange}
-                    rows={4}
-                    placeholder={
-                      modal === 'apply'
-                        ? '경력, 특기사항 등 자유롭게 입력해주세요 (선택)'
-                        : '궁금한 점을 남겨주세요'
-                    }
-                    required={modal === 'inquiry'}
-                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-gray-400 text-gray-900 placeholder:text-gray-400 bg-gray-50 resize-none"
-                  />
+                  {/* 메시지 */}
+                  <div>
+                    <label className="block text-xs font-bold text-gray-400 mb-1.5 ml-1">
+                      {modal === 'apply' ? '추가 메시지' : '문의 내용 *'}
+                    </label>
+                    <textarea
+                      name="message"
+                      value={form.message}
+                      onChange={handleChange}
+                      rows={3}
+                      placeholder={
+                        modal === 'apply'
+                          ? '경력, 특기사항 등 자유롭게 입력해주세요 (선택)'
+                          : '궁금한 점을 남겨주세요'
+                      }
+                      required={modal === 'inquiry'}
+                      className="w-full px-4 py-2.5 border border-gray-200 rounded-xl focus:outline-none focus:border-gray-400 text-gray-900 placeholder:text-gray-400 bg-gray-50 resize-none text-sm"
+                    />
+                  </div>
                 </div>
 
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="w-full py-4 rounded-full font-black text-gray-900 text-base transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 shadow-sm hover:shadow-md"
+                  className="w-full py-3.5 rounded-full font-black text-gray-900 text-base transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 shadow-sm hover:shadow-md"
                   style={{ backgroundColor: '#FEE500' }}
                 >
                   {submitting
-                    ? (modal === 'apply' && resumeFile ? '이력서 업로드 중...' : '제출 중...')
+                    ? (modal === 'apply' && resumeFile ? '업로드 중...' : '제출 중...')
                     : (modal === 'apply' ? '지원서 제출하기' : '문의 보내기')
                   }
                 </button>
@@ -387,6 +389,7 @@ export default function CareersApplySection() {
           </div>
         </div>
       )}
+
     </>
   );
 }
