@@ -7,7 +7,7 @@
  *               NCP_STORAGE_BUCKET    → NCP_BUCKET_NAME=wero-bucket
  */
 
-import { uploadBuffer, deleteFile } from '@vibers/storage/server';
+import { uploadBuffer, deleteFile } from './storage/server';
 import { v4 as uuidv4 } from 'uuid';
 
 /**
