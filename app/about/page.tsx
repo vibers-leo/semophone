@@ -32,62 +32,55 @@ export default function AboutPage() {
         </section>
 
         {/* 회사 소개 */}
-        <section className="bg-white py-12 px-3">
-          <div className="max-w-6xl mx-auto">
-            <div className="bg-white rounded-3xl p-6 md:p-10">
-              <div className="flex flex-col md:flex-row items-center gap-10">
-                {/* 브랜드 모티프/슬로건 이미지 */}
-                <div className="flex-shrink-0 w-full md:w-60 group">
-                  <div 
-                    className="aspect-square bg-gray-50 rounded-2xl overflow-hidden flex items-center justify-center relative border border-gray-100 shadow-sm transition-all duration-500 hover:shadow-md p-6"
-                  >
-                    <Image
-                      src="/images/logo/company_intro_banner.jpg"
-                      alt="세모폰 슬로건"
-                      fill
-                      className="object-contain p-6"
-                      priority
-                    />
-                  </div>
+        <section className="bg-white py-16 px-6">
+          <div className="max-w-5xl mx-auto">
+            <div className="flex flex-col md:flex-row items-start gap-12">
+              {/* 브랜드 이미지 */}
+              <div className="flex-shrink-0 w-full md:w-56">
+                <div className="relative w-full md:w-56 h-56 bg-gray-50 rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
+                  <Image
+                    src="/images/logo/company_intro_banner.jpg"
+                    alt="세모폰 슬로건"
+                    fill
+                    className="object-contain p-4"
+                    priority
+                  />
                 </div>
+              </div>
 
-                {/* 소개 본문 */}
-                <div className="flex-1 space-y-6">
-                  <div className="space-y-4 text-gray-700 leading-relaxed" style={{ wordBreak: 'keep-all' }}>
-                    <p>
-                      세모폰은 2012년 설립 이후 이동통신 3사 및 알뜰폰 상품을 기반으로<br />
-                      온라인과 오프라인을 아우르는 통합 유통 환경 속에서<br />
-                      차별화된 경쟁력을 만들어온 모바일 전문 브랜드입니다.
-                    </p>
-                    <p>
-                      &apos;세상의 모든 휴대폰&apos;이라는 비전 아래<br />
-                      고객에게 최고의 가치와 선택 경험을 제공하는 것을 목표로 하고 있습니다.<br />
-                      현재 전국 50개 이상의 직영 매장을 운영하며,<br />
-                      누적 46만 명 이상의 고객과 신뢰를 쌓아오며 지속적으로 성장해왔습니다.
-                    </p>
-                    <p>
-                      세모폰은 투명한 가격과 정직한 서비스를 핵심 원칙으로 합니다.<br />
-                      단순한 판매를 넘어, 고객 한 분 한 분께 최적의 선택을 제안하며<br />
-                      일반적인 유통 구조에서는 경험하기 어려운 합리적인 가격과 전문적인 상담을 제공합니다.
-                    </p>
-                    <p>
-                      또한, 축적된 직영 매장 운영 데이터와 네트워크를 기반으로<br />
-                      안정적인 운영 구조와 일관된 고객 경험을 만들어가고 있습니다.
-                    </p>
-                    <p>
-                      앞으로도 세모폰은 고객과의 신뢰를 최우선 가치로 삼아<br />
-                      모바일 통신 시장의 투명한 기준이 되는 브랜드로 성장해 나가겠습니다.
-                    </p>
-                    <p>
-                      고객 여러분의 현명한 선택에 세모폰이 함께하겠습니다.
-                    </p>
-                    <p>감사합니다.</p>
-                  </div>
-                </div>
+              {/* 소개 본문 */}
+              <div className="flex-1 space-y-4 text-gray-700 leading-relaxed" style={{ wordBreak: 'keep-all' }}>
+                <p>
+                  세모폰은 2012년 설립 이후 이동통신 3사 및 알뜰폰 상품을 기반으로
+                  온라인과 오프라인을 아우르는 통합 유통 환경 속에서
+                  차별화된 경쟁력을 만들어온 모바일 전문 브랜드입니다.
+                </p>
+                <p>
+                  &apos;세상의 모든 휴대폰&apos;이라는 비전 아래
+                  고객에게 최고의 가치와 선택 경험을 제공하는 것을 목표로 하고 있습니다.
+                  현재 전국 50개 이상의 직영 매장을 운영하며,
+                  누적 46만 명 이상의 고객과 신뢰를 쌓아오며 지속적으로 성장해왔습니다.
+                </p>
+                <p>
+                  세모폰은 투명한 가격과 정직한 서비스를 핵심 원칙으로 합니다.
+                  단순한 판매를 넘어, 고객 한 분 한 분께 최적의 선택을 제안하며
+                  일반적인 유통 구조에서는 경험하기 어려운 합리적인 가격과 전문적인 상담을 제공합니다.
+                </p>
+                <p>
+                  또한, 축적된 직영 매장 운영 데이터와 네트워크를 기반으로
+                  안정적인 운영 구조와 일관된 고객 경험을 만들어가고 있습니다.
+                </p>
+                <p>
+                  앞으로도 세모폰은 고객과의 신뢰를 최우선 가치로 삼아
+                  모바일 통신 시장의 투명한 기준이 되는 브랜드로 성장해 나가겠습니다.
+                </p>
+                <p>고객 여러분의 현명한 선택에 세모폰이 함께하겠습니다.</p>
+                <p>감사합니다.</p>
               </div>
             </div>
           </div>
         </section>
+
 
         {/* 세모폰의 CI 소개 */}
         <section className="bg-white py-24 px-3">
