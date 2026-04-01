@@ -32,20 +32,20 @@ export default function AboutPage() {
         </section>
 
         {/* 회사 소개 */}
-        <section className="bg-white py-24 px-3">
+        <section className="bg-white py-12 px-3">
           <div className="max-w-6xl mx-auto">
-            <div className="bg-white rounded-3xl p-8 md:p-12">
-              <div className="flex flex-col md:flex-row items-start gap-12">
+            <div className="bg-white rounded-3xl p-6 md:p-10">
+              <div className="flex flex-col md:flex-row items-center gap-10">
                 {/* 브랜드 모티프/슬로건 이미지 */}
-                <div className="flex-shrink-0 w-full md:w-80 group">
+                <div className="flex-shrink-0 w-full md:w-60 group">
                   <div 
-                    className="aspect-[3/4] bg-white rounded-3xl overflow-hidden flex flex-col relative border border-gray-100 shadow-sm transition-all duration-500 hover:shadow-xl hover:-translate-y-1"
+                    className="aspect-square bg-gray-50 rounded-2xl overflow-hidden flex items-center justify-center relative border border-gray-100 shadow-sm transition-all duration-500 hover:shadow-md p-6"
                   >
                     <Image
                       src="/images/logo/company_intro_banner.jpg"
                       alt="세모폰 슬로건"
                       fill
-                      className="object-cover"
+                      className="object-contain p-6"
                       priority
                     />
                   </div>
