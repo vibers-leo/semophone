@@ -36,13 +36,13 @@ export default function AboutPage() {
           <div className="max-w-5xl mx-auto">
             <div className="flex flex-col md:flex-row items-start gap-12">
               {/* 브랜드 이미지 */}
-              <div className="flex-shrink-0 w-full md:w-56">
-                <div className="relative w-full md:w-56 h-56 bg-gray-50 rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
+              <div className="flex-shrink-0 w-full md:w-80">
+                <div className="relative w-full md:w-80 aspect-square">
                   <Image
                     src="/images/logo/company_intro_banner.jpg"
                     alt="세모폰 슬로건"
                     fill
-                    className="object-contain p-4"
+                    className="object-contain"
                     priority
                   />
                 </div>
