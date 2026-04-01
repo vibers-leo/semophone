@@ -31,7 +31,7 @@ export default function TimelineItem({ event, isLast }: TimelineItemProps) {
         whileInView={{ scale: 1 }}
         viewport={{ once: true }}
         transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
-        className="flex-shrink-0 w-14 h-14 md:w-16 md:h-16 rounded-full bg-gradient-to-br from-brand to-brand-600 flex items-center justify-center text-3xl md:text-4xl shadow-lg z-10 border-4 border-white overflow-hidden p-2.5"
+        className="flex-shrink-0 w-14 h-14 md:w-16 md:h-16 rounded-full bg-white flex items-center justify-center text-3xl md:text-4xl shadow-md z-10 border-4 border-gray-50 overflow-hidden p-2"
       >
         {isImageIcon ? (
           <Image 
@@ -39,7 +39,7 @@ export default function TimelineItem({ event, isLast }: TimelineItemProps) {
             alt="" 
             width={48} 
             height={48} 
-            className="w-full h-full object-contain filter brightness-0 invert" 
+            className="w-full h-full object-contain" 
           />
         ) : (
           event.icon
