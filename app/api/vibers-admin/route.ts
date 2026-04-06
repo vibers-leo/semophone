@@ -51,21 +51,31 @@ export async function GET(request: Request) {
       adminDb.collection("contacts").get(),
     ]);
 
-    const recentSnap = await adminDb
-      .collection("applications")
-      .orderBy("createdAt", "desc")
-      .limit(5)
-      .get();
+    const [recentAppsSnap, recentContactsSnap] = await Promise.all([
+      adminDb.collection("applications").orderBy("createdAt", "desc").limit(3).get(),
+      adminDb.collection("contacts").orderBy("createdAt", "desc").limit(3).get(),
+    ]);
 
-    const recentActivity = recentSnap.docs.map((d) => {
-      const data = d.data();
-      return {
-        id: d.id,
-        type: "signup" as const,
-        label: `${data.name ?? "지원자"} — ${data.position ?? ""}`,
-        timestamp: data.createdAt?.toDate?.()?.toISOString() ?? new Date().toISOString(),
-      };
-    });
+    const recentActivity = [
+      ...recentAppsSnap.docs.map((d) => {
+        const data = d.data();
+        return {
+          id: `app-${d.id}`,
+          type: "signup",
+          label: `입점 신청: ${data.name ?? "신청자"} (${data.position ?? "매장"})`,
+          timestamp: data.createdAt?.toDate?.()?.toISOString() ?? new Date().toISOString(),
+        };
+      }),
+      ...recentContactsSnap.docs.map((d) => {
+        const data = d.data();
+        return {
+          id: `contact-${d.id}`,
+          type: "inquiry",
+          label: `문의 접수: ${data.name ?? "문의자"} — ${data.subject ?? data.message?.slice(0, 30) ?? ""}`,
+          timestamp: data.createdAt?.toDate?.()?.toISOString() ?? new Date().toISOString(),
+        };
+      }),
+    ].sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()).slice(0, 5);
 
     return Response.json({
       projectId: "semophone",
