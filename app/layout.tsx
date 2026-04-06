@@ -57,6 +57,11 @@ export const metadata: Metadata = {
       "naver-site-verification": "9ce4ab454f8efae4fff19426adbc9a58b43008e3",
     },
   },
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
+  metadataBase: new URL("https://semophone.co.kr"),
 };
 
 export default function RootLayout({

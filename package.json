@@ -34,7 +34,8 @@
     "sonner": "^2.0.7",
     "swiper": "^12.1.2",
     "tailwind-merge": "^3.5.0",
-    "uuid": "^9.0.0"
+    "uuid": "^9.0.0",
+    "@vibers/admin-kit": "*"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
