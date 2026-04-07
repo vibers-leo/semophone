@@ -28,10 +28,10 @@ export const metadata: Metadata = {
     description: "직접 오시면 가격이 다릅니다. 수도권 50개 매장에서 온라인에 없는 가격을 경험하세요.",
     images: [
       {
-        url: "/images/logo/기본로고.png",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "세모폰 로고",
+        alt: "세모폰 - 세상의 모든 휴대폰 가격을 혁신합니다",
       },
     ],
   },
