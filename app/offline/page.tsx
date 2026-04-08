@@ -18,7 +18,7 @@ export default function OfflinePage() {
           오프라인 상태입니다
         </h1>
         <p className="text-base text-gray-600 mb-8 leading-relaxed">
-          인터넷 연결을 확인하고<br />
+          인터넷 연결을 확인해요하고<br />
           다시 시도해주세요
         </p>
 

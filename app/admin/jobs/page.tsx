@@ -218,11 +218,11 @@ export default function JobsPage() {
   };
 
   const handleDelete = async (job: JobOpening) => {
-    if (confirm(`"${job.title}" 채용공고를 삭제하시겠습니까?`)) {
+    if (confirm(`"${job.title}" 채용공고를 없애기하시겠습니까?`)) {
       try {
         await deleteJob(job.id);
       } catch (error) {
-        alert('삭제 중 오류가 발생했습니다.');
+        alert('없애기 중 오류가 발생했습니다.');
       }
     }
   };
@@ -295,7 +295,7 @@ export default function JobsPage() {
                       onClick={() => handleDelete(job)}
                       className="text-red-600 hover:text-red-800 text-sm font-medium"
                     >
-                      삭제
+                      없애기
                     </button>
                   </div>
                 </div>

@@ -20,7 +20,7 @@ const coreValues = [
     en: 'Flexible thinking',
     icon: '/icons/나침반.png',
     title: '유연한 사고',
-    description: '열린 자세로 다양한 의견을 받아들이고, 문제를 여러 각도에서 분석합니다. 변화를 두려워하지 않고 능동적으로 대처합니다.',
+    description: '열린 자세로 다양한 의견을 받아들이고, 문제를 여러 각도에서 살펴보기합니다. 변화를 두려워하지 않고 능동적으로 대처합니다.',
   },
   {
     en: 'Moral behavior',

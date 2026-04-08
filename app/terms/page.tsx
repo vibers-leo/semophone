@@ -63,7 +63,7 @@ export default function TermsPage() {
             <div className="space-y-3 text-base text-gray-700 leading-relaxed">
               <p>① 회사는 다음과 같은 서비스를 제공합니다.</p>
               <ul className="list-disc list-inside space-y-2 ml-4">
-                <li>매장 위치 검색 및 안내 서비스</li>
+                <li>매장 위치 찾기 및 안내 서비스</li>
                 <li>휴대폰 구매 상담 서비스</li>
                 <li>고객센터 운영 및 문의 응대 서비스</li>
                 <li>기타 회사가 추가 개발하거나 다른 회사와의 제휴계약 등을 통해 제공하는 서비스</li>

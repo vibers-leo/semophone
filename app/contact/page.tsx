@@ -117,7 +117,7 @@ export default function ContactPage() {
               </div>
               <div>
                 <p className="font-bold text-green-900 text-lg">문의가 성공적으로 접수되었습니다!</p>
-                <p className="text-sm text-green-700 mt-1">담당자가 확인 후 빠르게 연락드리겠습니다.</p>
+                <p className="text-sm text-green-700 mt-1">담당자가 확인해요 후 빠르게 연락드리겠습니다.</p>
               </div>
             </div>
           )}

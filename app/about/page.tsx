@@ -138,7 +138,7 @@ export default function AboutPage() {
                     더 나은 기준과 경험을 만들어가는 브랜드로 성장해 나가겠습니다.
                   </p>
 
-                  {/* 다운로드 버튼 */}
+                  {/* 담아받기 버튼 */}
                   <div className="pt-6 flex flex-col sm:flex-row gap-3">
                     <a
                       href="/downloads/semophone_logos_original.zip"

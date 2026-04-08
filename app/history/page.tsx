@@ -8,7 +8,7 @@ import { historyEvents } from '@/data/history';
 
 export const metadata = {
   title: '히스토리 | 세모폰',
-  description: '세모폰의 성장 스토리와 주요 마일스톤을 확인하세요.'
+  description: '세모폰의 성장 스토리와 주요 마일스톤을 확인해요해봐요.'
 };
 
 export default function HistoryPage() {

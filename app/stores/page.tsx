@@ -182,7 +182,7 @@ export default function StoresPage() {
         <PullToRefresh onRefresh={handleRefresh} disabled={viewMode === 'map'}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
 
-        {/* 내 위치 기반 검색 */}
+        {/* 내 위치 기반 찾기 */}
         <div className="bg-white rounded-2xl shadow-md p-6 md:p-8 mb-8">
           {/* Step 1: Initial - 권한 요청 */}
           {locationState === 'initial' && (
@@ -247,7 +247,7 @@ export default function StoresPage() {
             </div>
           )}
 
-          {/* Step 2: Loading - 위치 확인 중 (화려한 모달) */}
+          {/* Step 2: Loading - 위치 확인해요 중 (화려한 모달) */}
           {locationState === 'loading' && (
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
@@ -285,7 +285,7 @@ export default function StoresPage() {
                     >
                       <Image
                         src="/icons/지도핀.png"
-                        alt="검색 중"
+                        alt="찾기 중"
                         width={64}
                         height={64}
                         className="w-16 h-16 object-contain drop-shadow-lg"
@@ -350,7 +350,7 @@ export default function StoresPage() {
                     />
                   </div>
                   <span className="text-sm md:text-base font-bold text-gray-900">
-                    위치 분석 중...
+                    위치 살펴보기 중...
                   </span>
                 </motion.div>
               </div>

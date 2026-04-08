@@ -55,7 +55,7 @@ export default function ForgotPasswordPage() {
         {success ? (
           <div className="text-center">
             <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-lg mb-6 text-sm">
-              비밀번호 재설정 이메일을 발송했습니다. 이메일을 확인해주세요.
+              비밀번호 재설정 이메일을 발송했습니다. 이메일을 확인해요해주세요.
             </div>
             <Link
               href="/admin/login"

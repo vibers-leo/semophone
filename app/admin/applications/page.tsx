@@ -91,7 +91,7 @@ function DetailModal({ application, onClose, onUpdate }: DetailModalProps) {
             </div>
           </div>
 
-          {/* 이력서 다운로드 */}
+          {/* 이력서 담아받기 */}
           <div>
             <label className="block text-sm font-semibold text-gray-700 mb-2">이력서</label>
             <a
@@ -103,7 +103,7 @@ function DetailModal({ application, onClose, onUpdate }: DetailModalProps) {
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
-              이력서 다운로드
+              이력서 담아받기
             </a>
           </div>
 
@@ -187,14 +187,14 @@ export default function ApplicationsPage() {
     : applications.filter(app => app.status === filterStatus);
 
   const handleDelete = async (application: Application) => {
-    if (confirm(`"${application.name}"님의 지원서를 삭제하시겠습니까?\n이력서 파일도 함께 삭제됩니다.`)) {
+    if (confirm(`"${application.name}"님의 지원서를 없애기하시겠습니까?\n이력서 파일도 함께 없애기됩니다.`)) {
       try {
-        // 이력서 파일 삭제
+        // 이력서 파일 없애기
         await deleteResumeFile(application.resumeUrl).catch(console.error);
-        // 지원서 삭제
+        // 지원서 없애기
         await deleteApplication(application.id);
       } catch (error) {
-        alert('삭제 중 오류가 발생했습니다.');
+        alert('없애기 중 오류가 발생했습니다.');
       }
     }
   };
@@ -286,7 +286,7 @@ export default function ApplicationsPage() {
                         onClick={() => handleDelete(application)}
                         className="text-red-600 hover:text-red-800 font-medium text-sm"
                       >
-                        삭제
+                        없애기
                       </button>
                     </td>
                   </tr>

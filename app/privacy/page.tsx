@@ -43,8 +43,8 @@ export default function PrivacyPage() {
               <div className="mt-4">
                 <h3 className="text-lg font-bold text-gray-900 mb-2">2. 민원 처리</h3>
                 <ul className="list-disc list-inside space-y-1 ml-4">
-                  <li>민원인의 신원 확인</li>
-                  <li>민원사항 확인</li>
+                  <li>민원인의 신원 확인해요</li>
+                  <li>민원사항 확인해요</li>
                   <li>사실조사를 위한 연락·통지</li>
                   <li>처리결과 통보</li>
                 </ul>
@@ -69,7 +69,7 @@ export default function PrivacyPage() {
                   </div>
                   <div>
                     <p className="font-semibold">• 상담 문의 정보 (이름, 연락처, 이메일)</p>
-                    <p className="ml-4 text-gray-600">보유기간: 문의 처리 완료 후 3년</p>
+                    <p className="ml-4 text-gray-600">보유기간: 문의 처리 완료했어요 후 3년</p>
                   </div>
                   <div>
                     <p className="font-semibold">• 서비스 이용 기록</p>
@@ -146,11 +146,11 @@ export default function PrivacyPage() {
               <ul className="list-decimal list-inside space-y-2 ml-4">
                 <li>개인정보 열람 요구</li>
                 <li>오류 등이 있을 경우 정정 요구</li>
-                <li>삭제 요구</li>
+                <li>없애기 요구</li>
                 <li>처리정지 요구</li>
               </ul>
               <p>② 제1항에 따른 권리 행사는 회사에 대해 서면, 전화, 전자우편 등을 통하여 하실 수 있으며 회사는 이에 대해 지체없이 조치하겠습니다.</p>
-              <p>③ 정보주체가 개인정보의 오류 등에 대한 정정 또는 삭제를 요구한 경우에는 회사는 정정 또는 삭제를 완료할 때까지 당해 개인정보를 이용하거나 제공하지 않습니다.</p>
+              <p>③ 정보주체가 개인정보의 오류 등에 대한 정정 또는 없애기를 요구한 경우에는 회사는 정정 또는 없애기를 완료할 때까지 당해 개인정보를 이용하거나 제공하지 않습니다.</p>
             </div>
           </section>
 
@@ -170,7 +170,7 @@ export default function PrivacyPage() {
               <div className="mt-4">
                 <h3 className="text-lg font-bold text-gray-900 mb-2">파기 방법</h3>
                 <ul className="list-disc list-inside space-y-1 ml-4">
-                  <li>전자적 파일 형태: 복구 및 재생되지 않도록 안전하게 삭제</li>
+                  <li>전자적 파일 형태: 복구 및 재생되지 않도록 안전하게 없애기</li>
                   <li>종이에 출력된 개인정보: 분쇄기로 분쇄하거나 소각</li>
                 </ul>
               </div>
@@ -269,7 +269,7 @@ export default function PrivacyPage() {
             </h2>
             <div className="space-y-3 text-base text-gray-700 leading-relaxed">
               <p>① 이 개인정보 처리방침은 2024. 1. 1.부터 적용됩니다.</p>
-              <p>② 이전의 개인정보 처리방침은 아래에서 확인하실 수 있습니다.</p>
+              <p>② 이전의 개인정보 처리방침은 아래에서 확인해요하실 수 있습니다.</p>
             </div>
           </section>
 

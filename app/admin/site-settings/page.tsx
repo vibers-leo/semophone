@@ -108,7 +108,7 @@ export default function SiteSettingsPage() {
           ) : (
             <div className="text-center py-8">
               <Globe className="w-10 h-10 text-gray-300 mx-auto mb-3" />
-              <p className="text-xs text-gray-400">&quot;현재 상태 불러오기&quot; 버튼으로 사이트의 OG/SEO 상태를 확인하세요.</p>
+              <p className="text-xs text-gray-400">&quot;현재 상태 불러오기&quot; 버튼으로 사이트의 OG/SEO 상태를 확인해요해봐요.</p>
             </div>
           )}
         </div>

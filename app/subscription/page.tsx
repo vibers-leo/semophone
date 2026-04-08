@@ -181,7 +181,7 @@ export default function SubscriptionPage() {
               📅 캘린더
             </TabsTrigger>
             <TabsTrigger value="analytics" className="flex-1">
-              📊 분석
+              📊 살펴보기
             </TabsTrigger>
           </TabsList>
 
@@ -259,13 +259,13 @@ export default function SubscriptionPage() {
               <div className="py-20 text-center">
                 <Image
                   src="/icons/차트2.png"
-                  alt="분석"
+                  alt="살펴보기"
                   width={100}
                   height={100}
                   className="mx-auto mb-4"
                 />
                 <p className="text-lg text-gray-600">
-                  분석 기능 준비 중...
+                  살펴보기 기능 준비 중...
                 </p>
               </div>
             </Card>

@@ -28,7 +28,7 @@ function BenefitModal({ benefit, onClose, onSubmit }: BenefitModalProps) {
     const file = e.target.files?.[0];
     if (file) {
       setImageFile(file);
-      // 미리보기 생성
+      // 미리보기 만들기
       const reader = new FileReader();
       reader.onloadend = () => {
         setImagePreview(reader.result as string);
@@ -50,14 +50,14 @@ function BenefitModal({ benefit, onClose, onSubmit }: BenefitModalProps) {
     try {
       let finalBannerImage = bannerImage;
 
-      // 새 이미지 파일이 있으면 업로드
+      // 새 이미지 파일이 있으면 올리기
       if (imageFile) {
         setUploadingImage(true);
         const benefitId = benefit?.id || 'new';
         finalBannerImage = await uploadBenefitImage(benefitId, imageFile);
         setUploadingImage(false);
 
-        // 기존 이미지가 있었다면 삭제
+        // 기존 이미지가 있었다면 없애기
         if (benefit?.bannerImage && benefit.bannerImage !== finalBannerImage) {
           await deleteBenefitImage(benefit.bannerImage).catch(console.error);
         }
@@ -89,7 +89,7 @@ function BenefitModal({ benefit, onClose, onSubmit }: BenefitModalProps) {
         </h2>
 
         <form onSubmit={handleSubmit} className="space-y-4">
-          {/* 배너 이미지 업로드 */}
+          {/* 배너 이미지 올리기 */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
               배너 이미지 (선택사항)
@@ -109,7 +109,7 @@ function BenefitModal({ benefit, onClose, onSubmit }: BenefitModalProps) {
                   className="absolute top-2 right-2 bg-red-600 text-white px-3 py-1 rounded-lg text-sm hover:bg-red-700"
                   disabled={submitting || uploadingImage}
                 >
-                  삭제
+                  없애기
                 </button>
               </div>
             ) : (
@@ -117,7 +117,7 @@ function BenefitModal({ benefit, onClose, onSubmit }: BenefitModalProps) {
                 <svg className="w-12 h-12 text-gray-400 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                 </svg>
-                <span className="text-sm text-gray-600">클릭하여 이미지 업로드</span>
+                <span className="text-sm text-gray-600">클릭하여 이미지 올리기</span>
                 <span className="text-xs text-gray-400 mt-1">권장 비율: 2:1 (1200x600)</span>
                 <input
                   type="file"
@@ -204,7 +204,7 @@ function BenefitModal({ benefit, onClose, onSubmit }: BenefitModalProps) {
               className="flex-1 px-4 py-2 bg-brand text-dark font-bold rounded-lg hover:bg-brand-600 transition-colors disabled:opacity-50"
               disabled={submitting || uploadingImage}
             >
-              {uploadingImage ? '이미지 업로드 중...' : submitting ? '저장 중...' : '저장'}
+              {uploadingImage ? '이미지 올리기 중...' : submitting ? '저장 중...' : '저장'}
             </button>
           </div>
         </form>
@@ -229,15 +229,15 @@ export default function BenefitsPage() {
   };
 
   const handleDelete = async (benefit: Benefit) => {
-    if (confirm(`"${benefit.title}" 혜택을 삭제하시겠습니까?`)) {
+    if (confirm(`"${benefit.title}" 혜택을 없애기하시겠습니까?`)) {
       try {
-        // 배너 이미지도 삭제
+        // 배너 이미지도 없애기
         if (benefit.bannerImage) {
           await deleteBenefitImage(benefit.bannerImage).catch(console.error);
         }
         await deleteBenefit(benefit.id);
       } catch (error) {
-        alert('삭제 중 오류가 발생했습니다.');
+        alert('없애기 중 오류가 발생했습니다.');
       }
     }
   };
@@ -319,7 +319,7 @@ export default function BenefitsPage() {
                         onClick={() => handleDelete(benefit)}
                         className="text-red-600 hover:text-red-800 text-sm font-medium"
                       >
-                        삭제
+                        없애기
                       </button>
                     </div>
                   </div>

@@ -24,7 +24,7 @@ export default function AdminLoginPage() {
       router.push('/admin');
     } catch (err: any) {
       console.error('로그인 오류:', err);
-      setError('로그인 실패: 이메일 또는 비밀번호를 확인해주세요.');
+      setError('로그인 실패: 이메일 또는 비밀번호를 확인해요해주세요.');
     } finally {
       setLoading(false);
     }
