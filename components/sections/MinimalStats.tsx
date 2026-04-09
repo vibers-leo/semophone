@@ -107,8 +107,8 @@ export default function MinimalStats() {
               transition={{ duration: 0.3 }}
             >
               <h2 className="text-3xl md:text-5xl lg:text-6xl font-black mb-3 md:mb-4 leading-tight tracking-tight text-center" style={{ wordBreak: 'keep-all' }}>
-                <span className="text-dark">수도권 50개 매장에서<br />
-                검증된 신뢰</span>
+                <span className="text-dark">수도권 50개 직영점에서 만든<br />
+                투명한 판매의 결과</span>
               </h2>
 
               <p className="text-sm md:text-lg text-dark/80 mb-6 md:mb-8 leading-relaxed text-center" style={{ wordBreak: 'keep-all' }}>
