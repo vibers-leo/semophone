@@ -127,11 +127,12 @@ export default function PartnershipPage() {
                   </div>
 
                   <Image
-                    src="/icons/세모폰 기본.png"
-                    alt="세모폰"
+                    src="/images/semophone-character.jpeg"
+                    alt="세모폰 캐릭터"
                     width={600}
                     height={600}
-                    className="w-full h-auto"
+                    className="w-full h-auto object-contain"
+                    priority
                   />
                 </div>
               </div>

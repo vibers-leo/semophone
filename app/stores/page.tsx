@@ -200,7 +200,7 @@ export default function StoresPage() {
                 <div className="absolute inset-0 bg-gradient-to-br from-brand/30 to-brand/10 rounded-full blur-xl"></div>
                 <div className="relative w-32 h-32 flex items-center justify-center">
                   <Image
-                    src="/icons/지도핀2.png"
+                    src="/icons/map-pin2.png"
                     alt="위치 찾기"
                     width={120}
                     height={120}
@@ -230,7 +230,7 @@ export default function StoresPage() {
                 className="group relative inline-flex items-center gap-3 text-black px-12 md:px-16 py-5 md:py-6 rounded-full text-xl md:text-2xl font-black shadow-[0_8px_30px_rgba(254,229,0,0.5)] hover:shadow-[0_16px_50px_rgba(254,229,0,0.7)] hover:-translate-y-2 transition-all duration-300"
                 style={{ backgroundColor: '#FEE500' }}
               >
-                <Image src="/icons/지도핀.png" alt="" width={28} height={28} className="relative w-7 h-7 object-contain group-hover:scale-110 transition-transform" />
+                <Image src="/icons/map-pin.png" alt="" width={28} height={28} className="relative w-7 h-7 object-contain group-hover:scale-110 transition-transform" />
                 <span className="relative">내 위치에서 찾기</span>
                 <svg className="relative w-6 h-6 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
@@ -284,7 +284,7 @@ export default function StoresPage() {
                       className="relative"
                     >
                       <Image
-                        src="/icons/지도핀.png"
+                        src="/icons/map-pin.png"
                         alt="찾기 중"
                         width={64}
                         height={64}
@@ -382,7 +382,7 @@ export default function StoresPage() {
 
                 {/* 장식 배지 */}
                 <div className="inline-flex items-center gap-2 bg-green-50 px-4 py-2 rounded-full mt-2">
-                  <Image src="/icons/지도핀.png" alt="" width={24} height={24} className="w-6 h-6 object-contain" />
+                  <Image src="/icons/map-pin.png" alt="" width={24} height={24} className="w-6 h-6 object-contain" />
                   <span className="text-sm font-bold text-green-700">위치 기반 추천</span>
                 </div>
               </div>
@@ -459,7 +459,7 @@ export default function StoresPage() {
                           {/* 주소 */}
                           <div className="flex items-start gap-3 mb-3 bg-gray-50 p-3 rounded-xl">
                             <div className="flex-shrink-0 w-8 h-8 bg-brand/10 rounded-lg flex items-center justify-center">
-                              <Image src="/icons/지도핀.png" alt="" width={20} height={20} className="w-5 h-5 object-contain" />
+                              <Image src="/icons/map-pin.png" alt="" width={20} height={20} className="w-5 h-5 object-contain" />
                             </div>
                             <p className="text-sm text-gray-700 leading-relaxed pt-1">{store.address}</p>
                           </div>
@@ -585,7 +585,7 @@ export default function StoresPage() {
                   )}
                   <span className="relative z-10 flex items-center justify-center gap-2">
                     <Image
-                      src="/icons/목록.png"
+                      src="/icons/list-view.png"
                       alt=""
                       width={24}
                       height={24}
@@ -600,7 +600,7 @@ export default function StoresPage() {
             {/* 지역 필터 - 태그 클라우드 */}
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <Image src="/icons/지도핀.png" alt="" width={24} height={24} className="w-6 h-6 object-contain" />
+                <Image src="/icons/map-pin.png" alt="" width={24} height={24} className="w-6 h-6 object-contain" />
                 <h3 className="text-lg font-bold text-gray-900">지역 선택</h3>
               </div>
 
