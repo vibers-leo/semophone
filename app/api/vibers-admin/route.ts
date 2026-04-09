@@ -1,4 +1,4 @@
-import { adminDb } from "@/lib/firebase/admin";
+import pool from "@/lib/db";
 
 function verifyAdminSecret(request: Request): boolean {
   const secret = process.env.VIBERS_ADMIN_SECRET;
@@ -7,84 +7,55 @@ function verifyAdminSecret(request: Request): boolean {
 }
 
 export async function GET(request: Request) {
-  const url = new URL(request.url);
-  const resource = url.searchParams.get("resource");
-
   if (!verifyAdminSecret(request)) {
     return Response.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  if (resource) {
+  const url = new URL(request.url);
+  const resource = url.searchParams.get("resource");
+
+  if (resource === "inquiries") {
     try {
-      let data = null;
-
-      if (resource === "jobs") {
-        const snap = await adminDb.collection("jobOpenings").orderBy("order", "asc").get();
-        data = snap.docs.map((d) => ({ id: d.id, ...d.data() }));
-      } else if (resource === "applications") {
-        const snap = await adminDb.collection("applications").orderBy("createdAt", "desc").limit(50).get();
-        data = snap.docs.map((d) => ({
-          id: d.id,
-          ...d.data(),
-          createdAt: d.data().createdAt?.toDate?.()?.toISOString() ?? null,
-        }));
-      } else if (resource === "inquiries") {
-        const snap = await adminDb.collection("contacts").orderBy("createdAt", "desc").limit(50).get();
-        data = snap.docs.map((d) => ({
-          id: d.id,
-          ...d.data(),
-          createdAt: d.data().createdAt?.toDate?.()?.toISOString() ?? null,
-        }));
-      }
-
-      return Response.json({ resource, data });
+      const { rows } = await pool.query(
+        `SELECT id, name, phone, email, message, inquiry_type, subject,
+                resume_url, resume_file_name, status, workflow_status, created_at
+         FROM semophone.contacts
+         ORDER BY created_at DESC LIMIT 100`
+      );
+      return Response.json({
+        resource,
+        data: rows.map((r) => ({ ...r, createdAt: r.created_at?.toISOString() ?? null })),
+      });
     } catch (err) {
-      console.error(`[vibers-admin:semophone:${resource}]`, err);
+      console.error("[vibers-admin:semophone:inquiries]", err);
       return Response.json({ error: "Resource fetch failed" }, { status: 500 });
     }
   }
 
   try {
-    const [jobsSnap, appSnap, contactSnap] = await Promise.all([
-      adminDb.collection("jobOpenings").where("isActive", "==", true).get(),
-      adminDb.collection("applications").get(),
-      adminDb.collection("contacts").get(),
+    const [contactsRes, recentRes] = await Promise.all([
+      pool.query("SELECT COUNT(*) FROM semophone.contacts"),
+      pool.query(
+        `SELECT id, name, inquiry_type, created_at
+         FROM semophone.contacts ORDER BY created_at DESC LIMIT 5`
+      ),
     ]);
 
-    const [recentAppsSnap, recentContactsSnap] = await Promise.all([
-      adminDb.collection("applications").orderBy("createdAt", "desc").limit(3).get(),
-      adminDb.collection("contacts").orderBy("createdAt", "desc").limit(3).get(),
-    ]);
-
-    const recentActivity = [
-      ...recentAppsSnap.docs.map((d) => {
-        const data = d.data();
-        return {
-          id: `app-${d.id}`,
-          type: "signup",
-          label: `입점 신청: ${data.name ?? "신청자"} (${data.position ?? "매장"})`,
-          timestamp: data.createdAt?.toDate?.()?.toISOString() ?? new Date().toISOString(),
-        };
-      }),
-      ...recentContactsSnap.docs.map((d) => {
-        const data = d.data();
-        return {
-          id: `contact-${d.id}`,
-          type: "inquiry",
-          label: `문의 접수: ${data.name ?? "문의자"} — ${data.subject ?? data.message?.slice(0, 30) ?? ""}`,
-          timestamp: data.createdAt?.toDate?.()?.toISOString() ?? new Date().toISOString(),
-        };
-      }),
-    ].sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()).slice(0, 5);
+    const recentActivity = recentRes.rows.map((r) => ({
+      id: `contact-${r.id}`,
+      type: "inquiry" as const,
+      label: `문의 접수: ${r.name} — ${r.inquiry_type ?? "일반"}`,
+      timestamp: r.created_at?.toISOString() ?? new Date().toISOString(),
+    }));
 
     return Response.json({
       projectId: "semophone",
       projectName: "세모폰",
       stats: {
-        totalUsers: appSnap.size,
-        contentCount: jobsSnap.size,
         mau: 0,
-        recentSignups: contactSnap.size,
+        totalUsers: 0,
+        contentCount: 0,
+        recentSignups: parseInt(contactsRes.rows[0].count),
       },
       recentActivity,
       health: "healthy",
@@ -101,9 +72,6 @@ export async function GET(request: Request) {
   }
 }
 
-export async function POST(request: Request) {
-  if (!verifyAdminSecret(request)) {
-    return Response.json({ error: "Unauthorized" }, { status: 401 });
-  }
+export async function POST() {
   return Response.json({ error: "Not implemented" }, { status: 501 });
 }
