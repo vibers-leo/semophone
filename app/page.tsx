@@ -80,12 +80,12 @@ export default function Home() {
               className="mx-auto mb-6 opacity-90"
             />
             <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-6">
-              세상의 모든<br />
-              휴대폰 가격을 내리다
+              휴대폰 판매의<br />
+              기준을 바꿉니다
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              세모폰은 고객이 불필요한 비용을 지불하지 않도록,<br />
-              투명한 가격과 정직한 서비스로 신뢰를 쌓아갑니다.
+              &apos;가격만 앞세운 곳&apos;이 아닌 &apos;믿고 구매할 수 있는 곳&apos;이라는 원칙 아래,<br />
+              조건을 숨기지 않는 투명한 판매 구조를 지켜오고 있습니다.
             </p>
           </div>
         </section>
