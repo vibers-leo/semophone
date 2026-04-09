@@ -10,7 +10,7 @@ const navigation = [
   { name: '혜택 관리', href: '/admin/benefits', icon: '/icons/혜택3.png' },
   { name: '채용공고', href: '/admin/jobs', icon: '/icons/사람들2.png' },
   { name: '지원서 관리', href: '/admin/applications', icon: '/icons/신청서.png' },
-  { name: '매장 관리', href: '/admin/stores', icon: '/icons/상점1.png' },
+
   { name: '사이트 설정', href: '/admin/site-settings', icon: '/icons/설정.png' },
 ];
 
