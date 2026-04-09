@@ -106,7 +106,7 @@ function ReviewCard({ review, delay }: { review: Review; delay: number }) {
       {/* 별점 */}
       <div className="flex gap-1 mb-4">
         {[...Array(review.rating)].map((_, i) => (
-          <span key={i} className="text-brand text-xl">★</span>
+          <span key={i} className="text-brand text-3xl">★</span>
         ))}
       </div>
 
@@ -177,17 +177,17 @@ export default function TrustSignals() {
         >
           <div className="inline-flex items-center gap-8 bg-gray-100 rounded-2xl px-12 py-6">
             <div>
-              <div className="text-4xl font-black text-brand mb-1">4.8★</div>
+              <div className="text-5xl font-black text-brand mb-1">4.8★</div>
               <p className="text-sm text-gray-600">평균 평점</p>
             </div>
             <div className="w-px h-12 bg-gray-300" />
             <div>
-              <div className="text-4xl font-black text-brand mb-1">98%</div>
+              <div className="text-5xl font-black text-brand mb-1">98%</div>
               <p className="text-sm text-gray-600">재방문율</p>
             </div>
             <div className="w-px h-12 bg-gray-300" />
             <div>
-              <div className="text-4xl font-black text-brand mb-1">5,200+</div>
+              <div className="text-5xl font-black text-brand mb-1">5,200+</div>
               <p className="text-sm text-gray-600">리뷰 수</p>
             </div>
           </div>

@@ -137,15 +137,15 @@ export default function StoreNetwork() {
           className="mt-16 grid grid-cols-3 gap-4 md:gap-8 text-center"
         >
           <div>
-            <div className="text-3xl font-black text-brand mb-2">18개</div>
+            <div className="text-4xl font-black text-brand mb-2">18개</div>
             <p className="text-sm text-white/70">서울</p>
           </div>
           <div>
-            <div className="text-3xl font-black text-brand mb-2">18개</div>
+            <div className="text-4xl font-black text-brand mb-2">18개</div>
             <p className="text-sm text-white/70">경기</p>
           </div>
           <div>
-            <div className="text-3xl font-black text-brand mb-2">4개</div>
+            <div className="text-4xl font-black text-brand mb-2">4개</div>
             <p className="text-sm text-white/70">인천</p>
           </div>
         </motion.div>

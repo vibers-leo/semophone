@@ -127,7 +127,7 @@ export default function PartnershipPage() {
                   </div>
 
                   <Image
-                    src="/images/semophone-character-contact.png"
+                    src="/images/semophone-character.jpeg"
                     alt="세모폰 캐릭터"
                     width={600}
                     height={600}

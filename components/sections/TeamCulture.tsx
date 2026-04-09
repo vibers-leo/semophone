@@ -53,7 +53,7 @@ export default function TeamCulture() {
             transition={{ duration: 0.3, delay: 0.1 }}
             className="mb-12"
           >
-            <div className="inline-flex items-center gap-4 text-brand text-xl font-bold mb-6">
+            <div className="inline-flex items-center gap-4 text-brand text-2xl font-bold mb-6">
               <span>전문성</span>
               <span>·</span>
               <span>협력</span>
