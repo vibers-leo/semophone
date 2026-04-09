@@ -26,7 +26,7 @@ jobs:
             cd /root/projects/semophone/repo
 
             echo "=== git pull ==="
-            git pull origin master
+            git fetch --depth=1 origin master && git reset --hard FETCH_HEAD
 
             echo "=== docker build ==="
             docker build -t semophone:latest .
