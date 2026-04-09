@@ -20,7 +20,8 @@ jobs:
           host: ${{ secrets.NCP_HOST }}
           username: ${{ secrets.NCP_USER }}
           key: ${{ secrets.NCP_SSH_KEY }}
-          timeout: 25m
+          timeout: 60s
+          command_timeout: 25m
           script: |
             set -e
             cd /root/projects/semophone/repo
