@@ -23,6 +23,20 @@ export default function SimplifiedHero() {
     return () => clearInterval(interval);
   }, [bannerImages.length]);
 
+  const copies = [
+    {
+      title: <>매월 4,000명의 고객이<br /><span className="text-brand">왜 세모폰을 선택했을까요?</span></>,
+      titleMobile: <>매월 4,000명의 고객이<br /><span className="text-brand">왜 세모폰을 선택했을까요?</span></>,
+      sub: <>전국 50개 직영점에서<br />불필요한 조건 없는 휴대폰 구매를 경험하세요</>,
+    },
+    {
+      title: <>휴대폰 판매점의 새로운 기준<br /><span className="text-brand">세모폰이 제시합니다</span></>,
+      titleMobile: <>휴대폰 판매점의 새로운 기준<br /><span className="text-brand">세모폰이 제시합니다</span></>,
+      sub: <>전국 50개 직영점에서<br />불필요한 조건 없는 휴대폰 구매를 경험하세요</>,
+    },
+  ];
+  const copy = copies[currentImageIndex] ?? copies[0];
+
   return (
     <>
       {/* PC / 태블릿 버전 — 75vh, 이미지 오른쪽 60% + 왼쪽 텍스트 */}
@@ -61,14 +75,12 @@ export default function SimplifiedHero() {
         {/* 타이틀 영역 — 세로 가운데 정렬 */}
         <div className="relative z-10 h-full flex items-center pl-[8%] lg:pl-[12%] pr-8 lg:pr-16">
           <div className="max-w-xl">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 tracking-tight leading-tight mb-3 lg:mb-5" style={{ wordBreak: 'keep-all' }}>
-              매월 4,000명의 고객이<br />
-              <span className="text-brand">왜 세모폰을 선택했을까요?</span>
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 tracking-tight leading-tight mb-3 lg:mb-5 transition-opacity duration-700" style={{ wordBreak: 'keep-all' }}>
+              {copy.title}
             </h1>
 
-            <p className="text-sm md:text-base lg:text-xl text-gray-700 mb-8 lg:mb-12">
-              전국 50개 직영점에서<br />
-              불필요한 조건 없는 휴대폰 구매를 경험하세요
+            <p className="text-sm md:text-base lg:text-xl text-gray-700 mb-8 lg:mb-12 transition-opacity duration-700">
+              {copy.sub}
             </p>
 
             <div className="flex gap-4 items-center">
@@ -118,16 +130,15 @@ export default function SimplifiedHero() {
           {/* 상단 텍스트 */}
           <div className="pt-2">
             <h1 className="text-3xl font-black text-white drop-shadow-lg mb-2">세모폰</h1>
-            <p className="text-lg font-bold text-white drop-shadow-md" style={{ wordBreak: 'keep-all' }}>
-              매월 4,000명의 고객이<br />
-              <span className="text-brand">왜 세모폰을 선택했을까요?</span>
+            <p className="text-lg font-bold text-white drop-shadow-md transition-opacity duration-700" style={{ wordBreak: 'keep-all' }}>
+              {copy.titleMobile}
             </p>
           </div>
           <div className="flex-grow" />
           {/* 하단 CTA */}
           <div className="w-full max-w-sm mx-auto pb-10">
             <p className="text-sm text-white/90 drop-shadow mb-4">
-              전국 50개 직영점에서 불필요한 조건 없는 휴대폰 구매를 경험하세요
+              {copy.sub}
             </p>
             <Link href="/about" className="w-full">
               <button
