@@ -45,7 +45,7 @@ export default function MinimalCTA() {
           <div className="mt-16 pt-16 border-t border-gray-200">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-7 lg:gap-8">
               {[
-                { icon: '/icons/채팅, 고객센터.png', text: '고객 맞춤 상담' },
+                { icon: '/icons/chat-support.png', text: '고객 맞춤 상담' },
                 { icon: '/icons/보안.png', text: '안심보험 1억원 가입' },
                 { icon: '/icons/ok.png', text: '전매장 개인정보\n교육 이수완료' },
                 { icon: '/icons/시계.png', text: '365일 연중무휴' },
