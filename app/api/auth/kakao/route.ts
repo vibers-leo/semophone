@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 
-const KAKAO_CLIENT_ID = process.env.KAKAO_CLIENT_ID || '23dc9e59dbc8c795728a6da39324cd3c';
+const KAKAO_CLIENT_ID = (process.env.KAKAO_CLIENT_ID || '23dc9e59dbc8c795728a6da39324cd3c').trim();
 const REDIRECT_URI = 'https://semophone.co.kr/api/auth/kakao/callback';
 
 export async function GET() {
