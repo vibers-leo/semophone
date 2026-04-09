@@ -23,6 +23,10 @@
     overflow-x: hidden;
   }
 
+  :root, :host {
+    --font-sans: 'Paperlogy', 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, 'Noto Sans KR', sans-serif;
+  }
+
   :root {
     --brand: #FEE500;
     --brand-dark: #FDD835;
