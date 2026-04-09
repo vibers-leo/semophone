@@ -75,31 +75,16 @@ export async function POST(req: Request) {
       }
     } catch (e) { console.error('Firestore 저장 실패:', e); }
 
-    // 환경변수 확인 (Resend 사용)
-    if (!process.env.RESEND_API_KEY) {
-      console.warn('⚠️ RESEND_API_KEY is missing. Email will NOT be sent.');
-
-      // 개발 환경에서는 성공으로 처리
-      if (process.env.NODE_ENV === 'development') {
-        console.log('📧 [DEV MODE] Contact inquiry received:', inquiry);
-        return NextResponse.json({
-          success: true,
-          message: 'Development mode: Email configuration needed',
-          warning: 'Configure RESEND_API_KEY to send real emails.'
-        });
-      }
-
-      return NextResponse.json(
-        { success: false, error: '이메일 설정이 완료되지 않았습니다.' },
-        { status: 500 }
-      );
+    // 이메일 발송 (RESEND_API_KEY 없으면 스킵)
+    let emailResult = { success: false };
+    if (process.env.RESEND_API_KEY) {
+      emailResult = await sendContactNotification(inquiry);
+      console.log('📧 Email result:', emailResult);
+    } else {
+      console.warn('⚠️ RESEND_API_KEY 없음 — 이메일 발송 스킵, SMS로만 처리');
     }
 
-    // 이메일 발송
-    const emailResult = await sendContactNotification(inquiry);
-    console.log('📧 Email result:', emailResult);
-
-    // 뿌리오 SMS 발송 (병렬 처리)
+    // 뿌리오 SMS 발송
     const smsResult = await sendContactNotificationSMS({
       name: inquiry.name,
       phone: inquiry.phone,
