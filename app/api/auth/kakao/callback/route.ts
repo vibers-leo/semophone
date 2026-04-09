@@ -2,8 +2,8 @@ import { NextResponse } from 'next/server';
 import pool from '@/lib/db';
 import { signToken, COOKIE_NAME } from '@/lib/jwt';
 
-const KAKAO_CLIENT_ID = process.env.KAKAO_CLIENT_ID!;
-const REDIRECT_URI = `${process.env.NEXT_PUBLIC_URL}/api/auth/kakao/callback`;
+const KAKAO_CLIENT_ID = process.env.KAKAO_CLIENT_ID || '23dc9e59dbc8c795728a6da39324cd3c';
+const REDIRECT_URI = 'https://semophone.co.kr/api/auth/kakao/callback';
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
