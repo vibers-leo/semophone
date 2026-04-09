@@ -436,7 +436,7 @@
     color: var(--brand) !important;
     color: #FEE500 !important;
     font-weight: 900 !important;
-    -webkit-text-stroke: 1px #1A1A1A;
+    -webkit-text-stroke: 2px #1A1A1A;
     paint-order: stroke fill;
   }
   .border-brand {
