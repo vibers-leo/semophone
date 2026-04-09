@@ -62,14 +62,13 @@ export default function SimplifiedHero() {
         <div className="relative z-10 h-full flex items-center pl-[8%] lg:pl-[12%] pr-8 lg:pr-16">
           <div className="max-w-xl">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 tracking-tight leading-tight mb-3 lg:mb-5" style={{ wordBreak: 'keep-all' }}>
-              세상의 모든 휴대폰 가격을
-              <br />
-              <span className="text-brand">혁신합니다</span>
+              매월 4,000명의 고객이<br />
+              <span className="text-brand">왜 세모폰을 선택했을까요?</span>
             </h1>
 
             <p className="text-sm md:text-base lg:text-xl text-gray-700 mb-8 lg:mb-12">
-              전국 50개 직영매장에서<br />
-              온라인에 없는 가격을 경험하세요
+              전국 50개 직영점에서<br />
+              불필요한 조건 없는 휴대폰 구매를 경험하세요
             </p>
 
             <div className="flex gap-4 items-center">
@@ -120,16 +119,15 @@ export default function SimplifiedHero() {
           <div className="pt-2">
             <h1 className="text-3xl font-black text-white drop-shadow-lg mb-2">세모폰</h1>
             <p className="text-lg font-bold text-white drop-shadow-md" style={{ wordBreak: 'keep-all' }}>
-              세상의 모든 휴대폰 가격을
-              <br />
-              <span className="text-brand">혁신합니다</span>
+              매월 4,000명의 고객이<br />
+              <span className="text-brand">왜 세모폰을 선택했을까요?</span>
             </p>
           </div>
           <div className="flex-grow" />
           {/* 하단 CTA */}
           <div className="w-full max-w-sm mx-auto pb-10">
             <p className="text-sm text-white/90 drop-shadow mb-4">
-              전국 50개 직영매장에서 온라인에 없는 가격을 경험하세요
+              전국 50개 직영점에서 불필요한 조건 없는 휴대폰 구매를 경험하세요
             </p>
             <Link href="/about" className="w-full">
               <button
