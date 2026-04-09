@@ -2,15 +2,16 @@ import { NextResponse } from 'next/server';
 import pool from '@/lib/db';
 import { signToken, COOKIE_NAME } from '@/lib/jwt';
 
-const KAKAO_CLIENT_ID = process.env.KAKAO_CLIENT_ID || '23dc9e59dbc8c795728a6da39324cd3c';
+const KAKAO_CLIENT_ID = (process.env.KAKAO_CLIENT_ID || '23dc9e59dbc8c795728a6da39324cd3c').trim();
 const REDIRECT_URI = 'https://semophone.co.kr/api/auth/kakao/callback';
+const BASE_URL = 'https://semophone.co.kr';
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const code = searchParams.get('code');
 
   if (!code) {
-    return NextResponse.redirect(`${process.env.NEXT_PUBLIC_URL}/admin/login?error=oauth_failed`);
+    return NextResponse.redirect(`${BASE_URL}/admin/login?error=oauth_failed`);
   }
 
   try {
@@ -26,9 +27,11 @@ export async function GET(request: Request) {
       }),
     });
     const tokenData = await tokenRes.json();
+    console.log('Kakao token response:', JSON.stringify(tokenData));
 
     if (!tokenData.access_token) {
-      return NextResponse.redirect(`${process.env.NEXT_PUBLIC_URL}/admin/login?error=oauth_failed`);
+      const msg = encodeURIComponent(tokenData.error_description || tokenData.error || 'token_failed');
+      return NextResponse.redirect(`${BASE_URL}/admin/login?error=token_failed&msg=${msg}`);
     }
 
     // access_token → user info
@@ -36,13 +39,14 @@ export async function GET(request: Request) {
       headers: { Authorization: `Bearer ${tokenData.access_token}` },
     });
     const kakaoUser = await userRes.json();
+    console.log('Kakao user:', JSON.stringify(kakaoUser));
 
     const email = kakaoUser.kakao_account?.email;
     const nickname = kakaoUser.kakao_account?.profile?.nickname || kakaoUser.properties?.nickname;
     const kakaoId = String(kakaoUser.id);
 
     if (!email) {
-      return NextResponse.redirect(`${process.env.NEXT_PUBLIC_URL}/admin/login?error=no_email`);
+      return NextResponse.redirect(`${BASE_URL}/admin/login?error=no_email`);
     }
 
     const { rows } = await pool.query(
@@ -55,22 +59,23 @@ export async function GET(request: Request) {
 
     const user = rows[0];
     if (!user.is_active) {
-      return NextResponse.redirect(`${process.env.NEXT_PUBLIC_URL}/admin/login?error=inactive`);
+      return NextResponse.redirect(`${BASE_URL}/admin/login?error=inactive`);
     }
 
     const token = await signToken({ id: user.id, email: user.email, name: user.name, provider: 'kakao' });
 
-    const res = NextResponse.redirect(`${process.env.NEXT_PUBLIC_URL}/admin`);
+    const res = NextResponse.redirect(`${BASE_URL}/admin`);
     res.cookies.set(COOKIE_NAME, token, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
+      secure: true,
       sameSite: 'lax',
       maxAge: 60 * 60 * 24 * 7,
       path: '/',
     });
     return res;
-  } catch (err) {
+  } catch (err: any) {
     console.error('Kakao OAuth callback error:', err);
-    return NextResponse.redirect(`${process.env.NEXT_PUBLIC_URL}/admin/login?error=server_error`);
+    const msg = encodeURIComponent(err?.message || 'unknown');
+    return NextResponse.redirect(`${BASE_URL}/admin/login?error=server_error&msg=${msg}`);
   }
 }
