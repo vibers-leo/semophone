@@ -528,7 +528,7 @@ export default function StoresPage() {
             {/* 뷰 모드 전환 - 더 크고 화려하게 */}
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <Image src="/icons/빈지도 1.png" alt="" width={24} height={24} className="w-6 h-6 object-contain" />
+                <Image src="/icons/map_empty.png" alt="" width={24} height={24} className="w-6 h-6 object-contain" />
                 <h3 className="text-lg font-bold text-gray-900">보기 모드</h3>
               </div>
               <div className="flex gap-3 bg-gray-100 p-2 rounded-2xl">
@@ -554,7 +554,7 @@ export default function StoresPage() {
                   )}
                   <span className="relative z-10 flex items-center justify-center gap-2">
                     <Image
-                      src="/icons/빈지도 1.png"
+                      src="/icons/map_empty.png"
                       alt=""
                       width={24}
                       height={24}
