@@ -15,18 +15,6 @@ const nextConfig: NextConfig = {
   experimental: {
     // Turbopack은 기본적으로 빠른 리프레시 제공
   },
-  // www → apex 301 리다이렉트
-  async redirects() {
-    return [
-      {
-        source: '/:path*',
-        destination: 'https://semophone.co.kr/:path*',
-        permanent: true,
-        has: [{ type: 'host', value: 'www.semophone.co.kr' }],
-      },
-    ];
-  },
-
   // 캐시 무효화 헤더 (모바일 캐시 방지)
   async headers() {
     return [
