@@ -79,7 +79,7 @@ export default function SimplifiedHero() {
               {copy.title}
             </h1>
 
-            <p className="text-sm md:text-base lg:text-xl text-gray-700 mb-8 lg:mb-12 transition-opacity duration-700">
+            <p className="text-base md:text-lg lg:text-xl text-gray-700 mb-8 lg:mb-12 transition-opacity duration-700">
               {copy.sub}
             </p>
 

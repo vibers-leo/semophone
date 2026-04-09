@@ -88,7 +88,7 @@ export default function TeamCulture() {
             <div className="p-6 bg-white/10 rounded-xl backdrop-blur-sm">
               <div className="text-4xl mb-4">🎯</div>
               <h3 className="text-xl font-bold mb-2">전문성</h3>
-              <p className="text-sm text-white/70">
+              <p className="text-base text-white/70">
                 10년 이상의 경력을 가진 전문가들이 함께합니다
               </p>
             </div>
@@ -96,7 +96,7 @@ export default function TeamCulture() {
             <div className="p-6 bg-white/10 rounded-xl backdrop-blur-sm">
               <div className="text-4xl mb-4">🤝</div>
               <h3 className="text-xl font-bold mb-2">팀워크</h3>
-              <p className="text-sm text-white/70">
+              <p className="text-base text-white/70">
                 서로 협력하며 최고의 서비스를 만듭니다
               </p>
             </div>
@@ -104,7 +104,7 @@ export default function TeamCulture() {
             <div className="p-6 bg-white/10 rounded-xl backdrop-blur-sm">
               <div className="text-4xl mb-4">🚀</div>
               <h3 className="text-xl font-bold mb-2">성장</h3>
-              <p className="text-sm text-white/70">
+              <p className="text-base text-white/70">
                 개인과 회사가 함께 성장하는 문화를 만듭니다
               </p>
             </div>

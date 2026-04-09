@@ -67,7 +67,7 @@ export default function TrustMinimal() {
                 />
               </div>
               <h3 className="text-lg font-bold text-dark mb-2">{point.title}</h3>
-              <p className="text-sm text-gray-600">{point.description}</p>
+              <p {point.description}>{point.description}</p>
             </motion.div>
           ))}
         </div>

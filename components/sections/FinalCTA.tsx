@@ -15,7 +15,7 @@ export default function FinalCTA() {
             <h3 className="text-lg md:text-xl font-black text-gray-900">
               가까운 세모폰 매장을 찾아보세요
             </h3>
-            <p className="text-sm text-gray-600 mt-1">
+            <p className="text-base text-gray-600 mt-1">
               전국 50개 이상의 직영매장에서 온라인에 없는 가격 경험
             </p>
           </div>

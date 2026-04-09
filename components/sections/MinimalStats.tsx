@@ -111,7 +111,7 @@ export default function MinimalStats() {
                 투명한 판매의 결과</span>
               </h2>
 
-              <p className="text-sm md:text-lg text-dark/80 mb-6 md:mb-8 leading-relaxed text-center" style={{ wordBreak: 'keep-all' }}>
+              <p className="text-base md:text-xl text-dark/80 mb-6 md:mb-8 leading-relaxed text-center" style={{ wordBreak: 'keep-all' }}>
                 46만명의 고객이 선택한 세모폰<br />
                 가까운 매장에서 합리적인 가격 상담을 경험하세요
               </p>
@@ -143,7 +143,7 @@ export default function MinimalStats() {
                     <div className="text-2xl md:text-[2rem] lg:text-4xl font-black text-dark mb-1 md:mb-2 tracking-tight">
                       {stat.number}
                     </div>
-                    <div className="text-xs md:text-[0.8125rem] lg:text-sm font-semibold text-dark/70">
+                    <div className="text-sm md:text-base lg:text-base font-semibold text-dark/70">
                       {stat.label}
                     </div>
                   </motion.div>

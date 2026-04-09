@@ -241,7 +241,7 @@ export default function StoresPage() {
                 🔒 위치 정보는 가까운 매장 찾기에만 사용되며 저장되지 않습니다
               </div>
 
-              <p className="text-sm text-brand font-bold mt-3">
+              <p className="text-base text-brand font-bold mt-3">
                 📍 서울·경기·인천 지역 서비스 중
               </p>
             </div>

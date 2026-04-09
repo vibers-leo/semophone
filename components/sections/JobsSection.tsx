@@ -44,10 +44,10 @@ export default function JobsSection() {
           <div className="bg-white rounded-2xl p-8 md:p-10 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
             {/* 상시 채용 배지 */}
             <div className="flex items-center gap-3 mb-6">
-              <span className="inline-block px-4 py-2 bg-brand text-dark text-sm font-bold rounded-full">
+              <span className="inline-block px-4 py-2 bg-brand text-dark text-base font-bold rounded-full">
                 상시 채용
               </span>
-              <span className="text-sm text-gray-500">{permanentJob.location}</span>
+              <span className="text-base text-gray-500">{permanentJob.location}</span>
             </div>
 
             {/* 제목 */}
@@ -56,7 +56,7 @@ export default function JobsSection() {
             </h3>
 
             {/* 부서 & 고용형태 */}
-            <div className="flex items-center gap-4 mb-6 text-sm text-gray-600">
+            <div className="flex items-center gap-4 mb-6 text-base text-gray-600">
               <span>📋 {permanentJob.department}</span>
               <span>•</span>
               <span>💼 {permanentJob.type}</span>
@@ -85,7 +85,7 @@ export default function JobsSection() {
               <h4 className="text-lg font-bold text-dark mb-4">🎁 복리후생</h4>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                 {permanentJob.benefits.map((benefit, i) => (
-                  <div key={i} className="bg-gray-50 rounded-lg px-4 py-3 text-center text-sm font-semibold text-dark">
+                  <div key={i} className="bg-gray-50 rounded-lg px-4 py-3 text-center text-base font-semibold text-dark">
                     {benefit}
                   </div>
                 ))}
@@ -121,7 +121,7 @@ export default function JobsSection() {
         </motion.div>
 
         {/* 추가 안내 */}
-        <div className="mt-8 text-center text-sm text-gray-500">
+        <div className="mt-8 text-center text-base text-gray-500">
           <p>지원서는 접수 후 검토하여 개별 연락드립니다.</p>
         </div>
       </div>
