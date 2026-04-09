@@ -16,8 +16,8 @@ export default function MinimalCTA() {
         >
           {/* 제목 */}
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-dark mb-6 leading-tight tracking-tight" style={{ wordBreak: 'keep-all' }}>
-            단 한 명의 고객도<br />
-            <span className="text-brand">손해보지 않도록</span>
+            복잡하고 숨겨진 조건 없이,<br />
+            <span className="text-brand">선택은 넓고 · 과정은 쉽게</span>
           </h2>
 
           {/* 부제목 */}
