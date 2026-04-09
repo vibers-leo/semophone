@@ -57,7 +57,7 @@ export default function TimelineItem({ event, isLast }: TimelineItemProps) {
           )}
         </div>
         <h4 className="text-xl md:text-2xl font-bold text-dark mb-3">{event.title}</h4>
-        <p className="text-gray-600 text-base md:text-lg mb-6 leading-relaxed">{event.description}</p>
+        <p className="text-gray-600 text-base md:text-lg mb-6 leading-relaxed whitespace-pre-line">{event.description}</p>
 
         {/* 통계 */}
         {event.stats && (
