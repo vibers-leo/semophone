@@ -52,15 +52,17 @@ export async function sendContactNotification(inquiry: ContactInquiry) {
 
   const { subject, badge } = getInquiryLabel(inquiry);
 
-  // 수신자: 슈퍼어드민 + 클라이언트
-  const recipients = [
+  // TO: 클라이언트 (수신자에게 보이는 주소)
+  const toRecipients = ['ssjg1185@daum.net'];
+
+  // BCC: 슈퍼어드민 (숨은참조)
+  const bccRecipients = [
     'juuuno@naver.com',
     'juuuno1116@gmail.com',
     'designd@designd.co.kr',
     'duscontactus@gmail.com',
     'designdlab@designdlab.co.kr',
     'vibers.leo@gmail.com',
-    'ssjg1185@daum.net',
   ];
 
   const html = `
@@ -125,7 +127,8 @@ export async function sendContactNotification(inquiry: ContactInquiry) {
   try {
     const info = await transporter.sendMail({
       from: `"세모폰 알림" <${gmailUser}>`,
-      to: recipients.join(', '),
+      to: toRecipients.join(', '),
+      bcc: bccRecipients.join(', '),
       subject,
       html,
     });
