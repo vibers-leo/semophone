@@ -65,6 +65,7 @@ export const historyEvents: HistoryEvent[] = [
     stats: [
       { label: "매장 수", value: "50개+" },
       { label: "누적 고객", value: "46만명+" },
+      { label: "가전렌탈서비스 월평균", value: "월 600+" },
       { label: "고객 만족도", value: "4.8★" }
     ]
   }
