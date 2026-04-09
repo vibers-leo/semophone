@@ -33,7 +33,7 @@ jobs:
 
             echo "=== docker compose up ==="
             cd /root/projects/semophone
-            docker compose up -d --force-recreate
+            docker compose up -d --wait
 
             echo "=== nginx reload ==="
             docker exec npm-app-1 nginx -s reload || true
