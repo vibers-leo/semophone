@@ -79,6 +79,10 @@ export default function RootLayout({
         />
         <link
           rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/fonts-archive/Paperlogy/Paperlogy.css"
+        />
+        <link
+          rel="stylesheet"
           href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
         />
         <link rel="manifest" href="/manifest.json" />
