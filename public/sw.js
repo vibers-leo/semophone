@@ -1,5 +1,5 @@
 // Service Worker for PWA — Network-first (캐시 지연 최소화)
-const CACHE_VERSION = 'v3';
+const CACHE_VERSION = 'v4';
 const CACHE_NAME = `semophone-${CACHE_VERSION}`;
 
 // 설치 시 즉시 활성화 (기존 캐시 무시)

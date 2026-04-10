@@ -71,7 +71,6 @@ export async function GET(request: Request) {
       sameSite: 'lax',
       maxAge: 60 * 60 * 24 * 7,
       path: '/',
-      domain: '.semophone.co.kr',
     });
     return res;
   } catch (err: any) {
