@@ -12,6 +12,7 @@ import {
   LogOut,
   Menu,
 } from 'lucide-react';
+import { AuthProvider } from '@/contexts/AuthContext';
 
 const MENU_ITEMS = [
   { id: 'dashboard', label: '대시보드', icon: LayoutDashboard },
@@ -43,7 +44,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       .finally(() => setLoading(false));
   }, [isLoginPage, router]);
 
-  if (isLoginPage) return <>{children}</>;
+  if (isLoginPage) return <AuthProvider>{children}</AuthProvider>;
   if (loading) return <div className="flex h-screen items-center justify-center"><div className="w-6 h-6 border-2 border-gray-300 border-t-gray-700 rounded-full animate-spin" /></div>;
 
   const handleLogout = async () => {
