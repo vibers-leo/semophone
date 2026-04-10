@@ -21,9 +21,9 @@ export default function Home() {
       const splash = document.getElementById('splash');
       if (splash) {
         splash.classList.add('fade-out');
-        setTimeout(() => setShowSplash(false), 500);
+        setTimeout(() => setShowSplash(false), 400);
       }
-    }, 2000);
+    }, 800);
     return () => clearTimeout(timer);
   }, []);
 
@@ -78,6 +78,7 @@ export default function Home() {
               width={120}
               height={120}
               className="mx-auto mb-5 md:mb-6 w-20 h-20 md:w-[120px] md:h-[120px] opacity-90"
+              priority
             />
             <h2 className="text-3xl md:text-5xl font-black text-gray-900 mb-4 md:mb-6 leading-tight">
               휴대폰 판매의<br />

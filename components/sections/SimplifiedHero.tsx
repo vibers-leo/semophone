@@ -59,8 +59,8 @@ export default function SimplifiedHero() {
                 className="object-cover object-center"
                 sizes="55vw"
                 quality={90}
-                loading={index === 0 ? 'eager' : 'lazy'}
-                priority={index === 0}
+                loading="eager"
+                priority
               />
             </div>
           ))}
@@ -115,8 +115,8 @@ export default function SimplifiedHero() {
                 style={{ objectPosition: 'center center' }}
                 sizes="100vw"
                 quality={80}
-                loading={index === 0 ? 'eager' : 'lazy'}
-                priority={index === 0}
+                loading="eager"
+                priority
               />
             </div>
           ))}
