@@ -295,3 +295,8 @@ import { uploadResumeToNCP } from '../lib/ncp-storage';
 // 새 기능에서는 @vibers/storage 직접 사용:
 import { uploadBuffer } from '@vibers/storage/server';
 ```
+
+## 배포 규칙
+- 배포 트리거 후 `gh run watch <run-id>`로 완료까지 대기. "N분 후 됩니다"로 끝내지 말 것.
+- 예상 시간을 알려준 경우, 그 시간 후 반드시 다시 확인하고 결과 메시지 전달.
+- 성공 시: 배포 완료 확인 + 접속 테스트. 실패 시: 로그 분석 + 원인 + 수정 방안 + 조치사항 안내.

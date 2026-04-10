@@ -72,7 +72,7 @@ export default function TimelineItem({ event, isLast }: TimelineItemProps) {
                 whileHover={{ scale: 1.05, y: -2 }}
                 className="bg-white rounded-xl px-4 py-3 md:px-5 md:py-4 shadow-md hover:shadow-lg transition-all border border-gray-100"
               >
-                <div className="text-xs md:text-sm text-gray-500 font-semibold mb-1">{stat.label}</div>
+                <div className="text-sm md:text-base text-gray-500 font-semibold mb-1">{stat.label}</div>
                 <div className="text-lg md:text-xl font-black text-dark">{stat.value}</div>
               </motion.div>
             ))}

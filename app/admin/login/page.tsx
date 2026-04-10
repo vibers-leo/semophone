@@ -11,7 +11,7 @@ export default function AdminLoginPage() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  const { signIn, signInWithGoogle, signInWithKakao, signInWithNaver } = useAuth();
+  const { signIn, signInWithGoogle, signInWithKakao } = useAuth();
   const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -154,18 +154,6 @@ export default function AdminLoginPage() {
             <span className="font-bold">카카오로 로그인</span>
           </button>
 
-          {/* 네이버 로그인 */}
-          <button
-            onClick={() => handleSocialLogin(signInWithNaver, 'Naver')}
-            disabled={loading}
-            className="w-full flex items-center justify-center gap-3 px-4 py-3 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-            style={{ backgroundColor: '#03C75A', color: '#FFFFFF' }}
-          >
-            <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M16.273 12.845L7.376 0H0v24h7.727V11.155L16.624 24H24V0h-7.727v12.845z"/>
-            </svg>
-            <span className="font-bold">네이버로 로그인</span>
-          </button>
         </div>
       </div>
     </div>

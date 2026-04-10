@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useRef } from 'react';
-import { uploadResumeFile } from '@/lib/firebase/storage';
 
 type ModalType = 'apply' | 'inquiry' | null;
 
@@ -62,13 +61,28 @@ export default function CareersApplySection() {
     e.preventDefault();
     setSubmitting(true);
     try {
-      // 이력서 업로드 (채용지원 + 파일 있는 경우)
+      // 이력서 업로드 (채용지원 + 파일 있는 경우) — NCP presigned URL
       let resumeUrl = '';
       let resumeFileName = '';
-      const ncpResumeUrl = '';
       if (modal === 'apply' && resumeFile) {
         resumeFileName = resumeFile.name;
-        resumeUrl = await uploadResumeFile(form.name, resumeFile);
+        const urlRes = await fetch('/api/get-resume-upload-url', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            fileName: resumeFile.name,
+            fileType: resumeFile.type,
+            applicantName: form.name,
+          }),
+        });
+        const urlData = await urlRes.json();
+        if (!urlRes.ok) throw new Error(urlData.error || '업로드 URL 발급 실패');
+        await fetch(urlData.uploadUrl, {
+          method: 'PUT',
+          headers: { 'Content-Type': resumeFile.type },
+          body: resumeFile,
+        });
+        resumeUrl = urlData.publicUrl;
       }
 
       const res = await fetch('/api/contact', {
@@ -84,7 +98,6 @@ export default function CareersApplySection() {
           storeName: modal === 'apply' ? '채용접수' : '채용문의',
           resumeUrl,
           resumeFileName,
-          ncpResumeUrl,
         }),
       });
       const data = await res.json();
