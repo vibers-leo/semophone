@@ -254,7 +254,7 @@ export default function Header() {
                   <MenuItem
                     href="/partnership"
                     icon={
-                      <Image src="/icons/채팅, 고객센터.png" alt="협업문의" width={28} height={28} className="w-7 h-7 object-contain" />
+                      <Image src="/icons/협력.png" alt="협업문의" width={28} height={28} className="w-7 h-7 object-contain" />
                     }
                     label="협업문의"
                     onClick={() => setMobileMenuOpen(false)}
@@ -272,39 +272,27 @@ export default function Header() {
                 {/* 구분선 */}
                 <div className="my-6 border-t border-gray-300" />
 
-                {/* 하위 메뉴 - 매우 작게 */}
+                {/* 하위 메뉴 */}
                 <div className="flex flex-col gap-0.5">
                   <Link
                     href="/terms"
-                    onClick={() => {
-                      haptics.light();
-                      setMobileMenuOpen(false);
-                    }}
-                    className="flex items-center gap-1.5 px-2 py-1.5 text-[10px] text-gray-400 hover:text-gray-600 hover:bg-gray-50 rounded transition-all"
+                    onClick={() => { haptics.light(); setMobileMenuOpen(false); }}
+                    className="px-2 py-2 text-sm text-gray-400 hover:text-gray-600 hover:bg-gray-50 rounded transition-all"
                   >
-                    <Image src="/icons/빈페이지.png" alt="" width={10} height={10} className="w-2.5 h-2.5 object-contain" />
                     이용약관
                   </Link>
                   <Link
                     href="/privacy"
-                    onClick={() => {
-                      haptics.light();
-                      setMobileMenuOpen(false);
-                    }}
-                    className="flex items-center gap-1.5 px-2 py-1.5 text-[10px] text-gray-400 hover:text-gray-600 hover:bg-gray-50 rounded transition-all"
+                    onClick={() => { haptics.light(); setMobileMenuOpen(false); }}
+                    className="px-2 py-2 text-sm text-gray-400 hover:text-gray-600 hover:bg-gray-50 rounded transition-all"
                   >
-                    <Image src="/icons/빈 방패.png" alt="" width={10} height={10} className="w-2.5 h-2.5 object-contain" />
                     개인정보처리방침
                   </Link>
                   <Link
                     href="/contact"
-                    onClick={() => {
-                      haptics.light();
-                      setMobileMenuOpen(false);
-                    }}
-                    className="flex items-center gap-1.5 px-2 py-1.5 text-[10px] text-gray-400 hover:text-gray-600 hover:bg-gray-50 rounded transition-all"
+                    onClick={() => { haptics.light(); setMobileMenuOpen(false); }}
+                    className="px-2 py-2 text-sm text-gray-400 hover:text-gray-600 hover:bg-gray-50 rounded transition-all"
                   >
-                    <Image src="/icons/채팅, 고객센터.png" alt="" width={10} height={10} className="w-2.5 h-2.5 object-contain" />
                     고객센터
                   </Link>
                 </div>

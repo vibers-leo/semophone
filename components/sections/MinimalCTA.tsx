@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 
 export default function MinimalCTA() {
   return (
-    <section className="bg-white py-32 px-4 md:px-6 lg:px-8">
+    <section className="bg-white py-16 md:py-32 px-5 md:px-6 lg:px-8">
       <div className="max-w-5xl mx-auto text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -15,13 +15,13 @@ export default function MinimalCTA() {
           transition={{ duration: 0.3 }}
         >
           {/* 제목 */}
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-dark mb-6 leading-tight tracking-tight" style={{ wordBreak: 'keep-all' }}>
+          <h2 className="text-2xl md:text-5xl lg:text-6xl font-black text-dark mb-5 md:mb-6 leading-tight tracking-tight" style={{ wordBreak: 'keep-all' }}>
             복잡하고 숨겨진 조건 없이,<br />
             <span className="text-brand">선택은 넓고 · 과정은 쉽게</span>
           </h2>
 
           {/* 부제목 */}
-          <p className="text-xl md:text-xl lg:text-2xl text-gray-600 mb-12 leading-relaxed" style={{ wordBreak: 'keep-all' }}>
+          <p className="text-base md:text-xl lg:text-2xl text-gray-600 mb-8 md:mb-12 leading-relaxed" style={{ wordBreak: 'keep-all' }}>
             전문적인 고객맞춤 컨설팅을 제공합니다
           </p>
 
@@ -42,7 +42,7 @@ export default function MinimalCTA() {
           </div>
 
           {/* 신뢰 배지 */}
-          <div className="mt-16 pt-16 border-t border-gray-200">
+          <div className="mt-10 pt-10 md:mt-16 md:pt-16 border-t border-gray-200">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-7 lg:gap-8">
               {[
                 { icon: '/icons/chat-support.png', text: '고객 맞춤 상담' },

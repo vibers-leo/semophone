@@ -98,8 +98,8 @@ export default function SimplifiedHero() {
       </section>
 
       {/* 모바일 버전 */}
-      <section className="md:hidden relative w-full overflow-hidden mt-[56px]" style={{ minHeight: '85dvh' }}>
-        {/* 배경 이미지 — 전체 꽉참 */}
+      <section className="md:hidden relative w-full overflow-hidden mt-[56px] bg-gray-900" style={{ minHeight: '85dvh' }}>
+        {/* 배경 이미지 — 전체 꽉참 + 어두운 배경 폴백 */}
         <div className="absolute inset-0">
           {bannerImages.map((image, index) => (
             <div
@@ -120,30 +120,30 @@ export default function SimplifiedHero() {
               />
             </div>
           ))}
-          {/* 상단 텍스트 가독성용 그라데이션만 (얇게) */}
-          <div className="absolute inset-x-0 top-0 h-[30%] bg-gradient-to-b from-black/50 to-transparent" />
+          {/* 상단 텍스트 가독성용 그라데이션 */}
+          <div className="absolute inset-x-0 top-0 h-[35%] bg-gradient-to-b from-black/60 to-transparent" />
           {/* 하단 CTA 가독성용 */}
-          <div className="absolute inset-x-0 bottom-0 h-[28%] bg-gradient-to-t from-black/60 to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 h-[32%] bg-gradient-to-t from-black/70 to-transparent" />
         </div>
 
-        <div className="relative z-10 min-h-[85dvh] flex flex-col px-6 py-6 text-center">
+        <div className="relative z-10 min-h-[85dvh] flex flex-col px-6 py-8 text-center">
           {/* 상단 텍스트 */}
-          <div className="pt-2">
-            <h1 className="text-3xl font-black text-white drop-shadow-lg mb-2">세모폰</h1>
-            <p className="text-lg font-bold text-white drop-shadow-md transition-opacity duration-700" style={{ wordBreak: 'keep-all' }}>
+          <div className="pt-4">
+            <h1 className="text-4xl font-black text-white drop-shadow-lg mb-3">세모폰</h1>
+            <p className="text-xl font-bold text-white drop-shadow-md transition-opacity duration-700 leading-relaxed" style={{ wordBreak: 'keep-all' }}>
               {copy.titleMobile}
             </p>
           </div>
           <div className="flex-grow" />
           {/* 하단 CTA */}
           <div className="w-full max-w-sm mx-auto pb-10">
-            <p className="text-sm text-white/90 drop-shadow mb-4">
+            <p className="text-base text-white/90 drop-shadow mb-5 leading-relaxed">
               {copy.sub}
             </p>
             <Link href="/about" className="w-full">
               <button
                 style={{ backgroundColor: '#FEE500' }}
-                className="w-full px-6 py-4 text-gray-900 font-black text-base rounded-full shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
+                className="w-full px-6 py-4 text-gray-900 font-black text-lg rounded-full shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
               >
                 세모폰 소개
               </button>

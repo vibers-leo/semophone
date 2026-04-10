@@ -70,21 +70,21 @@ export default function Home() {
         </div>
 
         {/* Mission 섹션 */}
-        <section className="bg-white py-24 px-3 text-center">
+        <section className="bg-white py-16 md:py-24 px-5 text-center">
           <div className="max-w-container-md mx-auto">
             <Image
               src="/images/logo/기본로고.png"
               alt="세모폰"
               width={120}
               height={120}
-              className="mx-auto mb-6 opacity-90"
+              className="mx-auto mb-5 md:mb-6 w-20 h-20 md:w-[120px] md:h-[120px] opacity-90"
             />
-            <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-6">
+            <h2 className="text-3xl md:text-5xl font-black text-gray-900 mb-4 md:mb-6 leading-tight">
               휴대폰 판매의<br />
               기준을 바꿉니다
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              &apos;가격만 앞세운 곳&apos;이 아닌 &apos;믿고 구매할 수 있는 곳&apos;이라는 원칙 아래,<br />
+            <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed" style={{ wordBreak: 'keep-all' }}>
+              &apos;가격만 앞세운 곳&apos;이 아닌 &apos;믿고 구매할 수 있는 곳&apos;이라는 원칙 아래,
               조건을 숨기지 않는 투명한 판매 구조를 지켜오고 있습니다.
             </p>
           </div>
