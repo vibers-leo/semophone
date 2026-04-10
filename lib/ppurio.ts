@@ -1,25 +1,17 @@
 /**
- * 뿌리오(PPURIO) SMS/알림톡 발송 API 클라이언트
- * API 문서: https://www.ppurio.com/
- *
- * ai-recipe 레포지토리의 성공한 구현 방식 사용
+ * 뿌리오(PPURIO) 알림톡/SMS 발송 API 클라이언트
+ * 엔드포인트: https://message.ppurio.com
+ * 알림톡 우선, 실패 시 SMS 자동 폴백 (resend 필드)
  */
 
 const PPURIO_API_URL = 'https://message.ppurio.com';
 
 interface PpurioConfig {
-  account: string; // 뿌리오 계정
-  apiKey: string; // API 키
+  account: string;
+  apiKey: string;
 }
 
-interface SMSParams {
-  from: string; // 발신번호 (등록된 번호만 가능)
-  to: string; // 수신번호
-  message: string; // 메시지 내용
-  refKey?: string; // 참조 키 (선택)
-}
-
-interface SMSResponse {
+interface SendResult {
   success: boolean;
   messageId?: string;
   error?: string;
@@ -31,215 +23,166 @@ interface TokenResponse {
   expired: string;
 }
 
-/**
- * Access Token 발급 (ai-recipe 방식)
- */
+/** Access Token 발급 (Basic Auth → Bearer Token) */
 async function getToken(config: PpurioConfig): Promise<string> {
   const basicAuth = Buffer.from(`${config.account}:${config.apiKey}`).toString('base64');
-
-  const response = await fetch(`${PPURIO_API_URL}/v1/token`, {
+  const res = await fetch(`${PPURIO_API_URL}/v1/token`, {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Basic ${basicAuth}`,
-    },
+    headers: { 'Content-Type': 'application/json', 'Authorization': `Basic ${basicAuth}` },
   });
-
-  if (!response.ok) {
-    const error = await response.text();
-    throw new Error(`Failed to get token: ${response.status} ${error}`);
-  }
-
-  const result = (await response.json()) as TokenResponse;
-  return result.token;
+  if (!res.ok) throw new Error(`Token error: ${res.status} ${await res.text()}`);
+  return ((await res.json()) as TokenResponse).token;
 }
 
-/**
- * RefKey 생성 (32자 랜덤 문자열)
- */
 function generateRefKey(): string {
   const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-  let result = '';
-  for (let i = 0; i < 32; i++) {
-    result += chars.charAt(Math.floor(Math.random() * chars.length));
-  }
-  return result;
+  return Array.from({ length: 32 }, () => chars[Math.floor(Math.random() * chars.length)]).join('');
 }
 
 /**
- * 뿌리오 SMS 발송 (ai-recipe 방식)
+ * 카카오 알림톡 발송 (실패 시 SMS 자동 폴백)
+ * 엔드포인트: POST /v1/kakao
+ * messageType: ALT (알림톡)
  */
-export async function sendSMS(params: SMSParams): Promise<SMSResponse> {
+export async function sendAlimtalk(params: {
+  to: string;
+  changeWord: Record<string, string>; // 템플릿 변수 {"1": "값1", "2": "값2"}
+  smsFailoverContent?: string;        // SMS 폴백 메시지
+}): Promise<SendResult> {
   const config: PpurioConfig = {
     account: process.env.PPURIO_ACCOUNT || '',
     apiKey: process.env.PPURIO_API_KEY || '',
   };
+  const senderProfile = process.env.PPURIO_SENDER_PROFILE || '';
+  const templateCode = process.env.PPURIO_TEMPLATE_CODE || '';
+  const senderNumber = process.env.PPURIO_SENDER_NUMBER || '';
 
-  // 환경변수 확인
   if (!config.account || !config.apiKey) {
-    console.warn('⚠️ PPURIO_ACCOUNT or PPURIO_API_KEY is missing. SMS will NOT be sent.');
-    return { success: false, error: 'PPURIO configuration missing' };
+    return { success: false, error: 'PPURIO 계정 설정 누락' };
+  }
+  if (!senderProfile || !templateCode) {
+    console.warn('⚠️ PPURIO_SENDER_PROFILE 또는 PPURIO_TEMPLATE_CODE 미설정 — SMS 폴백 시도');
+    // 알림톡 불가 → SMS 직접 발송
+    if (params.smsFailoverContent && senderNumber) {
+      return sendSMS({ from: senderNumber, to: params.to, message: params.smsFailoverContent });
+    }
+    return { success: false, error: '알림톡 템플릿 미설정' };
   }
 
   try {
-    // 1. 토큰 발급
-    console.log('📱 Getting Ppurio token...');
     const token = await getToken(config);
-    console.log('✅ Token acquired');
+    const refKey = generateRefKey();
 
-    // 2. SMS 발송
-    const refKey = params.refKey || generateRefKey();
-
-    // 메시지 길이에 따라 SMS(90자) 또는 LMS(2000자) 선택
-    const messageType = params.message.length <= 90 ? 'SMS' : 'LMS';
-
-    const requestBody = {
+    const body: Record<string, unknown> = {
       account: config.account,
-      messageType,
-      from: params.from,
-      content: params.message,
+      messageType: 'ALT',
+      senderProfile,
+      templateCode,
       duplicateFlag: 'Y',
+      isResend: 'Y',
       targetCount: 1,
-      targets: [
-        {
-          to: params.to,
-          name: 'Customer',
-        },
-      ],
+      targets: [{ to: params.to, name: 'Customer', changeWord: params.changeWord }],
       refKey,
     };
 
-    console.log('📱 Sending SMS with body:', JSON.stringify(requestBody, null, 2));
-
-    const response = await fetch(`${PPURIO_API_URL}/v1/message`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`,
-      },
-      body: JSON.stringify(requestBody),
-    });
-
-    const data = await response.json();
-
-    if (response.ok) {
-      console.log('✅ PPURIO SMS sent successfully:', data);
-      return { success: true, messageId: data.messageKey };
-    } else {
-      console.error('❌ PPURIO SMS send failed:', data);
-      return { success: false, error: data.description || data.message || 'SMS send failed' };
+    // SMS 자동 폴백 설정
+    if (params.smsFailoverContent && senderNumber) {
+      body.resend = {
+        messageType: params.smsFailoverContent.length <= 90 ? 'SMS' : 'LMS',
+        from: senderNumber,
+        content: params.smsFailoverContent,
+      };
     }
+
+    const res = await fetch(`${PPURIO_API_URL}/v1/kakao`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
+      body: JSON.stringify(body),
+    });
+    const data = await res.json();
+
+    if (res.ok) {
+      console.log('✅ 알림톡 발송 성공:', data);
+      return { success: true, messageId: data.messageKey };
+    }
+    console.error('❌ 알림톡 발송 실패:', data);
+    return { success: false, error: data.description || '알림톡 발송 실패' };
   } catch (error) {
-    console.error('❌ PPURIO SMS error:', error);
+    console.error('❌ 알림톡 에러:', error);
+    return { success: false, error: String(error) };
+  }
+}
+
+/** SMS 발송 (폴백 전용) */
+async function sendSMS(params: { from: string; to: string; message: string }): Promise<SendResult> {
+  const config: PpurioConfig = {
+    account: process.env.PPURIO_ACCOUNT || '',
+    apiKey: process.env.PPURIO_API_KEY || '',
+  };
+  if (!config.account || !config.apiKey) return { success: false, error: 'PPURIO 설정 누락' };
+
+  try {
+    const token = await getToken(config);
+    const messageType = params.message.length <= 90 ? 'SMS' : 'LMS';
+
+    const res = await fetch(`${PPURIO_API_URL}/v1/message`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
+      body: JSON.stringify({
+        account: config.account,
+        messageType,
+        from: params.from,
+        content: params.message,
+        duplicateFlag: 'Y',
+        targetCount: 1,
+        targets: [{ to: params.to, name: 'Customer' }],
+        refKey: generateRefKey(),
+      }),
+    });
+    const data = await res.json();
+    if (res.ok) return { success: true, messageId: data.messageKey };
+    return { success: false, error: data.description || 'SMS 발송 실패' };
+  } catch (error) {
     return { success: false, error: String(error) };
   }
 }
 
 /**
- * 문의 접수 시 관리자에게 SMS 알림 발송
+ * 문의 접수 시 관리자에게 알림톡 발송
+ * 알림톡 실패 시 SMS 자동 폴백 (resend 필드)
  */
-export async function sendContactNotificationSMS(inquiry: {
+export async function sendContactNotificationAlimtalk(inquiry: {
   name: string;
   phone: string;
   storeName?: string;
 }) {
-  const fromNumber = process.env.PPURIO_SENDER_NUMBER || ''; // 발신번호 (뿌리오에 등록된 번호)
-  const adminPhones = process.env.CONTACT_SMS_RECIPIENTS?.split(',') || []; // 관리자 전화번호들
+  const adminPhones = process.env.CONTACT_SMS_RECIPIENTS?.split(',').map(p => p.trim().replace(/\D/g, '')).filter(Boolean) || [];
 
-  console.log('📱 SMS Config - From:', fromNumber);
-  console.log('📱 SMS Config - To:', adminPhones);
-  console.log('📱 SMS Config - PPURIO_ACCOUNT:', process.env.PPURIO_ACCOUNT);
-  console.log('📱 SMS Config - PPURIO_API_KEY:', process.env.PPURIO_API_KEY ? 'SET' : 'MISSING');
-
-  if (!fromNumber || adminPhones.length === 0) {
-    console.warn('⚠️ PPURIO_SENDER_NUMBER or CONTACT_SMS_RECIPIENTS is missing.');
-    console.log('📱 fromNumber:', fromNumber, 'adminPhones.length:', adminPhones.length);
-    return { success: false, error: 'SMS configuration incomplete' };
+  if (adminPhones.length === 0) {
+    return { success: false, error: '수신자 번호 미설정' };
   }
 
-  // SMS 메시지 작성
-  const message = `[세모폰 문의 접수]
-고객명: ${inquiry.name}
-연락처: ${inquiry.phone}${inquiry.storeName ? `\n매장: ${inquiry.storeName}` : ''}
+  const smsContent = `[세모폰 문의]\n${inquiry.name} / ${inquiry.phone}${inquiry.storeName ? `\n매장: ${inquiry.storeName}` : ''}\n빠른 응대 부탁드립니다.`;
 
-빠른 응대 부탁드립니다.`;
-
-  // 각 관리자 번호로 SMS 발송
   const results = await Promise.all(
-    adminPhones.map(async (adminPhone) => {
-      const cleanPhone = adminPhone.trim().replace(/\D/g, '');
-      return sendSMS({
-        from: fromNumber,
-        to: cleanPhone,
-        message: message,
-        refKey: `contact_${Date.now()}`,
-      });
-    })
+    adminPhones.map(phone =>
+      sendAlimtalk({
+        to: phone,
+        changeWord: {
+          '1': inquiry.name,
+          '2': inquiry.phone,
+          '3': inquiry.storeName || '일반문의',
+        },
+        smsFailoverContent: smsContent,
+      })
+    )
   );
 
-  const allSuccess = results.every(r => r.success);
-
-  if (allSuccess) {
-    console.log('✅ All admin SMS notifications sent successfully');
+  const anySuccess = results.some(r => r.success);
+  if (anySuccess) {
+    console.log('✅ 관리자 알림 발송 완료');
     return { success: true };
-  } else {
-    console.error('❌ Some admin SMS notifications failed:', results);
-    return { success: false, results };
   }
-}
-
-/**
- * 알림톡 발송 (카카오 알림톡)
- *
- * 뿌리오는 카카오 알림톡도 지원합니다.
- * 알림톡 사용을 위해서는:
- * 1. 카카오 비즈니스 채널 생성
- * 2. 뿌리오에서 알림톡 템플릿 등록 및 승인
- * 3. 템플릿 코드 발급
- */
-export async function sendAlimtalk(params: {
-  templateCode: string; // 등록된 템플릿 코드
-  to: string; // 수신번호
-  variables: Record<string, string>; // 템플릿 변수들
-}): Promise<SMSResponse> {
-  const config: PpurioConfig = {
-    account: process.env.PPURIO_ACCOUNT || '',
-    apiKey: process.env.PPURIO_API_KEY || '',
-  };
-
-  if (!config.account || !config.apiKey) {
-    console.warn('⚠️ PPURIO configuration missing for Alimtalk.');
-    return { success: false, error: 'PPURIO configuration missing' };
-  }
-
-  try {
-    const apiUrl = 'https://message.ppurio.com/v1/alimtalk';
-
-    const response = await fetch(apiUrl, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${config.apiKey}`,
-      },
-      body: JSON.stringify({
-        account: config.account,
-        to: params.to,
-        templateCode: params.templateCode,
-        variables: params.variables,
-      }),
-    });
-
-    const data = await response.json();
-
-    if (response.ok) {
-      console.log('✅ PPURIO Alimtalk sent successfully:', data);
-      return { success: true, messageId: data.messageId };
-    } else {
-      console.error('❌ PPURIO Alimtalk send failed:', data);
-      return { success: false, error: data.message || 'Alimtalk send failed' };
-    }
-  } catch (error) {
-    console.error('❌ PPURIO Alimtalk error:', error);
-    return { success: false, error: String(error) };
-  }
+  console.error('❌ 관리자 알림 전체 실패:', results);
+  return { success: false, results };
 }

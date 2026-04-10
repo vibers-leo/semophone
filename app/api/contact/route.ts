@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { sendContactNotification, ContactInquiry } from '@/lib/email';
-import { sendContactNotificationSMS } from '@/lib/ppurio';
+import { sendContactNotificationAlimtalk } from '@/lib/ppurio';
 import pool from '@/lib/db';
 
 export async function POST(req: Request) {
@@ -50,10 +50,10 @@ export async function POST(req: Request) {
     } catch (e) { console.error('📧 Email 발송 실패:', e); }
 
     try {
-      const smsResult = await sendContactNotificationSMS({ name: inquiry.name, phone: inquiry.phone, storeName: inquiry.storeName });
-      if (smsResult.success) notifications.push('SMS');
-      console.log('📱 SMS result:', smsResult);
-    } catch (e) { console.error('📱 SMS 발송 실패:', e); }
+      const alimtalkResult = await sendContactNotificationAlimtalk({ name: inquiry.name, phone: inquiry.phone, storeName: inquiry.storeName });
+      if (alimtalkResult.success) notifications.push('알림톡');
+      console.log('📱 알림톡 result:', alimtalkResult);
+    } catch (e) { console.error('📱 알림톡 발송 실패:', e); }
 
     return NextResponse.json({
       success: true,
