@@ -50,24 +50,21 @@ export default function CareersPage() {
       <main id="main-content" style={{ isolation: 'isolate', position: 'relative', zIndex: 0 }}>
 
         {/* S1: Hero — 왼쪽 정렬 (다른 페이지 패턴) */}
-        <section className="bg-white pt-[100px] md:pt-[120px] pb-16 px-6">
-          <div className="max-w-4xl mx-auto">
-            <div className="flex items-start gap-4">
+        <section className="bg-white pt-[100px] md:pt-[120px] pb-12 px-6">
+          <div className="max-w-7xl mx-auto">
+            <div className="flex items-start gap-4 mb-3">
               <Image
                 src="/icons/사람들2.png"
                 alt="채용정보"
-                width={96}
-                height={96}
-                className="w-20 h-20 md:w-24 md:h-24 object-contain flex-shrink-0"
+                width={64}
+                height={64}
+                className="w-16 h-16 object-contain mt-1"
               />
-              <div className="flex-1">
-                <p className="text-xs font-bold tracking-[0.2em] uppercase text-gray-400 mb-2">Careers at 세모폰</p>
-                <h1 className="text-3xl md:text-4xl font-black text-gray-900 tracking-tight mb-2" style={{ wordBreak: 'keep-all' }}>채용정보</h1>
-                <p className="text-base md:text-lg text-gray-500" style={{ wordBreak: 'keep-all' }}>
-                  함께 성장할 동료를 찾습니다
-                </p>
-              </div>
+              <h1 className="text-3xl md:text-4xl font-black text-gray-900 tracking-tight" style={{ wordBreak: 'keep-all' }}>채용정보</h1>
             </div>
+            <p className="text-base md:text-lg text-gray-500 ml-20" style={{ wordBreak: 'keep-all' }}>
+              함께 성장할 동료를 찾습니다
+            </p>
           </div>
         </section>
 
