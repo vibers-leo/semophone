@@ -296,18 +296,9 @@ export default function CareersPage() {
             {/* 3단계 — 중앙 정렬 */}
             <div className="flex items-start justify-center gap-6 md:gap-10 flex-wrap">
               {[
-                {
-                  label: '서류전형',
-                  svg: <svg className="w-9 h-9" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: '#FEE500' }}><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" /></svg>
-                },
-                {
-                  label: '1차 면접',
-                  svg: <svg className="w-9 h-9" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: '#FEE500' }}><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" /></svg>
-                },
-                {
-                  label: '최종 합격',
-                  svg: <svg className="w-9 h-9" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: '#FEE500' }}><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" /></svg>
-                },
+                { label: '서류전형', icon: '/icons/서류3.png' },
+                { label: '1차 면접', icon: '/icons/대화.png' },
+                { label: '최종 합격', icon: '/icons/축하.png' },
               ].map((step, i) => (
                 <div key={step.label} className="flex items-center gap-6 md:gap-10">
                   <div className="flex flex-col items-center gap-3.5">
@@ -315,7 +306,7 @@ export default function CareersPage() {
                       className="w-20 h-20 rounded-2xl flex items-center justify-center"
                       style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}
                     >
-                      {step.svg}
+                      <Image src={step.icon} alt={step.label} width={52} height={52} className="object-contain" />
                     </div>
                     <span className="text-sm md:text-base font-bold text-white/70">{step.label}</span>
                   </div>
