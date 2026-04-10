@@ -108,7 +108,7 @@ export function PullToRefresh({
               />
             </svg>
           )}
-          <span className="text-xs font-semibold text-gray-600">
+          <span className="text-sm font-semibold text-gray-600">
             {isRefreshing ? '새로고침 중...' : '당겨서 새로고침'}
           </span>
         </motion.div>

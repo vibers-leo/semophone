@@ -54,7 +54,7 @@ export default function Footer() {
           <div className="md:text-right md:pt-8">
             {/* 고객센터 */}
             <div className="mb-12">
-              <div className="text-xs text-gray-500 mb-2 font-medium">고객센터</div>
+              <div className="text-sm text-gray-500 mb-2 font-medium">고객센터</div>
               <div className="text-2xl md:text-3xl font-black text-gray-900 mb-4">0507-1489-2274</div>
               <Link
                 href="https://pf.kakao.com/_MvxaTn"
@@ -66,7 +66,7 @@ export default function Footer() {
                 </svg>
                 카카오톡 1:1 상담
               </Link>
-              <div className="text-xs text-gray-400 mt-3">
+              <div className="text-sm text-gray-400 mt-3">
                 평일 10:00 - 19:00 (주말·공휴일 휴무)
               </div>
             </div>
@@ -108,7 +108,7 @@ export default function Footer() {
 
         {/* Copyright */}
         <div className="pt-10">
-          <p className="text-xs text-gray-400">
+          <p className="text-sm text-gray-400">
             © 2026 세모폰. All rights reserved.
           </p>
         </div>

@@ -78,7 +78,7 @@ export default function PartnershipPage() {
                 className="w-20 h-20 md:w-24 md:h-24 object-contain flex-shrink-0"
               />
               <div className="flex-1">
-                <p className="text-xs font-bold tracking-[0.2em] uppercase text-gray-400 mb-2">Partnership</p>
+                <p className="text-sm font-bold tracking-[0.2em] uppercase text-gray-400 mb-2">Partnership</p>
                 <h1 className="text-3xl md:text-4xl font-black text-gray-900 tracking-tight mb-2" style={{ wordBreak: 'keep-all' }}>문의하기</h1>
                 <p className="text-base md:text-lg text-gray-600" style={{ wordBreak: 'keep-all' }}>
                   세모폰과 함께 성장하세요

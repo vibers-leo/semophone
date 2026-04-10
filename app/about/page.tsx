@@ -21,7 +21,7 @@ export default function AboutPage() {
                 className="w-20 h-20 md:w-24 md:h-24 object-contain flex-shrink-0"
               />
               <div className="flex-1">
-                <p className="text-xs font-bold tracking-[0.2em] uppercase text-gray-400 mb-2">About us</p>
+                <p className="text-sm font-bold tracking-[0.2em] uppercase text-gray-400 mb-2">About us</p>
                 <h1 className="text-3xl md:text-4xl font-black text-gray-900 tracking-tight mb-2" style={{ wordBreak: 'keep-all' }}>회사 소개</h1>
                 <p className="text-base md:text-lg text-gray-600" style={{ wordBreak: 'keep-all' }}>
                   투명한 가격, 정직한 서비스
@@ -86,7 +86,7 @@ export default function AboutPage() {
         <section className="bg-white py-24 px-3">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
-              <p className="text-xs font-bold tracking-[0.2em] uppercase text-gray-400 mb-4">Brand Identity</p>
+              <p className="text-sm font-bold tracking-[0.2em] uppercase text-gray-400 mb-4">Brand Identity</p>
               <h2 className="text-3xl md:text-4xl font-black text-gray-900 tracking-tight mb-6" style={{ wordBreak: 'keep-all' }}>
                 세모폰의 CI 소개
               </h2>

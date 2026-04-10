@@ -40,9 +40,9 @@ export default function StoreActionButtons({
 
     switch (variant) {
       case 'modal':
-        return `${baseClass} flex-col gap-1.5 px-3 py-3.5 rounded-xl text-xs hover:shadow-lg hover:-translate-y-0.5`;
+        return `${baseClass} flex-col gap-1.5 px-3 py-3.5 rounded-xl text-sm hover:shadow-lg hover:-translate-y-0.5`;
       case 'infowindow':
-        return `${baseClass} flex-1 px-3 py-2 rounded-lg text-xs`;
+        return `${baseClass} flex-1 px-3 py-2 rounded-lg text-sm`;
       case 'compact':
         return `${baseClass} px-3 py-2.5 rounded-lg text-sm hover:shadow-lg hover:-translate-y-1`;
       default:

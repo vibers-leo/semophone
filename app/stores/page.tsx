@@ -237,7 +237,7 @@ export default function StoresPage() {
                 </svg>
               </button>
 
-              <div className="mt-6 text-center text-xs text-gray-500">
+              <div className="mt-6 text-center text-sm text-gray-500">
                 🔒 위치 정보는 가까운 매장 찾기에만 사용되며 저장되지 않습니다
               </div>
 
@@ -428,7 +428,7 @@ export default function StoresPage() {
                               index === 1 ? 'bg-gradient-to-br from-[#E8E8E8] via-[#C0C0C0] to-[#A8A8A8] text-white' :
                               'bg-gradient-to-br from-[#CD7F32] via-[#B8860B] to-[#8B4513] text-white'
                             } border-4 border-white`}>
-                              <span className="text-xs font-bold">TOP</span>
+                              <span className="text-sm font-bold">TOP</span>
                               <span className="text-2xl">{index + 1}</span>
                             </div>
                             {/* 왕관 아이콘 (1등만) */}
@@ -627,7 +627,7 @@ export default function StoresPage() {
 
                 {/* 서울 */}
                 <div>
-                  <div className="text-xs font-semibold text-gray-500 mb-2 px-1">서울</div>
+                  <div className="text-sm font-semibold text-gray-500 mb-2 px-1">서울</div>
                   <div className="flex flex-wrap gap-2">
                     {['전체', '동부', '서부'].map((sub) => (
                       <motion.button
@@ -653,7 +653,7 @@ export default function StoresPage() {
 
                 {/* 경기 */}
                 <div>
-                  <div className="text-xs font-semibold text-gray-500 mb-2 px-1">경기</div>
+                  <div className="text-sm font-semibold text-gray-500 mb-2 px-1">경기</div>
                   <div className="flex flex-wrap gap-2">
                     {['전체', '부천남부', '부천북부', '성남/분당', '기타'].map((sub) => (
                       <motion.button
@@ -679,7 +679,7 @@ export default function StoresPage() {
 
                 {/* 인천 */}
                 <div>
-                  <div className="text-xs font-semibold text-gray-500 mb-2 px-1">인천</div>
+                  <div className="text-sm font-semibold text-gray-500 mb-2 px-1">인천</div>
                   <div className="flex flex-wrap gap-2">
                     {['전체', '남부', '북부', '서부', '송도'].map((sub) => (
                       <motion.button
@@ -783,19 +783,19 @@ export default function StoresPage() {
 
                 {/* 주소 */}
                 <div className="mb-2 bg-gray-50 p-3 rounded-xl">
-                  <p className="text-xs text-gray-500 mb-1 font-semibold">주소</p>
+                  <p className="text-sm text-gray-500 mb-1 font-semibold">주소</p>
                   <p className="text-sm text-gray-900 leading-relaxed line-clamp-2">{store.address}</p>
                 </div>
 
                 {/* 전화번호 */}
                 <div className="mb-3 bg-gray-50 p-3 rounded-xl">
-                  <p className="text-xs text-gray-500 mb-1 font-semibold">연락처</p>
+                  <p className="text-sm text-gray-500 mb-1 font-semibold">연락처</p>
                   <p className="text-sm text-gray-900 font-bold">{store.phone}</p>
                 </div>
 
                 {/* 지역 태그 */}
                 <div className="mb-3">
-                  <span className="inline-block bg-gradient-to-r from-brand/10 to-brand/5 px-3 py-1.5 rounded-full text-xs font-bold text-gray-800">
+                  <span className="inline-block bg-gradient-to-r from-brand/10 to-brand/5 px-3 py-1.5 rounded-full text-sm font-bold text-gray-800">
                     {store.region}
                   </span>
                 </div>

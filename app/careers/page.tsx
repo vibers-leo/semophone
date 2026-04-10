@@ -61,7 +61,7 @@ export default function CareersPage() {
                 className="w-20 h-20 md:w-24 md:h-24 object-contain flex-shrink-0"
               />
               <div className="flex-1">
-                <p className="text-xs font-bold tracking-[0.2em] uppercase text-gray-400 mb-2">Careers at 세모폰</p>
+                <p className="text-sm font-bold tracking-[0.2em] uppercase text-gray-400 mb-2">Careers at 세모폰</p>
                 <h1 className="text-3xl md:text-4xl font-black text-gray-900 tracking-tight mb-2" style={{ wordBreak: 'keep-all' }}>채용정보</h1>
                 <p className="text-base md:text-lg text-gray-600" style={{ wordBreak: 'keep-all' }}>
                   함께 성장할 동료를 찾습니다
@@ -77,7 +77,7 @@ export default function CareersPage() {
 
             {/* 섹션 레이블 + 인용구 — 중앙 */}
             <div className="text-center mb-14">
-              <p className="text-xs font-bold tracking-[0.2em] uppercase text-gray-400 mb-6">About us</p>
+              <p className="text-sm font-bold tracking-[0.2em] uppercase text-gray-400 mb-6">About us</p>
               <p
                 className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 leading-tight tracking-tight"
                 style={{ wordBreak: 'keep-all' }}
@@ -132,7 +132,7 @@ export default function CareersPage() {
                 >
                   <p className="text-3xl md:text-4xl font-black text-gray-900">{item.num}</p>
                   <p className="text-gray-900 font-bold text-sm md:text-base mt-2">{item.label}</p>
-                  <p className="text-gray-400 text-xs md:text-sm mt-1">{item.sub}</p>
+                  <p className="text-gray-400 text-sm md:text-base mt-1">{item.sub}</p>
                 </div>
               ))}
             </div>
@@ -143,7 +143,7 @@ export default function CareersPage() {
         <section className="bg-[#09090b] py-24 md:py-32 px-6">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-14">
-              <p className="text-xs font-bold tracking-[0.2em] uppercase mb-4" style={{ color: '#FEE500' }}>Our Values</p>
+              <p className="text-sm font-bold tracking-[0.2em] uppercase mb-4" style={{ color: '#FEE500' }}>Our Values</p>
               <h2
                 className="text-3xl md:text-4xl font-black text-white leading-tight tracking-tight"
                 style={{ wordBreak: 'keep-all' }}
@@ -204,7 +204,7 @@ export default function CareersPage() {
               height={64}
               className="w-14 h-14 object-contain mx-auto mb-5"
             />
-            <p className="text-xs font-bold tracking-[0.2em] uppercase text-gray-400 mb-3">
+            <p className="text-sm font-bold tracking-[0.2em] uppercase text-gray-400 mb-3">
               Benefits
             </p>
             <h2
@@ -233,7 +233,7 @@ export default function CareersPage() {
         <section className="bg-gray-50 py-24 md:py-32 px-6">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <p className="text-xs font-bold tracking-[0.2em] uppercase text-gray-400 mb-4">Who we want</p>
+              <p className="text-sm font-bold tracking-[0.2em] uppercase text-gray-400 mb-4">Who we want</p>
               <h2
                 className="text-3xl md:text-4xl font-black text-gray-900 leading-tight tracking-tight"
                 style={{ wordBreak: 'keep-all' }}

@@ -311,8 +311,8 @@ export default function Header() {
 
                 {/* 버전 정보 */}
                 <div className="mt-auto pt-8 text-center">
-                  <p className="text-xs text-gray-400">버전 1.0.0</p>
-                  <p className="text-xs text-gray-400 mt-1">© 2024 세모폰</p>
+                  <p className="text-sm text-gray-400">버전 1.0.0</p>
+                  <p className="text-sm text-gray-400 mt-1">© 2024 세모폰</p>
                 </div>
               </div>
           </nav>

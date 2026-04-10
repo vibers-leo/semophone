@@ -79,7 +79,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
           <h2 className="text-xl md:text-2xl font-black mb-1">
             궁금한 점이 있으신가요?
           </h2>
-          <p className="text-xs md:text-sm text-gray-600">
+          <p className="text-sm md:text-base text-gray-600">
             문의를 남겨주시면 빠르게 연락드리겠습니다
           </p>
         </div>

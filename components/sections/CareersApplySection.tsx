@@ -105,7 +105,7 @@ export default function CareersApplySection() {
       <section className="bg-white py-24 md:py-32 px-6">
         <div className="max-w-4xl mx-auto">
           <div className="mb-12">
-            <p className="text-xs font-bold tracking-[0.2em] uppercase text-gray-400 mb-4">Open positions</p>
+            <p className="text-sm font-bold tracking-[0.2em] uppercase text-gray-400 mb-4">Open positions</p>
             <h2
               className="text-3xl md:text-4xl font-black text-gray-900 leading-tight tracking-tight"
               style={{ wordBreak: 'keep-all' }}
@@ -124,9 +124,9 @@ export default function CareersApplySection() {
                   <p className="text-sm text-gray-700 mt-0.5">매장 운영팀 · 정규직 · 상시채용</p>
                 </div>
                 <div className="flex items-center gap-2 flex-wrap text-sm text-gray-700">
-                  <span className="bg-gray-900/10 px-3 py-1 rounded-full text-xs font-bold">서울</span>
-                  <span className="bg-gray-900/10 px-3 py-1 rounded-full text-xs font-bold">경기</span>
-                  <span className="bg-gray-900/10 px-3 py-1 rounded-full text-xs font-bold">인천</span>
+                  <span className="bg-gray-900/10 px-3 py-1 rounded-full text-sm font-bold">서울</span>
+                  <span className="bg-gray-900/10 px-3 py-1 rounded-full text-sm font-bold">경기</span>
+                  <span className="bg-gray-900/10 px-3 py-1 rounded-full text-sm font-bold">인천</span>
                 </div>
               </div>
             </div>
@@ -136,7 +136,7 @@ export default function CareersApplySection() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-8">
                 {/* 업무내용 */}
                 <div>
-                  <p className="text-xs font-bold tracking-widest uppercase text-gray-400 mb-3">업무내용</p>
+                  <p className="text-sm font-bold tracking-widest uppercase text-gray-400 mb-3">업무내용</p>
                   <ul className="space-y-1.5 text-sm text-gray-700">
                     {['고객응대', '판매', '매장관리', '고객관리'].map(t => (
                       <li key={t} className="flex items-center gap-2">
@@ -149,7 +149,7 @@ export default function CareersApplySection() {
 
                 {/* 자격요건 */}
                 <div>
-                  <p className="text-xs font-bold tracking-widest uppercase text-gray-400 mb-3">자격요건</p>
+                  <p className="text-sm font-bold tracking-widest uppercase text-gray-400 mb-3">자격요건</p>
                   <ul className="space-y-1.5 text-sm text-gray-700">
                     {['성별 · 학력 · 경력 무관', '서비스 · 영업마인드'].map(t => (
                       <li key={t} className="flex items-center gap-2">
@@ -162,7 +162,7 @@ export default function CareersApplySection() {
 
                 {/* 우대사항 */}
                 <div>
-                  <p className="text-xs font-bold tracking-widest uppercase text-gray-400 mb-3">우대사항</p>
+                  <p className="text-sm font-bold tracking-widest uppercase text-gray-400 mb-3">우대사항</p>
                   <ul className="space-y-1.5 text-sm text-gray-700">
                     {['유사업무 경험', '인근 거주', '밝은 성격', '장기근속 가능자'].map(t => (
                       <li key={t} className="flex items-center gap-2">
@@ -266,7 +266,7 @@ export default function CareersApplySection() {
                 <div className="space-y-3.5">
                   {/* 이름 */}
                   <div>
-                    <label className="block text-xs font-bold text-gray-400 mb-1.5 ml-1">이름 *</label>
+                    <label className="block text-sm font-bold text-gray-400 mb-1.5 ml-1">이름 *</label>
                     <input
                       type="text"
                       name="name"
@@ -280,7 +280,7 @@ export default function CareersApplySection() {
 
                   {/* 연락처 */}
                   <div>
-                    <label className="block text-xs font-bold text-gray-400 mb-1.5 ml-1">연락처 *</label>
+                    <label className="block text-sm font-bold text-gray-400 mb-1.5 ml-1">연락처 *</label>
                     <input
                       type="tel"
                       name="phone"
@@ -295,7 +295,7 @@ export default function CareersApplySection() {
                   {/* 희망 근무 지역 (접수만) */}
                   {modal === 'apply' && (
                     <div>
-                      <label className="block text-xs font-bold text-gray-400 mb-1.5 ml-1">희망 근무 지역</label>
+                      <label className="block text-sm font-bold text-gray-400 mb-1.5 ml-1">희망 근무 지역</label>
                       <input
                         type="text"
                         name="region"
@@ -310,7 +310,7 @@ export default function CareersApplySection() {
                   {/* 이력서 첨부 (채용지원만) */}
                   {modal === 'apply' && (
                     <div>
-                      <label className="block text-xs font-bold text-gray-400 mb-1.5 ml-1">
+                      <label className="block text-sm font-bold text-gray-400 mb-1.5 ml-1">
                         이력서 첨부 <span className="text-gray-300 font-normal">(PDF / Word · 10MB 이하)</span>
                       </label>
                       <input
@@ -325,7 +325,7 @@ export default function CareersApplySection() {
                           <svg className="w-4 h-4 text-gray-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                           </svg>
-                          <span className="text-xs text-gray-700 flex-1 truncate">{resumeFile.name}</span>
+                          <span className="text-sm text-gray-700 flex-1 truncate">{resumeFile.name}</span>
                           <button
                             type="button"
                             onClick={() => { setResumeFile(null); if (fileInputRef.current) fileInputRef.current.value = ''; }}
@@ -340,7 +340,7 @@ export default function CareersApplySection() {
                         <button
                           type="button"
                           onClick={() => fileInputRef.current?.click()}
-                          className="w-full flex items-center justify-center gap-2 px-4 py-2.5 border-2 border-dashed border-gray-100 rounded-xl text-xs text-gray-400 hover:border-gray-200 hover:bg-gray-50 transition-colors"
+                          className="w-full flex items-center justify-center gap-2 px-4 py-2.5 border-2 border-dashed border-gray-100 rounded-xl text-sm text-gray-400 hover:border-gray-200 hover:bg-gray-50 transition-colors"
                         >
                           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
@@ -348,13 +348,13 @@ export default function CareersApplySection() {
                           파일 선택하기
                         </button>
                       )}
-                      {resumeError && <p className="text-red-500 text-xs mt-1">{resumeError}</p>}
+                      {resumeError && <p className="text-red-500 text-sm mt-1">{resumeError}</p>}
                     </div>
                   )}
 
                   {/* 메시지 */}
                   <div>
-                    <label className="block text-xs font-bold text-gray-400 mb-1.5 ml-1">
+                    <label className="block text-sm font-bold text-gray-400 mb-1.5 ml-1">
                       {modal === 'apply' ? '추가 메시지' : '문의 내용 *'}
                     </label>
                     <textarea

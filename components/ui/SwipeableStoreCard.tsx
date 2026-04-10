@@ -67,7 +67,7 @@ export const SwipeableStoreCard = memo(function SwipeableStoreCard({
       >
         <div className="text-white text-center">
           <div className="text-2xl mb-1">📞</div>
-          <div className="text-xs font-semibold">전화</div>
+          <div className="text-sm font-semibold">전화</div>
         </div>
       </motion.div>
 
@@ -78,7 +78,7 @@ export const SwipeableStoreCard = memo(function SwipeableStoreCard({
       >
         <div className="text-white text-center">
           <div className="text-2xl mb-1">🗺️</div>
-          <div className="text-xs font-semibold">길찾기</div>
+          <div className="text-sm font-semibold">길찾기</div>
         </div>
       </motion.div>
 

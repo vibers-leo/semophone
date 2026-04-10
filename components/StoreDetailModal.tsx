@@ -170,11 +170,11 @@ export default function StoreDetailModal({ store, isOpen, onClose }: StoreDetail
                 {store.name}
               </h2>
               <div className="flex flex-wrap gap-1.5">
-                <span className="px-2.5 py-1 bg-brand/20 text-gray-800 text-xs font-bold rounded-full">
+                <span className="px-2.5 py-1 bg-brand/20 text-gray-800 text-sm font-bold rounded-full">
                   {store.region}
                 </span>
                 {store.subRegion && store.subRegion !== '기타' && (
-                  <span className="px-2.5 py-1 bg-gray-100 text-gray-600 text-xs font-semibold rounded-full">
+                  <span className="px-2.5 py-1 bg-gray-100 text-gray-600 text-sm font-semibold rounded-full">
                     {store.subRegion}
                   </span>
                 )}
@@ -184,22 +184,22 @@ export default function StoreDetailModal({ store, isOpen, onClose }: StoreDetail
             {/* 정보 섹션 */}
             <div className="space-y-2.5 mb-4">
               <div className="bg-gray-50 p-4 rounded-xl">
-                <div className="text-xs font-bold text-gray-500 mb-2">주소</div>
+                <div className="text-sm font-bold text-gray-500 mb-2">주소</div>
                 <div className="text-sm font-medium text-gray-900 leading-relaxed break-words">
                   {store.address}
                 </div>
               </div>
               <div className="bg-gray-50 p-4 rounded-xl">
-                <div className="text-xs font-bold text-gray-500 mb-2">전화번호</div>
+                <div className="text-sm font-bold text-gray-500 mb-2">전화번호</div>
                 <div className="text-base font-bold text-gray-900">
                   {store.phone}
                 </div>
               </div>
               <div className="bg-gray-50 p-4 rounded-xl">
-                <div className="text-xs font-bold text-gray-500 mb-2">영업시간</div>
+                <div className="text-sm font-bold text-gray-500 mb-2">영업시간</div>
                 <div className="text-sm font-medium text-gray-900">
                   평일 10:00 - 19:00<br />
-                  <span className="text-xs text-gray-500">주말·공휴일 휴무</span>
+                  <span className="text-sm text-gray-500">주말·공휴일 휴무</span>
                 </div>
               </div>
             </div>
@@ -207,7 +207,7 @@ export default function StoreDetailModal({ store, isOpen, onClose }: StoreDetail
             {/* 랜드마크 */}
             {store.landmark && (
               <div className="bg-brand/10 p-4 rounded-xl border-l-4 border-brand mb-4">
-                <div className="text-xs font-bold text-brand mb-2">오시는 길</div>
+                <div className="text-sm font-bold text-brand mb-2">오시는 길</div>
                 <div className="text-sm font-medium text-gray-900 leading-relaxed break-words">
                   {store.landmark}
                 </div>

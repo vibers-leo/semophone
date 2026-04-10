@@ -207,14 +207,14 @@ export default function ApplicationForm({ isOpen, onClose, jobTitle }: Applicati
                     {resumeFile ? (
                       <div className="text-center">
                         <p className="text-sm text-dark font-semibold">{resumeFile.name}</p>
-                        <p className="text-xs text-gray-500 mt-1">
+                        <p className="text-sm text-gray-500 mt-1">
                           {(resumeFile.size / 1024 / 1024).toFixed(2)}MB
                         </p>
                       </div>
                     ) : (
                       <>
                         <span className="text-sm text-gray-700 font-medium">클릭하여 파일 선택</span>
-                        <span className="text-xs text-gray-400 mt-1">PDF, DOC, DOCX (최대 10MB)</span>
+                        <span className="text-sm text-gray-400 mt-1">PDF, DOC, DOCX (최대 10MB)</span>
                       </>
                     )}
                   </label>

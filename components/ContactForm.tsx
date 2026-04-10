@@ -71,7 +71,7 @@ export default function ContactForm({ compact = false }: ContactFormProps) {
       <form onSubmit={handleSubmit} className={compact ? "space-y-3" : "space-y-4 md:space-y-6"}>
         {/* 이름 */}
         <div>
-          <label htmlFor="name" className="block text-xs md:text-sm font-bold text-gray-900 mb-1.5 md:mb-2">
+          <label htmlFor="name" className="block text-sm md:text-base font-bold text-gray-900 mb-1.5 md:mb-2">
             이름 <span className="text-red-500">*</span>
           </label>
           <input
@@ -88,7 +88,7 @@ export default function ContactForm({ compact = false }: ContactFormProps) {
 
         {/* 연락처 */}
         <div>
-          <label htmlFor="phone" className="block text-xs md:text-sm font-bold text-gray-900 mb-1.5 md:mb-2">
+          <label htmlFor="phone" className="block text-sm md:text-base font-bold text-gray-900 mb-1.5 md:mb-2">
             연락처 <span className="text-red-500">*</span>
           </label>
           <input
@@ -105,8 +105,8 @@ export default function ContactForm({ compact = false }: ContactFormProps) {
 
         {/* 이메일 (선택) */}
         <div>
-          <label htmlFor="email" className="block text-xs md:text-sm font-bold text-gray-900 mb-1.5 md:mb-2">
-            이메일 <span className="text-gray-400 text-xs">(선택)</span>
+          <label htmlFor="email" className="block text-sm md:text-base font-bold text-gray-900 mb-1.5 md:mb-2">
+            이메일 <span className="text-gray-400 text-sm">(선택)</span>
           </label>
           <input
             type="email"
@@ -121,7 +121,7 @@ export default function ContactForm({ compact = false }: ContactFormProps) {
 
         {/* 문의내용 */}
         <div>
-          <label htmlFor="message" className="block text-xs md:text-sm font-bold text-gray-900 mb-1.5 md:mb-2">
+          <label htmlFor="message" className="block text-sm md:text-base font-bold text-gray-900 mb-1.5 md:mb-2">
             문의내용 <span className="text-red-500">*</span>
           </label>
           <textarea
@@ -149,7 +149,7 @@ export default function ContactForm({ compact = false }: ContactFormProps) {
         {submitStatus === 'success' && (
           <div className="bg-green-50 border-2 border-green-200 rounded-xl p-3 md:p-4 text-center">
             <p className="text-green-800 font-bold text-sm md:text-base">✅ 문의가 성공적으로 접수되었습니다!</p>
-            <p className="text-green-700 text-xs md:text-sm mt-1">
+            <p className="text-green-700 text-sm md:text-base mt-1">
               {notifications && (
                 <>
                   <span className="font-semibold">{notifications}</span>
@@ -164,7 +164,7 @@ export default function ContactForm({ compact = false }: ContactFormProps) {
                 setSubmitStatus('idle');
                 setNotifications('');
               }}
-              className="mt-3 text-green-700 hover:text-green-900 font-semibold text-xs md:text-sm underline"
+              className="mt-3 text-green-700 hover:text-green-900 font-semibold text-sm md:text-base underline"
             >
               확인
             </button>
@@ -174,7 +174,7 @@ export default function ContactForm({ compact = false }: ContactFormProps) {
         {submitStatus === 'error' && (
           <div className="bg-red-50 border-2 border-red-200 rounded-xl p-3 md:p-4 text-center">
             <p className="text-red-800 font-bold text-sm md:text-base">❌ {errorMessage}</p>
-            <p className="text-red-700 text-xs md:text-sm mt-1">다시 시도해주시거나 전화로 문의해주세요.</p>
+            <p className="text-red-700 text-sm md:text-base mt-1">다시 시도해주시거나 전화로 문의해주세요.</p>
           </div>
         )}
       </form>
@@ -182,7 +182,7 @@ export default function ContactForm({ compact = false }: ContactFormProps) {
       {/* 개인정보 처리방침 안내 */}
       {!compact && (
         <div className="mt-4 md:mt-6 p-3 md:p-4 bg-gray-50 rounded-xl">
-          <p className="text-[10px] md:text-xs text-gray-600 leading-relaxed">
+          <p className="text-sm text-gray-600 leading-relaxed">
             문의 접수 시 입력하신 개인정보는 문의 응대 목적으로만 사용되며,
             관련 법령에 따라 안전하게 관리됩니다.
             문의 처리 완료 후 즉시 파기됩니다.
