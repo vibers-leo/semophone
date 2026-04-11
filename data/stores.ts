@@ -27,7 +27,7 @@ export const stores: Store[] = [
     lat: 37.4787,
     lng: 126.8644,
     images: ["/images/stores/028.jpg"],
-    link: "https://map.naver.com/p/entry/place/1589313355",
+    link: "https://map.naver.com/p/search/휴대폰성지 세모폰 광명6동점",
   },
   {
     id: 2,
@@ -40,7 +40,7 @@ export const stores: Store[] = [
     lat: 37.4291,
     lng: 127.2571,
     images: ["/images/stores/016.jpg"],
-    link: "https://map.naver.com/p/entry/place/2084724952",
+    link: "https://map.naver.com/p/search/휴대폰성지 세모폰 광주경안점",
   },
   {
     id: 3,
@@ -53,7 +53,7 @@ export const stores: Store[] = [
     lat: 37.4858,
     lng: 126.7996,
     images: ["/images/stores/006.jpg"],
-    link: "https://map.naver.com/p/entry/place/2014732523",
+    link: "https://map.naver.com/p/search/휴대폰성지 세모폰 신중동역점",
   },
   {
     id: 4,
@@ -66,7 +66,7 @@ export const stores: Store[] = [
     lat: 37.5034,
     lng: 126.7831,
     images: ["/images/stores/034.jpg"],
-    link: "https://map.naver.com/p/entry/place/1926574410",
+    link: "https://map.naver.com/p/search/휴대폰성지 세모폰 잼존프라자점",
   },
   {
     id: 5,
@@ -79,7 +79,7 @@ export const stores: Store[] = [
     lat: 37.5067,
     lng: 126.7773,
     images: ["/images/stores/041.jpg"],
-    link: "https://map.naver.com/p/entry/place/1730858583",
+    link: "https://map.naver.com/p/search/휴대폰성지 세모폰 부천북부역점",
   },
   {
     id: 6,
@@ -92,7 +92,7 @@ export const stores: Store[] = [
     lat: 37.5059,
     lng: 126.7789,
     images: ["/images/stores/007.jpg"],
-    link: "https://map.naver.com/p/entry/place/1838210693",
+    link: "https://map.naver.com/p/search/휴대폰성지 세모폰 부천대학교점",
   },
   {
     id: 7,
@@ -105,7 +105,7 @@ export const stores: Store[] = [
     lat: 37.5106,
     lng: 126.7625,
     images: ["/images/stores/020.jpg"],
-    link: "https://map.naver.com/p/entry/place/1257037135",
+    link: "https://map.naver.com/p/search/휴대폰성지 세모폰 부천도당점",
   },
   {
     id: 8,
@@ -118,7 +118,7 @@ export const stores: Store[] = [
     lat: 37.4806,
     lng: 126.7904,
     images: ["/images/stores/032.jpg"],
-    link: "https://map.naver.com/p/entry/place/1997284269",
+    link: "https://map.naver.com/p/search/휴대폰성지 세모폰 소사역점",
   },
   {
     id: 9,
@@ -131,7 +131,7 @@ export const stores: Store[] = [
     lat: 37.5044,
     lng: 126.7667,
     images: ["/images/stores/022.jpg"],
-    link: "https://map.naver.com/p/entry/place/1862414991",
+    link: "https://map.naver.com/p/search/휴대폰성지 세모폰 부천시청점",
   },
   {
     id: 10,
@@ -144,7 +144,7 @@ export const stores: Store[] = [
     lat: 37.5022,
     lng: 126.7711,
     images: ["/images/stores/037.jpg"],
-    link: "https://map.naver.com/p/entry/place/1833083222",
+    link: "https://map.naver.com/p/search/휴대폰성지 세모폰 미리내점",
   },
   {
     id: 11,
@@ -157,7 +157,7 @@ export const stores: Store[] = [
     lat: 37.4861,
     lng: 126.8129,
     images: ["/images/stores/019.jpg"],
-    link: "https://map.naver.com/p/entry/place/1166861112",
+    link: "https://map.naver.com/p/search/휴대폰성지 세모폰 역곡점",
   },
   {
     id: 12,
@@ -170,7 +170,7 @@ export const stores: Store[] = [
     lat: 37.5001,
     lng: 126.7695,
     images: ["/images/stores/039.jpg"],
-    link: "https://map.naver.com/p/entry/place/1685852456",
+    link: "https://map.naver.com/p/search/휴대폰성지 세모폰 부천로데오거리점",
   },
   {
     id: 13,
@@ -183,7 +183,7 @@ export const stores: Store[] = [
     lat: 37.5027,
     lng: 126.7547,
     images: ["/images/stores/021.jpg"],
-    link: "https://map.naver.com/p/entry/place/519168656",
+    link: "https://map.naver.com/p/search/휴대폰성지 세모폰 상동시장점",
   },
   {
     id: 14,
@@ -196,7 +196,7 @@ export const stores: Store[] = [
     lat: 37.5051,
     lng: 126.7809,
     images: ["/images/stores/017.jpg"],
-    link: "https://map.naver.com/p/entry/place/2012905322",
+    link: "https://map.naver.com/p/search/휴대폰성지 세모폰 원미점",
   },
   {
     id: 15,
@@ -209,7 +209,7 @@ export const stores: Store[] = [
     lat: 37.5091,
     lng: 126.7627,
     images: ["/images/stores/013.jpg"],
-    link: "https://map.naver.com/p/entry/place/1200572309",
+    link: "https://map.naver.com/p/search/휴대폰성지 세모폰 부천포도마을점",
   },
   {
     id: 16,
@@ -222,7 +222,7 @@ export const stores: Store[] = [
     lat: 37.5036,
     lng: 126.7634,
     images: ["/images/stores/004.jpg"],
-    link: "https://map.naver.com/p/entry/place/1914895494",
+    link: "https://map.naver.com/p/search/휴대폰성지 세모폰 부천중동점",
   },
   {
     id: 17,
@@ -235,7 +235,7 @@ export const stores: Store[] = [
     lat: 37.3841,
     lng: 127.1232,
     images: ["/images/stores/029.jpg"],
-    link: "https://map.naver.com/p/entry/place/1091849486",
+    link: "https://map.naver.com/p/search/휴대폰성지 세모폰 분당서현점",
   },
   {
     id: 18,
@@ -248,7 +248,7 @@ export const stores: Store[] = [
     lat: 37.3886,
     lng: 127.1307,
     images: ["/images/stores/011.jpg"],
-    link: "https://map.naver.com/p/entry/place/1179783229",
+    link: "https://map.naver.com/p/search/휴대폰성지 세모폰 분당이매점",
   },
   {
     id: 19,
@@ -261,7 +261,7 @@ export const stores: Store[] = [
     lat: 37.3953,
     lng: 127.1111,
     images: ["/images/stores/026.jpg"],
-    link: "https://map.naver.com/p/entry/place/1479583815",
+    link: "https://map.naver.com/p/search/휴대폰성지 세모폰 판교역점",
   },
   {
     id: 20,
@@ -274,7 +274,7 @@ export const stores: Store[] = [
     lat: 37.3287,
     lng: 127.0453,
     images: ["/images/stores/031.jpg"],
-    link: "https://map.naver.com/p/entry/place/1141943902",
+    link: "https://map.naver.com/p/search/휴대폰성지 세모폰 상현점",
   },
   {
     id: 21,
@@ -287,7 +287,7 @@ export const stores: Store[] = [
     lat: 37.5271,
     lng: 126.8497,
     images: ["/images/stores/001.jpg"],
-    link: "https://map.naver.com/p/entry/place/1061648825",
+    link: "https://map.naver.com/p/search/휴대폰성지 세모폰 까치산역점",
   },
   {
     id: 22,
@@ -300,7 +300,7 @@ export const stores: Store[] = [
     lat: 37.4812,
     lng: 126.9527,
     images: ["/images/stores/008.jpg"],
-    link: "https://map.naver.com/p/entry/place/1946216490",
+    link: "https://map.naver.com/p/search/휴대폰성지 세모폰 서울대입구역점",
   },
   {
     id: 23,
@@ -313,7 +313,7 @@ export const stores: Store[] = [
     lat: 37.4768,
     lng: 126.962,
     images: ["/images/stores/038.jpg"],
-    link: "https://map.naver.com/p/entry/place/2059195240",
+    link: "https://map.naver.com/p/search/휴대폰성지 세모폰 신림역점",
   },
   {
     id: 24,
@@ -326,7 +326,7 @@ export const stores: Store[] = [
     lat: 37.4829,
     lng: 126.9495,
     images: ["/images/stores/025.jpg"],
-    link: "https://map.naver.com/p/entry/place/1880110498",
+    link: "https://map.naver.com/p/search/휴대폰성지 세모폰 샤로수길점",
   },
   {
     id: 25,
@@ -339,7 +339,7 @@ export const stores: Store[] = [
     lat: 37.4892,
     lng: 126.9502,
     images: ["/images/stores/042.jpg"],
-    link: "https://map.naver.com/p/entry/place/1454271316",
+    link: "https://map.naver.com/p/search/휴대폰성지 세모폰 봉천점",
   },
   {
     id: 26,
@@ -352,7 +352,7 @@ export const stores: Store[] = [
     lat: 37.5265,
     lng: 126.8756,
     images: ["/images/stores/010.jpg"],
-    link: "https://map.naver.com/p/entry/place/1792489501",
+    link: "https://map.naver.com/p/search/휴대폰성지 세모폰 목동1단지점",
   },
   {
     id: 27,
@@ -365,7 +365,7 @@ export const stores: Store[] = [
     lat: 37.5261,
     lng: 126.8749,
     images: ["/images/stores/035.jpg"],
-    link: "https://map.naver.com/p/entry/place/1964095420",
+    link: "https://map.naver.com/p/search/휴대폰성지 세모폰 목동역점",
   },
   {
     id: 28,
@@ -378,7 +378,7 @@ export const stores: Store[] = [
     lat: 37.5244,
     lng: 126.8762,
     images: ["/images/stores/012.jpg"],
-    link: "https://map.naver.com/p/entry/place/1147473838",
+    link: "https://map.naver.com/p/search/휴대폰성지 세모폰 오목교1번출구점",
   },
   {
     id: 29,
@@ -391,7 +391,7 @@ export const stores: Store[] = [
     lat: 37.5243,
     lng: 126.8765,
     images: ["/images/stores/043.jpg"],
-    link: "https://map.naver.com/p/entry/place/1856820229",
+    link: "https://map.naver.com/p/search/휴대폰성지 세모폰 오목교8번출구점",
   },
   {
     id: 30,
@@ -404,7 +404,7 @@ export const stores: Store[] = [
     lat: 37.461,
     lng: 126.7039,
     images: ["/images/stores/014.jpg"],
-    link: "https://map.naver.com/p/entry/place/2073586601",
+    link: "https://map.naver.com/p/search/휴대폰성지 세모폰 간석점",
   },
   {
     id: 31,
@@ -417,7 +417,7 @@ export const stores: Store[] = [
     lat: 37.4659,
     lng: 126.6778,
     images: ["/images/stores/015.jpg"],
-    link: "https://map.naver.com/p/entry/place/2040408316",
+    link: "https://map.naver.com/p/search/휴대폰성지 세모폰 주안6동점",
   },
   {
     id: 32,
@@ -430,7 +430,7 @@ export const stores: Store[] = [
     lat: 37.507,
     lng: 126.7221,
     images: ["/images/stores/036.jpg"],
-    link: "https://map.naver.com/p/entry/place/1209747171",
+    link: "https://map.naver.com/p/search/휴대폰성지 세모폰 부평문화점",
   },
   {
     id: 33,
@@ -443,7 +443,7 @@ export const stores: Store[] = [
     lat: 37.5055,
     lng: 126.7146,
     images: ["/images/stores/023.jpg"],
-    link: "https://map.naver.com/p/entry/place/2067442108",
+    link: "https://map.naver.com/p/search/휴대폰성지 세모폰 부평삼산점",
   },
   {
     id: 34,
@@ -456,7 +456,7 @@ export const stores: Store[] = [
     lat: 37.5003,
     lng: 126.7253,
     images: ["/images/stores/040.jpg"],
-    link: "https://map.naver.com/p/entry/place/1133540524",
+    link: "https://map.naver.com/p/search/휴대폰성지 세모폰 부평남부역점",
   },
   {
     id: 35,
@@ -469,7 +469,7 @@ export const stores: Store[] = [
     lng: 126.675,
     landmark: "서구 가좌동",
     images: ["/images/stores/009.jpg"],
-    link: "https://map.naver.com/p/entry/place/1302957247",
+    link: "https://map.naver.com/p/search/휴대폰성지 세모폰 가좌점",
   },
   {
     id: 36,
@@ -482,7 +482,7 @@ export const stores: Store[] = [
     lat: 37.3798,
     lng: 126.6453,
     images: ["/images/stores/030.jpg"],
-    link: "https://map.naver.com/p/entry/place/1273783094",
+    link: "https://map.naver.com/p/search/휴대폰성지 세모폰 송도학원가점",
   },
   {
     id: 37,
@@ -495,7 +495,7 @@ export const stores: Store[] = [
     lat: 37.3897,
     lng: 126.6392,
     images: ["/images/stores/018.jpg"],
-    link: "https://map.naver.com/p/entry/place/1114928642",
+    link: "https://map.naver.com/p/search/휴대폰성지 세모폰 송도2공구점",
   },
   {
     id: 38,
@@ -508,7 +508,7 @@ export const stores: Store[] = [
     lat: 37.3871,
     lng: 126.6552,
     images: ["/images/stores/003.jpg"],
-    link: "https://map.naver.com/p/entry/place/1976862836",
+    link: "https://map.naver.com/p/search/휴대폰성지 세모폰 송도풍림아이원점",
   },
   {
     id: 39,
@@ -521,7 +521,7 @@ export const stores: Store[] = [
     lat: 37.3846,
     lng: 126.6575,
     images: ["/images/stores/024.jpg"],
-    link: "https://map.naver.com/p/entry/place/1290977819",
+    link: "https://map.naver.com/p/search/휴대폰성지 세모폰 송도3공구점",
   },
   {
     id: 40,
@@ -534,6 +534,6 @@ export const stores: Store[] = [
     lat: 37.3911,
     lng: 126.6361,
     images: ["/images/stores/002.jpg"],
-    link: "https://map.naver.com/p/entry/place/1285895671",
+    link: "https://map.naver.com/p/search/휴대폰성지 세모폰 송도1공구점",
   }
 ];
