@@ -72,6 +72,9 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <head>
+        {/* Hero 배너 프리로드 — Cloudflare CDN 캐시 */}
+        <link rel="preload" as="image" href="/images/semophone_store_banner/banner-real-1.jpg" />
+        <link rel="preload" as="image" href="/images/semophone_store_banner/banner-real-2.jpg" />
         <link
           rel="preconnect"
           href="https://cdn.jsdelivr.net"

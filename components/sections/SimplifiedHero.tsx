@@ -2,9 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
-
-// 실제 매장 사진 2장
+// 실제 매장 사진 2장 (이미 최적화된 JPG ~240KB)
 const bannerImages = [
     '/images/semophone_store_banner/banner-real-1.jpg',
     '/images/semophone_store_banner/banner-real-2.jpg',
@@ -39,12 +37,11 @@ export default function SimplifiedHero() {
 
   return (
     <>
-      {/* PC / 태블릿 버전 — 75vh, 이미지 오른쪽 60% + 왼쪽 텍스트 */}
+      {/* PC / 태블릿 버전 */}
       <section
         className="hidden md:block relative w-full overflow-hidden mt-[72px]"
         style={{ height: '80vh' }}
       >
-        {/* 이미지 — 오른쪽 58% (42vw~100vw), 세로 잘림 허용 */}
         <div className="absolute right-0 top-0 bottom-0 w-[58%]">
           {bannerImages.map((image, index) => (
             <div
@@ -52,27 +49,23 @@ export default function SimplifiedHero() {
               className="absolute inset-0 transition-opacity duration-1000"
               style={{ opacity: index === currentImageIndex ? 1 : 0 }}
             >
-              <Image
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
                 src={image}
                 alt="세모폰 매장"
-                fill
-                className="object-cover object-center"
-                sizes="55vw"
-                quality={90}
-                loading="eager"
-                priority
+                className="absolute inset-0 w-full h-full object-cover object-center"
+                fetchPriority="high"
+                decoding="async"
               />
             </div>
           ))}
         </div>
 
-        {/* 그라데이션 — 0~42vw 흰색, 42~52vw 자연 페이드 (이미지 왼쪽 라인 커버) */}
         <div
           className="absolute inset-y-0 left-0 w-[54%] pointer-events-none"
           style={{ background: 'linear-gradient(to right, white 0%, white 84%, transparent 100%)' }}
         />
 
-        {/* 타이틀 영역 — 세로 가운데 정렬 */}
         <div className="relative z-10 h-full flex items-center pl-[8%] lg:pl-[12%] pr-8 lg:pr-16">
           <div className="max-w-xl">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 tracking-tight leading-tight mb-3 lg:mb-5 transition-opacity duration-700" style={{ wordBreak: 'keep-all' }}>
@@ -99,7 +92,6 @@ export default function SimplifiedHero() {
 
       {/* 모바일 버전 */}
       <section className="md:hidden relative w-full overflow-hidden mt-[56px] bg-gray-900" style={{ minHeight: '85dvh' }}>
-        {/* 배경 이미지 — 전체 꽉참 + 어두운 배경 폴백 */}
         <div className="absolute inset-0">
           {bannerImages.map((image, index) => (
             <div
@@ -107,27 +99,22 @@ export default function SimplifiedHero() {
               className="absolute inset-0 transition-opacity duration-1000"
               style={{ opacity: index === currentImageIndex ? 1 : 0 }}
             >
-              <Image
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
                 src={image}
                 alt="세모폰 매장"
-                fill
-                className="object-cover"
+                className="absolute inset-0 w-full h-full object-cover"
                 style={{ objectPosition: 'center center' }}
-                sizes="100vw"
-                quality={80}
-                loading="eager"
-                priority
+                fetchPriority="high"
+                decoding="async"
               />
             </div>
           ))}
-          {/* 상단 텍스트 가독성용 그라데이션 */}
           <div className="absolute inset-x-0 top-0 h-[35%] bg-gradient-to-b from-black/60 to-transparent" />
-          {/* 하단 CTA 가독성용 */}
           <div className="absolute inset-x-0 bottom-0 h-[32%] bg-gradient-to-t from-black/70 to-transparent" />
         </div>
 
         <div className="relative z-10 min-h-[85dvh] flex flex-col px-6 py-8 text-center">
-          {/* 상단 텍스트 */}
           <div className="pt-4">
             <h1 className="text-4xl font-black text-white drop-shadow-lg mb-3">세모폰</h1>
             <p className="text-xl font-bold text-white drop-shadow-md transition-opacity duration-700 leading-relaxed" style={{ wordBreak: 'keep-all' }}>
@@ -135,7 +122,6 @@ export default function SimplifiedHero() {
             </p>
           </div>
           <div className="flex-grow" />
-          {/* 하단 CTA */}
           <div className="w-full max-w-sm mx-auto pb-10">
             <p className="text-base text-white/90 drop-shadow mb-5 leading-relaxed">
               {copy.sub}
