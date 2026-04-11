@@ -75,19 +75,12 @@ export default function RootLayout({
         {/* Hero 배너 프리로드 — Cloudflare CDN 캐시 */}
         <link rel="preload" as="image" href="/images/semophone_store_banner/banner-real-1.jpg" />
         <link rel="preload" as="image" href="/images/semophone_store_banner/banner-real-2.jpg" />
-        <link
-          rel="preconnect"
-          href="https://cdn.jsdelivr.net"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/gh/fonts-archive/Paperlogy/Paperlogy.css"
-        />
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
-        />
+        {/* 폰트: 사용 weight만 직접 로드 — 외부 CSS 렌더 블로킹 제거 */}
+        <link rel="preconnect" href="https://cdn.jsdelivr.net" crossOrigin="anonymous" />
+        <link rel="preload" as="font" type="font/woff2" crossOrigin="anonymous" href="https://cdn.jsdelivr.net/gh/fonts-archive/Paperlogy/Paperlogy-4Regular.woff2" />
+        <link rel="preload" as="font" type="font/woff2" crossOrigin="anonymous" href="https://cdn.jsdelivr.net/gh/fonts-archive/Paperlogy/Paperlogy-7Bold.woff2" />
+        <link rel="preload" as="font" type="font/woff2" crossOrigin="anonymous" href="https://cdn.jsdelivr.net/gh/fonts-archive/Paperlogy/Paperlogy-9Black.woff2" />
+        <link rel="preload" as="font" type="font/woff2" crossOrigin="anonymous" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/woff2/PretendardVariable.woff2" />
         <link rel="manifest" href="/manifest.json" />
         <link rel="apple-touch-icon" href="/icon-192.png" />
         <meta name="theme-color" content="#F2C811" />
