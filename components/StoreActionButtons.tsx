@@ -82,7 +82,7 @@ export default function StoreActionButtons({
 
       {/* 길찾기 버튼 */}
       <a
-        href={`https://map.naver.com/v5/directions/-/-/${store.lng},${store.lat},${encodeURIComponent(store.name)}`}
+        href={`https://map.naver.com/p/directions/-/-/${store.lng},${store.lat},${encodeURIComponent(store.name)}`}
         target="_blank"
         rel="noopener noreferrer"
         className={`${getButtonClass('nav')} bg-[#03C75A] text-white hover:bg-[#02b350] relative overflow-hidden`}

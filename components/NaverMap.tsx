@@ -183,7 +183,7 @@ export default function NaverMap({
                           transition: all 0.2s ease;">
                 매장안내
               </div>
-              <a href="https://map.naver.com/v5/directions/-/-/${store.lng},${store.lat},${encodeURIComponent(store.name)}"
+              <a href="https://map.naver.com/p/directions/-/-/${store.lng},${store.lat},${encodeURIComponent(store.name)}"
                  target="_blank" rel="noopener noreferrer"
                  style="background: #03C75A; color: white; padding: 8px;
                         border-radius: 8px; text-align: center; text-decoration: none;
