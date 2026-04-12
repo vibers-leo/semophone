@@ -57,7 +57,7 @@ export default function Footer() {
               <div className="text-sm text-gray-500 mb-2 font-medium">고객센터</div>
               <div className="text-2xl md:text-3xl font-black text-gray-900 mb-4">0507-1489-2274</div>
               <Link
-                href="https://pf.kakao.com/_MvxaTn"
+                href="https://pf.kakao.com/_MvxaTn/chat"
                 target="_blank"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#FEE500] text-[#000000] rounded-full text-sm font-bold hover:bg-[#FDD835] transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 w-full max-w-xs md:ml-auto"
               >

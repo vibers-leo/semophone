@@ -53,7 +53,7 @@ export default function StoreActionButtons({
   const iconSize = variant === 'modal' ? 20 : 18;
 
   // 카카오톡 링크 (매장별 링크가 없으면 기본 링크)
-  const kakaoLink = store.kakaoLink || 'https://pf.kakao.com/_MvxaTn';
+  const kakaoLink = store.kakaoLink || 'https://pf.kakao.com/_MvxaTn/chat';
 
   return (
     <div className={getContainerClass()}>

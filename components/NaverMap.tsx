@@ -161,7 +161,7 @@ export default function NaverMap({
       });
 
       // 정보창 생성
-      const kakaoLink = store.kakaoLink || 'https://pf.kakao.com/_MvxaTn';
+      const kakaoLink = store.kakaoLink || 'https://pf.kakao.com/_MvxaTn/chat';
 
       const infoWindow = new naver.maps.InfoWindow({
         content: `
