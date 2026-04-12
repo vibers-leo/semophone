@@ -737,11 +737,13 @@ export default function StoresPage() {
               }}
               onNavigate={() => {
                 haptics.medium();
-                window.open(`https://map.naver.com/v5/search/${encodeURIComponent(store.address)}`, '_blank');
+                window.open(`https://map.naver.com/p/search/${encodeURIComponent(store.address)}`, '_blank');
               }}
             >
-              <div className="bg-white rounded-xl shadow-md overflow-hidden border-2 border-gray-100 hover:border-[#F2C811] hover:shadow-brand-card transition-all duration-300 flex flex-col"
-            >
+              <div
+                className="bg-white rounded-xl shadow-md overflow-hidden border-2 border-gray-100 hover:border-[#F2C811] hover:shadow-brand-card transition-all duration-300 flex flex-col cursor-pointer"
+                onClick={() => openStoreDetail(store)}
+              >
               {/* 카드 헤더 - 로고 배경 */}
               <div className="relative h-32 bg-gradient-to-br from-[#F2C811] to-[#D4AD00] flex items-center justify-center">
                 <img
@@ -801,7 +803,7 @@ export default function StoresPage() {
                 </div>
 
                 {/* 액션 버튼 — 하단 고정 */}
-                <div className="mt-auto pt-3 border-t border-gray-200">
+                <div className="mt-auto pt-3 border-t border-gray-200" onClick={(e) => e.stopPropagation()}>
                   <StoreActionButtons
                     store={store}
                     variant="compact"
